@@ -8,23 +8,16 @@
 
 ## Git
 
-- [Commands](sections/gitcommand.md)
-- [Clone a repository](sections/gitclone.md)
-- [Branch](sections/gitbranch.md)
+- [Commands](sections/git/gitcommand.md
+- [Clone a repository](sections/git/gitclone.md)
+- [Branch](sections/git/gitbranch.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 ## HTML
 
 ### How to
 
-To link a stylesheet:
-
-    <link rel="stylesheet" href="style.css">
-
-To link a script:
-
-    <script src="script.js" defer></script>
-
+- [Linking a file](sections/html/linking.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 ## CSS
