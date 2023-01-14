@@ -116,6 +116,7 @@ To delete a file from the repository and commit the changes:
 
         git push origin --delete <branch>
 
+Back to [Table of Contents](#table-of-contents) ⬆
 ## HTML
 
 ### How to
