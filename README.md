@@ -8,7 +8,7 @@
 
 ## Git
 
-- [Commands](sections/git/gitcommand.md
+- [Commands](sections/git/gitcommand.md)
 - [Clone a repository](sections/git/gitclone.md)
 - [Branch](sections/git/gitbranch.md)
 
