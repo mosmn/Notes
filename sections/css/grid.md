@@ -34,6 +34,8 @@ To define grid tracks, you need to use the grid-template-columns and grid-templa
 }
 ```
 
+this will create a grid with 3 columns and 3 rows. each column will be 200px wide, and each row will be 100px high.
+
 ## Explain the difference between an implicit and explicit grid
 
 An implicit grid is a grid that is created automatically by the browser. An explicit grid is a grid that is created by the developer.

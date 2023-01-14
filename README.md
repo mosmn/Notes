@@ -6,6 +6,8 @@
     - [CSS](#css)
     - [JavaScript](#javascript)
     - [C++](#c)
+- [Theoretical](#theoretical)
+    - [Algorithms](#algorithms)
 
 # Programming Notes
 ### Git
@@ -73,4 +75,10 @@
 - [C++ Interview Questions](sections/cpp/cppinterviewquestions.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
+
+# Theoretical
+
+### Algorithms
+
+
 
