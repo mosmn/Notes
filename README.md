@@ -1,8 +1,4 @@
-# Notes
-
-References notes on various topics. (git, css, html, javascript, c++)
-
-## Table of Contents
+# Table of Contents
 
 - [Git](#git)
 - [CSS](#css)
@@ -12,6 +8,7 @@ References notes on various topics. (git, css, html, javascript, c++)
 
 ## Git
 
+- [Git commands](#sections/git.md#git-commands)
 ### How to
 
 To add a new file to the repository:
@@ -116,7 +113,7 @@ To delete a file from the repository and commit the changes:
 
         git push origin --delete <branch>
 
-Back to [Table of Contents](#table-of-contents) ⬆
+[Back to Table of Contents](#table-of-contents) ⬆
 ## HTML
 
 ### How to
@@ -130,14 +127,15 @@ To link a script:
     <script src="script.js" defer></script>
 
 
+[Back to Table of Contents](#table-of-contents) ⬆
 ## CSS
 
-
+[Back to Table of Contents](#table-of-contents) ⬆
 ## JavaScript
 
-
+[Back to Table of Contents](#table-of-contents) ⬆
 ## C++
 
 
-
+[Back to Table of Contents](#table-of-contents) ⬆
 
