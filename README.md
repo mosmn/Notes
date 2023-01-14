@@ -1,6 +1,6 @@
 # Notes
 
-References notes on various topics. (git(how to), css, html, javascript, c++)
+References notes on various topics. (git, css, html, javascript, c++)
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ To add a new file to the repository:
 
 To commit the changes:
     
-        git commit -m "message"
+    git commit -m "message"
 
 To push the changes to the remote repository:
 
@@ -74,7 +74,7 @@ To delete a file from the repository and commit the changes:
 5. Navigate to the newly created directory.
 6. Run `code .` to open the directory in VS Code.
 
-## Steps to create a new branch and push it to the remote repository
+### Steps to create a new branch and push it to the remote repository
 
 1. Create a new branch:
 
@@ -116,7 +116,26 @@ To delete a file from the repository and commit the changes:
 
         git push origin --delete <branch>
 
+## HTML
+
+### How to
+
+To link a stylesheet:
+
+    <link rel="stylesheet" href="style.css">
+
+To link a script:
+
+    <script src="script.js" defer></script>
+
+
 ## CSS
+
+
+## JavaScript
+
+
+## C++
 
 
 
