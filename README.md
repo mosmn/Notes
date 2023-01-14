@@ -8,7 +8,7 @@
 
 ## Git
 
-- [Git commands](sections/gitcommands.md)
+- [Git commands](sections/gitcommand.md)
 ### How to
 
 To add a new file to the repository:
