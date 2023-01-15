@@ -6,6 +6,10 @@
     - [CSS](#css)
     - [JavaScript](#javascript)
     - [C++](#c)
+- [Agile software development](#agile-software-development)
+    - [As a whole](#as-a-whole)
+    - [Scrum](#scrum)
+    - [Kanban](#kanban)
 - [Theoretical](#theoretical)
     - [Algorithms](#algorithms)
 
@@ -80,5 +84,15 @@
 
 ### Algorithms
 
+# Agile software development
 
+### As a whole
+
+- [What is Agile?](sections/agile/what-is-agile.md)
+- [Free Agile Resources](sections/agile/free-agile-resources.md)
+
+[Back to Table of Contents](#table-of-contents) ⬆
+### Scrum
+
+### Kanban
 
