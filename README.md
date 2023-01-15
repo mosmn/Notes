@@ -18,7 +18,7 @@
 
 - [Commands](sections/git/gitcommand.md)
 - [Clone a repository](sections/git/gitclone.md)
-- [Branch](sections/git/gitbranch.md)
+- [Branch](sections/git/branch.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 ### HTML
