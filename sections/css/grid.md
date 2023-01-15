@@ -24,7 +24,7 @@ To create a grid, you need to make a grid container. To make a grid container, y
 
 ## Define grid tracks
 
-To define grid tracks, you need to use the grid-template-columns and grid-template-rows properties.
+To define grid tracks, you need to use the `grid-template-columns` and `grid-template-rows `properties.
 
 ```css
 .container {
@@ -34,12 +34,56 @@ To define grid tracks, you need to use the grid-template-columns and grid-templa
 }
 ```
 
+Or, we can use the `grid-template` property to define both columns and rows at the same time.
+
+```css
+.container {
+  display: grid;
+  grid-template: 100px 100px 100px / 200px 200px 200px;
+}
+```
+
 this will create a grid with 3 columns and 3 rows. each column will be 200px wide, and each row will be 100px high.
 
 ## Explain the difference between an implicit and explicit grid
 
 An implicit grid is a grid that is created automatically by the browser. An explicit grid is a grid that is created by the developer.
 
+### Implicit Grid
+
+The implicit grid is created automatically by the browser(even if we did not explicitly define it in the grid template). The number of columns and rows in the implicit grid depends on the number of grid items in the grid container.
+
+```html
+<div class="container">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+  <div>Item 5</div>
+</div>
+```
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px;
+  grid-template-rows: 50px 50px;
+}
+```
+
+In the example above, we have 5 grid items, but we only defined 2 columns and 2 rows in the grid template. The browser will create the implicit grid automatically. The implicit grid will have 2 columns and 3 rows. The first 2 columns will be 50px wide, and the first 2 rows will be 50px high. The third row(the implicit row) will not have the same height as the other rows, but we can set the height of the implicit row using the `grid-auto-rows` property.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px;
+  grid-template-rows: 50px 50px;
+  grid-auto-rows: 50px;
+}
+```
+By default, CSS Grid will add additional content with implicit rows. This means the extra elements would keep being added further down the grid in a vertical fashion. It would be much less common to want extra content added horizontally along the grid, but that can be set using the `grid-auto-flow: column` property and those implicit track sizes can be defined with the `grid-auto-columns` property.
+
+### Explicit Grid
 ## Set gaps between grid cells
 
 To set gaps between grid cells, you need to use the grid-gap property.
