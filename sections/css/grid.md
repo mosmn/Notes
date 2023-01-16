@@ -215,5 +215,51 @@ the flow of the grid template areas is from left to right, top to bottom. so the
 
 For more Properties, see [CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/#aa-css-grid-properties)
 
+# Advanced Grid Properties
 
+## Repeat
 
+`repeat()` is a function that can be used to define the number of columns or rows in a grid template. `repeat()` takes two arguments: the number of times to repeat and the size of each column or row.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 100px);
+}
+```
+is the same as:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px 100px;
+}
+```
+
+## Fractional units
+
+to make tracks dynamic (which in this context means flexible or that they will take up the space that is available to them) we can use fractional units. fractional units are the opposite of static or fixed units like `150px`. The most basic fractional unit is the `fr` unit.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+```
+in this example each track will take up 1/3 of the available space. if the container is 600px wide, each track will be 200px wide.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) repeat(2, 2fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+```
+this is also a way to use repeat and fractional units together. in this example, the first three tracks will be 200px wide, and the last two tracks will be 400px wide.
+
+## Minimum and maximum track sizes: min() and max()
+
+## auto-fit and auto-fill
