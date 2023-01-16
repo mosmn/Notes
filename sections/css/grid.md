@@ -140,9 +140,9 @@ we can also set the gap between rows and columns separately:
 2. Go to Layout
 3. Under grid overlays, select the grid container that you want to display the grid overlay for
 
-as you can see in the image below(width 30px), the grid overlay is displayed on top of the grid container.
+as you can see in the image below, the grid overlay is displayed on top of the grid container.
 
-![grid overlay](../imgs/gridoverlay.png)
+![grid overlay](./imgs/gridoverlay.png)
 
 # Positioning Grid Elements
 
