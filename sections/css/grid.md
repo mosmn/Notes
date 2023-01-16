@@ -262,4 +262,42 @@ this is also a way to use repeat and fractional units together. in this example,
 
 ## Minimum and maximum track sizes: min() and max()
 
+`min()` function will compare the values that are passed to it and always return the smallest value. `max()` function will compare the values that are passed to it and always return the largest value. both functions can take as many arguments as you want. and its kinda silly to use static values for both arguments because that wont make it flexible which is the whole point of using them in the fist place, so we can use a combination of static and dynamic values.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, min(200px, 50%));
+  grid-template-rows: repeat(4, max(100px, 25%));
+}
+```
+`min(200px, 50%)` will compare 200px and 50% of the container width and return the smallest value (since we are using it with `grid-template-columns`, the container width is used). `max(100px, 25%)` will compare 100px and 25% of the container height and return the largest value (since we are using it with `grid-template-rows`, the container height is used).
+
+## Dynamic minimum and maximum sizes: minmax()
+
+### minmax()
+`minmax()` function is a combination of `min()` and `max()` functions. but unlike min and max `minmax()` takes two arguments only: the minimum size and the maximum size, and it can only be used with `grid-template-columns`, `grid-template-rows`, `grid-auto-columns`, and `grid-auto-rows`. and it can make sense to use static values for both arguments here.
+
+```css
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 300px));
+    grid-template-rows: repeat(4, minmax(100px, 200px));
+}
+```
+`minmax(200px, 300px)` will prevent the items from getting smaller than 200px and larger than 300px. `minmax(100px, 200px)` will prevent the items from getting smaller than 100px and larger than 200px.
+
+### clamp()
+
+`clamp(minimum-size, ideal-size, maximum-size)` this function will select the ideal size if it is between the minimum and maximum sizes. if the ideal size is smaller than the minimum size, it will select the minimum size. if the ideal size is larger than the maximum size, it will select the maximum size.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, clamp(200px, 50%, 300px));
+  grid-template-rows: repeat(4, clamp(100px, 25%, 200px));
+}
+```
+`clamp(200px, 50%, 300px)` will select 50% of the container width if it is between 200px and 300px. if the 50% of the container width is smaller than 200px, it will select 200px. if the 50% of the container width is larger than 300px, it will select 300px. and since `clamp()` purpose is to make the grid flexible, we want to use a dynamic value for the ideal size. and typically a static value is used for the minimum and maximum sizes.
+
 ## auto-fit and auto-fill
