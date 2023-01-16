@@ -142,7 +142,7 @@ we can also set the gap between rows and columns separately:
 
 as you can see in the image below, the grid overlay is displayed on top of the grid container.
 
-![gridoverlay](.../imgs/gridoverlay.png)
+![gridoverlay](/imgs/gridoverlay.png)
 
 # Positioning Grid Elements
 
