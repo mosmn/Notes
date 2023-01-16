@@ -144,6 +144,7 @@ as you can see in the image below, the grid overlay is displayed on top of the g
 
 ![gridoverlay](/imgs/gridoverlay.png)
 
+reference [Chrome DevTools](https://developer.chrome.com/docs/devtools/css/grid/) for more information.
 # Positioning Grid Elements
 
 ## Positioning
