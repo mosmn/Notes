@@ -83,30 +83,29 @@ In the example above, we have 5 grid items, but we only defined 2 columns and 2 
 ```
 By default, CSS Grid will add additional content with implicit rows. This means the extra elements would keep being added further down the grid in a vertical fashion. It would be much less common to want extra content added horizontally along the grid, but that can be set using the `grid-auto-flow: column` property and those implicit track sizes can be defined with the `grid-auto-columns` property.
 
-### Explicit Grid
 ## Set gaps between grid cells
 
-To set gaps between grid cells, you need to use the grid-gap property.
+To set gaps between grid cells, you need to use the `gap` property.
 
 ```css
 .container {
   display: grid;
   grid-template-columns: 200px 200px 200px;
   grid-template-rows: 100px 100px 100px;
-  grid-gap: 10px;
+  gap: 10px;
 }
 ```
 
-### Explain the difference between grid-gap and grid-row-gap/grid-column-gap
+### Explain the difference between gap and row-gap/column-gap
 
-grid-gap is a shorthand property for grid-row-gap and grid-column-gap. grid-row-gap sets the gap between rows, and grid-column-gap sets the gap between columns.
+`gap` is a shorthand property for `row-gap` and `column-gap`. `row-gap` sets the gap between rows, and `column-gap` sets the gap between columns.
 
 ```css
 .container {
   display: grid;
   grid-template-columns: 200px 200px 200px;
   grid-template-rows: 100px 100px 100px;
-  grid-gap: 10px;
+  gap: 10px;
 }
 ```
 
@@ -117,8 +116,8 @@ is the same as:
   display: grid;
   grid-template-columns: 200px 200px 200px;
   grid-template-rows: 100px 100px 100px;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  row-gap: 10px;
+  column-gap: 10px;
 }
 ```
 
@@ -129,7 +128,89 @@ we can also set the gap between rows and columns separately:
   display: grid;
   grid-template-columns: 200px 200px 200px;
   grid-template-rows: 100px 100px 100px;
-  grid-row-gap: 10px;
-  grid-column-gap: 20px;
+  row-gap: 10px;
+  column-gap: 20px;
 }
 ```
+## Dev tools
+
+### Display grid overlay
+
+1. Open the dev tools
+2. Go to Layout
+3. Under grid overlays, select the grid container that you want to display the grid overlay for
+
+as you can see in the image below(width 30px), the grid overlay is displayed on top of the grid container.
+
+![grid overlay](imgs/gridoverlay.png)
+
+# Positioning Grid Elements
+
+## Positioning
+
+### grid vs inline-grid
+
+The `display` property can have two values: `grid` and `inline-grid`. The `grid` value creates a block-level grid container, while the `inline-grid` value creates an inline-level grid container. when we use `display:grid`, the grid container will stretch to the full width of its parent container. when we use `display:inline-grid`, the grid container will only take up the space that it needs, it does not stretch to take up space the way a block-level box would.
+
+### To make a grid item take up more than one cell
+
+`grid-column-start` and `grid-column-end` properties can be used to make a grid item take up more than one cell, horizontally.
+
+```css
+.item-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+```
+
+`grid-row-start` and `grid-row-end` properties can be used to make a grid item take up more than one cell, vertically.
+
+```css
+.item-1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+```
+
+Alternatively, we can use the `grid-column` and `grid-row` properties to make a grid item take up more than one cell, horizontally and vertically.
+
+```css
+.item-1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+```
+
+## Grid area
+
+`grid-area` is a shorthand property for `grid-row-start`, `grid-column-start`, `grid-row-end`, and `grid-column-end` all together. `grid-area: row-start / column-start / row-end / column-end;`
+
+```css
+.item-1 {
+  grid-area: 1 / 1 / 3 / 3;
+}
+```
+
+`grid-area` can also be used to name a grid area. and then we can use the `grid-template-areas` property to define the grid template.
+
+```css
+.item-1 {
+  grid-area: header;
+}
+```
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-areas:
+    "header header header"
+    "main main sidebar"
+    "footer footer footer";
+}
+```
+the flow of the grid template areas is from left to right, top to bottom. so the first row is `header header header`, the second row is `main main sidebar`, and the third row is `footer footer footer`.
+
+
+
