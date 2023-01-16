@@ -213,5 +213,7 @@ Alternatively, we can use the `grid-column` and `grid-row` properties to make a 
 ```
 the flow of the grid template areas is from left to right, top to bottom. so the first row is `header header header`, the second row is `main main sidebar`, and the third row is `footer footer footer`.
 
+For more Properties, see [CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/#aa-css-grid-properties)
+
 
 
