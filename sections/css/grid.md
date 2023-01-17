@@ -318,3 +318,9 @@ if for instance the width is 732px, it will create 3 tracks and pick the max val
 ### Difference between auto-fit and auto-fill
 
 in most cases, `auto-fit` and `auto-fill` will behave the same way. but there is a difference between them. When the grid is expanded to a size where another grid item could fit, but there aren’t any left, auto-fit will keep the grid items at their max size. Using auto-fill, the grid items will snap back down to their min size once the space becomes available to add another grid item, even if there isn’t one to be rendered. They will continue their pattern of growing to max and snapping back to their min as the grid expands and more room becomes available for new grid tracks.
+
+`auto-fit`:
+![auto-fit](/imgs/autofit.png)
+
+`auto-fill`:
+![auto-fill](/imgs/autofill.png)
