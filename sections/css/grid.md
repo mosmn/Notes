@@ -301,3 +301,20 @@ this is also a way to use repeat and fractional units together. in this example,
 `clamp(200px, 50%, 300px)` will select 50% of the container width if it is between 200px and 300px. if the 50% of the container width is smaller than 200px, it will select 200px. if the 50% of the container width is larger than 300px, it will select 300px. and since `clamp()` purpose is to make the grid flexible, we want to use a dynamic value for the ideal size. and typically a static value is used for the minimum and maximum sizes.
 
 ## auto-fit and auto-fill
+
+`auto-fit` and `auto-fill` are keywords that can be used with `grid-template-columns`, `grid-template-rows`, `grid-auto-columns`, and `grid-auto-rows`. Used to create flexible tracks(rows/columns) that will fill the available space depending on the width of the container. they are most useful when used with minmax().
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+}
+```
+lets say the container is 600px wide. `auto-fit` will create as many tracks as it can fit in the container. in this case, it will create 3 tracks. `minmax(200px, 1fr)` will prevent the tracks from getting smaller than 200px and larger than 1fr. so the tracks will be 200px wide. if the container is 800px wide, `auto-fit` will create 4 tracks. if the container is 1000px wide, `auto-fit` will create 5 tracks.
+if for instance the width is 732px, it will create 3 tracks and pick the max value 1fr to fill the remaining space. 
+
+
+### Difference between auto-fit and auto-fill
+
+in most cases, `auto-fit` and `auto-fill` will behave the same way. but there is a difference between them. When the grid is expanded to a size where another grid item could fit, but there aren’t any left, auto-fit will keep the grid items at their max size. Using auto-fill, the grid items will snap back down to their min size once the space becomes available to add another grid item, even if there isn’t one to be rendered. They will continue their pattern of growing to max and snapping back to their min as the grid expands and more room becomes available for new grid tracks.
