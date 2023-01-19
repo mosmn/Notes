@@ -40,12 +40,39 @@
 [Back to Table of Contents](#table-of-contents) ⬆
 ### JavaScript
 
-- [Variables](sections/js/variables.md)
-- [Data Types](sections/js/datatypes.md)
-- [Operators](sections/js/operators.md)
-- [Loops](sections/js/loops.md)
-- [Functions](sections/js/functions.md)
-- [Arrays](sections/js/arrays.md)
+- Linting
+    - [Eslint Setup](sections/javascript/eslint.md)
+- Organizing JavaScript Code
+    - [Object Literals](sections/javascript/object-literals.md)
+- JavaScript in the Real World
+    - [DOM](sections/javascript/dom.md)
+    - [Events](sections/javascript/events.md)
+    - [Forms](sections/javascript/forms.md)
+    - [Local Storage](sections/javascript/local-storage.md)
+    - [AJAX](sections/javascript/ajax.md)
+    - [JSON](sections/javascript/json.md)
+    - [APIs](sections/javascript/apis.md)
+- Asynchronous JavaScript and APIs
+    - [Callbacks](sections/javascript/callbacks.md)
+    - [Promises](sections/javascript/promises.md)
+    - [Async/Await](sections/javascript/async-await.md)
+- Testing JavaScript
+    - [Jest](sections/javascript/jest.md)
+    - [Mocha](sections/javascript/mocha.md)
+    - [Chai](sections/javascript/chai.md)
+    - [Sinon](sections/javascript/sinon.md)
+    - [Jasmine](sections/javascript/jasmine.md)
+    - [Cypress](sections/javascript/cypress.md)
+- React JS
+    - [React JS](sections/javascript/reactjs.md)
+    - [React Hooks](sections/javascript/react-hooks.md)
+    - [React Router](sections/javascript/react-router.md)
+    - [Redux](sections/javascript/redux.md)
+    - [Redux Thunk](sections/javascript/redux-thunk.md)
+    - [Redux Saga](sections/javascript/redux-saga.md)
+    - [Redux Form](sections/javascript/redux-form.md)
+    - [Redux Persist](sections/javascript/redux-persist.md)
+
 
 [Back to Table of Contents](#table-of-contents) ⬆
 ### C++
