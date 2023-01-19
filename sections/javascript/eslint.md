@@ -32,6 +32,25 @@ npm install eslint --save-dev
 ? What format do you want your config file to be in? JSON
 ```
 
+# Formatting on Save
+
+1. use the command `Ctrl+Shift+P` to open the command palette.
+2. search Preferences: Open Workspace Settings (JSON).
+3. add the following code to the settings.json file.
+
+```json
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript"]
+}
+```
+
+
+
+
+
 
 
 
