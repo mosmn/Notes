@@ -6,10 +6,12 @@
     - [CSS](#css)
     - [JavaScript](#javascript)
     - [C++](#c)
+
 - [Agile software development](#agile-software-development)
     - [As a whole](#as-a-whole)
     - [Scrum](#scrum)
     - [Kanban](#kanban)
+
 - [Theoretical](#theoretical)
     - [Algorithms](#algorithms)
 
@@ -40,11 +42,16 @@
 [Back to Table of Contents](#table-of-contents) ⬆
 ### JavaScript
 
+- Basics
+    - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
+
 - Linting
     - [Eslint Setup](sections/javascript/eslint.md)
     - [Prettier Setup](sections/javascript/prettier.md)
+
 - Organizing JavaScript Code
-    - [Object Literals](sections/javascript/object-literals.md)
+    - [Objects And Object Constructors](sections/javascript/object-dp.md)
+
 - JavaScript in the Real World
     - [DOM](sections/javascript/dom.md)
     - [Events](sections/javascript/events.md)
@@ -53,10 +60,12 @@
     - [AJAX](sections/javascript/ajax.md)
     - [JSON](sections/javascript/json.md)
     - [APIs](sections/javascript/apis.md)
+
 - Asynchronous JavaScript and APIs
     - [Callbacks](sections/javascript/callbacks.md)
     - [Promises](sections/javascript/promises.md)
     - [Async/Await](sections/javascript/async-await.md)
+
 - Testing JavaScript
     - [Jest](sections/javascript/jest.md)
     - [Mocha](sections/javascript/mocha.md)
@@ -64,6 +73,7 @@
     - [Sinon](sections/javascript/sinon.md)
     - [Jasmine](sections/javascript/jasmine.md)
     - [Cypress](sections/javascript/cypress.md)
+
 - React JS
     - [React JS](sections/javascript/reactjs.md)
     - [React Hooks](sections/javascript/react-hooks.md)
