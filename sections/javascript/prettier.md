@@ -66,6 +66,7 @@ npx eslint-config-prettier path/to/main.js
 Change the `path/to/main.js` to the path of the file that you want to check.
 
 ## Git hooks 
+git hooks are scripts that run automatically when certain git events occur. for example, when you commit a file, a git hook will run automatically and check if the file is formatted correctly. if the file is not formatted correctly, the commit will be aborted. and you will have to format the file and commit it again. this is a good way to make sure that all the files in the project are formatted correctly.
 
 1. install the package `husky` and `lint-staged`.
 
@@ -85,6 +86,14 @@ npx husky add .husky/pre-commit "npx lint-staged"
   }
 }
 ```
+
+3. Pre-commit hooks (if using eslint)
+
+```bash
+npx mrm@2 lint-staged
+```
+
+
 
 
 
