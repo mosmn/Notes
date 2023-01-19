@@ -42,6 +42,7 @@
 
 - Linting
     - [Eslint Setup](sections/javascript/eslint.md)
+    - [Prettier Setup](sections/javascript/prettier.md)
 - Organizing JavaScript Code
     - [Object Literals](sections/javascript/object-literals.md)
 - JavaScript in the Real World
