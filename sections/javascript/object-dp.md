@@ -4,27 +4,26 @@ grouping things into objects
 
 insted of this:
     
-    ```js
-    const personOneName = 'John';
-    const personOneAge = 30;
-    const personTwoName = 'Jane';
-    const personTwoAge = 25;
-    ```
+```js
+const personOneName = 'John';
+const personOneAge = 30;
+const personTwoName = 'Jane';
+const personTwoAge = 25;
+```
 
 we can do this:
     
-    ```js
-    const personOne = {
-        name: 'John',
-        age: 30
-    };
-
-    const personTwo = {
-        name: 'Jane',
-        age: 25
-    };
-    ```
-    that way we can group things together and access them easily
+```js
+const personOne = {
+    name: 'John',
+    age: 30
+};
+const personTwo = {
+    name: 'Jane',
+    age: 25
+};
+```
+that way we can group things together and access them easily
 
 but what if we are dealing with something more complicated like a shopping site with large inventory, manually creating objects for each item is not a good idea, so we can use a constructor function to create objects for us, this brings us to the next section.......
 
@@ -70,3 +69,10 @@ const Person = (name, age) => {
 note that this will not work with the `new` keyword.
 
 # Prototypes
+
+In simple language, a prototype is a shared object. so instead of reapeting the same methodes(that have nothing unique about them) for each instance of an object, we can use prototypes to share the same methodes for all instances of an object. look at this example:
+![image](/imgs/prototype.png)
+in this example, objects on the instance level(meaning instances created by the constructor) have their own properties with unique values, but they share the same methodes on the prototype level, so if we change the methodes on the prototype level, all the instances will be affected. this is how it looks like without the prototype:
+![image](/imgs/pt2.png)
+as you can see, the methodes are repeated for each instance, this is not a good idea, so we can use prototypes to solve this problem.
+
