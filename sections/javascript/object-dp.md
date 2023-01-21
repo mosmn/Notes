@@ -76,3 +76,69 @@ in this example, objects on the instance level(meaning instances created by the 
 ![image](/imgs/pt2.png)
 as you can see, the methodes are repeated for each instance, this is not a good idea, so we can use prototypes to solve this problem.
 
+### how its implemented
+
+```js
+function apple(color, weight) {
+    this.color = color;
+    this.weight = weight;
+}
+
+apple.prototype.eat = function () {
+    // add code here
+};
+
+apple.prototype.throw = function () {
+    // add code here
+};
+
+// this will create a prototype for the apple object that looks like this:
+apple.prototype = {
+    eat()
+    throw()
+}
+// which can be accessed by all instances of the apple object
+```
+
+### Recommended methode for prototype inheritance
+
+Setting the prototype of an object using the `Object.create()` method.
+
+```js
+function banana(color, weight) {
+    this.color = color;
+    this.weight = weight;
+}
+
+banana.prototype.eat = function () {
+    // add code here
+};
+
+banana.prototype.throw = function () {
+    // add code here
+};
+
+function apple(color, weight) {
+    this.color = color;
+    this.weight = weight;
+}
+
+apple.prototype = Object.create(banana.prototype);
+// this will copy the prototype of the banana object to the apple object
+
+// we can also add new methodes to the apple object
+apple.prototype.peel = function () {
+    // add code here
+};
+
+// this will create a prototype for the apple object that looks like this:
+apple.prototype = {
+    eat()
+    throw()
+    peel()
+};
+```
+
+
+
+
