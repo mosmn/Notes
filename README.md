@@ -7,11 +7,11 @@
     - [JavaScript](#javascript)
     - [C++](#c)
 
-- [Database]
+- [Database](#database)
     - [SQL](/sections/database/sql.md)
 
 - [Theoretical](#theoretical)
-    - [Algorithms](#algorithms)
+    - [Operating Systems Concepts](/sections/theo/osc.md)
 
 - [Agile software development](#agile-software-development)
     - [As a whole](#as-a-whole)
