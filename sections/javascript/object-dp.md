@@ -170,8 +170,7 @@ If the property does not exist on any of the object’s prototype in its prototy
 
 This prototype chain mechanism is essentially the same concept we have discussed above with the prototype-based inheritance, except we are now focusing specifically on how JavaScript accesses object properties and methods via the prototype object.
 
-
-
+# this
 
 
 

@@ -25,7 +25,7 @@ node_modules
 5. finally to formate all files in the project, run the following command.
 
 ```bash
-npx prettier --write
+npx prettier --write .
 ```
 
 to format a specific file, run the following command.

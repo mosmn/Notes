@@ -8,10 +8,10 @@
     - [C++](#c)
 
 - [Database](#database)
-    - [SQL](/sections/database/sql.md)
+    - [SQL](#sql)
 
 - [Theoretical](#theoretical)
-    - [Operating Systems Concepts](/sections/theo/osc.md)
+    - [Operating Systems Concepts](#operating-systems-concepts)
 
 - [Agile software development](#agile-software-development)
     - [As a whole](#as-a-whole)
@@ -92,9 +92,13 @@
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
+# Database
+
+- [SQL](/sections/database/sql.md)
+
 # Theoretical
 
-### Algorithms
+- [Operating Systems Concepts](/sections/theo/osc.md)
 
 # Agile software development
 
