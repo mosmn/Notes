@@ -464,3 +464,11 @@ const myRabbit = new Rabbit('White Rabbit', 4);
 myRabbit; // { name: 'White Rabbit', countLegs: 4 }
 ```
 
+## Resource (Arrow function & Bound function)
+
+- [For more stuff in detail](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/#3-method-invocation)
+
+
+
+
+
