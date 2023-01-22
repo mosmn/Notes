@@ -369,3 +369,98 @@ setTimeout(myCat.logInfo.bind(myCat), 1000);
 
 ## Constructor Invocation
 
+its preformed when `new` keyword is used to create a new object. as we saw in [Object constructor](#object-constructors) section.
+
+```js
+function Country(name, traveled) {
+  this.name = name ? name : 'United Kingdom';
+  this.traveled = Boolean(traveled); // transform to a boolean
+}
+Country.prototype.travel = function() {
+  this.traveled = true;
+};
+// Constructor invocation
+const france = new Country('France', false);
+// Constructor invocation
+const unitedKingdom = new Country;
+france.travel(); // Travel to France
+```
+
+### this in constructor invocation
+
+`this` is the newly created object in a constructor invocation. lets check the context in the following example.
+
+```js
+function Foo () {
+  // this is fooInstance
+  this.property = 'Default Value';
+}
+// Constructor invocation
+const fooInstance = new Foo();
+fooInstance.property; // => 'Default Value'
+```
+`new Foo()` is a constructor invocation where the context of `this` is the newly created object `fooInstance`.
+
+### Pitfalls
+
+A common mistake is to forget the `new` keyword when invoking a constructor. when you forget the `new` keyword, `this` is the global object (function invocation).
+
+```js
+function Vehicle(type, wheelsCount) {
+  this.type = type;
+  this.wheelsCount = wheelsCount;
+  return this;
+}
+// Function invocation
+const car = Vehicle('Car', 4);
+car.type; // => 'Car'
+car.wheelsCount // => 4
+car === window // => true
+```
+You might think it works well for creating and initializing new objects.However, `this` is window object in a function invocation (see [Function invocation](#function-invocation)), thus Vehicle('Car', 4) sets properties on the window object. This is a mistake. A new object is not created.
+
+## Indirect Invocation
+
+when a function is called using `call()` or `apply()` methods its indirect invocation. they are from the list of methods that are available on every function object, and they are used to invoke a function with a specific context. `call()` and `apply()` are very similar, the only difference is that `call()` accepts a list of arguments, while `apply()` accepts an array of arguments.
+
+```js
+function sum(number1, number2) {
+  return number1 + number2;
+}
+sum.call(undefined, 10, 2);    // => 12
+sum.apply(undefined, [10, 2]); // => 12
+```
+
+### this in indirect invocation
+
+`this` is the first argument of `.call()` or `.apply()` in an indirect invocation
+
+```js
+const rabbit = { name: 'White Rabbit' };
+function concatName(string) {
+  console.log(this === rabbit); // => true
+  return string + this.name;
+}
+// Indirect invocations
+concatName.call(rabbit, 'Hello ');  // => 'Hello White Rabbit'
+concatName.apply(rabbit, ['Bye ']); // => 'Bye White Rabbit'
+```
+The indirect invocation is useful when a function should be executed with a specific context. For example, to solve the context problems with function invocation, where `this` is always `window` or `undefined` in strict mode (see [Function invocation](#strict-mode-function-invocation)). It can be used to simulate a method call on an object (see the previous code sample).
+
+Another practical example is creating hierarchies of classes in ES5 to call the parent constructor:
+
+```js
+function Runner(name) {
+  console.log(this instanceof Rabbit); // => true
+  this.name = name;
+}
+function Rabbit(name, countLegs) {
+  console.log(this instanceof Rabbit); // => true
+  // Indirect invocation. Call parent constructor.
+  Runner.call(this, name);
+  this.countLegs = countLegs;
+}
+const myRabbit = new Rabbit('White Rabbit', 4);
+myRabbit; // { name: 'White Rabbit', countLegs: 4 }
+```
+
