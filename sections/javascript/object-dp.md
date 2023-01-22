@@ -239,6 +239,8 @@ function multiply(a, b) {
 multiply(2, 5); // => 10
 ```
 
+### Pitfalls
+
 A Common Mistake is thinking that `this` is the same in inner and outer functions. This is not the case. `this` is determined by the context of the invocation(aka call), not the context of the function definition.
 
 ```js
@@ -292,3 +294,78 @@ console.log(message); // => 'Hello World!'
 ```
 
 ### this in method invocation
+
+`this` is the object that owns the method in a method invocation
+
+```js
+const calc = {
+  num: 0,
+  increment() {
+    console.log(this === calc); // => true
+    this.num += 1;
+    return this.num;
+  }
+};
+// method invocation. this is calc
+calc.increment(); // => 1
+calc.increment(); // => 2
+```
+straightforward, When invoking a method on an object, `this` is the object that owns the method.
+
+it works the same when an object inherits a method from its prototype.
+
+```js
+const myDog = {
+  name: 'Fido';
+};
+
+const myDOG = Object.create({
+    sayName() {
+        console.log(this.name);
+    }
+});
+
+myDOG.name = 'Fido';
+myDOG.sayName(); // => Fido
+```
+### Pitfalls
+
+A common mistake happens when separating the method from the object. `const alone = myObj.myMethode` when the metode is called `alone()`, detatched from the object, you might think that this is the object myObject on which the method was defined. WRONG! since the methode is called without an object, `this` is the global object (function invocation).
+
+```js
+function Pet(type, legs) {
+  this.type = type;
+  this.legs = legs;
+  this.logInfo = function() {
+    console.log(this === myCat); // => false
+    console.log(`The ${this.type} has ${this.legs} legs`);
+  }
+}
+const myCat = new Pet('Cat', 4);
+
+// logs "The undefined has undefined legs"
+// or throws a TypeError in strict mode
+setTimeout(myCat.logInfo, 1000);
+```
+you might think here that `setTimeout(myCat.logInfo, 1000)` will call `myCat.logInfo()` but unfortunately this is not the case. when a methode is passed as a parameter its seperated from its object.
+
+to fixe this we can use `bind()` to bind the methode to its object. but we can also use arrow function to fixe this problem.
+
+```js
+function Pet(type, legs) {
+  this.type = type;
+  this.legs = legs;
+  this.logInfo = function() {
+    console.log(this === myCat); // => true
+    console.log(`The ${this.type} has ${this.legs} legs`);
+  }
+}
+const myCat = new Pet('Cat', 4);
+
+// logs "The Cat has 4 legs"
+setTimeout(myCat.logInfo.bind(myCat), 1000);
+```
+`myCat.logInfo.bind(myCat)` returns a new function that executes exactly like logInfo, but has this as myCat, even in a function invocation.
+
+## Constructor Invocation
+
