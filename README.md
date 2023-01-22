@@ -54,6 +54,7 @@
 
 - Organizing JavaScript Code
     - [Objects And Object Constructors](sections/javascript/object-dp.md)
+    - [Factory Functions And The Module Pattern](sections/javascript/factory.md)
 
 - JavaScript in the Real World
     - [DOM](sections/javascript/dom.md)

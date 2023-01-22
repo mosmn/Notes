@@ -172,8 +172,123 @@ This prototype chain mechanism is essentially the same concept we have discussed
 
 # this
 
+Before starting, let's familiarize with a couple of terms:
 
+- Invocation of a function is executing the code that makes the body of a function, or simply calling the function. For example parseInt function invocation is parseInt('15').
+- Context of an invocation is the value of this within function body.
+- Scope of a function is the set of variables and functions accessible within a function body.
 
+`this` depends on the context of the invocation. there are 4 types of function invocations in JavaScript:
 
+- [Function Invocation](#function-invocation)
+- [Method Invocation](#method-invocation)
+- [Constructor Invocation](#constructor-invocation)
+- [indirect Invocation](#indirect-invocation)
 
+## Function Invocation
 
+Function invocation is basically when you call a function without any object or method. for example:
+
+```js
+function sayHello(name) {
+    console.log(`Hello ${name}`);
+}
+
+sayHello('John'); // this is a function invocation
+```
+dont confuse this with something like `obj.sayHello('John')`, this is a method invocation, not a function invocation.
+
+### this in function invocation
+
+in function invocation, `this` is the global object, which is `window` in the browser.
+
+```js
+function sum(a, b) {
+  console.log(this === window); // => true
+  this.myNumber = 20; // add 'myNumber' property to global object
+  return a + b;
+}
+// sum() is invoked as a function
+// this in sum() is a global object (window)
+sum(15, 16);     // => 31
+window.myNumber; // => 20, since we gave the global object(aka window) a property called 'myNumber' using `this`
+```
+At the time sum(15, 16) is called, JavaScript automatically sets this as the global object (window in a browser).
+
+if we use `this` in the global scope, it will be the global object, which is `window` in the browser. same as using it inside a function scope.
+
+```js
+console.log(this === window); // => true
+this.myNumber = 20; // add 'myNumber' property to global object
+```
+
+### strict mode function invocation
+
+if we use strict mode, `this` will be `undefined` in function invocation.
+
+Strict mode provides more security and helps to avoid some common errors. Strict mode is declared by adding the string "use strict" to the beginning of a script or a function. once we use strict mode, `this` will be `undefined` in function invocation.
+
+```js
+function multiply(a, b) {
+  'use strict'; // enable the strict mode
+  console.log(this === undefined); // => true
+  return a * b;
+}
+// multiply() function invocation with strict mode enabled
+// this in multiply() is undefined
+multiply(2, 5); // => 10
+```
+
+A Common Mistake is thinking that `this` is the same in inner and outer functions. This is not the case. `this` is determined by the context of the invocation(aka call), not the context of the function definition.
+
+```js
+const numbers = {
+  numberA: 5,
+  numberB: 10,
+  sum: function() {
+    console.log(this === numbers); // => true
+    function calculate() {
+      // this is window or undefined in strict mode
+      console.log(this === numbers); // => false
+      return this.numberA + this.numberB;
+    }
+    return calculate();
+  }
+};
+numbers.sum(); // => NaN or throws TypeError in strict mode
+```
+`calculate()` is a function invocation (but not method invocation), thus here this is the global object window or undefined in strict mode. Even if the outer function `numbers.sum()` has the context as `numbers` object, it doesn't have influence here. there are 2 ways to solve this problem using `calculate.call(this)` to invoke calculate, or the better alternative is to use arrow function.
+
+```js
+const numbers = {
+  numberA: 5,
+  numberB: 10,
+  sum: function() {
+    console.log(this === numbers); // => true
+    const calculate = () => {
+      // this is numbers object
+      console.log(this === numbers); // => true
+      return this.numberA + this.numberB;
+    }
+    return calculate();
+  }
+};
+numbers.sum(); // => 15
+``` 
+
+## Method Invocation
+
+A method is a function stored in a property of an object. For example:
+
+```js
+const myObject = {
+  // helloMethod is a method
+  helloMethod: function() {
+    return 'Hello World!';
+  }
+};
+const message = myObject.helloMethod();
+console.log(message); // => 'Hello World!'
+```
+
+### this in method invocation
