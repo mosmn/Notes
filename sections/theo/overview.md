@@ -15,7 +15,7 @@ Here how a computer is layered:
 
 ```mermaid
 graph TD;
-    A(End User) ..> B[Application];
+    A(End User) -.-> B[Application];
     B --> C[Utilities];
     C --> D[Operating System];
     D --> E[Hardware];
