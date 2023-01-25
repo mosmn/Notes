@@ -9,10 +9,9 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 
 ## Objectives
 
-- Convenience, makes the computer easier to use by acting as an interface between the user and the computer hardware.
+* Convenience, makes the computer easier to use by acting as an interface between the user and the computer hardware.
 
 Here how a computer is layered:
-
 ```mermaid
 graph TD;
     A(End User) -.-> B[Application];
@@ -20,11 +19,21 @@ graph TD;
     C --> D[Operating System];
     D --> E[Hardware];
 ```
+Utilities are set of system programs that help i program creation, managing files and controlling io devices.
 
-- Efficiency, uses the computer system resources in an efficient manner. like CPU, memory, I/O devices, etc.
+OS services:
+- Program execution
+- Program development
+- Access to I/O devices
+- Acounting
+- Error detection and response
+- Controlled Access to files
+- System Access
+
+* Efficiency, uses the computer system resources in an efficient manner. like CPU, memory, I/O devices, etc.
 
 
-- Ability to Evolve, enables development, testing, and use of new software and hardware without disrupting the system. for example, if you connect a keyboard to the computer, the OS should be able to recognize it and use it.
+* Ability to Evolve, enables development, testing, and use of new software and hardware without disrupting the system. for example, if you connect a keyboard to the computer, the OS should be able to recognize it and use it.
 
 # Part 2: Evolution of the OS
 
