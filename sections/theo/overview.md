@@ -44,11 +44,11 @@ OS functions just like any other software, the difference is that:
 
 Enables development, testing, and use of new software and hardware without disrupting the system. for example, if you connect a keyboard to the computer, the OS should be able to recognize it and use it.
 
-OS evolve overtime because there are always new hardware and software that need to be supported, and New services that need to be added and flaws that need to be fixed. this constant nedd for change sets a certine requirement for the OS implementation.To meet this requirement, operating systems need to be designed in a way that allows for flexibility and adaptability. One approach to achieving this is by <u>making the operating system modular in its construction.</u>
+OS evolve overtime because there are always new hardware and software that need to be supported, and New services that need to be added and flaws that need to be fixed. this constant nedd for change sets a certine requirement for the OS implementation.To meet this requirement, operating systems need to be designed in a way that allows for flexibility and adaptability. One approach to achieving this is by __making the operating system modular in its construction.__
 
 When an operating system is modular in its construction, it means that it is **designed to be composed of individual, interchangeable components or "modules" that can be easily added, removed, or replaced without affecting the rest of the system.** This allows for flexibility and ease of maintenance, as well as the ability to update or upgrade specific parts of the system without having to overhaul the entire system.
 
-For an operating system to be modular, it is important to <u>have clear defined interfaces between modules.</u> The interfaces are the points where different modules interact with each other. These interfaces need to be well-defined and documented, so that developers can understand how to interact with them and how to use them to add new features or functionalities to the system.
+For an operating system to be modular, it is important to __have clear defined interfaces between modules.__ The interfaces are the points where different modules interact with each other. These interfaces need to be well-defined and documented, so that developers can understand how to interact with them and how to use them to add new features or functionalities to the system.
 
 __Well-documented__ interfaces are also important for maintainability, as it allows developers to understand how different parts of the system interact with each other and how to troubleshoot issues that may arise. This documentation can also provide instructions and guidelines for developers who want to create new modules or make changes to existing ones.
 
@@ -56,6 +56,13 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 # Part 2: Evolution of the OS
 
+## Serial Processing
+
+## Simple Batch Processing
+
+## Multiprogrammed Batch Systems
+
+## Time Sharing Systems
 # Part 3: Major achievements
 
 # Part 4: Characteristic of modern OS
