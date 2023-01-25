@@ -14,10 +14,9 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 Here how a computer is layered:
 
 ```mermaid
-Application Software
-Utilities
-Operating System
-Hardware
+graph LR
+A[Application] --> B[Operating System]
+B --> C[Hardware]
 ```
 
 - Efficiency, uses the computer system resources in an efficient manner. like CPU, memory, I/O devices, etc.
