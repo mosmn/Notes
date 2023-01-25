@@ -14,11 +14,11 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 Here how a computer is layered:
 
 ```mermaid
-graph LR
-A(End User) --> B[Apllication];
-B --> C[Utilities];
-C --> D[Operating System];
-D --> E[Hardware];
+graph TR;
+    A(End User) --> B[Apllication];
+    B --> C[Utilities];
+    C --> D[Operating System];
+    D --> E[Hardware];
 ```
 
 - Efficiency, uses the computer system resources in an efficient manner. like CPU, memory, I/O devices, etc.
