@@ -8,10 +8,12 @@
     - [C++](#c)
 
 - [Database](#database)
-    - [SQL](#sql)
+    - [Fundamentals](#fundamentals)
 
 - [Theoretical](#theoretical)
     - [Operating Systems Concepts](#operating-systems-concepts)
+    - [Software Engineering Principles](#software-engineering-principles)
+    - [Data Communication and Networking](#data-communication-and-networking)
 
 - [Agile software development](#agile-software-development)
     - [As a whole](#as-a-whole)
@@ -73,23 +75,6 @@
 ### C++
 
 - [C++ Pointers](sections/cpp/cpppointers.md)
-- [C++ Classes](sections/cpp/cppclasses.md)
-- [C++ Inheritance](sections/cpp/cppinheritance.md)
-- [C++ Polymorphism](sections/cpp/cpppolymorphism.md)
-- [C++ Encapsulation](sections/cpp/cppencapsulation.md)
-- [C++ Abstraction](sections/cpp/cppabstraction.md)
-- [C++ File I/O](sections/cpp/cppfileio.md)
-- [C++ Exception Handling](sections/cpp/cppexceptionhandling.md)
-- [C++ Templates](sections/cpp/cpptemplates.md)
-- [C++ STL](sections/cpp/cppstl.md)
-- [C++ Multithreading](sections/cpp/cppmultithreading.md)
-- [C++ References](sections/cpp/cppreferences.md)
-- [C++ Memory Management](sections/cpp/cppmemorymanagement.md)
-- [C++ Smart Pointers](sections/cpp/cppsmartpointers.md)
-- [C++ Lambda Expressions](sections/cpp/cpplambdaexpressions.md)
-- [C++ Regular Expressions](sections/cpp/cppregularexpressions.md)
-- [C++ Design Patterns](sections/cpp/cppdesignpatterns.md)
-- [C++ Miscellaneous](sections/cpp/cppmiscellaneous.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
@@ -118,6 +103,8 @@
     - [File Management](sections/theo/file.md)
 
 - Software Engineering Principles
+
+- Data Communication and Networking
 
 
 # Agile software development
