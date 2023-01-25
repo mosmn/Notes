@@ -95,11 +95,30 @@
 
 # Database
 
-- [SQL](/sections/database/sql.md)
+- Fundamentals
+    - [Introduction](sections/db/fundamentals/introduction.md)
+    - [Environment](sections/db/fundamentals/environment.md)
+    - [SQL](sections/db/fundamentals/sql.md)
+    - [Relational model concept](sections/db/fundamentals/relational-model-concept.md)
+    - [Data modeling](sections/db/fundamentals/data-modeling.md)
+    - [Database design](sections/db/fundamentals/database-design.md)
+    - [Normalization](sections/db/fundamentals/normalization.md)
 
 # Theoretical
 
-- [Operating Systems Concepts](/sections/theo/osc.md)
+- Operating Systems Concepts
+    - [Overview](sections/theo/overview.md)
+    - [Process Description and Control](sections/theo/process.md)
+    - [Concurrency - Mutual Exclusion](sections/theo/concurrency.md)
+    - [Concurrency-Deadlock and Starvation](sections/theo/deadlock.md)
+    - [Uniprocessor Scheduling](sections/theo/uniprocessor.md)
+    - [Memory Management](sections/theo/memory.md)
+    - [Virtual Memory](sections/theo/virtual.md)
+    - [I/O Management & Disk Scheduling](sections/theo/io.md)
+    - [File Management](sections/theo/file.md)
+
+- Software Engineering Principles
+
 
 # Agile software development
 
