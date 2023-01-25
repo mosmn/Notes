@@ -14,8 +14,8 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 Here how a computer is layered:
 
 ```mermaid
-graph TR;
-    A(End User) --> B[Apllication];
+graph TD;
+    A(End User) .. B[Apllication];
     B --> C[Utilities];
     C --> D[Operating System];
     D --> E[Hardware];
