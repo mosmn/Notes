@@ -12,8 +12,9 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 #### Convenience
 
 Makes the computer easier to use by acting as an interface between the user and the computer hardware.
-
+---
 Here how a computer is layered:
+---
 ```mermaid
 graph TD;
     A(End User) -.-> B[Application];
@@ -76,7 +77,17 @@ graph TD;
     P --> S[Flexibility and adaptability];
     P --> T[Clear defined interfaces between modules];
     P --> U[Well-documented interfaces];
+
+
+
+
+
+
+    
 ```
+
+
+
 
 # Part 2: Evolution of the OS
 
