@@ -12,15 +12,14 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 #### Convenience
 
 Makes the computer easier to use by acting as an interface between the user and the computer hardware.
----
+
 Here how a computer is layered:
----
 ```mermaid
 graph TD;
     A(End User) -.-> B[Application];
     B --> C[Utilities];
     C --> D[Operating System];
-    D --> E[Hardware];
+    D --> <-- E[Hardware];
 ```
 Utilities are set of system programs that help i program creation, managing files and controlling io devices.
 
@@ -54,40 +53,6 @@ For an operating system to be modular, it is important to __have clear defined i
 __Well-documented__ interfaces are also important for maintainability, as it allows developers to understand how different parts of the system interact with each other and how to troubleshoot issues that may arise. This documentation can also provide instructions and guidelines for developers who want to create new modules or make changes to existing ones.
 
 Overall, a modular design enables the creation of a more robust, adaptable, and scalable system, allowing it to meet the constant need for change in technology and user requirements.
-
-```mermaid
-graph TD;
-    A(Operating System) --> B[Definition];
-    A --> C[Objectives];
-    A --> D[Functions];
-    B --> E[Controls execution of application programs];
-    B --> F[Interface between application and hardware];
-    C --> G[Convenience];
-    C --> H[Efficiency];
-    C --> I[Ability to Evolve];
-    G --> J[Makes computer easier to use];
-    G --> K[Acts as interface between user and hardware];
-    H --> L[Uses system resources efficiently];
-    H --> M[Directs processor in use of resources];
-    H --> N[Schedules timing of programs/processes];
-    I --> O[Development, testing, and use of new software/hardware];
-    I --> P[Modular construction];
-    P --> Q[Individual, interchangeable components];
-    P --> R[Easy addition/removal/replacement];
-    P --> S[Flexibility and adaptability];
-    P --> T[Clear defined interfaces between modules];
-    P --> U[Well-documented interfaces];
-
-
-
-
-
-
-    
-```
-
-
-
 
 # Part 2: Evolution of the OS
 
