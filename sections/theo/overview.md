@@ -57,9 +57,14 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 ```mermaid
 mindmap
   root((OS Definition, Objectives and Functions))
-    root -->|Definition| def[OS is a software that controlos the execution of application programs, its an interface between the application and hardware(computer system).]
-    root -->|Objectives| obj[Convenience, Efficiency, Ability to Evolve]
-    root -->|Functions| fun[Program development, Program execution, Access to I/O devices, Acounting, Error detection and response, Controlled Access to files, System Access]
+    Definition
+        Operating System
+        Application Programs
+        Hardware
+    Objectives
+      Convenience
+      Efficiency
+      Ability to Evolve
 ```
 # Part 2: Evolution of the OS
 
