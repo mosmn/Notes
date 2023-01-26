@@ -56,7 +56,8 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 ```mermaid
 graph TD;
-    size = "500,500";
+    classDef default fill:#ffffff,stroke:#000000,font-size:20px;
+    class A,B,C default;
     A(Operating System) --> B[Definition];
     A --> C[Objectives];
     A --> D[Functions];
@@ -78,21 +79,6 @@ graph TD;
     P --> T[Clear defined interfaces between modules];
     P --> U[Well-documented interfaces];
 
-```
-
-```mermaid
-graph TD;
-    OS["Operating System"]
-    OS --> Convenience["Convenience"]
-    OS --> Efficiency["Efficiency"]
-    OS --> Evolution["Ability to Evolve"]
-    Convenience --> Interface["Interface between User and Hardware"]
-    Convenience --> Services["Program Development, Execution, Access to I/O Devices, Accounting, Error Detection and Response, Controlled Access to Files, System Access"]
-    Efficiency --> ResourceManagement["CPU, Memory, I/O Devices"]
-    Efficiency --> Scheduling["Timing of Programs or Processes"]
-    Evolution --> Modularity["Modular Construction"]
-    Evolution --> Interfaces["Clear Defined Interfaces between Modules"]
-    Evolution --> Documentations["Well Documented"]
 ```
 
 # Part 2: Evolution of the OS
