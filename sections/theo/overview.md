@@ -56,8 +56,6 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 ```mermaid
 graph TD;
-    classDef default fill:#ffffff,stroke:#000000,font-size:20px;
-    class A,B,C default;
     A(Operating System) --> B[Definition];
     A --> C[Objectives];
     A --> D[Functions];
@@ -78,7 +76,6 @@ graph TD;
     P --> S[Flexibility and adaptability];
     P --> T[Clear defined interfaces between modules];
     P --> U[Well-documented interfaces];
-
 ```
 
 # Part 2: Evolution of the OS
