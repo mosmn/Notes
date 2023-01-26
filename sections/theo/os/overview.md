@@ -86,7 +86,7 @@ Monitor POV:
 - "Residen" Monitor: runs in the main memory
 - reads in job and gives control
 - job returns control to monitor when finished
-![monitor](./imgs/monitor.png)
+![monitor](/imgs/monitor.png)
 
 
 
