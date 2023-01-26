@@ -56,8 +56,7 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 ```mermaid
 graph TD;
-    classDef default fill:#f9f,stroke:#333,stroke-width:4px;
-    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U default;
+    size = "500,500";
     A(Operating System) --> B[Definition];
     A --> C[Objectives];
     A --> D[Functions];
