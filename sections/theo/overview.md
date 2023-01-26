@@ -18,8 +18,11 @@ Here how a computer is layered:
 graph TD;
     A(End User) -.-> B[Application];
     B --> C[Utilities];
+    C --> B;
     C --> D[Operating System];
-    D --> <-- E[Hardware];
+    D --> C;
+    D --> E[Hardware];
+    E --> D;
 ```
 Utilities are set of system programs that help i program creation, managing files and controlling io devices.
 
