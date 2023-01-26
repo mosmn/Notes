@@ -55,17 +55,45 @@ __Well-documented__ interfaces are also important for maintainability, as it all
 Overall, a modular design enables the creation of a more robust, adaptable, and scalable system, allowing it to meet the constant need for change in technology and user requirements.
 
 ```mermaid
-mindmap
-  root((OS Definition, Objectives and Functions))
-    Definition
-        Operating System
-        Application Programs
-        Hardware
-    Objectives
-      Convenience
-      Efficiency
-      Ability to Evolve
+graph TD;
+    A(Operating System) --> B[Definition];
+    A --> C[Objectives];
+    A --> D[Functions];
+    B --> E[Controls execution of application programs];
+    B --> F[Interface between application and hardware];
+    C --> G[Convenience];
+    C --> H[Efficiency];
+    C --> I[Ability to Evolve];
+    G --> J[Makes computer easier to use];
+    G --> K[Acts as interface between user and hardware];
+    H --> L[Uses system resources efficiently];
+    H --> M[Directs processor in use of resources];
+    H --> N[Schedules timing of programs/processes];
+    I --> O[Development, testing, and use of new software/hardware];
+    I --> P[Modular construction];
+    P --> Q[Individual, interchangeable components];
+    P --> R[Easy addition/removal/replacement];
+    P --> S[Flexibility and adaptability];
+    P --> T[Clear defined interfaces between modules];
+    P --> U[Well-documented interfaces];
+
 ```
+
+```mermaid
+graph TD;
+    OS["Operating System"]
+    OS --> Convenience["Convenience"]
+    OS --> Efficiency["Efficiency"]
+    OS --> Evolution["Ability to Evolve"]
+    Convenience --> Interface["Interface between User and Hardware"]
+    Convenience --> Services["Program Development, Execution, Access to I/O Devices, Accounting, Error Detection and Response, Controlled Access to Files, System Access"]
+    Efficiency --> ResourceManagement["CPU, Memory, I/O Devices"]
+    Efficiency --> Scheduling["Timing of Programs or Processes"]
+    Evolution --> Modularity["Modular Construction"]
+    Evolution --> Interfaces["Clear Defined Interfaces between Modules"]
+    Evolution --> Documentations["Well Documented"]
+```
+
 # Part 2: Evolution of the OS
 
 ## Serial Processing
