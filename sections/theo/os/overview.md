@@ -86,19 +86,7 @@ Monitor POV:
 - "Residen" Monitor: runs in the main memory
 - reads in job and gives control
 - job returns control to monitor when finished
-```mermaid
-classDiagram
-    class Monitor{
-        +readInJob()
-        +giveControl()
-        +returnControl()
-    }
-    class Job{
-        +run()
-    }
-    Monitor --> Job
-    Job --> Monitor
-```
+![monitor](./imgs/monitor.png)
 
 
 
