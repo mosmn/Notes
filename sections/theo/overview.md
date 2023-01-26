@@ -55,6 +55,7 @@ __Well-documented__ interfaces are also important for maintainability, as it all
 Overall, a modular design enables the creation of a more robust, adaptable, and scalable system, allowing it to meet the constant need for change in technology and user requirements.
 
 ```mermaid
+height = 500;
 graph TD;
     A(Operating System) --> B[Definition];
     A --> C[Objectives];
