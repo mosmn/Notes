@@ -61,7 +61,50 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 ## Serial Processing
 
+- back in the day computers had no OS, programmers interacted directly with the hardware.
+- computers had a console with display lights, switches, some input devices and a printer.
+- the users had to use the computer in series, meaning that they had to wait for the computer to finish the current task before they can start another task. 
+- one task at a time.
+
+#### Problems
+
+1. Scheduling
+    - physical sign up sheets where used to reserve computer time.
+    - if a task takes longer than time reserved for it, its wasting the time of the computer.
+2. Setup time
+    - a certain amount of time is set just to setup the computer for the program to run, this took longer than the program itself. like damn bruh.
 ## Simple Batch Processing
+
+These computers were very expensive, so it was important to make sure that the processor was being used as efficiently as possible. Therefore the use of a software call Monitor was introduced.
+
+- user no longer had direct access to processor
+- A computer operator(a middle man) recives the job from the user batches it and and place them on an input device.
+- program branches back to the monitor when finished
+
+Monitor POV:
+- controls sequence of jobs
+- "Residen" Monitor: runs in the main memory
+- reads in job and gives control
+- job returns control to monitor when finished
+```mermaid
+classDiagram
+Class01 <|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 <--> C2: Cool label
+```
+
+
+
 
 ## Multiprogrammed Batch Systems
 
@@ -69,4 +112,4 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 # Part 3: Major achievements
 
-# Part 4: Characteristic of modern OS
+# Part 4: Characteristic of modern OS 

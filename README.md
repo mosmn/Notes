@@ -81,13 +81,13 @@
 # Database
 
 ### Fundamentals
-    - [Introduction](sections/db/fundamentals/introduction.md)
-    - [Environment](sections/db/fundamentals/environment.md)
-    - [SQL](sections/db/fundamentals/sql.md)
-    - [Relational model concept](sections/db/fundamentals/relational-model-concept.md)
-    - [Data modeling](sections/db/fundamentals/data-modeling.md)
-    - [Database design](sections/db/fundamentals/database-design.md)
-    - [Normalization](sections/db/fundamentals/normalization.md)
+- [Introduction](sections/db/fundamentals/introduction.md)
+- [Environment](sections/db/fundamentals/environment.md)
+- [SQL](sections/db/fundamentals/sql.md)
+- [Relational model concept](sections/db/fundamentals/relational-model-concept.md)
+- [Data modeling](sections/db/fundamentals/data-modeling.md)
+- [Database design](sections/db/fundamentals/database-design.md)
+- [Normalization](sections/db/fundamentals/normalization.md)
 
 # Theoretical
 
