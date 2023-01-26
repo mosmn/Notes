@@ -80,7 +80,7 @@
 
 # Database
 
-- Fundamentals
+### Fundamentals
     - [Introduction](sections/db/fundamentals/introduction.md)
     - [Environment](sections/db/fundamentals/environment.md)
     - [SQL](sections/db/fundamentals/sql.md)
@@ -91,36 +91,36 @@
 
 # Theoretical
 
-- Operating Systems Concepts
-    - [Overview](sections/theo/os/overview.md)
-    - [Process Description and Control](sections/theo/os/process.md)
-    - [Concurrency - Mutual Exclusion](sections/theo/os/mutex.md)
-    - [Concurrency-Deadlock and Starvation](sections/theo/os/deadlock.md)
-    - [Uniprocessor Scheduling](sections/theo/os/scheduling.md)
-    - [Memory Management](sections/theo/os/memory.md)
-    - [Virtual Memory](sections/theo/os/virtual-memory.md)
-    - [I/O Management & Disk Scheduling](sections/theo/os/io.md)
-    - [File Management](sections/theo/os/file.md)
+### Operating Systems Concepts
+- [Overview](sections/theo/os/overview.md)
+- [Process Description and Control](sections/theo/os/process.md)
+- [Concurrency - Mutual Exclusion](sections/theo/os/mutex.md)
+- [Concurrency-Deadlock and Starvation](sections/theo/os/deadlock.md)
+- [Uniprocessor Scheduling](sections/theo/os/scheduling.md)
+- [Memory Management](sections/theo/os/memory.md)
+- [Virtual Memory](sections/theo/os/virtual-memory.md)
+- [I/O Management & Disk Scheduling](sections/theo/os/io.md)
+- [File Management](sections/theo/os/file.md)
 
-- Software Engineering Principles
+### Software Engineering Principles
 
-- Data Communication and Networking
-    - Modules 1 - 3: Basic Network Connectivity and Communications
-        - [Module 1: Networking Today](sections/theo/networking/module1.md)
-        - [Module 2: Basic Switch and End Device Configuration](sections/theo/networking/module2.md)
-        - [Module 3: Protocols and Models](sections/theo/networking/module3.md)
-    - Modules 4 - 7: Ethernet Concepts
-        - [Module 4: Physical Layer](sections/theo/networking/module4.md)
-        - [Module 5: Number Systems](sections/theo/networking/module5.md)
-        - [Module 6: Data Link Layer](sections/theo/networking/module6.md)
-        - [Module 7: Ethernet Switching](sections/theo/networking/module7.md)
-    - Modules 8 - 10: Communicating Between Networks
+### Data Communication and Networking
+- Modules 1 - 3: Basic Network Connectivity and Communications
+    - [Module 1: Networking Today](sections/theo/networking/module1.md)
+    - [Module 2: Basic Switch and End Device Configuration](sections/theo/networking/module2.md)
+    - [Module 3: Protocols and Models](sections/theo/networking/module3.md)
+- Modules 4 - 7: Ethernet Concepts
+    - [Module 4: Physical Layer](sections/theo/networking/module4.md)
+    - [Module 5: Number Systems](sections/theo/networking/module5.md)
+    - [Module 6: Data Link Layer](sections/theo/networking/module6.md)
+    - [Module 7: Ethernet Switching](sections/theo/networking/module7.md)
+- Modules 8 - 10: Communicating Between Networks
 
-    - Modules 11 - 13: IP Addressing
+- Modules 11 - 13: IP Addressing
 
-    - Modules 14 - 15: Network Application Communications
+- Modules 14 - 15: Network Application Communications
 
-    - Modules 16 - 17: Building and Securing a Small Network
+- Modules 16 - 17: Building and Securing a Small Network
 
 
 # Agile software development
