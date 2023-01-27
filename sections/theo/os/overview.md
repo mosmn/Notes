@@ -104,23 +104,20 @@ Hardware features:
 - interrupt, gives OS more flerixibility.
 
 Modes of operation:
-| Column 1 | Column 2 | Column 3 |
-|----------|----------|----------|
-| Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3 |
-| Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3 |
-
-| Column 1       | Column 2 | Column 3 |
-|:---------------|:--------:|--------:|
-| Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3 |
-| Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3 |
-
-Column 1 | Column 2 | Column 3
+User Mode | Kernel Mode
 ---------|----------|---------
-Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3
-Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3
+user program executes in user mode | monitor executes in kernel mode
+certain areas of memory are protected from user access | privileged instructions may be executed
+certain instructions may not be executed | protected areas of memory may be accessed
 
+these two modes of operation are to fulfill the "Memory Protection" and "Privileged Instructions" features, User mode is for protecting certain areas of memory from user access, and kernel mode is for executing privileged instructions that have access to protected areas of memory. In other words, user mode is for user programs to execute in a restricted environment, while kernel mode is for the operating system and system level tasks to have full access to the system resources.
 
+#### Problems
 
+1. Processor time alternates between user program and monitor execution.
+2. The sacrifices:
+    - some main memory is used for the monitor
+    - some processor time is used for monitor execution
 
 
 ## Multiprogrammed Batch Systems
