@@ -88,7 +88,9 @@ Monitor POV:
 - job returns control to monitor when finished
 
 layout of the monitor:
+---
 ![monitor](/imgs/monitor.png)
+---
 When a job (a task or program) is submitted to the computer, the monitor reads it in and gives control to the job. Once the job is finished, it returns control back to the monitor. The monitor then manages the next step in the process, such as reading in the next job or returning the output to the user. The resident monitor is a specific type of monitor that is always present in the computer's memory, as opposed to being loaded from an external source.
 
 Processor POV:
