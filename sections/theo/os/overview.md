@@ -105,7 +105,7 @@ Hardware features:
 
 Modes of operation:
 User Mode | Kernel Mode
----------|----------|---------
+---------|----------
 user program executes in user mode | monitor executes in kernel mode
 certain areas of memory are protected from user access | privileged instructions may be executed
 certain instructions may not be executed | protected areas of memory may be accessed
