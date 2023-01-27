@@ -103,6 +103,22 @@ Hardware features:
 - Privileged Instructions, instructions that can only be executed by the monitor.
 - interrupt, gives OS more flerixibility.
 
+Modes of operation:
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3 |
+| Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3 |
+
+| Column 1       | Column 2 | Column 3 |
+|:---------------|:--------:|--------:|
+| Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3 |
+| Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3 |
+
+Column 1 | Column 2 | Column 3
+---------|----------|---------
+Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3
+Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3
+
 
 
 
