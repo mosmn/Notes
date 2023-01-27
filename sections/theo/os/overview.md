@@ -78,15 +78,29 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 These computers were very expensive, so it was important to make sure that the processor was being used as efficiently as possible. Therefore the use of a software call Monitor was introduced.
 
 - user no longer had direct access to processor
-- A computer operator(a middle man) recives the job from the user batches it and and place them on an input device.
+- A computer operator(a middle man) recives the job from the user, batches it and and place them on an input device.
 - program branches back to the monitor when finished
 
 Monitor POV:
 - controls sequence of jobs
-- "Residen" Monitor: runs in the main memory
+- "Residen" Monitor is a software that runs in the memory
 - reads in job and gives control
 - job returns control to monitor when finished
+
+layout of the monitor:
 ![monitor](/imgs/monitor.png)
+When a job (a task or program) is submitted to the computer, the monitor reads it in and gives control to the job. Once the job is finished, it returns control back to the monitor. The monitor then manages the next step in the process, such as reading in the next job or returning the output to the user. The resident monitor is a specific type of monitor that is always present in the computer's memory, as opposed to being loaded from an external source.
+
+Processor POV:
+- it executes instructions from memory containing the monitor unitil it encounters an ending/error condition.
+- Job Control Language (JCL), Special type of programming language used to provide instructions to the monitor.
+
+Hardware features:
+- Memory Protection for monitor, the user program does not alter the monitor.
+- Timer, prevent a job from monopolizing/ hogging the system.
+- Privileged Instructions, instructions that can only be executed by the monitor.
+- interrupt, gives OS more flerixibility.
+
 
 
 
