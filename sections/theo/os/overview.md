@@ -125,7 +125,7 @@ these two modes of operation are to fulfill the "Memory Protection" and "Privile
 
 ## Multiprogrammed Batch Systems
 
-even with automatic job sequencing the processor is often idle(meaning it has nothing to do) because IO devices are slow compared to the processor. this is the case in uniprogramming systems, because the processor is only executing one job at a time. the solution is to have multiple jobs in memory at the same time, and to switch between them. this is called multiprogramming.
+Even with automatic job sequencing the processor is often idle(meaning it has nothing to do) because IO devices are slow compared to the processor. this is the case in uniprogramming systems, because the processor is only executing one job at a time. the solution is to have multiple jobs in memory at the same time, and to switch between them. this is called multiprogramming.
 
 Multiprogramming: A mode of operation that provides for the interleaved execution of two or more computer programs by a single processor. The same as multitasking, using different terminology.
 - Memory is expanded to hold more than one program and switch between them.
@@ -136,8 +136,21 @@ Multiprogramming: A mode of operation that provides for the interleaved executio
 1. Requires memory managment because to have several jobs ready to run, they need to be in memory.
 2. Requires Scheduling algorithms to decide which job to run next.
 
-
 ## Time Sharing Systems
+
+Although multiple batch programming was efficient, it is still desirable to have a system where the __user can interact directly__ with the computer. This is called time sharing, where the processor time is shared by many users at the same time. The computer is divided into time slices, and each user gets a time slice to use the computer.
+
+In a time-sharing system, multiple users simultaneously access the system through terminals, with the OS interleaving the execution of each user program in a short burst or quantum of computation.
+
+Both batch processing and time sharing use multiprogramming.
+
+        | Batch Multiprogramming | Time Sharing
+--------|-----------------------|-------------
+Principal objective | Maximize processor use | Minimize response time
+Source of directives to operating system | Job control language commands provided with the job | Commands entered
+
+### Compatible Time-Sharing Systems (CTSS)
+
 
 # Part 3: Major achievements
 
