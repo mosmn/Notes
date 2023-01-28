@@ -151,6 +151,20 @@ Source of directives to operating system | Job control language commands provide
 
 ### Compatible Time-Sharing Systems (CTSS)
 
+One of the first time-sharing operating systems to be developed
+
+Time slicing:
+A system clock generated interrupts at a rate of approximately one every 0.2 seconds. At each clock interrupt, the OS regained control and could assign the processor to another user. This technique is known as time slicing. Thus, at regular time intervals, the current user would be preempted and another user loaded in. To preserve the old user program status for later resumption, the old user programs and data were written out to disk before the new user programs and data were read in. Subsequently, the old user program code and data were restored in main memory when that program was next given a turn.
+
+To minimize disk traffic, user memory was only written out when the incoming program would overwrite it. illiustration below:
+
+![time slicing](/imgs/timeslicing.png)
+
+#### Problems
+
+1. jobs must be protected from interference with each other in memory.
+2. making sure only authorized users have access to a particular file since there are multiple users.
+3. The contention for resources, such as printers and mass storage devices, must be handled.
 
 # Part 3: Major achievements
 
