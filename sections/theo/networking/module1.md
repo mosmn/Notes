@@ -42,16 +42,6 @@ Other roles include:
 Network media is the physical medium that carries the data signals from one device to another. e.g copper wire, fiber optic cable, radio waves, etc.
 
 Media Types | Description
-Metal wires within cables Uses electrical impulses
-Glass or plastic fibers
-within cables (fiber-optic
-cable)
-Uses pulses of light.
-Wireless transmission Uses modulation of
-specific frequencies of
-electromagnetic waves.
-
-Media Types | Description
 --- | ---
 Metal wires within cables | Uses electrical impulses
 Glass or plastic fibers within cables (fiber-optic cable) | Uses pulses of light.
@@ -60,5 +50,21 @@ Wireless transmission | Uses modulation of specific frequencies of electromagnet
 # 1.3 Network Representations and Topologies
 
 ### Network Representation
+Network diagrams, often called topology diagrams, use symbols to represent devices within the network.
+
+Specialized terminology used to describe how each of these devices and media connect to each other:
+- Network interface card (NIC) - physically connects an end device to the network.
+- Physical port - a connector on a network device that connects to a media.
+- Interface - specialized ports on a networking device that connect to individual networks. Because routers connect networks, the ports on a router are referred to as network interfaces.
+
 
 ### Topology Diagrams
+
+They provide a visual map of how the network is connected. There are two types of topology diagrams: physical and logical.
+
+- Physical topology diagrams illustrate the physical location of devices and media, lets you see the actual location of intermediary devices and cable installations.
+- Logical topology diagrams illustrate devices, ports, and the addressing scheme of the network, lets you see which end devices are connected to which intermediary devices and what media is being used.
+
+# 1.4 Common Types of Networks
+
+### Networks of Many Sizes
