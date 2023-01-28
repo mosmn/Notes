@@ -2,7 +2,7 @@
 
 ### Host
 
-All computers that are connected to a network and participate directly in network communication are classified as hosts.
+All computers that are connected to a network and participate directly in network communication are classified as hosts. some are called end devices, and also clients.
 
 Internet Protocol (IP) address is the number that identifies a host on a network.
 
@@ -30,7 +30,7 @@ Intermediary network devices are used to connect individual end devices to the n
 
 Their job is to provide connectivity and ensure data flow across the network.
 
-They use the end device destination address in conjunction with info about the network interconnections to the path the message should take.
+They use the end device destination address in conjunction with info about the network interconnections to determine the path the message should take.
 
 Other roles include:
 - Regenerate and retransmit data signals.
@@ -68,3 +68,38 @@ They provide a visual map of how the network is connected. There are two types o
 # 1.4 Common Types of Networks
 
 ### Networks of Many Sizes
+
+Size | Description
+--- | ---
+Small Home Networks | connect a few computers to each other and the Internet
+Small Office/Home Office | enables computer within a home or remote office to connect to a corporate network
+Medium to Large Networks | many locations with hundreds or thousands of interconnected computers
+World Wide Networks | connects hundreds of millions of computers worldwide – such as the internet
+
+### LANs and WANs
+
+Network infrastructures vary greatly in
+terms of:
+
+- Size of the area covered
+- Number of users connected
+- Number and types of services available
+- Area of responsibility
+
+![LANs and WANs](/imgs/lanwan.png)
+
+### The Internet
+
+The internet is a worldwide collection of interconnected LANs and WANs (basicly just collection of interconnected networks).
+- LANs are connected to each other using WANs.
+- WANs may use copper wires, fiber opticcables, and wireless transmissions
+
+Internet is not owned by any single entity. There are organizations that were developed to help maintain the structure and standardization of internet protocols and processes. e.g. Internet Engineering Task Force (IETF), Internet Corporation for Assigned Names and Numbers (ICANN), Internet Architecture Board (IAB), etc.
+
+### Intranet and Extranet
+
+Intranet, Intranet is a term often used to refer to a private connection of LANs and WANs that belongs to an organization.
+
+Extranet, Extranet is a term often used to refer to a private connection of LANs and WANs that belongs to an organization but is shared with other organizations. so basically it's a private network that is connects more than one organization together.
+
+# 1.5 Internet Connections
