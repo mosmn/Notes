@@ -144,8 +144,8 @@ In a time-sharing system, multiple users simultaneously access the system throug
 
 Both batch processing and time sharing use multiprogramming.
 
-        | Batch Multiprogramming | Time Sharing
---------|-----------------------|-------------
+|        | Batch Multiprogramming | Time Sharing
+|--------|-----------------------|-------------
 Principal objective | Maximize processor use | Minimize response time
 Source of directives to operating system | Job control language commands provided with the job | Commands entered
 
