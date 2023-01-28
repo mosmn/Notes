@@ -63,6 +63,7 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
 
 - back in the day computers had no OS, programmers interacted directly with the hardware.
 - computers had a console with display lights, switches, some input devices and a printer.
+- If an error halted the program, the error condition was indicated by the lights.
 - the users had to use the computer in series, meaning that they had to wait for the computer to finish the current task before they can start another task. 
 - one task at a time.
 
@@ -75,8 +76,9 @@ Overall, a modular design enables the creation of a more robust, adaptable, and 
     - a certain amount of time is set just to setup the computer for the program to run, this took longer than the program itself. like damn bruh.
 ## Simple Batch Processing
 
-These computers were very expensive, so it was important to make sure that the processor was being used as efficiently as possible. Therefore the use of a software call Monitor was introduced.
+These computers were very expensive, so it was important to make sure that the processor was being used as efficiently as possible. Therefore the concept of a batch OS was developed.
 
+The central idea behind the simple batch-processing scheme is the use of a piece of software known as the Monitor:
 - user no longer had direct access to processor
 - A computer operator(a middle man) recives the job from the user, batches it and and place them on an input device.
 - program branches back to the monitor when finished
@@ -84,8 +86,8 @@ These computers were very expensive, so it was important to make sure that the p
 Monitor POV:
 - controls sequence of jobs
 - "Residen" Monitor is a software that runs in the memory
-- reads in job and gives control
-- job returns control to monitor when finished
+- monitor reads in job and the current job is placed in the user program area, and control is passed to this job.
+- job returns control to monitor when finished, which immediately reads in the next job.
 
 layout of the monitor:
 ---
@@ -96,6 +98,8 @@ When a job (a task or program) is submitted to the computer, the monitor reads i
 Processor POV:
 - it executes instructions from memory containing the monitor unitil it encounters an ending/error condition.
 - Job Control Language (JCL), Special type of programming language used to provide instructions to the monitor.
+
+the instructions that are executed from the portion of memory containing the monitor cause the next job to be read in and placed in the user program area. Once a job has been read in, the processor will encounter a branch instruction in the monitor that instructs the processor to continue execution at the start of the user program. The processor will then execute the instructions in the user program until it encounters an ending or error condition. Either event causes the processor to fetch its next instruction from the monitor program. Thus the phrase “control is passed to a job” simply means the processor is now fetching and executing instructions in a user program, and “control is returned to the monitor” means the processor is now fetching and executing instructions from the monitor program.
 
 Hardware features:
 - Memory Protection for monitor, the user program does not alter the monitor.
@@ -119,8 +123,19 @@ these two modes of operation are to fulfill the "Memory Protection" and "Privile
     - some main memory is used for the monitor
     - some processor time is used for monitor execution
 
-
 ## Multiprogrammed Batch Systems
+
+even with automatic job sequencing the processor is often idle(meaning it has nothing to do) because IO devices are slow compared to the processor. this is the case in uniprogramming systems, because the processor is only executing one job at a time. the solution is to have multiple jobs in memory at the same time, and to switch between them. this is called multiprogramming.
+
+Multiprogramming: A mode of operation that provides for the interleaved execution of two or more computer programs by a single processor. The same as multitasking, using different terminology.
+- Memory is expanded to hold more than one program and switch between them.
+- central theme for modern OS.
+
+#### Problems
+
+1. Requires memory managment because to have several jobs ready to run, they need to be in memory.
+2. Requires Scheduling algorithms to decide which job to run next.
+
 
 ## Time Sharing Systems
 
