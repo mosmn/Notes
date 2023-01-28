@@ -168,4 +168,4 @@ To minimize disk traffic, user memory was only written out when the incoming pro
 
 # Part 3: Major achievements
 
-# Part 4: Characteristic of modern OS 
+# Part 4: Characteristic of modern OS
