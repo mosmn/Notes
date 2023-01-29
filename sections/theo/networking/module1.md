@@ -143,3 +143,9 @@ DSL | Business DSL is available in various formats including Symmetric Digital S
 Satellite | This can provide a connection when a wired solution is not available.
 
 ### The Converging Network
+
+Traditional Separate Networks | Converging Networks
+--- | ---
+Each network uses different technologies to carry the communication signal | Capable of delivering data, voice, and video between many different types of devices over the same network infrastructure
+Each network had its own set of rules and standards | Uses the same set of rules, agreements, and implementation standards
+Multiple services ran on multiple networks. | Multiple services run on a single network.
