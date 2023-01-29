@@ -103,3 +103,43 @@ Intranet, Intranet is a term often used to refer to a private connection of LANs
 Extranet, Extranet is a term often used to refer to a private connection of LANs and WANs that belongs to an organization but is shared with other organizations. so basically it's a private network that is connects more than one organization together.
 
 # 1.5 Internet Connections
+
+### Internet Access Technologies
+
+- Home users/Small offices
+    - typically require a connection to an internet service provider (ISP) to access the internet.
+    - connection options vary depending on the type of ISP and geographic location, including:
+        - DSL (Digital Subscriber Line)
+        - Cable
+        - Satellite
+        - Wireless WANs
+
+- Large organizations
+    - Fast connections are required to support business services including IP phones, video conferencing, and data center storage.
+    - Service providers (SPs) offer business class interconnections to fulfill these needs. these services include:
+        - business DSL
+        - Metro Ethernet
+        - eased lines
+
+### Home and Small Office Internet Connections
+
+Connection | Description
+--- | ---
+Cable | high bandwidth, always on, internet offered by cable television service providers.
+DSL | high bandwidth, always on, internet connection that runs over a telephone line.
+Cellular | uses a cell phone network to connect to the internet.
+Satellite | major benefit to rural areas without Internet Service Providers.
+Dial-up telephone | an inexpensive, low bandwidth option using a modem.
+
+### Businesses Internet Connections
+
+Businesses may require higher bandwidth, dedicated bandwidth, and managed services.
+
+Connection | Description
+--- | ---
+Dedicated Leased Line | These are reserved circuits within the service provider’s network that connect distant offices with private voice and/or data networking.
+Ethernet WAN | This extends LAN access technology into the WAN.
+DSL | Business DSL is available in various formats including Symmetric Digital Subscriber Lines (SDSL).
+Satellite | This can provide a connection when a wired solution is not available.
+
+### The Converging Network
