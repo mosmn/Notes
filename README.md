@@ -103,6 +103,14 @@
 - [File Management](sections/theo/os/file.md)
 
 ### Software Engineering Principles
+- [Introduction](sections/theo/sep/intro.md)
+- [Software Processes](sections/theo/sep/process.md)
+- [Agile Software Development](sections/theo/sep/agile.md)
+- [Requirements engineering](sections/theo/sep/requirements.md)
+- [System modelling](sections/theo/sep/system-modeling.md)
+- [Architectural design](sections/theo/sep/architectural-design.md)
+- [Design and implementation](sections/theo/sep/design-implementation.md)
+- [Software testing](sections/theo/sep/testing.md)
 
 ### Data Communication and Networking
 - Modules 1 - 3: Basic Network Connectivity and Communications
