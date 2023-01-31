@@ -45,7 +45,7 @@ Media Types | Description
 --- | ---
 Metal wires within cables | Uses electrical impulses
 Glass or plastic fibers within cables (fiber-optic cable) | Uses pulses of light.
-Wireless transmission | Uses modulation of specific frequencies of electromagnetic waves.
+Wireless transmission | Uses modulation of specific frequencies of electromagnetic waves.(bluetooth, WiFi, infrared.... )
 
 # 1.3 Network Representations and Topologies
 
