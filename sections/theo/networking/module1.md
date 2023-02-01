@@ -168,6 +168,8 @@ Packet switching networks are inherently fault tolerant because they use multipl
 
 When a network is scalable, it means it can quickly expand to support new users and applications without affecting(degrading) the performance of the network.
 
+These networks are scalable because the designers follow accepted standards and protocols.
+
 ### Quality of Service (QoS)
 
 Network congestion, occurs when the demand for network bandwidth exceeds its availability.
@@ -190,3 +192,52 @@ Three goals of network security:
 - Availability – assurance of timely and reliable access to data for authorized users
 
 # 1.7 Network Trends
+
+### Bring Your Own Device (BYOD)
+
+Allows users to use their own devices giving them more opportunities and greater flexibility. BYOD means any device, with any ownership, used anywhere.
+
+### Online Collaboration
+
+Online collaboration is the ability to work together on a project in real time, regardless of geographic location.
+
+Collaboration is a very high priority for businesses and in education.
+
+### Video Communication
+
+- Video calls are made to anyone, regardless of where they are located.
+- Powerful tool for communicating with others.
+- Critical requirement for effective collaboration.
+- Cisco TelePresence powers is one way of working where everyone, everywhere. 
+
+### Cloud Computing
+
+- Allows us to store personal files or backup our data on servers over the internet.
+- Applications can also be accessed using the Cloud.
+- Allows businesses to deliver to any device anywhere in the world.
+
+It is mad possible by data centers that are located in different parts of the world: smaller companies that can't afford to build their own data centers can lease server and storage services from large data center organizations.
+
+Four types of Clouds:
+1. Public Clouds: Available to the general public through a pay-per-use model or for free.
+2. Private Clouds: Intended for a specific organization or entity such as the government.
+3. Hybrid Clouds: Made up of two or more Cloud types – for example, part custom and part public. Each part remains a distinctive object but both are connected using the same architecture.
+4. Custom Clouds: Built to meet the needs of a specific industry, such as healthcare or media. Can be private or public.
+
+### Technology Trends in the Home
+
+Smart home technology is a growing trend that allows technology to be integrated into every-day appliances which allows them to interconnect with other devices. e.g. Nest thermostat, Amazon Echo, etc.
+
+### Powerline Networking
+
+Powerline networking can allow devices to connect to a LAN where data network cables or wireless communications are not a viable option by Using a standard powerline adapter
+
+### Wireless Broadband
+
+- More commonly found in rural environments
+- a Wireless Internet Service Provider (WISP) is an ISP that connects subscribers to designated access points or hotspots.
+- Wireless broadband is another solution for the home and small businesses.
+- Uses the same cellular technology used by a smart phone.
+- An antenna is installed outside the house providing wireless or wired connectivity for devices in the home.
+
+# 1.8 Network Security
