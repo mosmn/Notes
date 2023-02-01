@@ -41,3 +41,9 @@ Its the discipline that involves in all stages of software production, from the 
     - Scale, software must be able to operate at a large scale.
 
 # Software engineering ethics
+
+- Issues of personal responsibility:
+    - Confidentiality: engineers must not disclose information about the software system to unauthorized people whether or not a confidentiality agreement is in place.
+    - Competence: engineers must not accept work that they are not competent to do.
+    - Intellectual property rights: engineers must acknowledge local laws ruling the ownership of intellectual property. e.g. patents, copyright, and trademarks.
+    - Computer misuse: engineers should not use their technical skills to misuse other people’s computers.
