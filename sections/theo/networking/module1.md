@@ -241,3 +241,33 @@ Powerline networking can allow devices to connect to a LAN where data network ca
 - An antenna is installed outside the house providing wireless or wired connectivity for devices in the home.
 
 # 1.8 Network Security
+
+### Security Threats
+
+External Threats:
+- Viruses, worms, and Trojan horses
+- Spyware and adware
+- Zero-day attacks
+- Threat Actor attacks
+- Denial of service attacks
+- Data interception and theft
+- Identity theft
+
+Internal Threats:
+- lost or stolen devices
+- accidental misuse by employees
+- malicious employees
+
+### Security Solutions
+
+Network security components for home or
+small office network:
+• Antivirus and antispyware software should be installed on end devices.
+• Firewall filtering used to block unauthorized access to the network.
+
+Larger networks have additional security
+requirements:
+• Dedicated firewall system
+• Access control lists (ACL)
+• Intrusion prevention systems (IPS)
+• Virtual private networks (VPN)
