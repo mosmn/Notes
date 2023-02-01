@@ -262,12 +262,12 @@ Internal Threats:
 
 Network security components for home or
 small office network:
-• Antivirus and antispyware software should be installed on end devices.
-• Firewall filtering used to block unauthorized access to the network.
+- Antivirus and antispyware software should be installed on end devices.
+- Firewall filtering used to block unauthorized access to the network.
 
 Larger networks have additional security
 requirements:
-• Dedicated firewall system
-• Access control lists (ACL)
-• Intrusion prevention systems (IPS)
-• Virtual private networks (VPN)
+- Dedicated firewall system
+- Access control lists (ACL)
+- Intrusion prevention systems (IPS)
+- Virtual private networks (VPN)
