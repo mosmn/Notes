@@ -80,14 +80,11 @@
 
 # Database
 
-### Fundamentals
-- [Introduction](sections/db/fundamentals/introduction.md)
-- [Environment](sections/db/fundamentals/environment.md)
-- [SQL](sections/db/fundamentals/sql.md)
-- [Relational model concept](sections/db/fundamentals/relational-model-concept.md)
-- [Data modeling](sections/db/fundamentals/data-modeling.md)
-- [Database design](sections/db/fundamentals/database-design.md)
-- [Normalization](sections/db/fundamentals/normalization.md)
+### SQL
+- [Retrieving Data Using SQL the SQL SELECT statement](sections/db/sql/select.md)
+- [Restricting and Sorting Data](sections/db/sql/restrict-sort.md)
+- [Single-Row Functions](sections/db/sql/single-row-functions.md)
+- [Group Functions](sections/db/sql/group-functions.md)
 
 # Theoretical
 
@@ -129,6 +126,15 @@
 - Modules 14 - 15: Network Application Communications
 
 - Modules 16 - 17: Building and Securing a Small Network
+
+### Database Fundamentals
+- [Introduction](sections/theo/dbf/introduction.md)
+- [Environment](sections/theo/dbf/environment.md)
+- [SQL](sections/theo/dbf/sql.md)
+- [Relational model concept](sections/theo/dbf/relational-model-concept.md)
+- [Data modeling](sections/theo/dbf/data-modeling.md)
+- [Database design](sections/theo/dbf/database-design.md)
+- [Normalization](sections/theo/dbf/normalization.md)
 
 
 # Agile software development
