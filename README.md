@@ -8,12 +8,13 @@
     - [C++](#c)
 
 - [Database](#database)
-    - [Fundamentals](#fundamentals)
+    - [SQL](#sql)
 
 - [Theoretical](#theoretical)
     - [Operating Systems Concepts](#operating-systems-concepts)
     - [Software Engineering Principles](#software-engineering-principles)
     - [Data Communication and Networking](#data-communication-and-networking)
+    - [Database Fundamentals](#database-fundamentals)
 
 - [Agile software development](#agile-software-development)
     - [As a whole](#as-a-whole)

@@ -149,3 +149,44 @@ Traditional Separate Networks | Converging Networks
 Each network uses different technologies to carry the communication signal | Capable of delivering data, voice, and video between many different types of devices over the same network infrastructure
 Each network had its own set of rules and standards | Uses the same set of rules, agreements, and implementation standards
 Multiple services ran on multiple networks. | Multiple services run on a single network.
+
+# 1.6 Reliable Networks
+
+### Network Architecture
+
+In this context, network architecture refers to the technologies used to build the network. It is the foundation of the network and is the most important factor in determining the reliability of the network. to meet user expectations, the network must address the following: Fault Tolerance, Scalability, Quality of Service (QoS), Security
+
+### Fault Tolerance
+
+Fault tolerance network limits the number of devices affected during a failure.
+
+it does that by having multiple paths between the source and destination devices. this is called Redundancy.
+
+Packet switching networks are inherently fault tolerant because they use multiple paths to send data. it breaks down a single message into smaller packets and sends them along different paths. that way the UX is not affected if one of the paths fails.
+
+### Scalability
+
+When a network is scalable, it means it can quickly expand to support new users and applications without affecting(degrading) the performance of the network.
+
+### Quality of Service (QoS)
+
+Network congestion, occurs when the demand for network bandwidth exceeds its availability.
+
+Network bandwidth is measured in the number of bits that can be transmitted in a single second, or bits per second (bps).
+
+Devices will hold the packets in memory until resources become available to transmit them.
+
+This is handled by having a QoS policy that prioritizes certain types of traffic over others. The type of traffic is important not the content of the traffic.
+
+### Security
+
+Tow types of security:
+- Network infrastructure security: Physical security of network devices by preventing unauthorized access to the network.
+- Information security: Protecting the data that is transmitted over the network.
+
+Three goals of network security:
+- Confidentiality – only intended recipients can read the data
+- Integrity – assurance that the data has not be altered with during transmission
+- Availability – assurance of timely and reliable access to data for authorized users
+
+# 1.7 Network Trends
