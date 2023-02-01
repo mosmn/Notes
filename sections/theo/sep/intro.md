@@ -26,11 +26,6 @@ Its the discipline that involves in all stages of software production, from the 
     - Efficiency: Must not waste resources, Which includes responsiveness, Utilization of processor and memory
     - Acceptability: Must be acceptable to the customer, which includes usability, learnability, and operability.
 
-- Importance of software engineering:
-    - Software is everywhere.
-    - Software is expensive.
-    - Software is complex.
-    - Software is critical.
-    - Software is changing.
+- Importance of software engineering: more and more people rely on advanced software systems to perform their daily tasks. and the software systems are becoming more complex and more critical to the success of the business. therfore, its usually cheaper to develop software systems using software engineering methods than to develop them treating them as a personal one-off project.
 
 # Software engineering ethics
