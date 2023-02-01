@@ -28,4 +28,16 @@ Its the discipline that involves in all stages of software production, from the 
 
 - Importance of software engineering: more and more people rely on advanced software systems to perform their daily tasks. and the software systems are becoming more complex and more critical to the success of the business. therfore, its usually cheaper to develop software systems using software engineering methods than to develop them treating them as a personal one-off project.
 
+- Software process activities:
+    1. Software specification, customers and engineers work together to define the requirements of the software system.
+    2. Software development, software is built to meet the requirements.
+    3. Software validation, software is tested to ensure that it meets the requirements.
+    4. Software evolution, software is maintained to ensure that it continues to meet the requirements.
+
+- General issues that affect software:
+    - Heterogeneity, operate across a range of different hardware and software platforms.
+    - Business and social change, software must be able to adapt to changing business and social needs.
+    - Security and trust, software must be secure and trustworthy.
+    - Scale, software must be able to operate at a large scale.
+
 # Software engineering ethics
