@@ -30,9 +30,47 @@ logically related data refers to the entities, attributes, and relationships tha
 
 # Components of database system.
 
-# Characteristics of database.
+- Database Applications are the computer programs that users work with. A computer program that interacts with database by issuing an appropriate request (SQL statement) to the DBMS.
+- The Database Management System (DBMS) creates, processes, and administers databases.
+- Structured Query Language (SQL) is an internationally recognized standard database language that is used by all commercial DBMSs.
 
-# Database Management System (DBMS) and its functions.
+## Database Applications.
+
+- Create and process Forms.
+- Process queries.
+- Create and process reports.
+- Execute app logic.
+- control application.
+
+## Database Management System (DBMS) and its functions.
+
+- Create database
+- Create tables
+- Create supporting structures (e.g indexes)
+- Read database data
+- Modify (insert, update or delete)
+- database data
+- Maintain database structures
+- Enforce rules
+- Control concurrency
+- Provide security
+- Perform backup and recovery
+
+Advantages | Disadvantages
+--- | ---
+Control of data redundancy | Complexity
+Data consistency | Size
+More information from the same amount of data | Cost of DBMS
+Sharing of data | Additional hardware costs
+Improved data integrity and security | Cost of conversion
+Enforcement of standards | Performance
+Improved data accessibility and responsiveness | Higher impact of a failure
+Increased productivity |
+Improved maintenance through data independence |
+Increased concurrency (enables multiple users and access) |
+Improved backup and recovery services |
+
+## Structured Query Language (SQL).
 
 # History of database processing.
 
