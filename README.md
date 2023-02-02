@@ -75,7 +75,9 @@
 [Back to Table of Contents](#table-of-contents) ⬆
 ### C++
 
-- [C++ Pointers](sections/cpp/cpppointers.md)
+- [Basics](sections/cpp/basics.md)
+- [Multidimensional Arrays](sections/cpp/multidimensional-arrays.md)
+- [Pointers](sections/cpp/pointers.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
