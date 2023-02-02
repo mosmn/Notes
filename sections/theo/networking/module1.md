@@ -230,6 +230,8 @@ Smart home technology is a growing trend that allows technology to be integrated
 
 ### Powerline Networking
 
+Using the same electrical wiring in your home to connect devices to the network.
+
 Powerline networking can allow devices to connect to a LAN where data network cables or wireless communications are not a viable option by Using a standard powerline adapter
 
 ### Wireless Broadband
