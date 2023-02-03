@@ -50,6 +50,21 @@ Its the discipline that involves in all stages of software production, from the 
     - Data collection systems, collect data from their environment using a set of sensors and send the data to a remote computer for processing. e.g. water quality monitoring systems.
     - Systems for modeling and simulation, set of tools and techniques used to create virtual models of real-world systems for the purpose of analyzing and predicting their behavior. e.g. a flight simulator. 
 
+### Software engineering fundamentals principles
+
+Systems should be developed using a managed and disciplined approach or development process depending on the type of software system. The system should be dependable, maintainable, and efficient and it should do exactly what the customer wants, so understanding and managing the software specification and requirements (what the software should do) are important. Where appropriate, you should reuse software that has already been developed rather than write new software.
+
+### Interbet software engineering
+
+More organization are now developing web-based systems rather than local systems because web services allow functionality to be accessed over the web. Cloud computing is an approach to the provision of computer services where applications run remotely on the ‘cloud’, where user pays based on the amount of resources they use. The cloud is a metaphor for the internet.
+
+The fundamental ideas of software engineering apply to webbased software in the same way that they apply to other types of
+software system.
+- Software reuse: the use of existing software components to build new software systems.
+- Incremental and agile development: the development of software in small increments, with each increment being developed and tested before the next increment is started.
+- Service-oriented architecture: the development of software systems as a collection of services that can be used by other software systems.
+- Rich user interfaces: the use of graphical user interfaces to provide a rich user experience.
+
 # Software engineering ethics
 
 - Issues of personal responsibility:
