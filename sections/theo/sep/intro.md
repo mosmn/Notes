@@ -15,7 +15,7 @@ Its the discipline that involves in all stages of software production, from the 
     - Not using Software Engineering methods.
 
 - Types of software products:
-    - Generic software products. Stand-alone software products that are marketed to people who want to use them. e.g Microsoft Office.
+    - Generic software products. Stand-alone software products that are marketed to people who want to use them. E.g. calculator, notepad.
         - Product Specification: specification are owend by the developer. and any decision for changes to the specification are made by the developer.
     - Custom software products. Software products that are developed for a specific customer. e.g. a software product for a bank.
         - Customer Specification: specification are owend by the customer. and any decision for changes to the specification are made by the customer.
@@ -39,6 +39,16 @@ Its the discipline that involves in all stages of software production, from the 
     - Business and social change, software must be able to adapt to changing business and social needs.
     - Security and trust, software must be secure and trustworthy.
     - Scale, software must be able to operate at a large scale.
+
+- Application types:
+    - Stand-alone apps, run on a single computer. e.g. calculator, notepad.
+    - interactive transaction-based apps, run on a remote computer accessed by a user from their own computer. e.g. e-commerce apps.
+    - Entertainment systems, like spotify, netflix, etc.
+    - Embedded control systems, controls hardware. like the control system of a car, or a washing machine.
+    - Batch processing systems, run on a remote computer and process large amounts of data. e.g. credit card billing systems.
+    - Systems of systems, a collection of software systems that work together to achieve a common goal. e.g. a bank.
+    - Data collection systems, collect data from their environment using a set of sensors and send the data to a remote computer for processing. e.g. water quality monitoring systems.
+    - Systems for modeling and simulation, set of tools and techniques used to create virtual models of real-world systems for the purpose of analyzing and predicting their behavior. e.g. a flight simulator. 
 
 # Software engineering ethics
 
