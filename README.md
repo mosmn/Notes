@@ -76,8 +76,13 @@
 ### C++
 
 - [Basics](sections/cpp/basics.md)
+- [Advanced Functions](sections/cpp/afunctions.md)
 - [Multidimensional Arrays](sections/cpp/multidimensional-arrays.md)
 - [Pointers](sections/cpp/pointers.md)
+- [Structures](sections/cpp/structures.md)
+- [Objects and Classes](sections/cpp/objects-classes.md)
+- [File stream input and output](sections/cpp/file-stream.md)
+- [GUI](sections/cpp/gui.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
@@ -139,7 +144,7 @@
 - [Database design](sections/theo/dbf/database-design.md)
 - [Normalization](sections/theo/dbf/normalization.md)
 
-
+[Back to Table of Contents](#table-of-contents) ⬆
 # Agile software development
 
 ### As a whole
