@@ -23,9 +23,15 @@ Its an abstract representation of a process. it presents a descreption of the pr
 
 ### The waterfall model
 
+Plan-driven model. This approach separates the process into distinct phases, each of which is completed before the next phase begins.
+
 ### Incremental development
 
+This approach interleaves the process activities of specification, design, implementation and validation. The system is developed as a series of versions, with each version adding new functionality to the previous version. Could be plan-driven or agile.
+
 ### Integration and configuration
+
+This approach relies on the availability of reusable components or systems. The system development focuses on configuring these components for use in the new setting and integrating them into a system. Could be plan-driven or agile.
 
 # Process Activities
 
