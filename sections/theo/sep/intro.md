@@ -18,15 +18,15 @@ Its the discipline that involves in all stages of software production, from the 
     - Generic software products. Stand-alone software products that are marketed to people who want to use them. E.g. calculator, notepad.
         - Product Specification: specification are owend by the developer. and any decision for changes to the specification are made by the developer.
     - Custom software products. Software products that are developed for a specific customer. e.g. a software product for a bank.
-        - Customer Specification: specification are owend by the customer. and any decision for changes to the specification are made by the customer.
+        - Product Specification: specification are owend by the customer. and any decision for changes to the specification are made by the customer.
 
 - Attributes of a good software product:
     - Maintainability: Must evolve to meet the changing needs of the customer, specially in a changing business environment.
-    - Dependability & security: Must be reliable and secure, not cause any physical or economic damage. and malicious users should not be able to access the system.
+    - Dependability(characteristics including reliability, security and safety) & security: Must be reliable and secure, not cause any physical or economic damage. and malicious users should not be able to access the system.
     - Efficiency: Must not waste resources, Which includes responsiveness, Utilization of processor and memory
-    - Acceptability: Must be acceptable to the customer, which includes usability, learnability, and operability.
+    - Acceptability(understandable, usable and compatible with other systems): Must be acceptable to the customer, which includes usability, learnability, and operability.
 
-- Importance of software engineering: more and more people rely on advanced software systems to perform their daily tasks. and the software systems are becoming more complex and more critical to the success of the business. therfore, its usually cheaper to develop software systems using software engineering methods than to develop them treating them as a personal one-off project.
+- Importance of software engineering: more and more people rely on advanced software systems to perform their daily tasks. and the software systems are becoming more complex and more critical to the success of the business. We need to be able to produce reliable and trustworthy systems economically and quickly. therfore, its usually cheaper to develop software systems using software engineering methods than to develop them treating them as a personal one-off project.
 
 - Software process activities:
     1. Software specification, customers and engineers work together to define the requirements of the software system.
@@ -54,7 +54,7 @@ Its the discipline that involves in all stages of software production, from the 
 
 Systems should be developed using a managed and disciplined approach or development process depending on the type of software system. The system should be dependable, maintainable, and efficient and it should do exactly what the customer wants, so understanding and managing the software specification and requirements (what the software should do) are important. Where appropriate, you should reuse software that has already been developed rather than write new software.
 
-### Interbet software engineering
+### Internet software engineering
 
 More organization are now developing web-based systems rather than local systems because web services allow functionality to be accessed over the web. Cloud computing is an approach to the provision of computer services where applications run remotely on the ‘cloud’, where user pays based on the amount of resources they use. The cloud is a metaphor for the internet.
 
