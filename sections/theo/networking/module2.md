@@ -83,7 +83,7 @@ In the CLI, the mode is identified by the prompt Switch(config-line)# for line c
 
 2. Default mod is User exec, to switch to privileged EXEC mode type `enable` and press enter. to return to user exec mode type `disable` and press enter.
 
-3. To go to a higher level (Global config mode) type `configure terminal` and press enter. to return to privileged EXEC mode type `end` or `exit` and press enter.
+3. To go to a higher level (Global config mode) type `configure terminal` or `config t` and press enter. to return to privileged EXEC mode type `end` or `exit` and press enter.
 
 ### Navigate Between IOS Modes
 
@@ -107,6 +107,11 @@ Switch(config-if)# exit
 Switch(config)#
 ```
 
+You can also move directly from one subconfiguration mode to another. Notice how after selecting an interface, the command prompt changes from (config-line)# to (config-if)#.
+```
+Switch(config-line)# interface fastEthernet 0/1
+Switch(config-if)#
+```
 
 # The Command Structure
 
