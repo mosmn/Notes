@@ -79,7 +79,7 @@ In the CLI, the mode is identified by the prompt Switch(config-line)# for line c
 
 ### Video - IOS CLI Primary Command Modes
 
-1. Click on Device(pc) > Terminal emulation program > ok > and you will be prsented with a console CLI, that is the Cisco IOS CLI. press enter to get started.
+1. Click on Device(pc) > Terminal emulation program > ok > and you will be prsented with a console CLI, that is the Cisco IOS. press enter to get started.
 
 2. Default mod is User exec, to switch to privileged EXEC mode type `enable` and press enter. to return to user exec mode type `disable` and press enter.
 
@@ -114,5 +114,42 @@ Switch(config-if)#
 ```
 
 # The Command Structure
+
+### Basic IOS Command Structure
+
+Each IOS command has a specific format, or syntax, and can only be executed in the appropriate mode
+
+![c](/imgs/comstruc.png)
+- Keyword - This is a specific parameter defined in the operating system (in the figure, ip protocols).
+- Argument - This is not predefined; it is a value or variable defined by the user (in the figure, 192.168.10.5).
+
+### IOS Command Syntax Check
+
+To determine the keywords and arguments required for a command, refer to the command syntax. The syntax provides the pattern, or format, that must be used when entering a command.
+Convention | Description
+--- | ---
+boldface | Boldface text indicates commands and keywords that you enter literally as shown.
+italics | Italic text indicates arguments for which you supply values.
+[x] | Square brackets indicate an optional element (keyword or argument).
+{x} | Braces indicate a required element (keyword or argument).
+[x {y | z }] | Braces and vertical lines within square brackets indicate a required choice within an optional element. Spaces are used to clearly delineate parts of the command.
+
+Conventions used to document and use IOS commands:
+- ping ip-address - This command is ping followed by an user-defined argument, ip-address. e.g. ping 10.10.10.5
+- traceroute ip-address - This command is traceroute followed by an user-defined argument, ip-address. e.g. traceroute 192.168.254.254
+
+### IOS Help Features
+
+To access context-sensitive help, simply enter a question mark, ?, at the CLI.
+
+- its context-sensitive, meaning that it matters when and where you enter the question mark.
+- it provides a list of commands that are valid in the current mode.
+    - if you enter a question mark in user exec mode, the list of commands that are valid in user exec mode is displayed.
+    - if you enter a question mark in privileged EXEC mode, the list of commands that are valid in privileged EXEC mode is displayed.
+    - if you enter a question mark in global config mode, the list of commands that are valid in global config mode is displayed. and so on...
+- press the spacebar to get the next page of the list of commands.
+- it can also be used to finish a partially entered command `in?`. and it will tell you the arguments that are required for the command `interface ?`.
+
+The command syntax checker shows you whats wrong with your command, if you enter a command that is not valid in the current mode, the command syntax checker will tell you what you did wrong.
 
 # Basic Device Configuration
