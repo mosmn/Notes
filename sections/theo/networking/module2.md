@@ -247,7 +247,7 @@ Use the `show running-config` command to verify that passwords are now encrypted
 
 Banners can be an important part of the legal process in the event that someone is prosecuted for breaking into a device.
 
-To create a banner message of the day on a network device, use the `banner motd # the message of the day #` global config command.
+To create a banner message of the day on a network device, use the `banner motd # the message of the day #` global config command. (The # characters are used to delimit the banner message. any character can be used to delimit the banner message but it cannot be in the message itself.)
 ```
 Sw-Floor-1# configure terminal
 Sw-Floor-1(config)# banner motd # Unauthorized access is prohibited. #
