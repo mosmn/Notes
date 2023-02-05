@@ -59,6 +59,13 @@ Out-of-band communication, on the other hand, refers to sending control, managem
 
 # IOS Navigation
 
+### Primary Command Modes
+
+Command Mode | Description | Default Device Prompt
+--- | --- | ---
+User Exec Mode | Mode allows access to only a limited number of basic monitoring commands. It is often referred to as “view-only" mode. | Switch> Router>
+Privileged EXEC Mode | Mode allows access to all commands and features. The user can use any monitoring commands and execute configuration and management commands. | Switch# Router#
+
 # The Command Structure
 
 # Basic Device Configuration
