@@ -153,3 +153,103 @@ To access context-sensitive help, simply enter a question mark, ?, at the CLI.
 The command syntax checker shows you whats wrong with your command, if you enter a command that is not valid in the current mode, the command syntax checker will tell you what you did wrong.
 
 # Basic Device Configuration
+
+### Device Names
+
+By default, all devices are assigned a factory default name.
+
+The default name should be changed to something more descriptive. By choosing names wisely, it is easier to remember, document, and identify network devices. Here are some important naming guidelines for hosts:
+
+- Start with a letter
+- Contain no spaces
+- End with a letter or digit
+- Use only letters, digits, and dashes
+- Be less than 64 characters in length
+
+When network devices are named they are easy to identify for configuration purposes and troubleshooting.
+
+From global configuration mode, enter the command hostname followed by the name of the switch and press Enter. Notice the change in the command prompt name.
+
+```
+Switch# configure terminal
+Switch(config)# hostname Sw-Floor-1
+Sw-Floor-1(config)#
+```
+
+Note: To return the switch to the default prompt, use the no hostname global config command.
+```
+Sw-Floor-1(config)# no hostname
+Switch(config)#
+```
+
+### Password Guidelines
+
+Cisco IOS can be configured to use hierarchical mode passwords to allow different access privileges to a network device.
+
+All networking devices should limit administrative access by securing privileged EXEC, user EXEC, and remote Telnet access with passwords. In addition, all passwords should be encrypted and legal notifications provided.
+
+When choosing passwords, use strong passwords that are not easily guessed. There are some key points to consider when choosing passwords:
+
+- Use passwords that are more than eight characters in length.
+- Use a combination of upper and lowercase letters, numbers, special characters, and/or numeric sequences.
+- Avoid using the same password for all devices.
+- Do not use common words because they are easily guessed.
+
+### Configure Passwords
+
+To secure user EXEC mode access, enter line console configuration mode using the line console 0 global configuration command, as shown in the example. The zero is used to represent the first (and in most cases the only) console interface. Next, specify the user EXEC mode password using the `password password` command. Finally, enable user EXEC access using the `login` command.
+    
+```
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# line console 0
+Sw-Floor-1(config-line)# password cisco
+Sw-Floor-1(config-line)# login
+Sw-Floor-1(config-line)# end
+Sw-Floor-1#
+```
+
+To secure privileged EXEC access, use the `enable secret password` global config command, as shown in the example.
+
+```
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# enable secret class
+Sw-Floor-1(config)# exit
+Sw-Floor-1#
+```
+
+Virtual terminal (VTY) lines enable remote access using Telnet or SSH to the device. Many Cisco switches support up to 16 VTY lines that are numbered 0 to 15.
+
+To secure VTY lines, enter line VTY mode using the line vty 0 15 global config command. Next, specify the VTY password using the `password password` command. Lastly, enable VTY access using the `login` command.
+
+```
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# line vty 0 15
+Sw-Floor-1(config-line)# password cisco 
+Sw-Floor-1(config-line)# login 
+Sw-Floor-1(config-line)# end
+Sw-Floor-1#
+```
+
+### Encrypt Passwords
+
+To encrypt all plaintext passwords, use the `service password-encryption` global config command as shown in the example.
+
+```
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# service password-encryption
+Sw-Floor-1(config)#
+```
+The command applies weak encryption to all unencrypted passwords. This encryption applies only to passwords in the configuration file, not to passwords as they are sent over the network. The purpose of this command is to keep unauthorized individuals from viewing passwords in the configuration file.
+
+Use the `show running-config` command to verify that passwords are now encrypted.
+
+### Banner Messages
+
+Banners can be an important part of the legal process in the event that someone is prosecuted for breaking into a device.
+
+To create a banner message of the day on a network device, use the `banner motd # the message of the day #` global config command.
+```
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# banner motd # Unauthorized access is prohibited. #
+Sw-Floor-1(config)#
+```
