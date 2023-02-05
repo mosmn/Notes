@@ -66,6 +66,48 @@ Command Mode | Description | Default Device Prompt
 User Exec Mode | Mode allows access to only a limited number of basic monitoring commands. It is often referred to as “view-only" mode. | Switch> Router>
 Privileged EXEC Mode | Mode allows access to all commands and features. The user can use any monitoring commands and execute configuration and management commands. | Switch# Router#
 
+### Configuration Mode and Subconfiguration Modes
+
+To configure the device, the user must enter global configuration mode, which is commonly called global config mode. its identified by the prompt Switch(config)# or Router(config)#.
+
+From this mode(global) the user can enter subconfiguration modes to configure specific features of the device. Two common subconfiguration modes include:
+
+- Line Configuration Mode - Used to configure console, SSH, Telnet, or AUX access.
+- Interface Configuration Mode - Used to configure a switch port or router network interface.
+
+In the CLI, the mode is identified by the prompt Switch(config-line)# for line configuration mode and Switch(config-if)# for interface configuration mode.
+
+### Video - IOS CLI Primary Command Modes
+
+1. Click on Device(pc) > Terminal emulation program > ok > and you will be prsented with a console CLI, that is the Cisco IOS CLI. press enter to get started.
+
+2. Default mod is User exec, to switch to privileged EXEC mode type `enable` and press enter. to return to user exec mode type `disable` and press enter.
+
+3. To go to a higher level (Global config mode) type `configure terminal` and press enter. to return to privileged EXEC mode type `end` or `exit` and press enter.
+
+### Navigate Between IOS Modes
+
+To enter line you use the line command followed by the management line type and number you wish to access.
+```
+Switch> enable
+Switch# configure terminal
+Switch(config)# line console 0
+Switch(config-line)# exit
+Switch(config)#
+```
+`exit` is used to exit the current mode and return to the previous mode.
+`end` is used to exit the current mode and return to privileged EXEC mode.
+
+To enter interface configuration mode, use the interface command followed by the interface type and number you wish to access.
+```
+Switch> enable
+Switch# configure terminal
+Switch(config)# interface fastEthernet 0/1
+Switch(config-if)# exit
+Switch(config)#
+```
+
+
 # The Command Structure
 
 # Basic Device Configuration
