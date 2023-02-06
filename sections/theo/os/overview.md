@@ -264,3 +264,12 @@ The OS can be viewed as a series of levels due to its enormous complecity. Each 
 Well defined interface, meaning one level can be modified without affecting the other levels. this decomposes a problem into a number of more manageable subproblems.
 
 # Part 4: Characteristic of modern OS
+
+These modern operating systems respond to new developments in hardware, new applications, and new security threats. Among the key hardware drivers are multiprocessor systems, greatly increased processor speed, high-speed network attachments, and increasing size and variety of memory storage devices. In the application arena, multimedia applications, Internet and Web access, and client/server computing have influenced OS design.
+
+Different Architectural Approaches for OS:
+1. Microkernel architecture
+2. Multithreading
+3. Symmetric multiprocessing
+4. Distributed operating systems
+5. Object-oriented design
