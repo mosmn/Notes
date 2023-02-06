@@ -4,7 +4,7 @@ Definition is "What it is", Objectives are "What it aims to do", and Functions a
 
 ## Definition
 
-- Operating system is a software that controlos the execution of application programs, its an interface between the application and hardware(computer system).
+- Operating system is a software that controls the execution of application programs, its an interface between the application and hardware(computer system).
 - The applicatin programs do not have direct access to the hardware, they must use the OS to access the hardware.
 
 ## Objectives
@@ -24,7 +24,7 @@ graph TD;
     D --> E[Hardware];
     E --> D;
 ```
-Utilities are set of system programs that help i program creation, managing files and controlling io devices.
+Utilities are set of system programs that help in program creation, managing files and controlling io devices.
 
 - OS services:
     - Program development
@@ -168,7 +168,38 @@ To minimize disk traffic, user memory was only written out when the incoming pro
 
 # Part 3: Major achievements
 
+Major advances in developmen include:
+1. Processes
+2. Memory Management
+3. Information protection and security
+4. Scheduling and resource management
+5. System structure
+
+Each advance is characterized by principles, or abstractions, developed to meet difficult practical problems. Taken together, these five areas span many of the key design and implementation issues of modern operating systems.
+
 ### Processes
+
+A process can be defined as:
+- a program in execution
+- an instance of a running program
+- the entity that can be assigned to, and executed on, a processor
+- a unit of activity characterized by a single sequential thread of execution, a current state, and an associated set of system resources
+
+The Proces was developed because of roblems people encoutered, there are three major lines of computer system development that created problems in timing and synchronization which contributed to its advancement, that are:
+1. Multiprogramming - Processor and I/O devices is busy to achieve maximum efficiency, is switched among the various programs residing in main memory
+2. Time sharing - be responsive to the individual user but be able to support many users at the same time
+3. Real-time transaction systems - a number of users are entering queries or updates against a database, and the system must respond to each user in a timely manner.
+
+The principal tool available to system programmers in developing the early multiprogramming and multiuser interactive systems was the interrupt. The activity of any job could be suspended by the occurrence of a defined event, such as an I/O completion. The processor would save some sort of context (e.g., program counter and other registers) and branch to an interrupt-handling routine which would determine the nature of the interrupt, process the interrupt, then resume user processing with the interrupted job or some other job.
+The design of the system software to coordinate these various activities turned out to be remarkably difficult. With many jobs in progress at any one time, each of which involved numerous steps to be performed in sequence, it became impossible to analyze all of the possible combinations of sequences of events. In the absence of some systematic means of coordination and cooperation among activities, programmers resorted to ad hoc methods based on their understanding of the environment that the OS had to control. These efforts were vulnerable to subtle programming errors whose effects could be observed only when certain relatively rare sequences of actions occurred. These errors were difficult to diagnose, because they needed to be distinguished from application software errors and hardware errors. Even when the error was detected, it was difficult to determine the cause, because the precise conditions under which the errors appeared were very hard to reproduce. In general terms, the four main causes of such errors were:
+- Improper synchronization - a program must wait until the data are available in a buffer
+- Failed mutual exclusion - more than one user or program tries to make use of a shared resource at the same time
+- Nondeterminate program operation - program execution is interleaved by the processor when memory is shared
+- Deadlock - two or more programs waiting for each other to finish
+
+To overcome these problems a  systimatic way to monitor and control the activities of the system was needed. Introducing the concept of PROCESS
+
+#### Components of a Process
 
 ### Memory Management
 
