@@ -185,7 +185,7 @@ A process can be defined as:
 - the entity that can be assigned to, and executed on, a processor
 - a unit of activity characterized by a single sequential thread of execution, a current state, and an associated set of system resources
 
-The Proces was developed because of roblems people encoutered, there are three major lines of computer system development that created problems in timing and synchronization which contributed to its advancement, that are:
+The Proces was developed because of problems people encoutered, there are three major lines of computer system development that created problems in timing and synchronization which contributed to its advancement, that are:
 1. Multiprogramming - Processor and I/O devices is busy to achieve maximum efficiency, is switched among the various programs residing in main memory
 2. Time sharing - be responsive to the individual user but be able to support many users at the same time
 3. Real-time transaction systems - a number of users are entering queries or updates against a database, and the system must respond to each user in a timely manner.
@@ -199,7 +199,34 @@ The design of the system software to coordinate these various activities turned 
 
 To overcome these problems a  systimatic way to monitor and control the activities of the system was needed. Introducing the concept of PROCESS
 
-#### Components of a Process
+Components of a Process:
+- an executable program (whata re my directives)
+- the associated data needed by the program (what am i working on)
+- the exection context (what is my progress), The execution context (or process state), is the internal data by which the OS is able to supervise and control the process. This internal information is separated from the process, because the OS has information not permitted to the process. The context includes all of the information the OS needs to manage the process, and the processor needs to execute the process properly. The context includes the contents of the various processor registers, such as the program counter and data registers. It also includes information of use to the OS, such as the priority of the process and whether the process is waiting for the completion of a particular I/O event.
+
+Process Management:
+1. two process exist in portion of main memory
+
+2. A block of memory is allocated to each process that contains:
+    - the program code
+    - the program data
+    - the execution context
+
+3. ech process is recorded in a process list built and maintained by the OS
+
+4. The list contains one entry of each process, which includes a pointer to the block of memory that contains the process.
+
+5. The entry may also include part or all of the execution context.
+
+6. the process index register contains the index into the process list of the process currently executing(controlling the processor).
+
+7. the program counter(PC) points to the next instruction to be executed in the process.
+
+8. the base and limit define the region in memory that contains the process. the base register hold the starting address of the region of memory, the limit is the size of the region.
+
+9. the PC and all data refrences are interupted relative to the base register and must not exceed the value in limit. this to prevent interprocess interference.]
+
+10. the content of the program that was temporarlly interrupted is recorded in its execution context. later, the OS can preform a process switch to resume the process.
 
 ### Memory Management
 
