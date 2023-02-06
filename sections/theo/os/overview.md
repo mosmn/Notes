@@ -240,9 +240,27 @@ The five principal storage management responsibilities of the OS are:
 
 ### Information protection and security
 
+Main Issues: availability, integrity, and confidentiality and authenticity
+
+- Availability - protecting the system against interruption
+- Confidentiality - access only for authorized users
+- Integrity - preventing unauthorized modification of data
+- Authenticity - proper verification of the identity of users and the validity of data
+
 ### Scheduling and resource management
+
+Key responsibility of an OS is managing resources, resource allocation policies must consider:
+
+- Efficiency - maximize throughput, minimize response time, accommodate as many users as possible
+- Fairness - processes are to be given equal and fair access to resources
+- Differential responsiveness - the OS may need to discriminate among different classes of jobs with different service requirements
 
 ### System structure
 
+The OS can be viewed as a series of levels due to its enormous complecity. Each level:
+- preforms a  related subset of functions
+- relies on next lower level to preform more primitive functions
+
+Well defined interface, meaning one level can be modified without affecting the other levels. this decomposes a problem into a number of more manageable subproblems.
 
 # Part 4: Characteristic of modern OS
