@@ -230,6 +230,14 @@ Process Management:
 
 ### Memory Management
 
+The five principal storage management responsibilities of the OS are:
+
+- Process isolation - OS must prevent one process from interfering with another process memory
+- Automatic allocation and managment - programs should be dinamically allocated across the memory hierarchy as required. allocation should be straightforward to the programmer.
+- Support of modular programming - programmers should be able to define program modules, and create, destroy, and alter the size of modules dynamically.
+- Protection and access control - OS must provide differnet ways to access memory by various users.
+- Long-term storage management - Many applications programs require means for storing information for extended periods of time, after the computer has been powered down, OS must provide a mechanism to store and retrieve data from secondary storage.
+
 ### Information protection and security
 
 ### Scheduling and resource management
