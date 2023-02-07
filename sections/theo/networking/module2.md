@@ -253,3 +253,5 @@ Sw-Floor-1# configure terminal
 Sw-Floor-1(config)# banner motd # Unauthorized access is prohibited. #
 Sw-Floor-1(config)#
 ```
+
+# Save Configuration 
