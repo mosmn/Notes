@@ -22,6 +22,10 @@
     - [Scrum](#scrum)
     - [Kanban](#kanban)
 
+- [Getting Hired](#getting-hired)
+    - [Resume](#resume)
+    - [Interview](#interview)
+
 # Programming Notes
 ### Git
 
