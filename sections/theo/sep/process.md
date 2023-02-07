@@ -35,6 +35,22 @@ This approach relies on the availability of reusable components or systems. The 
 
 # Process Activities
 
+## Specification
+
+The process activity of specifying the requirements for the system. The specification activity is concerned with the following:
+
+## Design and implementation
+
+The process activity of designing and implementing the system. The design and implementation activity is concerned with the following:
+
+## Validation
+
+The process activity of validating the system. The validation activity is concerned with the following:
+
+## Evolution
+
+The process activity of evolving the system. The evolution activity is concerned with the following:
+
 # Coping with Change
 
 # Process Improvement
