@@ -273,3 +273,28 @@ Different Architectural Approaches for OS:
 3. Symmetric multiprocessing
 4. Distributed operating systems
 5. Object-oriented design
+
+### Microkernel architecture
+
+OS kernel is a software
+- its the central module of the OS
+- part of the OS that is loaded first and remains in main memory
+- contains all the essential services required by other parts of the OS & apps
+- its loaded into a protected are of main memory to prevent being overwritten by other programs
+- responsiblities:
+    - memory management
+    - process and task management
+    - disk management
+- it connects the system hardware to the application software
+
+Monolithic: Until recently, most operating systems featured a large Monolithic kernel, A large kernel containing virtually the complete operating system, including scheduling, file system, device drivers, and memory management. All the functional components of the kernel have access to all of its internal data structures and routines. Typically, a monolithic kernel is implemented as a single process, with all elements sharing the same address space.
+
+Microkernel: A small, privileged operating system core that provides process scheduling, memory management, and communication services and relies on other processes(sometimes called servers) to perform some of the functions traditionally associated with the operating system kernel(These processes run in user mode). This approach decouples kernel and server development. Servers may be customized to specific application or environment requirements. The microkernel approach:
+- simplifies implementation
+- provides flexibility
+- and is well suited to a distributed environment.
+
+### Multithreading
+
+
+
