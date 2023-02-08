@@ -254,4 +254,128 @@ Sw-Floor-1(config)# banner motd # Unauthorized access is prohibited. #
 Sw-Floor-1(config)#
 ```
 
-# Save Configuration 
+# Save Configuration
+
+
+### Configuration Files
+
+Two system files that store the device configuration:
+
+- startup-config - This file is used to store the configuration that is loaded when the device is powered on. does not loss configuration when the device is powered off.
+- running-config - This file is used to store the current configuration. stored in RAM.
+
+to view running-config use the `show running-config` command.
+to view startup-config use the `show startup-config` command.
+
+To save the running-config to the startup-config, use the `copy running-config startup-config` command.
+
+### Alter the Running Configuration
+
+To restore the device to its previous configuration, use the `reload` privileged EXEC mode command. This command will reload the device and load the startup-config file.
+
+Downside: the brief amount of time that the device is offline, causing network downtime.
+
+When you run the reload command, the device will prompt you to save the running-config to the startup-config. to discard the changes, enter the `no` command.
+
+Alternatively, if unwanted changes where saved to the startup-config, it may be necessary to clear all the configurations using the `erase startup-config` privileged EXEC mode command. This command will erase the startup-config file and reload the device. press enter to confirm.
+
+### Capture Configuration to a Text File
+
+Configuration files can also be saved and archived to a text document following these steps:
+
+1. Open terminal emulator software such as PuTTY or TeraTerm.
+2. Enable logging in the terminal software and assign a name and file location to save the log file. The figure displays that All session output will be captured to the file specified (i e., MySwitchLogs).
+3. Run the `show running-config` privileged EXEC mode command.
+4. Step 4. Disable logging in the terminal software. by choosing the None session logging option.
+
+The text file created can be used as a record of how the device is currently implemented. The file could require editing before being used to restore a saved configuration to a device.
+
+to restore:
+
+1. Enter global configuration mode.
+2. Copy-paste the text file contents into the terminal window.
+
+that file will become the running-config on the device.
+
+### Ports and Addresses
+
+### IP Addresses
+
+- Its what we use to enable devices to locate each other and establish communication on the internet.
+
+- Structure of an IP address: Doted decimail notation and is represented by 4 decimal numbers between 0 and 255.
+
+- IPv4 subnet mask: a 32-bit number that differentiates the network portion of the address from the host portion. also, used with the ip address to determine which subnet the device belongs to.
+
+- The default gatway address: the ip address of the router that the host will use to access remote networks., including the internet.
+
+- IPv6 address: a 128 bit address written as a string of hexadecimal values. every 4 bits is represented by a single hexa digit. separated by colons.
+
+- IPv6 are not case sensitive.
+
+### Interfaces and Ports
+
+Network communications depend on end user device interfaces(Ports), networking device interfaces, and the cables that connect them.
+
+Differences between various types of media include:
+- Distance a media can successfully carry a signal
+- Environment in which media is to be installed
+- Amount of data and speed at which data is to be transmitted
+- Cost of the media and installation
+
+# Configure IP Addressing
+
+### Manual IP Address Configuration for End Devices
+
+To manually configure an IPv4 address on a Windows PC, open the Control Panel > Network Sharing Center > Change adapter settings and choose the adapter. Next right-click and select Properties to display the Local Area Connection Properties.
+
+Next, click Properties to open the Internet Protocol Version 4 (TCP/IPv4) Properties window. Then configure the IPv4 address and subnet mask information, and default gateway.
+
+### Automatic IP Address Configuration for End Devices
+
+To configure DHCP on a Windows PC, open the Control Panel > Network Sharing Center > Change adapter settings and choose the adapter. Next right-click and select Properties to display the Local Area Connection Properties.
+
+Next, click Properties to open the Internet Protocol Version 4 (TCP/IPv4) Properties window, then select Obtain an IP address automatically and Obtain DNS server address automatically.
+
+### Switch Virtual Interface Configuration
+
+To access the switch remotely, an IP address and a subnet mask must be configured on the SVI(Switch Virtual Interface). The SVI is a logical interface that is used to connect the switch to a router.
+
+- Enter the interface vlan 1 command in global configuration mode.
+- Next assign an IPv4 address using the ip address ip-address subnet-mask command.
+- Finally, enable the virtual interface using the no shutdown command.
+
+```
+Sw-Floor-1# configure terminal
+Sw-Floor-1(config)# interface vlan 1
+Sw-Floor-1(config-if)# ip address 192.168.1.20 255.255.255.0
+Sw-Floor-1(config-if)# no shutdown
+Sw-Floor-1(config-if)# exit
+Sw-Floor-1(config)# ip default-gateway 192.168.1.1
+```
+
+# Verify Connectivity
+
+`show` commands to verify configurations and use the `ping` command to verify basic connectivity between devices.
+
+```
+Sw-Floor-1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Vlan1
+FastEthernet0/1            unassigned      YES unset  up                    up
+FastEthernet0/2            unassigned      YES unset  up                    up
+FastEthernet0/3            unassigned      YES unset  up                    up
+```
+
+```
+Sw-Floor-1# ping
+Protocol [ip]:
+Target IP address:
+Repeat count [5]:
+Datagram size [100]:
+Timeout in seconds [2]:
+Extended commands [n]:
+Sweep range of sizes [n]:
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to
+```
