@@ -296,5 +296,43 @@ Microkernel: A small, privileged operating system core that provides process sch
 
 ### Multithreading
 
+Teachnique in which a process, executing an application is divided into threads that can run concurrently(meaning at the same time).
+
+Process || Thread
+-----------------|-----------------
+- a collection of one or more threads and associated system resources | - dispatchable unit of work
+- programmer has greater control over the modularity of the application and the timing of application related events | - includes a processor context and its own data area to enable subroutine branching
+- executes sequentially and is interruptible | - executes sequentially and is interruptible
+
+### Symmetric multiprocessing (SMP)
+
+Term that refers to a computer hardware architecture and also to the OS behavior that exploits that architecture
+
+- several processes can run in parallel
+- multiple processors are transparent to the user, the share same main memory and i/o devices and they can preform the same operations
+- the OS does the scheduling of threads or processes on individual processors and synchronizations among processors
+
+Advantages of SMP:
+- performance, more than one process can be running simultaneously, each on a different processor
+- availability, failure of a single processor does not halt the system
+- incremental growth, performance of a system can be enhanced by adding an additional processor
+- scaling, vendors can offer a range of products based on the number of processors configured in the system
+
+### Distributed OS
+
+Sodtware over a network of physically separate computers.
+
+Provides the illusion of
+-  a single main memory space
+- single secondary storage space
+- unified access facilities
+but in reality, the OS is distributed over a network of computers.
+
+### Object-oriented design
+
+- for adding modular extensions to a small kernel
+- allows programmers to customize the OS without disrupting the system integrity
+- eases the development of new OS features
+
 
 
