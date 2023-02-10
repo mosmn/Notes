@@ -61,7 +61,28 @@ Faster delivery | Lost control on evolution of reused software
 
 ## Specification
 
-The process activity of specifying the requirements for the system. The specification activity is concerned with the following:
+Two things are established in this process:
+1. What services are required?
+2. What are the constraints on the system?
+
+### Requirements engineering
+
+- To produce an agreed requirements document that specifis a system satisfying stakeholder(owner) requirements.
+
+- Presented at two levels of detail:
+    1. End-users and customers - high level statements of the requirements. (abstract)
+    2. System developers - detailed system specifications.(logical)
+
+- The RE process has 3 main activities:
+    1. Feasibility study
+        - Can the identified user needs may be satisfied using current software and hardware technologies?
+        - Will the proposed system will be cost-effective from a business point of view? 
+        - Can the proposed system develop within existing budgetary constraints?
+        - Should we develop the proposed system?
+    2. Requirements elicitation and analysis - delivering the system requirements through observation of existing systems, discussions with potential users and so on. May involve the develpoment of one or more system models and prototypes to help you understand the system to be specified.
+    3. Requirements specification - translating the info gathered during the Requirements Elicitation and Analysis activity into a document that defines a set of requirements. two types: end-user requirements and system requirements.
+    4. Requirements validation - checks the requirements for realism, consistency and completeness. erroes in the requirements document discovered and corrected.
+
 
 ## Design and implementation
 
