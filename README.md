@@ -142,7 +142,7 @@
 
 ### Database Fundamentals
 - [Introduction](sections/theo/dbf/introduction.md)
-- [Environment](sections/theo/dbf/environment.md)
+- [Environment](sections/theo/dbf/environoment.md)
 - [SQL](sections/theo/dbf/sql.md)
 - [Relational model concept](sections/theo/dbf/relational-model-concept.md)
 - [Data modeling](sections/theo/dbf/data-modeling.md)
