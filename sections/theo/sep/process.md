@@ -37,6 +37,12 @@ Clear and seperate phases | Difficut to change requirements| Well-defined requir
 
 This approach interleaves the process activities of specification, design, implementation and validation. The system is developed as a series of versions, with each version adding new functionality to the previous version. Could be plan-driven or agile.
 
+Benefits | Drawbacks | Applicability
+--- | --- | ---
+Reduce cost of changes | Invisible process, need regular deliveables to measure progress | Clear requirements
+Early feedback from the customer | System structure degrade as new increments are added | Product needs to be delivered quickly
+Fast software delivery & deployment | | New tech is being used
+
 ### Integration and configuration
 
 This approach relies on the availability of reusable components or systems. The system development focuses on configuring these components for use in the new setting and integrating them into a system. Could be plan-driven or agile.
