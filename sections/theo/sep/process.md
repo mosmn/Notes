@@ -92,7 +92,8 @@ The process of converting the system specification into an executable system.
 These two are closely related and may be interleaved(meaning that they may be performed in parallel).
 
 A general model of the design process:
-![design process](//imgs/dprocess.png)
+
+![design process](/imgs/dprocess.png)
 
 
 
