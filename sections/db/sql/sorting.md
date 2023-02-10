@@ -140,6 +140,7 @@ rank | operator
 7 | NOT
 8 | AND
 9 | OR
+
 You can use parentheses to override the default precedence.
 
 ```sql
@@ -206,3 +207,62 @@ WHERE salary > 60000
 ORDER BY first_name, annual_salary;
 ```
 
+# Substitution Variables
+
+Used to temporarily store values with single-ampersand (&) prefix and double-ampersand (&&) prefix. used to supplement the following:
+- WHERE conditions
+- ORDER BY clause
+- Column expressions
+- Table names
+- Entire SELECT statements
+
+## Single-ampersand substitution variables
+
+```sql
+SELECT last_name, first_name, salary, department_id
+FROM employees
+WHERE department_id = &dept_num;
+```
+it will prompt you to enter a value for &dept_num and then it will execute the query.
+
+in column names:
+```sql
+SELECT last_name, first_name, job_id, &col_name
+FROM employees
+WHERE &condition;
+ORDER BY &order_by;
+```
+this will prompt you to enter a value for &col_name, &condition, &order_by.
+
+## Double-ampersand substitution variables
+
+&& will allow you to reuse the varianle value without prompting you each time.
+
+```sql
+SELECT last_name, first_name, salary, department_id, &&col_name
+FROM employees
+ORDER BY &&col_name;
+```
+
+## DEFINE
+
+To create and initialize a substitution variable.
+
+```sql
+DEFINE dept_num = 90;
+
+SELECT last_name, first_name, salary, department_id
+FROM employees
+WHERE department_id = &dept_num;
+
+UNDEFINE dept_num;
+```
+undefine to remove the variable.
+
+## VERIFY
+
+to toggle the display of substitution variables. both before and after developer replaces the variable with a value.
+
+```sql
+SET VERIFY ON;
+```
