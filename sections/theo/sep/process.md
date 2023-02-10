@@ -73,7 +73,7 @@ Two things are established in this process:
     1. End-users and customers - high level statements of the requirements. (abstract)
     2. System developers - detailed system specifications.(logical)
 
-- The RE process has 3 main activities:
+- The RE process has 4 main activities:
     1. Feasibility study
         - Can the identified user needs may be satisfied using current software and hardware technologies?
         - Will the proposed system will be cost-effective from a business point of view? 
@@ -86,7 +86,15 @@ Two things are established in this process:
 
 ## Design and implementation
 
-The process activity of designing and implementing the system. The design and implementation activity is concerned with the following:
+The process of converting the system specification into an executable system.
+- Design, designing a software structure that realizes the specification.
+- Implementation, translating the design into an executable program.
+These two are closely related and may be interleaved(meaning that they may be performed in parallel).
+
+A general model of the design process:
+![design process](//imgs/dprocess.png)
+
+
 
 ## Validation
 
