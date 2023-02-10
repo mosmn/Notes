@@ -150,5 +150,17 @@ Approaches to process improvement:
 | | The process maturity approach | The agile approach
 --- | --- | ---
 Focuses | improving process and project management. | Iterative development
---- | introducing good software engineering practice. | The reduction of overhead in the software process
+|        | introducing good software engineering practice. | The reduction of overhead in the software process
 Description | The level of process maturity reflects the extent to which good technical and management practice has been adopted in organizational software development processes. | The primary characteristics of agile methods are rapid delivery of functionality and responsiveness to changing customer requirements.
+
+The process improvment cycle:
+1. Measurement - measure one or more attributes of the process or product, this forms a baseline to decide whether the process improvement has been successful.
+2. Analysis - the current process is assessed, and process weaknesses and bottlenecks are identified.
+3. Change - Address some of the identified process weaknesses. when the changes are made, the cycle repeats to collect data about the effectiveness of the changes.
+
+Process maturity models:(levels)
+1. Initial - processes unpredictable, chaotic, ad hoc, no documentation, no process improvement.
+2. Repeatable - processes are characterized for the project and often reactive.
+3. Defined - processes characterized for the project and proactive.
+4. Quantitatively managed - processes measured and controlled.
+5. Optimizing - focus on process improvement.
