@@ -47,6 +47,16 @@ Fast software delivery & deployment | | New tech is being used
 
 This approach relies on the availability of reusable components or systems. The system development focuses on configuring these components for use in the new setting and integrating them into a system. Could be plan-driven or agile.
 
+Type of reuseable software:
+- Stand-alone application systems – COTS (Commercial Off-The-Shelf)
+- Objects collection - .NET, Java Spring framework, React, etc.
+- Web service that provides remote invocation - REST API, SOAP, etc.
+
+Benefits | Drawbacks
+--- | ---
+Reduse costs and risks | System may not meet the customer's requirements
+Faster delivery | Lost control on evolution of reused software
+
 # Process Activities
 
 ## Specification
