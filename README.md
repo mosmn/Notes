@@ -95,7 +95,7 @@
 
 ### SQL
 - [Retrieving Data Using SQL the SQL SELECT statement](sections/db/sql/select.md)
-- [Restricting and Sorting Data](sections/db/sql/restrict-sort.md)
+- [Restricting and Sorting Data](sections/db/sql/sorting.md)
 - [Single-Row Functions](sections/db/sql/single-row-functions.md)
 - [Group Functions](sections/db/sql/group-functions.md)
 
@@ -103,7 +103,7 @@
 
 ### Operating Systems Concepts
 - [Overview](sections/theo/os/overview.md)
-- [Process Description and Control](sections/theo/os/process.md)
+- [Process Description and Control](sections/theo/os/processdc.md)
 - [Concurrency - Mutual Exclusion](sections/theo/os/mutex.md)
 - [Concurrency-Deadlock and Starvation](sections/theo/os/deadlock.md)
 - [Uniprocessor Scheduling](sections/theo/os/scheduling.md)
