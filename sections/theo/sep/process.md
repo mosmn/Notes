@@ -127,4 +127,28 @@ As requirements change through changing business circumstances, the software tha
 
 # Coping with Change
 
+Chnage is inevitable in large software projects because:
+- Business changes lead to new and changed requirements.
+- New technologies are introduced.
+- Changing platforms.
+
+Change leads to rework, Cost of change = cost of rework(e.g. re-analysing requirements) + cost of implementing new functionality.
+
+To reduce cost of rework:
+- Change anticipation - anticipate(predict) the need for change and plan for it. e.g Prototyping
+- Change tolerance - the process is designed so changes can be accommodated at relatively low cost.. e.g. incremental development
+
+Two ways of coping with change and changing system requirements:
+- System prototyping - a version of the system or part of the system is developed quickly to check the customers requirements and the feasibility of design decisions. supports change anticipation.
+- Incremental delivery - system increments are delivered to the customer for comment and experimentation. supports change tolerance. and change avoidance.
+
 # Process Improvement
+
+A way of enhancing the quality of software, reducing costs or accelerating the development process. understands the existing processes and changing these proceses to increase product quality and reduce costs and development time.
+
+Approaches to process improvement:
+| | The process maturity approach | The agile approach
+--- | --- | ---
+Focuses | improving process and project management. | Iterative development
+        | introducing good software engineering practice. | The reduction of overhead in the software process
+Description | The level of process maturity reflects the extent to which good technical and management practice has been adopted in organizational software development processes. | The primary characteristics of agile methods are rapid delivery of functionality and responsiveness to changing customer requirements.
