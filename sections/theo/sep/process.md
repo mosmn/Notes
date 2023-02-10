@@ -95,7 +95,7 @@ A general model of the design process:
 
 ![design process](/imgs/dprocess.png)
 
-- Platform information - most software interfaces with othe software systems, these other systems include operating systems, databases, middleware, etc. These make up the "Software Platform". environment in which the software will execute.
+- Platform information - most software interfaces with othe software systems, these other systems include operating systems, databases, middleware, etc. These make up the "Software Platform". environment in which the software will execute. Information about the platform is needed for designers to decide how to best integrate the software with its environment.
 
 Design Activities:
 - Architectural design - identify the overall structure of the system. the principal components and how they relate to each other.
@@ -111,11 +111,19 @@ System implementation:
 
 ## Validation
 
-The process activity of validating the system. The validation activity is concerned with the following:
+Verification and validation (V & V) : to show that a system conforms to its specification and meets the requirements of the system customer. Involves:
+- checking and review processes and system testing.
+- executing the system with test cases that are derived from the specification of the real data to be processed by the system.
+Testing is the most commonly used V & V activity.
+
+Stages of testing:
+1. Component testing - testing of individual components independently. components may be functions, objects or coherent grouping of theseb entities.
+2. System testing - testing the system as a whole
+3. Customer acceptance testing - testing the system in the real environment.
 
 ## Evolution
 
-The process activity of evolving the system. The evolution activity is concerned with the following:
+As requirements change through changing business circumstances, the software that supports the business must also evolve and change.
 
 # Coping with Change
 
