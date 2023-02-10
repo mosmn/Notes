@@ -25,6 +25,14 @@ Its an abstract representation of a process. it presents a descreption of the pr
 
 Plan-driven model. This approach separates the process into distinct phases, each of which is completed before the next phase begins.
 
+Benefits | Drawbacks | Applicability
+--- | --- | ---
+Clear and seperate phases | Difficut to change requirements| Well-defined requirements
+    | No feedback from the customer. | Changes are limited during the design process
+    | | Large systems
+    | | Embedded systems
+    | | Critical systems
+
 ### Incremental development
 
 This approach interleaves the process activities of specification, design, implementation and validation. The system is developed as a series of versions, with each version adding new functionality to the previous version. Could be plan-driven or agile.
