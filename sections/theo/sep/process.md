@@ -95,7 +95,19 @@ A general model of the design process:
 
 ![design process](/imgs/dprocess.png)
 
+- Platform information - most software interfaces with othe software systems, these other systems include operating systems, databases, middleware, etc. These make up the "Software Platform". environment in which the software will execute.
 
+Design Activities:
+- Architectural design - identify the overall structure of the system. the principal components and how they relate to each other.
+- Database design - design the system data structure and how these are represented in a database.
+- Interface design - design the interface between system components. must be unambiguous.
+- Component selection and design - searching for reusable components and designing new components.
+
+System implementation:
+- By developing a program(s) or configuring an application system.
+- Design and implementation are interleaved for most systems.
+- Programming is an individual activity with no standard process.
+- Debugging is the process of finding and correcting errors in the program.
 
 ## Validation
 
