@@ -79,3 +79,26 @@ May be one of the following methods:
 # Protocols
 
 ### Network Protocol Overview
+
+Protocol type | Description
+---|---
+Network Communications Protocols | Protocols enable two or more devices to communicate over one or more networks. The Ethernet family of technologies involves a variety of protocols such as IP, Transmission Control Protocol (TCP), HyperText Transfer Protocol (HTTP), and many more.
+Network Security Protocols | Protocols secure data to provide authentication, data integrity, and data encryption. Examples of secure protocols include Secure Shell (SSH), Secure Sockets Layer (SSL), and Transport Layer Security (TLS).
+Routing Protocols | Protocols enable routers to exchange route information, compare path information, and then to select the best path to the destination network. Examples of routing protocols include Open Shortest Path First (OSPF) and Border Gateway Protocol (BGP).
+Service Discovery Protocols | Protocols are used for the automatic detection of devices or services. Examples of service discovery protocols include Dynamic Host Configuration Protocol (DHCP) which discovers services for IP address allocation, and Domain Name System (DNS) which is used to perform name-to-IP address translation.
+
+### Network Protocol Functions
+
+Function | Description
+---|---
+Addressing | identifies the sender and receiver of a message using a defined addressing scheme. such as IPv4 and IPv6.
+Reliability | provides garenteed delivery mechanisms in case messages are lost or corrupted in transit. TCP is the most common protocol used for reliability.
+Flow control | ensures that data flows at an efficient rate. TCP provides this.
+Sequencing | uniquely lables each transmitted segement of data. the receiving device uses this to reassemble the data in the correct order. useful if data segments are lost or arrive out of order. TCP provides this.
+Error detection | determines if data became corrupted during transmission. many protocols provide including Ethernet, TCP, IPv4, and IPv6.
+Application interface | contains information used for process-to-process communications between network applications. For example, when accessing a web page, HTTP or HTTPS protocols are used to communicate between the client and server web processes.
+
+### Protocol Interaction
+
+Common network protocols used when a device sends a request to a web server for its web page:
+
