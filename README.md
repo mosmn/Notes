@@ -81,7 +81,7 @@
 ### C++
 
 - [Basics](sections/cpp/basics.md)
-- [Advanced Functions](sections/cpp/afunctions.md)
+- [Advanced Functions](sections/cpp/functions.md)
 - [Multidimensional Arrays](sections/cpp/multidimensional-arrays.md)
 - [Pointers](sections/cpp/pointers.md)
 - [Structures](sections/cpp/structures.md)
