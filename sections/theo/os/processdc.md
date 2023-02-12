@@ -26,6 +26,27 @@ Let us suppose the processor begins to execute this program code, and we refer t
 
 # Process States
 
+During program execution, a process is created for that program.
+
+- From the processor POV, it executes instructions in sequence dictated by the changes in the program counter.
+
+Overtime, the program counter may refer to code on different programs that are part of different processes.
+
+- From a process POV, its execution involves a sequence of instructions within a program.
+
+We can characterize the behavior of a process by listing the sequence of instructions that execute for that process. the behavior of the processor can be characterized by showing how the traces of the various processes are interleaved
+
+- Such a list is called a Trace of the process, the listing containing the sequence of instructions that execute for that process.
+
+Dispatcher: small program that switches the processor from one process to another.
+
+## Two-State Process Model
+
+## Five-State Process Model
+
+
 # Process Description
 
 # Process Control
+
+# Security Issues
