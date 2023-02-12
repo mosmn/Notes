@@ -22,3 +22,30 @@ The dissatisfaction with the overheads involved in software design methods of th
 Aim: to reduce the overheads in the software process (for example, limiting the time spent on documentation) and to be able to respond quickly to changing requirements without excessive rework.
 
 ## Agile Manifesto
+
+It values:
+- Individuals and interactions over processes and tools.
+- Working software over comprehensive documentation.
+- Customer collaboration over contract negotiation.
+- Responding to change over following a plan.
+
+Based on the manifesto, all different agile processes share a common set of principles:
+
+Principle | Description
+---|---
+Customer involvement | Customers should be closely involved throughout the development process. Their role is provide and prioritize new system requirements and to evaluate the iterations of the system.
+Incremental delivery | The software is developed in increments with the customer specifying the requirements to be included in each increment.
+People not process | The skills of the development team should be recognized and exploited. Team members should be left to develop their own ways of working without prescriptive processes.
+Embrace change | Expect the system requirements to change and so design the system to accommodate these changes.
+Maintain simplicity | Focus on simplicity in both the software being developed and in the development process. Wherever possible, actively work to eliminate complexity from the system.
+
+## Applicability
+
+- Product development where a software company is developing a small to medium sized product for sale.
+- Custom system development within an organization, where there is a clear commitment from the customer to become involved in the development process and where there are few external rules and regulations that affect the software.​
+
+# Agile development techniques
+
+# Agile project management​
+
+# Scaling agile methods​
