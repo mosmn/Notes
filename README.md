@@ -11,6 +11,9 @@
     - [SQL](#sql)
     - [MongoDB](#mongodb)
 
+- [Cloud](#cloud)
+    - [AWS](#aws)
+
 - [Theoretical](#theoretical)
     - [Operating Systems Concepts](#operating-systems-concepts)
     - [Software Engineering Principles](#software-engineering-principles)
@@ -98,6 +101,11 @@
 - [Restricting and Sorting Data](sections/db/sql/sorting.md)
 - [Single-Row Functions](sections/db/sql/single-row-functions.md)
 - [Group Functions](sections/db/sql/group-functions.md)
+
+# Cloud
+
+### AWS
+- [Certification](sections/cloud/cert.md)
 
 # Theoretical
 
