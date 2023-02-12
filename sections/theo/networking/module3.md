@@ -102,3 +102,12 @@ Application interface | contains information used for process-to-process communi
 
 Common network protocols used when a device sends a request to a web server for its web page:
 
+- Hypertext Transfer Protocol (HTTP) - controls the way how the web server an web client communicate. it defines the content and formatting of the request and response that are exchanged. both client and server software implement this protocol as part of the application. it relies on other protocols to provide the underlying transport and network services.
+- Transmission Control Protocol (TCP) - manages individual conversations. its responsible for garanteeinf the reliable delivery of data and managing flow control.
+- Internet Protocol (IP) - responsible for delivering data from one device to another. its used by routers to forward message from one network to another.
+- Ethernet - responsible for delivering message from one NIC(network interface card) to another on the same Ethernet local area network LAN.
+
+# Protocol Suites
+
+# Standards Organizations
+
