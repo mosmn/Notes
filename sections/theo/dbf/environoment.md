@@ -42,3 +42,26 @@ DB systems refers to an organization of components that define and regulate thr 
 
 # ANSI-SPARC architecture
 
+- Its an abstract design standard for a DBMS first proposed 1975.
+- Most modren commercial DBMSs are based on this system. however, it never became an formal industry standard.
+
+It consists of 3 layers:
+1. External level, how data is viewed by an individual user.(viewed based on the user's needs, e.g shanging an attribute name aka aliasing)
+2. Conceptual level, how data is viewed by A community of users.(original data)
+3. Internal level, how data is physically stored.
+
+- The whole point of this architecture is to ensure data independence, that means if one layer is changed, the other layers are not affected.
+
+Objectives of the architecture:
+- allow all users to access the same data.
+- make sure a users view is immune(meaning unaffected) to changes made by other users.
+- allow DBA (database administrator) to change the conceptual/internal level without affecting the external level.
+- ensure the internal structure is unaffected by changes to the physical aspects of the storage.
+- users can use the DB without needing to know the physical storage details.
+
+Again, all these objectives are required to achieve data independence.
+- Logical data independence, conceptual schema changes should not require changes to the external schema.
+- Physical data independence, internal schema changes should not require changes to the conceptual schema.
+
+
+
