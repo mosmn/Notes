@@ -167,4 +167,9 @@ Organizations involved with the development of TCP/IP:
 
 ### Electronic and Communications Standards
 
+- Institute of Electrical and Electronics Engineers (IEEE, pronounced “I-triple-E”) - dedicated to creating standards in power and energy, healthcare, telecommunications, and networking​
+- Electronic Industries Alliance (EIA) - develops standards relating to electrical wiring, connectors, and the 19-inch racks used to mount networking equipment
+- Telecommunications Industry Association (TIA) - develops communication standards in radio equipment, cellular towers, Voice over IP (VoIP) devices, satellite communications, and more​
+- International Telecommunications Union-Telecommunication Standardization Sector (ITU-T) - defines standards for video compression, Internet Protocol Television (IPTV), and broadband communications, such as a digital subscriber line (DSL)
+
 # Reference Models
