@@ -102,4 +102,42 @@ Database architectures can be distinguished by examinig the application logic is
 - Business rules are enforced in the applications - Also, the applications must handle concurrency(Concurrency refers to the ability of a system to allow multiple users or processes to access shared resources, such as data or files, at the same time.) control. Possibly by file locking.
 - Each user runs a copy of the same application and accesses the same files.
 
+## Two-tier client/server architecture
 
+- A Two-tier Architecture in DBMS is a Database architecture where the presentation layer runs on a client (PC, Mobile, Tablet, etc.), and data is stored on a server called the second tier. 
+- provides added security to the DBMS as it is not exposed to the end-user directly.
+- A Contact Management System created using ​ MS- Access is an example of Two-tier architecture.
+
+## Three-tier client/server architecture
+
+- A Three-Tier Architecture in DBMS is the most popular client server architecture in DBMS in which the development and maintenance of functional processes, logic, data access, data storage, and user interface is done independently as separate modules.
+
+- The three tiers are:
+    - Presentation layer, runs on the client and is responsible for presenting data to the user (PC, Mobile, Tablet, etc.).
+    - Application layer, runs on the server and is responsible for processing the data and providing the results to the presentation layer.
+    - Database.
+any large wibsites on the internet are built using this architecture.
+
+# Qs?
+
+- Define the terms data and information. Explain how the two terms differ.​
+
+Data is a collection of raw facts. Information is data that has been processed to be meaningful and useful.
+
+- Compare and contrast the two-tier client server architecture for traditional DBMSs with the three-tier client server architecture. Why is three-tier architecture more appropriate for the Web?​
+
+Two-tier client-server architecture is a traditional architecture that consists of two layers: the client layer and the server layer. In this architecture, the client application directly communicates with the database server. The client layer provides the user interface and the application logic, while the server layer provides the database management system and the data storage.
+
+Three-tier client-server architecture, on the other hand, is an architecture that consists of three layers: the presentation layer, the application layer, and the data layer. In this architecture, the client layer communicates with the application server, which in turn communicates with the database server. The presentation layer provides the user interface, the application layer provides the application logic, and the data layer provides the data storage and management.
+
+The main difference between the two architectures is that in the three-tier architecture, there is an additional layer between the client and the database server. The application server acts as an intermediary between the client and the database server, providing additional functionality such as application logic, data validation, and security.
+
+The three-tier architecture is more appropriate for the Web because it provides better scalability, reliability, and flexibility compared to the two-tier architecture. The application server in the three-tier architecture allows for load balancing and horizontal scaling, which can help to handle large numbers of concurrent users. Additionally, the three-tier architecture separates the application logic from the data storage, making it easier to modify and upgrade the application without affecting the data storage. This makes it easier to adapt to changing business needs and user requirements.
+
+Furthermore, the three-tier architecture also provides improved security, as the application server can act as a firewall, protecting the database server from direct access by the client. This helps to prevent unauthorized access and improves data privacy.
+
+Overall, the three-tier architecture is more suitable for Web applications, as it provides better scalability, reliability, and security, and enables more flexibility in application development and maintenance.
+
+- Discuss the concept of data independence and explain its importance in a database environment.
+
+Data independence refers to the ability to change the database schema without affecting the applications that use the data. There are two types of data independence: logical data independence and physical data independence.
