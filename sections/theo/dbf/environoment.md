@@ -78,6 +78,7 @@ Database architectures can be distinguished by examinig the application logic is
 - Presentation logic, how the data is presented to the user.
 - Processing logic, handles data processing logic, business rules logic , anddata management logic.
 - Storage logic, resposible for storage and retrieval of data from actual storage devices.
+
 ... the type of architecture is determined based on where these components are processed.
 
 ## Traditional mainframe architecture
@@ -116,6 +117,7 @@ Database architectures can be distinguished by examinig the application logic is
     - Presentation layer, runs on the client and is responsible for presenting data to the user (PC, Mobile, Tablet, etc.).
     - Application layer, runs on the server and is responsible for processing the data and providing the results to the presentation layer.
     - Database.
+
 any large wibsites on the internet are built using this architecture.
 
 # Qs?

@@ -109,5 +109,62 @@ Common network protocols used when a device sends a request to a web server for 
 
 # Protocol Suites
 
+### Network Protocol Suites
+
+- A protocol suite is a group of inter-related(work together) protocols necessary to perform a communication function.
+
+- A protocol stack shows how the individual protocols within a suite are implemented.
+
+- The protocols are viewed in terms of layers, with each higher-level service depending on the functionality defined by the protocols shown in the lower levels.
+
+- Lower layers are concerned with moving data over the network and providing services to the higher layers.
+
+- Higher layers are concerned with the content of the message being sent.
+
+### Evolution of Protocol Suites
+
+There were several compering types of protocol suites:
+1. Internet protocol suite or TCP/IP - the most common and relevant protocol suite used today. its an open standard protocol suit maintained by the Internet Engineering Task Force (IETF).
+2. Open system interconnection (OSI) protocols - developed jointly in 1977 by the international organization for standerdization (ISO) and the International Telecommunications Union (ITU). it includes seven layer model called the OSI model. replaced by the TCP/IP suite.
+3. AppleTalk - developed by Apple in 1985. it was used in Apple computers and networks. in 1995 Apple discontinued AppleTalk and replaced it with TCP/IP.
+4. Novell NetWare - developed by Novell in 1983. it was used in Novell networks. in 1995 Novell discontinued NetWare and replaced it with TCP/IP to replace IPX.
+
+### TCP/IP Protocol Suite
+
+The two most important aspects of TCP/IP for vendors and manufacturers are:
+- Open standard protocol suite - its freely avaliable to anyone who wants to use it.
+- Standard-based protocol suite - its been endorsed by the network industry and approved by a standards organization.
+
+### TCP/IP Communication Process​
+
+- A web server encapsulating and sending a web page to a client.
+- A client de-encapsulating the web page for the web browser
+
 # Standards Organizations
 
+### Open Standards
+
+Open standards encourage:
+- interoperability - the ability of different devices to work together.
+- competition - the ability of different vendors to compete for business.
+- innovation - the ability of different vendors to develop new products and services.
+
+Standards organizations are:
+- vendor-neutral - they are not owned or controlled by any one vendor.
+- non-profit organizations - they are not owned or controlled by any one vendor.
+- established to develop and promote open standards.
+
+### Internet Standards
+
+- Internet society promotes the open development and evolution of the Internet.
+- Internet architecture board (IAB) - responsible for management and development of the Internet standards.
+- Internet engineering task force (IETF) - develops, updates, and maintains Internet and TCP/IP technologies.
+- Internet research task force (IRTF) - long-term researches and develops new Internet technologies.
+
+Organizations involved with the development of TCP/IP:
+- Internet corporation for assigned names and numbers (ICANN) - Coordinates IP address allocation, the management of domain names, and assignment of other information
+- Internet assigned numbers authority (IANA) - Oversees and manages IP address allocation, domain name management, and protocol identifiers for ICANN
+
+### Electronic and Communications Standards
+
+# Reference Models
