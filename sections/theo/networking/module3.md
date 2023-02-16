@@ -173,3 +173,121 @@ Organizations involved with the development of TCP/IP:
 - International Telecommunications Union-Telecommunication Standardization Sector (ITU-T) - defines standards for video compression, Internet Protocol Television (IPTV), and broadband communications, such as a digital subscriber line (DSL)
 
 # Reference Models
+
+### The Benefits of Using a Layered Model
+
+- Assisting in protocol design because protocols that operate at a specific layer have defined information that they act upon and a defined interface to the layers above and below
+- Fostering competition because products from different vendors can work together
+- Preventing technology or capability changes in one layer from affecting other layers above and below
+- Providing a common language to describe networking functions and capabilities
+
+### The OSI Reference Model
+
+OSI Model Layer	| Description
+---|---
+7 - Application | The application layer contains protocols used for process-to-process communications.
+6 - Presentation | The presentation layer provides for common representation of the data transferred between application layer services.
+5 - Session | The session layer provides services to the presentation layer to organize its dialogue and to manage data exchange.
+4 - Transport | The transport layer defines services to segment, transfer, and reassemble the data for individual communications between the end devices.
+3 - Network | The network layer provides services to exchange the individual pieces of data over the network between identified end devices.
+2 - Data Link | The data link layer protocols describe methods for exchanging data frames between devices over a common media
+1 - Physical | The physical layer protocols describe the mechanical, electrical, functional, and procedural means to activate, maintain, and de-activate physical connections for a bit transmission to and from a network device.
+
+### The TCP/IP Protocol Model
+
+TCP/IP Model Layer | Description
+---|---
+4 - Application | Represents data to the user, plus encoding and dialog control.
+3 - Transport | Supports communication between various devices across diverse networks.
+2 - Internet | Determines the best path through the network.
+1 - Network Access | Controls the hardware devices and media that make up the network.
+
+### OSI and TCP/IP Model Comparison
+
+The two models differ in how they relate to the layers above and below each layer:
+
+- OSI layer 3, the network layer, is equivalent to the TCP/IP model's Internet layer.
+- OSI layer 4, the transport layer, is equivalent to the TCP/IP model's transport layer.
+- OSI layer 5,6, and 7, the session, presentation, and application layers, are equivalent to the TCP/IP model's application layer.
+- OSI layer 1 and 2, the physical and data link layers, are equivalent to the TCP/IP model's network access layer.
+
+# Data Encapsulation
+
+### Segmenting Messages
+
+- Segmenting is the process of breaking up messages into smaller units. 
+- Multiplexing is the processes of taking multiple streams of segmented data and interleaving them together.​
+
+Segmenting messages has two primary benefits:​
+
+1. Increases speed - Large amounts of data can be sent over the network without tying up a communications link.​
+2. Increases efficiency - Only segments which fail to reach the destination need to be retransmitted, not the entire data stream.​
+
+### Sequencing
+
+- Sequencing messages is the process of numbering the segments so that the message may be reassembled at the destination.​
+
+- TCP is responsible for sequencing the individual segments.
+
+### Protocol Data Units(PDUs)
+
+Encapsulation is the process where protocols add their information to the data.​
+
+- At each stage of the process, a PDU has a different name to reflect its new functions. ​
+
+- There is no universal naming convention for PDUs, in this course, the PDUs are named according to the protocols of the TCP/IP suite. ​
+
+PDUs passing down the stack are as follows:​
+
+1. Data (Data Stream)​
+2. Segment​
+3. Packet​
+4. Frame​
+5. Bits (Bit Stream)
+
+### Data Encapsulation & Decapsulation
+
+- Encapsulation is a top down process.​The level above does its process and then passes it down to the next level of the model. This process is repeated by each layer until it is sent out as a bit stream.​
+
+- Data is de-encapsulated as it moves up the stack.​ When a layer completes its process, that layer strips off its header and passes it up to the next level to be processed. This is repeated at each layer until it is a data stream that the application can process.
+
+# Data Access
+
+### Addressing
+
+The network and data link layers are responsible for delivering the data from the source device to the destination device. protocols at both layers contain a source and destination address, but their addresses have different purposes:
+
+- Network layer source and destination addresses - Responsible for delivering the IP packet from the original source to the final destination, which may be on the same network or a remote network.
+- Data link layer source and destination addresses - Responsible for delivering the data link frame from one network interface card (NIC) to another NIC on the same network.
+
+### Layer 3 Logical Address
+
+The IP packet contains two IP addresses:​
+
+- Source IP address - The IP address of the sending device,  original source of the packet.​
+- Destination IP address - The IP address of the receiving device, final destination of the packet.​
+
+These addresses may be on the same link or remote.
+
+### Devices on the Same Network
+
+When devices are on the same network the source and destination will have the same number in network portion of the address.​ e.g.
+PC1 – 192.168.1.110​
+FTP Server – 192.168.1.9
+
+### Devices on a Remote Network
+
+The IP address of the destination device will represent hosts on different networks.​ e.g.
+PC1 – 192.168.1.110
+Web Server: 172.16.1.99
+
+### Data Link Addresses
+
+Since data link addressing is local addressing,  it will have a source and destination for each segment or hop of     the journey to the destination.​
+
+The MAC addressing for the first segment is:​
+
+Source –  (PC1 NIC) sends frame​
+
+Destination – (First Router- DGW interface) receives frame​
+
