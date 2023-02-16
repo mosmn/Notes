@@ -1,4 +1,9 @@
-Even tho there are many different types of software systems(as introduced in [chap1](/sections/theo/sep/intro.md)), and there is no universal process that can be applied to all of them,
+Even tho there are many different types of software systems(as introduced in [chap1](/sections/theo/sep/intro.md)), and there is no universal process that can be applied to all of them, the right process depends on:
+
+- customer and regulatory requirements
+- environment where the software will be used
+- type of software being developed
+
 they all must include in some form the four fundamental activities of software engineering: specification, design implementation, validation and evolution.
 
 Its also important to describe what is produced, who is involved and conditions that influence the sequence of activities:
