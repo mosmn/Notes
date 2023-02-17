@@ -179,4 +179,47 @@ How pair programming can support the Agile principles​?
 
 # Agile project management​
 
+## Scrum
+
+An implementation of agile. A project management framework for managing and controlling iterative and incremental projects.
+
+Cycle:
+- Plane, we do just enough planning to get started and then we adapt the plan as we go along.
+- Build, we buid what we planned
+- Test & review, we test and review that feature set and get it ready to ship
+
+When that cycle is complete we endup with a potentially shippable product.
+
+This process takes 1-3 weeks to complete.
+
+The process is then repeated time and time again reducing the time from planning to development to testing and review.
+
+You end up with several incremental releases called sprints.
+
+3 key rols in scrum:
+- Product owner​, person responsibe for defining the features that are needed in the product.
+- Scrum master​, servent leader to the team responsible for protecting the team, the process, and running the meetings.
+- Development team​, made of anyone that helps to build the product.
+
+3 Artifacts in scrum:
+- Product backlog​, list of all the features(user stories) that are needed in the product by the product owner.
+- Sprint backlog​, has the highest proirity user stories. get estimated for size and committed for the next sprint.
+- Burndown chart​, shows the progress of the sprint.
+
+3 ceremonies in scrum:
+- Sprint planning​, the product owner, scrummaster, and team meeet to discuss & estimates the size of the user stories.
+- Daily scrum​, a brief standup meeting that takes place every day of the sprint, the team discusses what they compleated since the last meeting, what they are working on, and anything that might be blocked or need help.
+- Sprint review​, the team demos the work that they have done in the sprint to the product owner and other stakeholders and what they can do to improve the process going forward.
+
+### Scrum workflow
+1. Product owner - creates a product backlog with the features that are needed in the product, then proritizes them and bring the list to the team.
+2. Sprint planning - the team, product owner, and scrum master meet to discuss the to priority user stories determing what can go into the next sprint.
+3. Sprint backlog - the output of the sprint planning meeting is a list of user stories that are ready to be worked on for the next sprint.
+4. Sprint - 1-3 weeks of work, the team works on the user stories in the sprint backlog until they are done. during the sprint the daily scrum is held every day.
+5. Outcome - potentially shippable product, the product owner can decide to release the product or not.
+6. Sprint review - the team demos the work that they have done in the sprint to the product owner and other stakeholders.
+7. Sprint retrospective - the team discusses what went well and what didn't go well in the sprint and what they can do to improve the process going forward.
+
+![scrum workflow](/imgs/scrum.png)
+
 # Scaling agile methods​
