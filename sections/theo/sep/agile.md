@@ -46,6 +46,50 @@ Maintain simplicity | Focus on simplicity in both the software being developed a
 
 # Agile development techniques
 
+## Extreme programming (XP)
+
+- A lightweight methodolgy for small to medium sized teams developing software in the face of vague or rapidly changing requirements.
+
+- Its humanistic because its centered on people and their interactions.
+
+- Its a discipline, meaning it includes practices that we need to follow not just randomlly programming.
+
+Adopte a mentality of sufficiency, meaning delivering only what is necessary to meet the requirements and avoid over-engineering. In other words, developers should strive to create the simplest solution that solves the problem at hand without adding unnecessary features or complexity. This approach can help to avoid waste, reduce costs, and increase the speed of development.
+
+Most important aspects of XP:
+- Rapidly develop and deliver working software.
+- Fast response to change.
+- Easy to manage people (small and medium development teams).
+
+Lightweight is considered as not overburdening the development process. How is it realized in Agile practice?​
+- Focus on code rather than documentation​
+- Activities for  design  , implementation, testing are interleaved instead of in separate phase
+
+XP values & principles:
+- communication, tries to keep the right communication flowing.
+- simplicity, we wanna build something simple but not trash.
+- feedback, used to drive changes.
+- courage, we need to be brave to try new things and throw away things that dont work.
+
+How do we accomplish these values?​ here are some XP practices that help us to achieve these values:
+Practices | Description
+---|---
+Test-first development | Write tests for a new feature before writing the code to implement the feature.
+Sustainable pace | The development team should work at a sustainable pace, not overloading the team with too much work.
+Small releases | First the important functionality that provide business value is developed. releases of the system are then frequent and small increments.
+Simple design | The design of the system should be simple and easy to understand.
+Pair programming | Two developers work in pairs, checking each other's work.
+On-site customer | The customer is on-site with the development team, working closely with them to ensure that the system is being developed to meet the customer's needs.
+Incremental planning | requirements are recorded on "story cards" and the development team breaks these down into "tasks".
+Continuous integration | The development team integrates their code into a shared repository several times a day.(pull request)
+Collective ownership | The development team owns the code and is responsible for its quality.
+Refactoring | All developers are expected to refactor the code continuously as soon as possible code improvements are found. This keeps the code simple and maintainable.
+
+See how the align with agile principles:
+![s](/imgs/aprin.png)
+
+
+
 # Agile project management​
 
 # Scaling agile methods​
