@@ -223,3 +223,89 @@ You end up with several incremental releases called sprints.
 ![scrum workflow](/imgs/scrum.png)
 
 # Scaling agile methods​
+
+Agile methods have proved to be successful for small and medium sized projects that can be developed by a small co-located team.​
+
+It is sometimes argued that the success of these methods comes because of improved communications which is possible when everyone is working together.​
+
+Scaling up agile methods involves changing these to cope with larger, longer projects where there are multiple development teams, perhaps working in different locations.
+
+- Scaling up - using agile methods for developing large software systems that cannot be developed by a small team.
+- Scaling out - how agile methods can be introduced across a large organization with many years of software development experience.
+
+Practical problems with agile methods:
+- The informality of agile development is incompatible with the legal approach to contract definition that is commonly used in large companies.​
+- Agile methods are most appropriate for new software development rather than software maintenance. Yet the majority of software costs in large companies come from maintaining their existing software systems.​
+- Agile methods are designed for small co-located teams yet much software development now involves worldwide distributed teams.
+
+Contractual issues:
+- Most software contracts for custom systems are based around a specification, which sets out what has to be implemented by the system developer for the system customer.​
+
+- However, this precludes interleaving specification and development as is the norm in agile development.​
+
+- A contract that pays for developer time rather than functionality is required. However, this is seen as a high risk on many legal departments because what has to be delivered cannot be guaranteed
+
+### Agile methods and software maintenance
+
+Most organizations spend more on maintaining existing software than they do on new software development. So, if agile methods are to be successful, they have to support maintenance as well as original development.
+
+Two key issues:​
+- Are systems that are developed using an agile approach maintainable, given the emphasis in the development process of minimizing formal documentation?​
+- Can agile methods be used effectively for evolving a system in response to customer change requests?​
+
+Problems may arise if original development team cannot be maintained.
+
+Agile maintenance:
+- Key problems are:​
+    - Lack of product documentation​
+    - Keeping customers involved in the development process​
+    - Maintaining the continuity of the development team​
+- Agile development relies on the development team knowing and understanding what has to be done. ​
+- For long-lifetime systems, this is a real problem as the original developers will not always work on the system.
+
+### Agile vs plan-driven methods
+
+Is it important to have a very detailed specification and design before moving to implementation? ​
+- If so, you probably need to use a plan-driven approach.​
+
+Is the incremental delivery strategy, where you deliver the software to customers and get rapid feedback from them, is realistic? ​
+- If so, consider using agile methods.​
+
+How large is the system that is being developed?​
+- Agile methods are most effective when the system can be developed with a small co-located team who can communicate informally. This may not be possible for large systems that require larger development teams so a plan-driven approach may have to be used.
+
+### System issues
+
+How large is the system being developed?​(size)
+- Agile methods are most effective a relatively small co-located team who can communicate informally. ​
+
+What type of system is being developed?​(complexity)
+- Systems that require a lot of analysis before implementation need a fairly detailed design to carry out this analysis. ​
+
+What is the expected system lifetime?​(lifecycle)
+- Long-lifetime systems require documentation to communicate the intentions of the system developers to the support team. ​
+
+Is the system subject to external regulation?​(regulation)
+- If a system is regulated you will probably be required to produce detailed documentation as part of the system safety case.
+
+### Scaling up to large systems
+
+- A completely incremental approach to requirements engineering is impossible.​
+
+- There cannot be a single product owner or customer representative.​
+
+- For large systems development, it is not possible to focus only on the code of the system.  ​
+
+- Cross-team communication mechanisms have to be designed and used. ​
+
+- Continuous integration is practically impossible. However, it is essential to maintain frequent system builds and regular releases of the system.
+
+### Characteristics of Multi-team Scrum​
+
+- Role replication ​- Each team has a Product Owner for their work component and ScrumMaster. ​
+
+- Product architects ​- Each team chooses a product architect and these architects collaborate to design and evolve the overall system architecture.​
+
+- Release alignment ​- The dates of product releases from each team are aligned so that a demonstrable and complete system is produced.​
+
+- Scrum of Scrums ​- There is a daily Scrum of Scrums where representatives from each team meet to discuss progressand plan work to be done.​
