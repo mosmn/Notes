@@ -105,7 +105,7 @@ XP and agile principles:
 
 When an agile team capture requirements they do so from a user's perspective. This is done by writing a user story. Written on index cards hence the name "story cards". Each story card describes a feature of the system from the user's perspective. The story card is written in the following format:
 
-As a <who wants this piece of fuctionality>, I need <what the user wnats> so that <why the user wants it>.
+As a < who wants this piece of fuctionality >, I need < what the user wnats > so that < why the user wants it >.
 
 - The "so that" part is expressing the benifit. its important in agile since we want to deliver value to the customer.
 - Acceptance criteria are written on the story card to define when the story is complete.
@@ -123,7 +123,7 @@ When to refactor?​
 - as soon as opportunities for improvement are found.
 - The key point here we dont want to refactor on speculations, we want to refactor on demand. the goal is to keep the code simple and maintainable.
 
-#### Test-first development
+#### Test-first development Or Test-driven development
 
 A software development discipline where developers write automated tests cases before writing the code to implement the feature.
 
@@ -142,6 +142,40 @@ What are the agile principles supported by TDD?
 How does refactoring work in TDD?
 - Refactoring happens after the code pass
 
+Customer involvement in TDD:
+- to help develop acceptance tests for the stories that are to be implemented in the next release of the system. ​
+- writes tests together with team as development proceeds. ​
+- All new code is validated to ensure that it is what the customer needs. ​
+- However, in real life customer have limited time available and so cannot work full-time with the development team. Only provides  the requirements and not involved in the testing process. 
+
+Test automation​:
+- essential for test-first development​
+- tests are written as executable components before the task is implemented ​
+- Testing components should :​
+    - stand-alone​
+    - simulate the submission of input to be tested ​
+    - check that the result meets the output specification​
+- An automated test framework is a system that makes it easy to write executable tests and submit a set of tests for execution. (e.g. Junit) ​
+- As testing is automated, there is always a set of tests that can be quickly and easily executed​
+    - Whenever any functionality is added to the system, the tests can be run and problems that the new code has introduced can be caught immediately.  
+
+Problems with test-first development:
+- Programmers prefer programming to testing and sometimes they take short cuts when writing tests. For example, they may write incomplete tests that do not check for all possible exceptions that may occur. ​
+- Some tests can be very difficult to write incrementally. For example, in a complex user interface, it is often difficult to write unit tests for the code that implements the ‘display logic’ and workflow between screens. ​
+- It difficult to judge the completeness of a set of tests. Although you may have a lot of system tests, your test set may not provide complete coverage.
+
+#### Pair programming
+
+Why is it called pair programming?​
+- Two programmer works using the same computer​
+
+What is the benefits of pair programming​?
+- Develop faster​
+- Backup for people who know the code besides than you​
+- Knowledge sharing (learn from each other)​
+
+How pair programming can support the Agile principles​?
+- People and Interaction
 
 # Agile project management​
 
