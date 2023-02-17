@@ -88,6 +88,59 @@ Refactoring | All developers are expected to refactor the code continuously as s
 See how the align with agile principles:
 ![s](/imgs/aprin.png)
 
+XP and agile principles:
+- Incremental development is supported through small, frequent system releases.​
+- Customer involvement means continous customer engagement with the team.
+- People, not process, are supported  through pair programming, collective ownership and a process that avoids long working hours.
+- Change supported through regular system releases to customers, test-first​ development, refactoring to avoid code degeneration, and continuous integration​ of new functionality.
+- Maintaining simplicity through constant refactoring of code to improves code​ quality and by using simple designs
+
+### Key XP practices
+- User stories for specification​
+- Refactoring​
+- Test-first development​
+- Pair programming
+
+#### User stories for specification
+
+When an agile team capture requirements they do so from a user's perspective. This is done by writing a user story. Written on index cards hence the name "story cards". Each story card describes a feature of the system from the user's perspective. The story card is written in the following format:
+
+As a <who wants this piece of fuctionality>, I need <what the user wnats> so that <why the user wants it>.
+
+- The "so that" part is expressing the benifit. its important in agile since we want to deliver value to the customer.
+- Acceptance criteria are written on the story card to define when the story is complete.
+- In short, a Story card allows you to record a compelling story that tells you what the user wants and why they want it.
+- After the story cards are written, and the work is chunked down into samller pieces, the team can start prioritizing and estimating the story cards on the backlog.
+
+
+#### Refactoring
+
+It means to take a piece of code whos design might be suboptimal and restructuring it so that it becomes simple and maintainable.
+
+We change the code but we don’t change the behavior.
+
+When to refactor?​
+- as soon as opportunities for improvement are found.
+- The key point here we dont want to refactor on speculations, we want to refactor on demand. the goal is to keep the code simple and maintainable.
+
+#### Test-first development
+
+A software development discipline where developers write automated tests cases before writing the code to implement the feature.
+
+How does it work?
+- Create the test and test it with the current code which is ging to fail because the new feature is not yet implemented…create code for that feature…test the code again using the created test, after it passes the test we can refactor the code.
+
+What are the benefits of TDD?
+- Ensure the quality​
+- To make the code testable, simple ​
+- To make it understood by other team members​- 
+- Repeatable test (use the test every time the code change)
+
+What are the agile principles supported by TDD?
+- Respond to change
+
+How does refactoring work in TDD?
+- Refactoring happens after the code pass
 
 
 # Agile project management​
