@@ -40,6 +40,21 @@ We can characterize the behavior of a process by listing the sequence of instruc
 
 Dispatcher: small program that switches the processor from one process to another.
 
+### Process creation and termination
+
+4 reasons for process creation:
+Reason | Description
+---|---
+New batch job | The OS is provided with a batch job control stream, usually on tape or disk. When the OS is prepared to take on new work, it will read the next sequence of job control commands.
+Interactive log-on | A user at a terminal logs on to the system.
+Created by OS to provide a service | The OS can create a process to perform a function on behalf of a user program, without the user having to wait (e.g., a process to control printing).
+Spawned by existing process | For purposes of modularity or to exploit parallelism, a user program can dictate the creation of a number of processes.
+
+Process termination:
+There must be a means for a process to indicate its completion
+1. A batch job should include a HALT instruction or an explicit OS service call for termination
+2. For an interactive application, the action of the user will indicate when the process is completed (e.g. log off, quitting an application)
+
 ## Two-State Process Model
 
 ## Five-State Process Model
