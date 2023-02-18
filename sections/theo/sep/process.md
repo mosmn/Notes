@@ -140,12 +140,12 @@ Chnage is inevitable in large software projects because:
 Change leads to rewor(work that has been completed has to be redone), Cost of change = cost of rework(e.g. re-analysing requirements) + cost of implementing new functionality.
 
 To reduce cost of rework:
-- Change anticipation/avoidance - anticipate(predict) the need for change and plan for it. e.g Prototyping
+- Change anticipation - anticipate(predict) the need for change and plan for it. e.g Prototyping
 - Change tolerance - the process is designed so changes can be accommodated at relatively low cost.. e.g. incremental development
 
 Two ways of coping with change and changing system requirements:
 - System prototyping - a version of the system or part of the system is developed quickly to check the customers requirements and the feasibility of design decisions. supports change anticipation.
-- Incremental delivery - system increments are delivered to the customer for comment and experimentation. supports change tolerance. and change avoidance.
+- Incremental delivery - system increments are delivered to the customer for comment and experimentation. supports change tolerance and change avoidance(efers to the practice of minimizing the need for changes in the first place.).
 
 # Process Improvement
 

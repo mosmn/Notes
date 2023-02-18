@@ -71,7 +71,7 @@ How it works:
 
 ### Queuing Diagram
 
-![Queuing Diagram](//imgs/osqd.png)
+![Queuing Diagram](/imgs/osqd.png)
 Processes that are not running must be kept in some sort of queue, waiting their turn to execute.
 
 There is a single queue in which each entry is a pointer to a particular process.
@@ -140,7 +140,7 @@ Characteristics of a Suspended Process:
 - The process was placed in a suspended state by an agent: either itself, a parent process, or the OS, for the purpose of preventing its execution
 - The process may not be removed from this state until the agent explicitly orders the removal
 
-## One suspend state
+### One suspend state
 
 After the OS swaps-out a process from blocked state to suspend state, it brings back a previously suspended process into main memory.
 
@@ -168,6 +168,59 @@ Timing | A process may be executed periodically (e.g., an accounting or system m
 Parent process request | A parent process may wish to suspend execution of a descendent to examine or modify the suspended process, or to coordinate the activity of various descendants.
 
 # Process Description
+
+The OS contorls events within computer system. Schedules and dispatches processes for execution by the processor, allocates resources(memory, i/o devices, files) to processes and responds to requests by user processes for basic services.
+
+For the OS to manage the processes and resources, it must have information about the current status of each process and resource.
+
+Tables are constructed for each entity the operating system manages. these tables are called OS control tables.
+
+## OS Control Tables
+
+### Memory tables
+
+- used to keep tack of both main(real) memory and secondary(virtual) memory.
+- Processes are maintained on secondary memory using some sort of virtual memory or simple swapping mechanism
+
+Must include:
+- allocation of main memory toprocesses
+- allocation of secondary memory to processes
+- protection attributes of blocks of main or virtual memory
+- information needed to manage virtual memory
+
+### I/O tables
+
+- Used by the OS to manage the I/O devices and channels of the computer system
+- At any given time, an I/O device may be available or assigned to a particular process
+
+If an I/O operation is in progress, the OS needs to know:
+- the status of the I/O operation
+- the location in main memory being used as the source or destination of the I/O transfer
+
+### File tables
+
+- Provides info about:
+    - existence of files
+    - location on secondary memory
+    - current status
+    - other attributes
+
+Much, if not all, of this information may be maintained and used by a file management system, in which case the OS has little or no knowledge of files. In other operating systems, much of the detail of file management is managed by the OS itself.
+
+### Process tables
+
+- Must be maintained to manage processes
+- There must be some reference to memory, I/O, and files, directly or indirectly
+- The tables themselves must be accessible by the OS and therefore are subject to memory management
+
+In order to manage and control a process the OS must know:
+1. Process attributes, what a process is
+2. Process location, where a process is
+
+## Process location
+
+## Process image
+
 
 # Process Control
 
