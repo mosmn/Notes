@@ -104,7 +104,8 @@ Exit | a process that has been released from the pool of executable processes by
 
 ### Using Two Queues
 
-![Two Queues](///imgs/tqd.png)
+![Two Queues](/imgs/tqd.png)
+    
 As each process is admitted to the system, it is placed in the Ready queue. When it is time for the OS to choose another process to run, it selects one from the Ready queue. 
 
 When a running process is removed from execution, it is eitherterminated or placed in the Ready or Blocked queue, depending onthe circumstances
@@ -139,9 +140,22 @@ Characteristics of a Suspended Process:
 - The process was placed in a suspended state by an agent: either itself, a parent process, or the OS, for the purpose of preventing its execution
 - The process may not be removed from this state until the agent explicitly orders the removal
 
-One suspend state: A suspended process is SWAPPED OUT and resides in storage.
+## One suspend state
 
-Two suspend states: A suspended process is SWAPPED OUT and resides in storage, and a suspended process is SWAPPED IN and resides in main memory.
+After the OS swaps-out a process from blocked state to suspend state, it brings back a previously suspended process into main memory.
+
+the problem with this is that all of the processes that have been suspended were in the Blocked state at the time of suspension. It clearly would not do any good to bring a blocked process back into main memory, because it is still not ready for execution. Recognize, however, that each process in the Suspend state was originally blocked on a particular event. When that event occurs, the process is not blocked and is potentially available for execution.
+
+Therefore, we need to rethink this aspect of the design. leading us to the two suspend state model.
+
+### Two suspend states
+
+There are two independent concepts here: whether a process is waiting on an event (blocked or not), and whether a process has been swapped out of main memory (suspended or not). To accommodate this 2×2 combination, we need four states:
+
+- Ready: The process is in main memory and available for execution.
+- Blocked: The process is in main memory and awaiting an event.
+- Blocked/Suspend: The process is in secondary memory and awaiting an event.
+- Ready/Suspend: The process is in secondary memory but is available for execution as soon as it is loaded into main memory.
 
 ### Reasons for process suspension
 
