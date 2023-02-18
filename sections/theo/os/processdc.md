@@ -55,10 +55,103 @@ There must be a means for a process to indicate its completion
 1. A batch job should include a HALT instruction or an explicit OS service call for termination
 2. For an interactive application, the action of the user will indicate when the process is completed (e.g. log off, quitting an application)
 
+Reasons for process termination:
+- protection error
+- time overrun
+- i/o failure
+- invalid instruction
+so on...
+
 ## Two-State Process Model
+
+In this model, a process may be in one of the two states: Running or Not Running.
+
+How it works:
+- When the OS creates a new process, it creates a process control block for the process and enters that process into the system in the Not Running state. The process exists, is known to the OS, and is waiting for an opportunity to execute. From time to time, the currently running process will be interrupted, and the dispatcher portion of the OS will select some other process to run. The former process moves from the Running state to the Not Running state, and one of the other processes moves to the Running state.
+
+### Queuing Diagram
+
+![Queuing Diagram](//imgs/osqd.png)
+Processes that are not running must be kept in some sort of queue, waiting their turn to execute.
+
+There is a single queue in which each entry is a pointer to a particular process.
+
+A process that is interrupted is transferred to the queue of waiting processes. Alternatively, if the process has completed or aborted, it is discarded (exits the system). In either case, the dispatcher takes another process from the queue to execute.
+
+The queue is first in first out (FIFO) list and the processor operates in Round robin.
+
+Leading to Five-State Process Model:
+
+- Single queue suggested will be effective if all processes were always ready to execute.
+- But it is inadequate because some process that are in Not Running state either ready to execute or blocked because of waiting for I/O operation complete.
+- By using a single queue, the dispatcher has to scan the queue looking for the process that is not blocked and has been waiting in queue the longest.
+
+We can solve this by splitting the "Not Running" state into two states:
+- Ready state: ready to execute
+- Blocked state: waiting for I/O operation to complete
+
+now instead of two states, we have five states by adding another two states "new" and  "exit" that are useful for process management.
 
 ## Five-State Process Model
 
+Process State | Description
+---|---
+New | a process that has just been created but not yet admitted to the pool of executable processes by the OS. typically, a new process has not yet been loaded into main memory., although its process control block has been created.
+Ready | a process is ready to execute when given the opportunity.
+Running | the process is currently executing.
+Blocked | a process that cannot execute until some event occurs or completes.(events include I/O operations, waiting for OS services)
+Exit | a process that has been released from the pool of executable processes by the OS, either because it halted or aborted for some reason.
+
+### Using Two Queues
+
+![Two Queues](///imgs/tqd.png)
+As each process is admitted to the system, it is placed in the Ready queue. When it is time for the OS to choose another process to run, it selects one from the Ready queue. 
+
+When a running process is removed from execution, it is eitherterminated or placed in the Ready or Blocked queue, depending onthe circumstances
+
+Finally, when an event occurs, any process in the Blocked queue that has been waiting on that event only is moved to the Ready queue.
+
+## Suspended Processes
+
+When the process need to be executed all the processes components need to be in the main memory.
+
+Processor is faster than I/O operation, all processes could be waiting for I/O.
+
+Thus even with multiprogramming, processor could be idle most of the time.
+
+How to solve it?
+
+- Expanding the size of the main memory
+    - Memory can accommodate more processes
+    - disadvantage: expensive and results in larger processes not more processes
+
+- Swapping
+    - Move processes in and out of main memory to disk to free up memory for other processes
+
+### Swapping
+
+- involves moving part of all of a process from main memory to disk.
+- when none of the processes in main memory is in the Ready state, the OS swaps one of the blocked processes out on to disk into a suspend queue.
+
+Characteristics of a Suspended Process:
+- The process is not immediately available for execution, Other process is occupying the processor
+- The process may or may not be waiting on an event .Other process output Resource availability
+- The process was placed in a suspended state by an agent: either itself, a parent process, or the OS, for the purpose of preventing its execution
+- The process may not be removed from this state until the agent explicitly orders the removal
+
+One suspend state: A suspended process is SWAPPED OUT and resides in storage.
+
+Two suspend states: A suspended process is SWAPPED OUT and resides in storage, and a suspended process is SWAPPED IN and resides in main memory.
+
+### Reasons for process suspension
+
+Reason | Description
+---|---
+Swapping | The OS needs to release sufficient main memory to bring in a process that is ready to execute.
+Other OS reason | The OS may suspend a background or utility process or a process that is suspected of causing a problem.
+Interactive user request | A user may wish to suspend execution of a program for purposes of debugging or in connection with the use of a resource.
+Timing | A process may be executed periodically (e.g., an accounting or system monitoring process) and may be suspended while waiting for the next time interval.
+Parent process request | A parent process may wish to suspend execution of a descendent to examine or modify the suspended process, or to coordinate the activity of various descendants.
 
 # Process Description
 
