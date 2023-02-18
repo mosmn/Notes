@@ -72,7 +72,7 @@ CONDITIONAL Expression:
 ### Precedence and associativity rules
 
 Depend on IDE.
-![Precedence and associativity rules](//imgs/paa.png)
+![Precedence and associativity rules](/imgs/paa.png)
 
 ### Data type casting
 
@@ -149,9 +149,125 @@ Exit-checking loop:
 - The loop body is executed one or more times.
 - do-while loop
 
-
 ## C++ Functions
+
+- a function is a block of code that performs a specific task.
+- can be written in one program and used by another program without rewriting the code.- promotes code reusability.
+- can be put in a library - to use them include the library in the program.
+- categorized into 2 types:
+    - Pre-defined functions: exist in the C++ library, e.g: `cout << "Hello World";`
+    - User-defined functions: written by the programmer, e.g: `int add(int a, int b) { return a + b; }`
+
+### Types of user-defined functions
+
+- No argument and no return value
+```cpp
+void printHello() {
+    cout << "Hello World";
+}
+```
+
+- No argument and return value
+```cpp
+int add() {
+    int a, b;
+    cin >> a >> b;
+    return a + b;
+}
+```
+
+- Argument and no return value
+```cpp
+void printHello(string name) {
+    cout << "Hello " << name;
+}
+```
+
+- Argument and return value
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+```
 
 ## C++ Arrays
 
+### Numeric Arrays
+
+- an array is a consecutive memory locations of the same name for storing values of same data typeused for the exact same purpose. 
+- arrays can be one-dimensional or multi-dimensional.
+- conceptually you can think of a 1D aray as a row where elements are stored one after another.
+- syntax: `type name[size];` e.g: `int arr[5];`
+
+### Passing individual array elements to functions
+
+Similar to passing variables to functions:
+```cpp
+void print(int x) {
+    cout << x;
+}
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < 5; i++) {
+        print(arr[i]);
+    }
+} // prints 12345
+```
+
+### Passing arrays to functions
+
+Only the name of the array is passed to the function as an argument, not the entire array.
+```cpp
+void print(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i];
+    }
+}
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    print(arr, 5); // prints 12345
+}
+```
+
 ## C++ Strings
+
+### What are strings?
+
+- String is a collection of characters.
+- two types of strings commonly used in C++:
+    1. C-style strings: A C-string is a special kind of 1D array of characters ending with the null character (‘\0’).
+    ```cpp
+    char str[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+    ```
+
+    2. C++ strings: has NO fixed length, and can be extended as per your requirement.
+    ```cpp
+    string str = "Hello";
+    ```
+
+### String input and manipulation functions
+
+iostream:
+- `getline(cin, str);` to get a string with spaces.
+
+cstring:
+- `strlen(str);` to get the length of a string.
+- `strcpy(str1, str2);` to copy a string. `strncpy(str1, str2, n);` to copy n characters.
+- `strcat(str1, str2);` to concatenate two strings. `strncat(str1, str2, n);` to concatenate n characters.
+- `strcmp(str1, str2);` to compare two strings. `strncmp(str1, str2, n);` to compare n characters.
+
+### Passing strings to functions
+
+Strings are passed to a function in a similar way arrays are passed to a function.
+```cpp
+void print(string str) {
+    cout << str;
+}
+
+int main() {
+    string str = "Hello";
+    print(str); // prints Hello
+}
+```
