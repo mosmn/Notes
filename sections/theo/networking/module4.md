@@ -194,6 +194,6 @@ Cable type | Standard | Application
 ---|---|---
 Ethernet Straight-through | Both ends T568A or T568B | Host to Network Device
 Ethernet Crossover * | One end T568A, other end T568B | Host-to-Host, Switch-to-Switch, Router-to-Router
-* Considered Legacy due to most NICs using Auto-MDIX to sense cable type and complete connection |  |
+| Considered Legacy due to most NICs using Auto-MDIX to sense cable type and complete connection |
 Rollover | Cisco Proprietary | Host serial port to Router or Switch Console Port, using an adapter
 
