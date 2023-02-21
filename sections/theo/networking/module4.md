@@ -44,7 +44,9 @@ Hardware components like NICs, interfaces and connectors, cable materials, and c
 
 ### Encoding
 
-Encoding is the process of converting a stream of bits into a predefined "code" that can be transmitted over a physical medium.​
+Encoding is the process of converting a stream of bits into a predefined "code" that can be transmitted over a physical medium.​ Before it becomes a signal its encoded using predefined code meaning every 4 bits is represented by 5 bits using the 4b/5b table. This is encoding, then after that the coded bits go through signaling process depending on the media.
+
+In the diagram on netcad, the transition from higher to low is 0, and from low to high is 1. This is Manchester encoding.
 
 Codes are groupings of bits used to provide a predictable pattern that can be recognized by both the sender and the receiver.
 
