@@ -197,3 +197,99 @@ Ethernet Crossover * | One end T568A, other end T568B | Host-to-Host, Switch-to-
 | Considered Legacy due to most NICs using Auto-MDIX to sense cable type and complete connection |
 Rollover | Cisco Proprietary | Host serial port to Router or Switch Console Port, using an adapter
 
+# Fiber-Optic Cabling
+
+### Properties of Fiber-Optic Cabling
+
+Not as common as UTP because of the expense involved​
+
+Ideal for some networking scenarios​
+
+Transmits data over longer distances at higher bandwidth than any other networking media​
+
+Less susceptible to attenuation, and completely immune to EMI/RFI​
+
+Made of flexible, extremely thin strands of very pure glass​
+
+Uses a laser or LED to encode bits as pulses of light​
+
+The fiber-optic cable acts as a wave guide to transmit light between the two ends with minimal signal loss
+
+### Types of Fiber Media
+
+Single-mode fiber​ | Multi-mode fiber
+---|---
+Very small core​ | Larger core
+Uses expensive lasers​ | Uses less expensive LEDs
+Long-distance applications​ | LEDs transmit at different angles
+Up to 10 Gbps over 550 meters​ | Up to 10 Gbps over 550 meters
+
+Dispersion refers to the spreading out of a light pulse over time. Increased dispersion means increased loss of signal strength. MMF has greater dispersion than SMF, with a the maximum cable distance for MMF is 550 meters.
+
+### Fiber-Optic Cabling Usage
+
+Fiber-optic cabling is now being used in four types of industry:​
+
+- Enterprise Networks - Used for backbone cabling applications and interconnecting infrastructure devices​
+- Fiber-to-the-Home (FTTH) - Used to provide always-on broadband services to homes and small businesses​
+- Long-Haul Networks - Used by service providers to connect countries and cities​
+- Submarine Cable Networks - Used to provide reliable high-speed, high-capacity solutions capable of surviving in harsh undersea environments at up to transoceanic distances. 
+
+### Fiber-Optic Connectors
+
+- Straight-Tip (ST) Connectors​
+- Lucent Connector (LC) Simplex Connectors​
+- Subscriber Connector (SC) Connectors​
+- Duplex Multimode LC Connectors​
+
+### Fiber Patch Cords
+
+in slides
+
+A yellow jacket is for single-mode fiber cables and orange (or aqua) for multimode fiber cables.
+
+
+### Fiber versus Copper
+
+Optical fiber is primarily used as backbone cabling for high-traffic, point-to-point​ connections between data distribution facilities and for the interconnection of buildings​ in multi-building campuses.
+
+Implementation Issues​ | UTP Cabling | Fiber-Optic Cabling
+---|---|---
+Bandwidth supported | 10 Mb/s - 10 Gb/s | 10 Mb/s - 100 Gb/s
+Distance | Relatively short (1 - 100 meters) | Relatively long ( 1 - 100,000 meters)
+Immunity to EMI and RFI | Low | High (Completely immune)
+Immunity to electrical hazards | Low | High (Completely immune)
+Media and connector costs | Lowest | Highest
+Installation skills required | Lowest | Highest
+Safety precautions | Lowest | Highest
+
+# Wireless Media
+
+### Properties of Wireless Media
+
+It carries electromagnetic signals representing binary digits using radio or microwave frequencies. This provides the greatest mobility option. Wireless connection numbers continue to increase.​
+
+
+Some of the limitations of wireless:​
+- Coverage area - Effective coverage can be significantly impacted by the physical characteristics of the deployment location.​
+- Interference - Wireless is susceptible to interference and can be disrupted by many common devices.​
+- Security - Wireless communication coverage requires no access to a physical strand of media, so anyone can gain access to the transmission.​
+- Shared medium - WLANs operate in half-duplex, which means only one device can send or receive at a time. Many users accessing the WLAN simultaneously results in reduced bandwidth for each user.
+
+### Types of Wireless Media
+
+The IEEE and telecommunications industry standards for wireless data communications​ cover both the data link and physical layers. In each of these standards, physical layer​ specifications dictate:​
+- Data to radio signal encoding methods​
+- Frequency and power of transmission​
+- Signal reception and decoding requirements​
+- Antenna design and construction
+
+### Wireless LAN
+
+In general, a Wireless LAN (WLAN) requires the following devices:​
+- Wireless Access Point (AP) - Concentrate wireless signals from users and connect to the existing copper-based network infrastructure​
+- Wireless NIC Adapters - Provide wireless communications capability to network hosts​
+
+There are a number of WLAN standards. When purchasing WLAN equipment, ensure compatibility, and interoperability.​
+
+Network Administrators must develop and apply stringent security policies and processes to protect WLANs from unauthorized access and damage.
