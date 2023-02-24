@@ -2,14 +2,14 @@ Agile software development AKA Rapid software development:
 
 - Rapid development and delivery of software is now often the most important requirement for a software project. because:
     - Businesses operate in a fast-changing environment and is hard to produce a set of stable software requirements.
-    - Most of the time requirements are onl clear when the user has gained experience with the software.
+    - Most of the time requirements are only clear when the user has gained experience with the software.
     - Software has to evolve quickly to keep up with the changing business environment.
 - Plan-driven is essential for some type of systems(critical systems, safety-critical systems, etc.) but doesnt meet these business needs.
 - Agile development methods aim is to radically reduce the delivery time of working software systems.
 
 All agile methods have these characteristics in common:
 - the processes of specification, design & implementation are interleaved.
-- the system is developed in a series od increments.
+- the system is developed in a series of increments.
 - Extensive tool support is used to support the development process.
 
 # Agile methods
@@ -19,7 +19,9 @@ The dissatisfaction with the overheads involved in software design methods of th
 - Are based on an iterative approach to software development.
 - Intended to deliver working software as quickly as possible. and evolve the software through the use of feedback from the users.
 
-Aim: to reduce the overheads in the software process (for example, limiting the time spent on documentation) and to be able to respond quickly to changing requirements without excessive rework.
+Aim: 
+- to reduce the overheads in the software process (for example, limiting the time spent on documentation) 
+- and to be able to respond quickly to changing requirements without excessive rework.
 
 ## Agile Manifesto
 
@@ -85,7 +87,7 @@ Continuous integration | The development team integrates their code into a share
 Collective ownership | The development team owns the code and is responsible for its quality.
 Refactoring | All developers are expected to refactor the code continuously as soon as possible code improvements are found. This keeps the code simple and maintainable.
 
-See how the align with agile principles:
+See how they align with agile principles:
 ![s](/imgs/aprin.png)
 
 XP and agile principles:
@@ -203,7 +205,7 @@ You end up with several incremental releases called sprints.
 
 3 Artifacts in scrum:
 - Product backlog​, list of all the features(user stories) that are needed in the product by the product owner.
-- Sprint backlog​, has the highest proirity user stories. get estimated for size and committed for the next sprint.
+- Sprint backlog​, has the highest proirity user stories. these get estimated for size and committed for the next sprint.
 - Burndown chart​, shows the progress of the sprint.
 
 3 ceremonies in scrum:
