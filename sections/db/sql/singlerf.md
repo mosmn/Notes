@@ -15,9 +15,20 @@ Single-row character functions accept character data as input and can return bot
 
 Function | Purpose
 --- | ---
-LOWER (column/expression) | Converts alpha character values to lowercase
-UPPER (column/expression) | Converts alpha character values to uppercase
-INITCAP (column/expression) | Converts alpha character values to uppercase for the first letter of each word; all other letters in lowercase
+LOWER(column/expression) | Converts alpha character values to lowercase
+UPPER(column/expression) | Converts alpha character values to uppercase
+INITCAP(column/expression) | Converts alpha character values to uppercase for the first letter of each word; all other letters in lowercase
+
+e.g:
+```sql
+SELECT LOWER('HELLO') AS lower, UPPER('hello') AS upper, INITCAP('hello world') AS initcap;
+```
+Output:
+```
+lower | upper | initcap
+------|-------|--------
+hello | HELLO | Hello World
+```
 
 
 
