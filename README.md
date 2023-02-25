@@ -99,7 +99,7 @@
 ### SQL
 - [Retrieving Data Using SQL the SQL SELECT statement](sections/db/sql/select.md)
 - [Restricting and Sorting Data](sections/db/sql/sorting.md)
-- [Single-Row Functions](sections/db/sql/single-row-functions.md)
+- [Single-Row Functions](sections/db/sql/singlerf.md)
 - [Group Functions](sections/db/sql/group-functions.md)
 
 # Cloud
