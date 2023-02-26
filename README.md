@@ -41,7 +41,6 @@
 
 </details>
 
-[Back to Table of Contents](#table-of-contents) ⬆
 ### HTML
 
 <details>
@@ -53,7 +52,6 @@
 
 </details>
 
-[Back to Table of Contents](#table-of-contents) ⬆
 ### CSS
 
 <details>
@@ -68,7 +66,6 @@
 
 </details>
 
-[Back to Table of Contents](#table-of-contents) ⬆
 ### JavaScript
 
 <details>
@@ -99,7 +96,6 @@
 
 </details>
 
-[Back to Table of Contents](#table-of-contents) ⬆
 ### C++
 
 <details>
@@ -132,6 +128,7 @@
 
 </details>
 
+[Back to Table of Contents](#table-of-contents) ⬆
 # Cloud
 
 ### AWS
@@ -143,6 +140,7 @@
 
 </details>
 
+[Back to Table of Contents](#table-of-contents) ⬆
 # Theoretical
 
 ### Operating Systems Concepts
@@ -230,3 +228,4 @@
 
 ### Kanban
 
+[Back to Table of Contents](#table-of-contents) ⬆
