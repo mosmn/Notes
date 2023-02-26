@@ -246,4 +246,112 @@ To execute a process, the ENTIRE process image must be loaded onto memory.
 
 # Process Control
 
+## Modes of Execution
+
+User mode | Kernel mode
+---|---
+User program executes in user mode | Monitor executes in kernel mode
+Certain areas of memory are protected from user access | Protected areas of memory may be accessed
+Certain instructions may not be executed | Privileged instructions may be executed
+Less privileged | More privileged
+
+Why two modes?
+- Necessary to protect the OS and other OS tables such as PCB from interference by user program
+- In the kernel mode, the software has complete control of the processor and all its instruction, registers and memory.
+- This level of control is not necessary and for safety is not desirable for user programs.
+
+How does the processor know which mode it is to be executed?
+Using a bit in PSW (program status word) that indicates the mode of execution.
+
+How the mode is change?
+Bit changed in response to certain event:
+- When a user make a call to an OS service / interrupts trigger execution of an OS routine -> set to System Mode
+- Return from the service to user process -> set to User Mode
+
+## What happens during Process Creation?
+
+Once the OS decides to create a new process it:
+1. assigns a unique process identifier to the new process
+2. allocates space for the process
+3. initializes the process control block
+4. sets the appropriate linkages
+5. creates or expands other data structures
+
+## Process Switching
+
+A process switch may occur any time when the OS has gained control from the currently running process.
+
+Process switch (change) from one state to another state. E.g. A running process is interrupted and the OS assigns other process to the Running state and give control to the process.
+
+issues:
+1. What events trigger a process switch?
+2. Must recognize the distinction between mode switching and process switching?
+3. What must the OS do to the various data structures under its control to achieve process switch?
+
+### What events trigger a process switch?
+
+1. Interrupts
+
+Due to some sort of event that is external to and independent of the currently running process
+
+- Clock interrupt - process has executed for the maximum allowable time slice and is transferred to Ready state.
+- I/O interrupt
+    - first move the processes that where waiting for this event to the ready (or ready suspend) state
+    - then resume the running process or choose a process of higher priority
+- Memory fault
+    - memory address is in virtual memory so it must be brought into main memory
+    - Thus move this process to Blocked state (waiting for I/O to complete)
+
+2. Trap
+
+An error or exception condition generated within the currently running process
+
+OS determines if the condition is fatal
+- moved to the Exit state and a process switch occurs
+- action will depend on the nature of the error
+
+3. Supervisor Call
+
+OS activated by a supervisor call from the program being executed
+
+Example:
+- A user process is running an and an instruction is executed that request an I/O operation.
+- This call result in a transfer to a routing that is part of the OS code.
+- The user process will move to Blocked state.
+
+
+### Must recognize the distinction between mode switching and process switching?
+
+Mode switching may happen if the interrupt is not produce a process switch.
+
+The control can just return to the interrupted program.
+
+Then only the processor state information needs to be saved on stack
+
+Less overhead: no need to update the PCB like for process switching
+
+Mode Switching:
+- User mode switch to kernel mode when going into Interrupt Handler
+- A process will not change it’s state that is currently in Running state.
+
+If no interrupts are pending the processor:
+- proceeds to the fetch stage and fetches the next instruction of the current program in the current process
+
+If an interrupt is pending the processor:
+- sets the program counter to the starting address of an interrupt handler program
+- switches from user mode to kernel mode so that the interrupt processing code may include privileged instructions
+
+### What must the OS do to the various data structures under its control to achieve process switch?
+
+If the currently running process is to be moved to another state (Ready, Blocked, etc.), then the OS must make substantial changes in its environment.
+
+Steps in process switching:
+1. save the context of the processor
+2. update the process control block of the process currently in the Running state
+3. move the process control block of this process to the appropriate queue
+4. select another process for execution
+5. update the process control block of the process selected
+6. update memory management data structures
+7. restore the context of the processor to that which existed at the time the selected process was last switched out
+
 # Security Issues
