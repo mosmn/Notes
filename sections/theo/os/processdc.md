@@ -355,3 +355,33 @@ Steps in process switching:
 7. restore the context of the processor to that which existed at the time the selected process was last switched out
 
 # Security Issues
+
+A key security issue in the design of any OS is to prevent, or at least detect, attempts by a user or a malware from gaining unauthorized privileges on the system and from gaining root access.
+
+An OS associates a set of privileges with each process
+
+Typically a process that executes on behalf of a user has the privileges that the OS recognizes for that user
+
+Highest level of privilege is referred to a root access or administrator or supervisor
+- It provide access to all the functions and services of the OS.
+- Complete control to the system.
+
+## Two System Access Threats
+
+### Intruders
+
+- Often referred to as a hacker or cracker (a Person)
+- Objective is to gain access to a system or to increase the range of privileges accessible on a system
+- Attempts to acquire information that should have been protected
+
+### Malicious software
+
+- Most sophisticated types of threats to computer systems (a Program)
+- Can be relatively harmless or very damaging
+
+## Countermeasures
+
+1. Intrusion Detection
+2. Authentication
+3. Access Control
+4. Firewalls
