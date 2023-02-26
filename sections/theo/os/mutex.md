@@ -124,3 +124,7 @@ It is a requirement that prevents simultaneous access to a shared resource used 
 6. A process remains inside its critical section for a finite time only (limited time)
 
 # Hardware, Software and Programming Language Support for Mutual Exclusion
+
+## Satisfying the requirements of ME
+
+3 Approaches
