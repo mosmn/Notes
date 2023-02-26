@@ -32,19 +32,32 @@
 # Programming Notes
 ### Git
 
+<details>
+<summary>View notes</summary>
+
 - [Commands](sections/git/gitcommand.md)
 - [Clone a repository](sections/git/gitclone.md)
 - [Branch](sections/git/branch.md)
 
+</details>
+
 [Back to Table of Contents](#table-of-contents) ⬆
 ### HTML
+
+<details>
+<summary>View notes</summary>
 
 - [Linking a file](sections/html/linking.md)
 - [Creating a table](sections/html/table.md)
 - [Creating a Form](sections/html/form.md)
 
+</details>
+
 [Back to Table of Contents](#table-of-contents) ⬆
 ### CSS
+
+<details>
+<summary>View notes</summary>
 
 - [Flexbox](sections/css/flexbox.md)
 - [Grid](sections/css/grid.md)
@@ -52,6 +65,8 @@
 - [Pseudo-classes](sections/css/pseudo-classes.md)
 - [Pseudo-elements](sections/css/pseudo-elements.md)
 - [Selectors](sections/css/selectors.md)
+
+</details>
 
 [Back to Table of Contents](#table-of-contents) ⬆
 ### JavaScript
@@ -87,6 +102,9 @@
 [Back to Table of Contents](#table-of-contents) ⬆
 ### C++
 
+<details>
+<summary>View notes</summary>
+
 - [Basics](sections/cpp/basics.md)
 - [Advanced Functions](sections/cpp/functions.md)
 - [Multidimensional Arrays](sections/cpp/multidimensional-arrays.md)
@@ -96,24 +114,42 @@
 - [File stream input and output](sections/cpp/file-stream.md)
 - [GUI](sections/cpp/gui.md)
 
+</details>
+
 [Back to Table of Contents](#table-of-contents) ⬆
 
 # Database
 
 ### SQL
+
+<details>
+<summary>View notes</summary>
+
 - [Retrieving Data Using SQL the SQL SELECT statement](sections/db/sql/select.md)
 - [Restricting and Sorting Data](sections/db/sql/sorting.md)
 - [Single-Row Functions](sections/db/sql/singlerf.md)
 - [Group Functions](sections/db/sql/group-functions.md)
 
+</details>
+
 # Cloud
 
 ### AWS
+
+<details>
+<summary>View notes</summary>
+
 - [Certification](sections/cloud/cert.md)
+
+</details>
 
 # Theoretical
 
 ### Operating Systems Concepts
+
+<details>
+<summary>View notes</summary>
+
 - [Overview](sections/theo/os/overview.md)
 - [Process Description and Control](sections/theo/os/processdc.md)
 - [Concurrency - Mutual Exclusion](sections/theo/os/mutex.md)
@@ -124,7 +160,13 @@
 - [I/O Management & Disk Scheduling](sections/theo/os/io.md)
 - [File Management](sections/theo/os/file.md)
 
+</details>
+
 ### Software Engineering Principles
+
+<details>
+<summary>View notes</summary>
+
 - [Introduction](sections/theo/sep/intro.md)
 - [Software Processes](sections/theo/sep/process.md)
 - [Agile Software Development](sections/theo/sep/agile.md)
@@ -134,7 +176,13 @@
 - [Design and implementation](sections/theo/sep/design-implementation.md)
 - [Software testing](sections/theo/sep/testing.md)
 
+</details>
+
 ### Data Communication and Networking
+
+<details>
+<summary>View notes</summary>
+
 - Modules 1 - 3: Basic Network Connectivity and Communications
     - [Module 1: Networking Today](sections/theo/networking/module1.md)
     - [Module 2: Basic Switch and End Device Configuration](sections/theo/networking/module2.md)
@@ -152,7 +200,13 @@
 
 - Modules 16 - 17: Building and Securing a Small Network
 
+</details>
+
 ### Database Fundamentals
+
+<details>
+<summary>View notes</summary>
+
 - [Introduction](sections/theo/dbf/introduction.md)
 - [Environment](sections/theo/dbf/environoment.md)
 - [SQL](sections/theo/dbf/sql.md)
@@ -160,6 +214,8 @@
 - [Data modeling](sections/theo/dbf/data-modeling.md)
 - [Database design](sections/theo/dbf/database-design.md)
 - [Normalization](sections/theo/dbf/normalization.md)
+
+</details>
 
 [Back to Table of Contents](#table-of-contents) ⬆
 # Agile software development
