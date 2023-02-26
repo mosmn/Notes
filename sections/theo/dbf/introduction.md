@@ -110,3 +110,8 @@ Relational Database Modle:
 - Business Intelligence Systems(BI)
     - A business intelligence system is a computer-based system that is used to analyze raw data and provide business users with reports that can be used to make business decisions.
     - Business intelligence systems are often used to support data warehouses.
+
+In summary,
+- Big Data refers to the large and complex data sets that require specialized tools and techniques for processing and analysis.
+- Data Warehouses are centralized databases designed for reporting and analysis.
+- Business Intelligence Systems are computer-based systems used to analyze data and provide insights for business decision-making.

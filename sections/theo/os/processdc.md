@@ -219,8 +219,30 @@ In order to manage and control a process the OS must know:
 
 ## Process location
 
+A process will need sufficient memory to hold the programs and data of that process.
+
+The execution of a program typically involves a stack that is used to keep track of procedure calls and parameter passing between procedures.
+
+Keeping track of the Process Location requires good memory management by the OS.
+
 ## Process image
 
+The collection of program, data, stack, and attributes is referred to as the process image.
+
+ElementS of a process image:
+- User data - The Modifiable part of the User Space. May include:
+    - Program Data
+    - User Stack Area
+    - Modifiable Programs
+- User program - Programs ready to be executed
+- Stack - used to store parameters and calling addresses for procedure and system calls
+- Process Control Block - contains information about the process used by OS to control the process
+
+Process image location will depend on the memory management scheme being used
+- In the simplest case, the process image is maintained as a continuous block of memory.
+- This block is maintained in secondary memory (usually disk) but a small portion of it will remain in main memory.
+
+To execute a process, the ENTIRE process image must be loaded onto memory.
 
 # Process Control
 
