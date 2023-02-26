@@ -56,6 +56,9 @@
 [Back to Table of Contents](#table-of-contents) ⬆
 ### JavaScript
 
+<details>
+<summary>View notes</summary>
+
 - Basics
     - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
 
@@ -79,6 +82,7 @@
 - React JS
     - [React JS](sections/javascript/reactjs.md)
 
+</details>
 
 [Back to Table of Contents](#table-of-contents) ⬆
 ### C++
