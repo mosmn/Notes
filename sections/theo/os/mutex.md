@@ -127,4 +127,20 @@ It is a requirement that prevents simultaneous access to a shared resource used 
 
 ## Satisfying the requirements of ME
 
-3 Approaches
+3 Approaches:
+- Software approach - Process coordinate with one another\
+- Hardware approach - Using special machine instruction. Reducing overheads of the s/w approach.
+- Programming Language Support - Programs explicitly support and specify critical section
+
+## Software Solutions
+
+- Leave the responsibility to the process that wish to execute concurrently.
+- Whether they are system programs or application programs, would be required to coordinate with one another to enforce mutual exclusion.
+- No support from programming language or operating system.
+- Prone to high processing overhead and bugs
+- E.g: Dekker’s Algorithm and Peterson Algorithm
+
+## Hardware Support
+
+1. Interrupt Disabling
+2. Special Machine Instructions
