@@ -103,7 +103,7 @@
 
 - [Basics](sections/cpp/basics.md)
 - [Advanced Functions](sections/cpp/functions.md)
-- [Multidimensional Arrays](sections/cpp/multidimensional-arrays.md)
+- [Multidimensional Arrays](sections/cpp/multiarray.md)
 - [Pointers](sections/cpp/pointers.md)
 - [Structures](sections/cpp/structures.md)
 - [Objects and Classes](sections/cpp/objects-classes.md)
