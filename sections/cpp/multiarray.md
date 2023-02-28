@@ -73,7 +73,7 @@ for(int i = 0; i < 3; i++){
 using namespace std;
 int main(){
     // use constant for row and column sizes
-    int myArray[ROW] [COL] ={
+    int myArray[ROW][COL] ={
         {9,8},
         {7,6},
         {2,3},
@@ -106,7 +106,9 @@ float students[3][4][7];
 ```
 
 2. Is there error in below array declarations?
+
 a) int Quiz1[3][4] = {{1,2,3,4},{5,6,7,8},{9,10,11}};, // missing a element since 3rd row has 3 elements only
+
 b) int Quiz2[4][2]={1,2,3,4}; // missing 2 elements
 
 # Two-Dimensional (2D) Arrays
@@ -263,28 +265,6 @@ Total game 2 = 12
 # PASSING 2D ARRAY TO FUNCTIONS
 
 1. Passing Copy of Array
-#include <iostream>
-#define TEAM 4
-#define GAME 2
-using namespace std;
-int totalMarks (int myTeam[][GAME]) { //leave the row -size empty
-int row=0, col=0, total=0;
-for (row=0; row<TEAM; row++) {
-for (col=0; col<GAME; col++){
-cout<<< myTeam[row][col] << " ";
-total myTeam[row][col];
-}
-cout << '\n';
-}
-return total;
-}
-int main(){
-int theTeam[TEAM] [GAME]={
-{1,2},
-{3,4},
-{5,6},
-{7,8}};
-cout << "Total marks = << totalMarks (the Team) << '\n';
 
 ```C++
 #include <iostream>
@@ -352,3 +332,7 @@ int main(){
     return 0;
 }
 ```
+
+3. Passing by Pointers*
+
+4. Decaying the Pointer to the Array*
