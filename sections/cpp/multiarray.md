@@ -30,5 +30,26 @@ A two-dimensional array is also known as MATRIX. A matrix can be represented as 
 
 ### DECLARING 2D ARRAY
 
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+- The total number of elements in a 2-D array is ROW*COLUMN
+
+![w](/imgs/d2a.png)
+
+### DECLARING AND INITIALIZING 2D ARRAY
+
+• Method 1:
+• int A[3][2] = {1, 2, 3, 4, 5, 6};
+A
+--
+1 | 2
+3 | 4
+5 | 6
+
+• Method 2:
+• int B[2][4] = {{1, 2, 3, 4},{5, 6, 7, 8}}; //less confusing
+BS SEPT2021
+A
+1 2
+3 4
+5 6
+B 1 2 3 4
+5 6 7 8
