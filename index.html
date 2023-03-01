@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <style>
+        /* Optional styles for the iframe */
+        iframe {
+            border: none;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://raw.githubusercontent.com/mosmn/Notes/main/README.md" frameborder="0" onload="resizeIframe(this)" scrolling="no"></iframe>
+    <script>
+        function resizeIframe(iframe) {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>
