@@ -37,6 +37,7 @@ A two-dimensional array is also known as MATRIX. A matrix can be represented as 
 ### DECLARING AND INITIALIZING 2D ARRAY
 
 Method 1:
+
 `int A[3][2] = {1, 2, 3, 4, 5, 6};` its gona look like this:
 ```
 1 | 2
@@ -44,8 +45,8 @@ Method 1:
 5 | 6
 ```
 
-
 Method 2:
+
 `int B[2][4] = {{1, 2, 3, 4},{5, 6, 7, 8}}; //less confusing` its gona look like this:
 ```
 1 | 2 | 3 | 4
