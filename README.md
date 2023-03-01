@@ -32,14 +32,13 @@
 # Programming Notes
 ### Git
 
-<details>
-<summary>View notes</summary>
+
 
 - [Commands](sections/git/gitcommand.md)
 - [Clone a repository](sections/git/gitclone.md)
 - [Branch](sections/git/branch.md)
 
-</details>
+
 
 ### HTML
 
@@ -101,7 +100,7 @@
 <details>
 <summary>View notes</summary>
 
-- [Basics](sections/cpp/basics.html)
+- [Basics](sections/cpp/basics.md)
 - [Advanced Functions](sections/cpp/functions.md)
 - [Multidimensional Arrays](sections/cpp/multiarray.md)
 - [Pointers](sections/cpp/pointers.md)
