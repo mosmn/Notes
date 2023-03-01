@@ -25,7 +25,7 @@ Key Terms
 
 - **Critical Section**:
     - A section of code within a process that requires access to shared resources
-    - Must not be executed while another process is in a corresponding section of code Critical for me to get the fork Okla you eat first Concurrency Key Terms
+    - Must not be executed while another process is in a corresponding section of code
     - Each process have their own critical section.
 
 - **Deadlock**:
@@ -128,7 +128,7 @@ It is a requirement that prevents simultaneous access to a shared resource used 
 ## Satisfying the requirements of ME
 
 3 Approaches:
-- Software approach - Process coordinate with one another\
+- Software approach - Process coordinate with one another
 - Hardware approach - Using special machine instruction. Reducing overheads of the s/w approach.
 - Programming Language Support - Programs explicitly support and specify critical section
 
@@ -143,4 +143,51 @@ It is a requirement that prevents simultaneous access to a shared resource used 
 ## Hardware Support
 
 1. Interrupt Disabling
+
+In uniprocessor systems, disabling interrupts guarantees mutual exclusion.
+
+Disadvantages:
+- efficiency of execution could be noticeably reduced/degraded
+- this approach is not suitable for multiprocessor systems
+
 2. Special Machine Instructions
+
+Several machine instruction that carry out two actions atomically. such as reading and writing or reading and testing.
+
+Automatically meaning the instructions are performed in single step that cannot be interrupted.
+
+Preformed in a single instruction cycle.
+
+Not subject to interference from other processes.
+
+Advantages | Disadvantages
+--- | ---
+Applicable to any number of processes on either a single or multiple processor sharing main memory | Busy-waiting is employed, thus while a process is waiting for access to a critical section it continues to consume processor time
+Simple and easy to verify | Starvation is possible when a process leaves a critical section and more than one process is waiting
+It can be used to support multiple critical sections. Each critical section can be verify by it owns variable. | Deadlock is possible
+
+## Software Support for ME: Semaphore
+
+An integer value used for signaling among processes. Only three operations may be performed on a semaphore, all of which are atomic: initialize, decrement, and increment. The decrement operation may result in the blocking of a process, and the increment operation may result in the unblocking of a process. Also known as a counting semaphore or a general semaphore.
+
+Fundamental Principle:
+Two or more processes can cooperate by means of simple
+signals,
+- such that a process can be forced to stop at a specified place (instruction) until it has received a specific signal (e.g: availability of certain resources or a state change).
+- Semaphores are special variables used for signaling among processes.
+
+Any complex coordination requirement can be satisfied by the appropriate structure of signals.
+
+- To transmit a signal via semaphore s , a process executes the primitive semSignal(s) . 
+- To receive a signal via semaphore s , a process executes the primitive semWait(s) ;
+- If the corresponding signal has not yet been transmitted, the process is suspended until the transmission takes place.
+
+There is no way to inspect or manipulate semaphores other than these three operations:
+
+A variable that has an integer value upon which only three operations are defined:
+1) May be initialized to a nonnegative integer value (0 and above)
+2) The semWait operation decrements the value
+- If the value becomes negative, process executing SemWait is blocked
+- Else continue
+3) The semSignal operation increments the value
+- If the value becomes <= 0, then a process which was blocked by semWait, if any is unblocked

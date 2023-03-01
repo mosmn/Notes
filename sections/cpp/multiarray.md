@@ -305,7 +305,7 @@ int main(){
 #define GAME 2
 using namespace std;
 
-int totalMarks (int (&myTeam)[TEAM][GAME]) { //leave the row -size empty
+int totalMarks (int (&myTeam)[TEAM][GAME]) {
     int row=0, col=0, total=0;
     for (row=0; row<TEAM; row++) {
         for (col=0; col<GAME; col++){
