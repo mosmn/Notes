@@ -110,7 +110,7 @@ float students[3][4][7];
 
 2. Is there error in below array declarations?
 
-a) int Quiz1[3][4] = {{1,2,3,4},{5,6,7,8},{9,10,11}};, // missing a element since 3rd row has 3 elements only
+a) int Quiz1[3][4] = { {1,2,3,4}, {5,6,7,8}, {9,10,11} };, // missing a element since 3rd row has 3 elements only
 
 b) int Quiz2[4][2]={1,2,3,4}; // missing 2 elements
 
