@@ -101,7 +101,7 @@
 <details>
 <summary>View notes</summary>
 
-- [Basics](sections/cpp/basics.md)
+- [Basics](sections/cpp/basics.html)
 - [Advanced Functions](sections/cpp/functions.md)
 - [Multidimensional Arrays](sections/cpp/multiarray.md)
 - [Pointers](sections/cpp/pointers.md)
