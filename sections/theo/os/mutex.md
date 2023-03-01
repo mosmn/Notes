@@ -191,3 +191,7 @@ A variable that has an integer value upon which only three operations are define
 - Else continue
 3) The semSignal operation increments the value
 - If the value becomes <= 0, then a process which was blocked by semWait, if any is unblocked
+
+We explain these operations as follows. 
+
+To begin, the semaphore has a zero or positive value. If the value is positive, that value equals the number of processes that can issue a wait and immediately continue to execute. If the value is zero, either by initialization or because a number of processes equal to the initial semaphore value have issued a wait, the next process to issue a wait is blocked, and the semaphore value goes negative. Each subsequent wait drives the semaphore value further into minus territory. The negative value equals the number of processes waiting to be unblocked. Each signal unblocks one of the waiting processes when the semaphore value is negative.
