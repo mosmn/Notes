@@ -47,7 +47,7 @@ Method 1:
 
 Method 2:
 
-`int B[2][4] = {{1, 2, 3, 4},{5, 6, 7, 8}}; //less confusing` its gona look like this:
+`int B[2][4] = { {1, 2, 3, 4}, {5, 6, 7, 8} }; //less confusing` its gona look like this:
 ```
 1 | 2 | 3 | 4
 5 | 6 | 7 | 8
