@@ -44,11 +44,11 @@
 
 <details>
 <summary>View notes</summary>
-
-- [Linking a file](sections/html/linking.md)
-- [Creating a table](sections/html/table.md)
-- [Creating a Form](sections/html/form.md)
-
+<ul>
+  <li><a href="sections/html/linking.md">Linking a file</a></li>
+  <li><a href="sections/html/table.md">Creating a table</a></li>
+  <li><a href="sections/html/form.md">Creating a Form</a></li>
+</ul>
 </details>
 
 ### CSS
