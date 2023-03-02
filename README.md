@@ -32,13 +32,14 @@
 # Programming Notes
 ### Git
 
-
-
-- [Commands](sections/git/gitcommand.md)
-- [Clone a repository](sections/git/gitclone.md)
-- [Branch](sections/git/branch.md)
-
-
+<details>
+<summary>View notes</summary>
+<ul>
+  <li><a href="sections/git/gitcommand.md">Commands</a></li>
+  <li><a href="sections/git/gitclone.md">Clone a repository</a></li>
+  <li><a href="sections/git/branch.md">Branch</a></li>
+</ul>
+</details>
 
 ### HTML
 
@@ -55,44 +56,66 @@
 
 <details>
 <summary>View notes</summary>
-
-- [Flexbox](sections/css/flexbox.md)
-- [Grid](sections/css/grid.md)
-- [Positioning](sections/css/positioning.md)
-- [Pseudo-classes](sections/css/pseudo-classes.md)
-- [Pseudo-elements](sections/css/pseudo-elements.md)
-- [Selectors](sections/css/selectors.md)
-
+<ul>
+  <li><a href="sections/css/flexbox.md">Flexbox</a></li>
+  <li><a href="sections/css/grid.md">Grid</a></li>
+  <li><a href="sections/css/positioning.md">Positioning</a></li>
+  <li><a href="sections/css/pseudo-classes.md">Pseudo-classes</a></li>
+  <li><a href="sections/css/pseudo-elements.md">Pseudo-elements</a></li>
+  <li><a href="sections/css/selectors.md">Selectors</a></li>
+</ul>
 </details>
 
 ### JavaScript
 
 <details>
 <summary>View notes</summary>
-
-- Basics
-    - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
-
-- Linting
-    - [Eslint Setup](sections/javascript/eslint.md)
-    - [Prettier Setup](sections/javascript/prettier.md)
-
-- Organizing JavaScript Code
-    - [Objects And Object Constructors](sections/javascript/object-dp.md)
-    - [Factory Functions And The Module Pattern](sections/javascript/factory.md)
-
-- JavaScript in the Real World
-    - [DOM](sections/javascript/dom.md)
-
-- Asynchronous JavaScript and APIs
-    - [Callbacks](sections/javascript/callbacks.md)
-
-- Testing JavaScript
-    - [Jest](sections/javascript/jest.md)
-
-- React JS
-    - [React JS](sections/javascript/reactjs.md)
-
+<ul>
+  <li>
+    Basics
+    <ul>
+      <li><a href="https://learnxinyminutes.com/docs/javascript/">Refresher on the fundamentals</a></li>
+    </ul>
+  </li>
+  <li>
+    Linting
+    <ul>
+      <li><a href="sections/javascript/eslint.md">Eslint Setup</a></li>
+      <li><a href="sections/javascript/prettier.md">Prettier Setup</a></li>
+    </ul>
+  </li>
+  <li>
+    Organizing JavaScript Code
+    <ul>
+      <li><a href="sections/javascript/object-dp.md">Objects And Object Constructors</a></li>
+      <li><a href="sections/javascript/factory.md">Factory Functions And The Module Pattern</a></li>
+    </ul>
+  </li>
+  <li>
+    JavaScript in the Real World
+    <ul>
+      <li><a href="sections/javascript/dom.md">DOM</a></li>
+    </ul>
+  </li>
+  <li>
+    Asynchronous JavaScript and APIs
+    <ul>
+      <li><a href="sections/javascript/callbacks.md">Callbacks</a></li>
+    </ul>
+  </li>
+  <li>
+    Testing JavaScript
+    <ul>
+      <li><a href="sections/javascript/jest.md">Jest</a></li>
+    </ul>
+  </li>
+  <li>
+    React JS
+    <ul>
+      <li><a href="sections/javascript/reactjs.md">React JS</a></li>
+    </ul>
+  </li>
+</ul>
 </details>
 
 ### C++
