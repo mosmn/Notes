@@ -88,7 +88,12 @@ OS needs to be concerned about competition for resources
 
 Relationship with other process: Resource Competition
 
-Example: Different program just competing for resource
+Example: Different program just competing for resources
+
+Potential control problems:
+- Mutual exclusion
+- Deadlock
+- Starvation
 
 ### 2. INDIRECTLY AWARE OF EACH OTHER
 
@@ -97,6 +102,12 @@ These processes are not necessarily aware of each other by their respective proc
 Relationship with other process: Cooperation by sharing resources
 
 Example: Sharing resources such as i/o buffer
+
+Potential control problems:
+- Mutual exclusion
+- Deadlock
+- Starvation
+- Data coherence
 
 ### 3. DIRECTLY AWARE OF EACH OTHER
 
@@ -107,6 +118,10 @@ Such processes exhibit cooperation
 Relationship with other process: Cooperation by communication
 
 Example: Designed from the start to work together
+
+Potential control problems:
+- Deadlock
+- Starvation
 
 ## Mutual Exclusion
 
