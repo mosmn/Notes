@@ -1,5 +1,5 @@
 # Overview of Multi-Dimensional Arrays
-![GitHub](/assets/test.png)
+![GitHub](//assets/test.png)
 ## What are Multi-Dimensional Arrays?
 
 ### MULTI-DIMENSIONAL ARRAYS

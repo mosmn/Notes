@@ -1,5 +1,5 @@
 # Table of Contents
-![GitHub](/assets/test.png)
+
 - [Programming](#programming-notes)
     - [Git](#git)
     - [HTML](#html)
