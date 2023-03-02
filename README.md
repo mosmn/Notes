@@ -32,96 +32,51 @@
 # Programming Notes
 ### Git
 
-<details>
-<summary>View notes</summary>
-<ul>
-  <li><a href="sections/git/gitcommand.md">Commands</a></li>
-  <li><a href="sections/git/gitclone.md">Clone a repository</a></li>
-  <li><a href="sections/git/branch.md">Branch</a></li>
-</ul>
-</details>
+- [Commands](sections/git/gitcommand.md)
+- [Clone a repository](sections/git/gitclone.md)
+- [Branch](sections/git/branch.md)
 
 ### HTML
 
-<details>
-<summary>View notes</summary>
-<ul>
-  <li><a href="sections/html/linking.md">Linking a file</a></li>
-  <li><a href="sections/html/table.md">Creating a table</a></li>
-  <li><a href="sections/html/form.md">Creating a Form</a></li>
-</ul>
-</details>
+- [Linking a file](sections/html/linking.md)
+- [Creating a table](sections/html/table.md)
+- [Creating a Form](sections/html/form.md)
 
 ### CSS
 
-<details>
-<summary>View notes</summary>
-<ul>
-  <li><a href="sections/css/flexbox.md">Flexbox</a></li>
-  <li><a href="sections/css/grid.md">Grid</a></li>
-  <li><a href="sections/css/positioning.md">Positioning</a></li>
-  <li><a href="sections/css/pseudo-classes.md">Pseudo-classes</a></li>
-  <li><a href="sections/css/pseudo-elements.md">Pseudo-elements</a></li>
-  <li><a href="sections/css/selectors.md">Selectors</a></li>
-</ul>
-</details>
+- [Flexbox](sections/css/flexbox.md)
+- [Grid](sections/css/grid.md)
+- [Positioning](sections/css/positioning.md)
+- [Pseudo-classes](sections/css/pseudo-classes.md)
+- [Pseudo-elements](sections/css/pseudo-elements.md)
+- [Selectors](sections/css/selectors.md)
 
 ### JavaScript
 
-<details>
-<summary>View notes</summary>
-<ul>
-  <li>
-    Basics
-    <ul>
-      <li><a href="https://learnxinyminutes.com/docs/javascript/">Refresher on the fundamentals</a></li>
-    </ul>
-  </li>
-  <li>
-    Linting
-    <ul>
-      <li><a href="sections/javascript/eslint.md">Eslint Setup</a></li>
-      <li><a href="sections/javascript/prettier.md">Prettier Setup</a></li>
-    </ul>
-  </li>
-  <li>
-    Organizing JavaScript Code
-    <ul>
-      <li><a href="sections/javascript/object-dp.md">Objects And Object Constructors</a></li>
-      <li><a href="sections/javascript/factory.md">Factory Functions And The Module Pattern</a></li>
-    </ul>
-  </li>
-  <li>
-    JavaScript in the Real World
-    <ul>
-      <li><a href="sections/javascript/dom.md">DOM</a></li>
-    </ul>
-  </li>
-  <li>
-    Asynchronous JavaScript and APIs
-    <ul>
-      <li><a href="sections/javascript/callbacks.md">Callbacks</a></li>
-    </ul>
-  </li>
-  <li>
-    Testing JavaScript
-    <ul>
-      <li><a href="sections/javascript/jest.md">Jest</a></li>
-    </ul>
-  </li>
-  <li>
-    React JS
-    <ul>
-      <li><a href="sections/javascript/reactjs.md">React JS</a></li>
-    </ul>
-  </li>
-</ul>
-</details>
+- Basics
+    - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
+
+- Linting
+    - [Eslint Setup](sections/javascript/eslint.md)
+    - [Prettier Setup](sections/javascript/prettier.md)
+
+- Organizing JavaScript Code
+    - [Objects And Object Constructors](sections/javascript/object-dp.md)
+    - [Factory Functions And The Module Pattern](sections/javascript/factory.md)
+
+- JavaScript in the Real World
+    - [DOM](sections/javascript/dom.md)
+
+- Asynchronous JavaScript and APIs
+    - [Callbacks](sections/javascript/callbacks.md)
+
+- Testing JavaScript
+    - [Jest](sections/javascript/jest.md)
+
+- React JS
+    - [React JS](sections/javascript/reactjs.md)
 
 ### C++
-
-<details>
-<summary>View notes</summary>
 
 - [Basics](sections/cpp/basics.md)
 - [Advanced Functions](sections/cpp/functions.md)
@@ -132,43 +87,30 @@
 - [File stream input and output](sections/cpp/file-stream.md)
 - [GUI](sections/cpp/gui.md)
 
-</details>
-
 [Back to Table of Contents](#table-of-contents) ⬆
 
 # Database
 
 ### SQL
 
-<details>
-<summary>View notes</summary>
-
 - [Retrieving Data Using SQL the SQL SELECT statement](sections/db/sql/select.md)
 - [Restricting and Sorting Data](sections/db/sql/sorting.md)
 - [Single-Row Functions](sections/db/sql/singlerf.md)
 - [Group Functions](sections/db/sql/group-functions.md)
 
-</details>
-
 [Back to Table of Contents](#table-of-contents) ⬆
+
 # Cloud
 
 ### AWS
 
-<details>
-<summary>View notes</summary>
-
 - [Certification](sections/cloud/cert.md)
 
-</details>
-
 [Back to Table of Contents](#table-of-contents) ⬆
+
 # Theoretical
 
 ### Operating Systems Concepts
-
-<details>
-<summary>View notes</summary>
 
 - [Overview](sections/theo/os/overview.md)
 - [Process Description and Control](sections/theo/os/processdc.md)
@@ -180,12 +122,7 @@
 - [I/O Management & Disk Scheduling](sections/theo/os/io.md)
 - [File Management](sections/theo/os/file.md)
 
-</details>
-
 ### Software Engineering Principles
-
-<details>
-<summary>View notes</summary>
 
 - [Introduction](sections/theo/sep/intro.md)
 - [Software Processes](sections/theo/sep/process.md)
@@ -196,12 +133,7 @@
 - [Design and implementation](sections/theo/sep/design-implementation.md)
 - [Software testing](sections/theo/sep/testing.md)
 
-</details>
-
 ### Data Communication and Networking
-
-<details>
-<summary>View notes</summary>
 
 - Modules 1 - 3: Basic Network Connectivity and Communications
     - [Module 1: Networking Today](sections/theo/networking/module1.md)
@@ -220,12 +152,7 @@
 
 - Modules 16 - 17: Building and Securing a Small Network
 
-</details>
-
 ### Database Fundamentals
-
-<details>
-<summary>View notes</summary>
 
 - [Introduction](sections/theo/dbf/introduction.md)
 - [Environment](sections/theo/dbf/environoment.md)
@@ -235,12 +162,11 @@
 - [Database design](sections/theo/dbf/database-design.md)
 - [Normalization](sections/theo/dbf/normalization.md)
 
-</details>
-
 [Back to Table of Contents](#table-of-contents) ⬆
+
 # Agile software development
 
-### As a whole
+### As a wholes
 
 - [What is Agile?](sections/agile/what-is-agile.md)
 - [Free Agile Resources](sections/agile/free-agile-resources.md)
