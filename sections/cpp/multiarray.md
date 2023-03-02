@@ -1,5 +1,5 @@
 # Overview of Multi-Dimensional Arrays
-![j](/assets/test.png)
+![j](/sections/assets/test.png)
 ## What are Multi-Dimensional Arrays?
 
 ### MULTI-DIMENSIONAL ARRAYS
