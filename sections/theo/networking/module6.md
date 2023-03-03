@@ -135,3 +135,50 @@ If two devices transmit at the same time, a collision will occur. For legacy Eth
 
 CMSA/CA uses a method similar to CSMA/CD to detect if the media is clear. CMSA/CA uses additional techniques. In wireless environments it may not be possible for a device to detect a collision. CMSA/CA does not detect collisions but attempts to avoid them by waiting before transmitting. Each device that transmits includes the time duration that it needs for the transmission. All other wireless devices receive this information and know how long the medium will be unavailable.
 
+# Data Link Frame
+
+### The Frame
+
+This topic discusses in detail what happens to the data link frame as it moves through a network.
+
+The information appended to a frame is determined by the protocol being used.
+
+the structure of the frame and the fields contained in the header and trailer vary according to the protocol.
+
+There is no one frame structure that meets the needs of all data transportation across all types of media. 
+
+Depending on the environment, the amount of control information needed in the frame varies to match the access control requirements of the media and logical topology.
+
+### Frame Fields
+
+Frame field includes the following:
+
+Field | Description
+---|---
+Frame Start and Stop | Identifies beginning and end of frame
+Addressing | Indicates source and destination nodes
+Type | Identifies encapsulated Layer 3 protocol
+Control | Identifies flow control services
+Data | Contains the frame payload
+Error Detection | Used for determine transmission errors
+
+### Layer 2 Addresses
+
+Also referred to as a physical address.​
+
+Contained in the frame header.​
+
+Used only for local delivery of a frame on the link.​
+
+Updated by each device that forwards the frame.
+
+### LAN and WAN Frames
+
+The logical topology and physical media determine the data link protocol used:​
+- Ethernet​
+- 802.11 Wireless​
+- Point-to-Point (PPP)​
+- High-Level Data Link Control (HDLC)​
+- Frame-Relay​
+
+Each protocol performs media access control for specified logical topologies.
