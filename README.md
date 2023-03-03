@@ -145,13 +145,20 @@
     - [Module 6: Data Link Layer](sections/theo/networking/module6.md)
     - [Module 7: Ethernet Switching](sections/theo/networking/module7.md)
 - Modules 8 - 10: Communicating Between Networks
-
+    - [Module 8: Network Layer](sections/theo/networking/module8.md)
+    - [Module 9: Routing](sections/theo/networking/module9.md)
+    - [Module 10: Network Address Translation](sections/theo/networking/module10.md)
 - Modules 11 - 13: IP Addressing
-
+    - [Module 11: IP Addressing](sections/theo/networking/module11.md)
+    - [Module 12: IPv6](sections/theo/networking/module12.md)
+    - [Module 13: Subnetting](sections/theo/networking/module13.md)
 - Modules 14 - 15: Network Application Communications
-
+    - [Module 14: Transport Layer](sections/theo/networking/module14.md)
+    - [Module 15: Application Layer](sections/theo/networking/module15.md)
 - Modules 16 - 17: Building and Securing a Small Network
-
+    - [Module 16: Building a Small Network](sections/theo/networking/module16.md)
+    - [Module 17: Securing a Small Network](sections/theo/networking/module17.md)
+    
 ### Database Fundamentals
 
 - [Introduction](sections/theo/dbf/introduction.md)
