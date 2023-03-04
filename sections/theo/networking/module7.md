@@ -135,3 +135,34 @@ If the destination MAC address is a unicast address, the switch will look for a 
 # Switch Speeds and Forwarding Methods
 
 ### Frame Forwarding Methods on Cisco Switches
+
+Store-and-forward switching - This frame forwarding method receives the entire frame and computes the CRC. CRC uses a mathematical formula, based on the number of bits (1s) in the frame, to determine whether the received frame has an error. If the CRC is valid, the switch looks up the destination address, which determines the outgoing interface. Then the frame is forwarded out of the correct port.
+
+Cut-through switching - This frame forwarding method forwards the frame before it is entirely received. At a minimum, the destination address of the frame must be read before the frame can be forwarded.
+
+A big advantage of store-and-forward switching is that it determines if a frame has errors before propagating the frame. 
+
+When an error is detected in a frame, the switch discards the frame. 
+
+Discarding frames with errors reduces the amount of bandwidth consumed by corrupt data. 
+
+Store-and-forward switching is required for quality of service (QoS) analysis on converged networks where frame classification for traffic prioritization is necessary.
+
+### Cut-Through Switching
+
+There are two variants of cut-through switching:
+
+1. Fast-forward switching - Fast-forward switching offers the lowest level of latency. Fast-forward switching immediately forwards a packet after reading the destination address. Because fast-forward switching starts forwarding before the entire packet has been received, there may be times when packets are relayed with errors. This occurs infrequently, and the destination NIC discards the faulty packet upon receipt. In fast-forward mode, latency is measured from the first bit received to the first bit transmitted. Fast-forward switching is the typical cut-through method of switching.
+2. Fragment-free switching - In fragment-free switching, the switch stores the first 64 bytes of the frame before forwarding. Fragment-free switching can be viewed as a compromise between store-and-forward switching and fast-forward switching. __The reason fragment-free switching stores only the first 64 bytes of the frame is that most network errors and collisions occur during the first 64 bytes. Fragment-free switching tries to enhance fast-forward switching by performing a small error check on the first 64 bytes of the frame to ensure that a collision has not occurred before forwarding the frame.__ Fragment-free switching is a compromise between the high latency and high integrity of store-and-forward switching, and the low latency and reduced integrity of fast-forward switching.
+
+### Memory Buffering on Switches
+
+Memory Buffering Methods
+Method	| Description
+---|---
+Port-based memory	| Frames are stored in queues that are linked to specific incoming and outgoing ports.
+A frame is transmitted to the outgoing port only when all the frames ahead in the queue have been successfully transmitted.
+It is possible for a single frame to delay the transmission of all the frames in memory because of a busy destination port.
+This delay occurs even if the other frames could be transmitted to open destination ports.
+Shared memory	| Deposits all frames into a common memory buffer shared by all switch ports and the amount of buffer memory required by a port is dynamically allocated.
+The frames in the buffer are dynamically linked to the destination port enabling a packet to be received on one port and then transmitted on another port, without moving it to a different queue.
