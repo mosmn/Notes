@@ -158,11 +158,31 @@ There are two variants of cut-through switching:
 ### Memory Buffering on Switches
 
 Memory Buffering Methods
-Method	| Description
----|---
-Port-based memory	| Frames are stored in queues that are linked to specific incoming and outgoing ports.
-A frame is transmitted to the outgoing port only when all the frames ahead in the queue have been successfully transmitted.
-It is possible for a single frame to delay the transmission of all the frames in memory because of a busy destination port.
-This delay occurs even if the other frames could be transmitted to open destination ports.
-Shared memory	| Deposits all frames into a common memory buffer shared by all switch ports and the amount of buffer memory required by a port is dynamically allocated.
-The frames in the buffer are dynamically linked to the destination port enabling a packet to be received on one port and then transmitted on another port, without moving it to a different queue.
+
+1. Port-based memory:
+- Frames are stored in queues that are linked to specific incoming and outgoing ports.
+- A frame is transmitted to the outgoing port only when all the frames ahead in the queue have been successfully transmitted.
+- It is possible for a single frame to delay the transmission of all the frames in memory because of a busy destination port.
+- This delay occurs even if the other frames could be transmitted to open destination ports.
+
+2. Shared memory:
+- Deposits all frames into a common memory buffer shared by all switch ports and the amount of buffer memory required by a port is dynamically allocated.
+- The frames in the buffer are dynamically linked to the destination port enabling a packet to be received on one port and then transmitted on another port, without moving it to a different queue.
+
+### Duplex and Speed Settings
+
+There are two types of duplex settings used for communications on an Ethernet network:
+- Full-duplex - Both ends of the connection can send and receive simultaneously.
+- Half-duplex - Only one end of the connection can send at a time.
+
+ It is critical that the duplex and bandwidth(speed) settings match between the switch port and the connected devices, such as a computer or another switch.
+
+ Autonegotiation: is an optional function found on most Ethernet switches and NICs. It enables two devices to automatically negotiate the best speed and duplex capabilities. Full-duplex is chosen if both devices have the capability along with their highest common bandwidth.
+
+Duplex mismatch: It occurs when one port on the link operates at half-duplex while the other port operates at full-duplex
+
+### Auto-MDIX
+
+A crossover cable is used when connecting like devices, and a straight-through cable is used for connecting unlike devices.
+
+Most switch devices now support the automatic medium-dependent interface crossover (auto-MDIX) feature. When enabled, the switch automatically detects the type of cable attached to the port and configures the interfaces accordingly. Therefore, you can use either a crossover or a straight-through cable for connections to a copper 10/100/1000 port on the switch, regardless of the type of device on the other end of the connection.
