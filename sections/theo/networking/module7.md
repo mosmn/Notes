@@ -111,3 +111,27 @@ An Ethernet multicast frame is received and processed by a group of devices on t
 # The MAC Address Table
 
 ### Switch Fundamentals
+
+A Layer 2 Ethernet switch uses Layer 2 MAC addresses to make forwarding decisions
+
+It is completely unaware of the data (protocol) being carried in the data portion of the frame
+
+An Ethernet switch examines its MAC address table to make a forwarding decision for each frame
+
+### Switch Learning and Forwarding
+
+The switch dynamically builds the MAC address table by examining the source MAC address of the frames received on a port.  
+
+The switch forwards frames by searching for a match between the destination MAC address in the frame and an entry in the MAC address table.
+
+1. Examine the Source MAC Address
+
+Every frame that enters a switch is checked for new information to learn. It does this by examining the source MAC address of the frame and the port number where the frame entered the switch. If the source MAC address does not exist, it is added to the table along with the incoming port number. If the source MAC address does exist, the switch updates the refresh timer for that entry in the table. By default, most Ethernet switches keep an entry in the table for 5 minutes.
+
+2. Find the Destination MAC Address
+
+If the destination MAC address is a unicast address, the switch will look for a match between the destination MAC address of the frame and an entry in its MAC address table. If the destination MAC address is in the table, it will forward the frame out the specified port. If the destination MAC address is not in the table, the switch will forward the frame out all ports except the incoming port. This is called an unknown unicast.
+
+# Switch Speeds and Forwarding Methods
+
+### Frame Forwarding Methods on Cisco Switches
