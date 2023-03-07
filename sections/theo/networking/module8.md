@@ -103,3 +103,36 @@ The fields in the IPv6 packet header include the following:
 - Destination IPv6 Address - This 128-bit field identifies the IPv6 address of the receiving host.
 
 Unlike IPv4, routers do not fragment routed IPv6 packets.
+
+# How a Host Routes
+
+### Host Forwarding Decision
+
+The source host must be able to direct the packet to the destination host. To do this, host end devices create their own routing table. This topic discusses how end devices use routing tables.
+
+Another role of the network layer is to direct packets between hosts. A host can send a packet to the following:
+- Itself - A host can ping itself by sending a packet to a special IPv4 address of 127.0.0.1 or an IPv6 address ::1, which is referred to as the loopback interface. Pinging the loopback interface tests the TCP/IP protocol stack on the host.
+- Local host - This is a destination host that is on the same local network as the sending host. The source and destination hosts share the same network address.
+- Remote host - This is a destination host on a remote network. The source and destination hosts do not share the same network address.
+
+The router connected to the local network segment is referred to as the default gateway.
+
+### Default Gateway
+
+On a network, a default gateway is usually a router with these features:
+- It has a local IP address in the same address range as other hosts on the local network.
+- It can accept data into the local network and forward data out of the local network.
+- It routes traffic to other networks.
+
+### A Host Routes to the Default Gateway
+
+In IPv4, the host receives the IPv4 address of the default gateway either dynamically from Dynamic Host Configuration Protocol (DHCP) or configured manually. 
+
+In IPv6, the router advertises the default gateway address or the host can be configured manually.
+
+### Host Routing Tables
+
+Entering the netstat -r command or the equivalent route print command displays three sections related to the current TCP/IP network connections:
+- Interface List - Lists the Media Access Control (MAC) address and assigned interface number of every network-capable interface on the host, including Ethernet, Wi-Fi, and Bluetooth adapters.
+- IPv4 Route Table - Lists all known IPv4 routes, including direct connections, local network, and local default routes.
+- IPv6 Route Table - Lists all known IPv6 routes, including direct connections, local network, and local default routes.
