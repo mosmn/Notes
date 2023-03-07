@@ -136,3 +136,61 @@ Entering the netstat -r command or the equivalent route print command displays t
 - Interface List - Lists the Media Access Control (MAC) address and assigned interface number of every network-capable interface on the host, including Ethernet, Wi-Fi, and Bluetooth adapters.
 - IPv4 Route Table - Lists all known IPv4 routes, including direct connections, local network, and local default routes.
 - IPv6 Route Table - Lists all known IPv6 routes, including direct connections, local network, and local default routes.
+
+# Introduction to Routing
+
+### Router Packet Forwarding Decision
+
+where to send the packet. If the destination host is on a remote network, the packet is forwarded to the default gateway, which is usually the local router.
+
+When the packet arrives on the router interface:
+- The router examines the destination IP address of the packet and searches its routing table to determine where to forward the packet.
+- The routing table contains a list of all known network addresses (prefixes) and where to forward the packet.
+- These entries are known as route entries or routes.
+- The router will forward the packet using the best (longest) matching route entry.
+
+### IP Router Routing Table
+
+The routing table stores three types of route entries:
+- Directly-connected networks - These network route entries are active router interfaces. Routers add a directly connected route when an interface is configured with an IP address and is activated. Each router interface is connected to a different network segment. In the figure, the directly-connected networks in the R1 IPv4 routing table would be 192.168.10.0/24 and 209.165.200.224/30.
+- Remote networks - These network route entries are connected to other routers. Routers learn about remote networks either by being explicitly configured by an administrator or by exchanging route information using a dynamic routing protocol. In the figure, the remote network in the R1 IPv4 routing table would be 10.1.1.0/24.
+- Default route – Like a host, most routers also include a default route entry, a gateway of last resort. The default route is used when there is no better (longer) match in the IP routing table. In the figure, the R1 IPv4 routing table would most likely include a default route to forward all packets to router R2.
+
+A router can learn about remote networks in one of two ways:
+- Manually - Remote networks are manually entered into the route table using static routes.
+- Dynamically - Remote routes are automatically learned using a dynamic routing protocol.
+
+### Static Routing
+
+Static routes are route entries that are manually configured.
+
+Static routing has the following characteristics:
+- A static route must be configured manually.
+- The administrator needs to reconfigure a static route if there is a change in the topology and the static route is no longer viable.
+- A static route is appropriate for a small network and when there are few or no redundant links.
+
+### Dynamic Routing
+
+A dynamic routing protocol allows the routers to automatically learn about remote networks, including a default route, from other routers.
+
+If there is a change in the network topology, routers share this information using the dynamic routing protocol and automatically update their routing tables.
+
+Dynamic routing protocols include 
+- OSPF
+- Enhanced Interior Gateway Routing Protocol (EIGRP).
+
+The dynamic routing protocol will automatically do as follows:
+- Discover remote networks
+- Maintain up-to-date routing information
+- Choose the best path to destination networks
+- Attempt to find a new best path if the current path is no longer available
+
+### Introduction to an IPv4 Routing Table
+
+The show ip route privileged EXEC mode command is used to view the IPv4 routing table on a Cisco IOS router. The example shows the IPv4 routing table of router R1. At the beginning of each routing table entry is a code that is used to identify the type of route or how the route was learned. Common route sources (codes) include these:
+
+- L - Directly connected local interface IP address
+- C – Directly connected network
+- S – Static route was manually configured by an administrator
+- O - OSPF
+- D - EIGRP
