@@ -227,6 +227,7 @@ int main() {
         cout << ptr << endl;
         cout << "Value of var[" << i << "] = ";
         cout << *ptr << endl;
+
         // point to the previous location
         ptr++;
         i++;
@@ -244,7 +245,139 @@ Address of var[2] = 0x7ff7bfeff334
 Value of var[2] = 200
 ```
 
+# MORE ABOUT POINTERS
+
+## POINTER AND ARRAY
+
+### HOW ARRAYS AND POINTERS ARE RELATED?
+
+We know that arrays are stored in contiguous memory locations.
+
+A pointer can also store the address of elements of an array.
+```C++
+int *listPtr;
+int list[3];
+
+// store the address of the first element of list in listPtr
+listPtr = list; // equivalent to listPtr = &list[0]
+```
+
+### POINTER VS ARRAY IN C++
 
 
+Array | Pointer
+---|---
+The array can be initialized at the time of definition. | Pointers cannot be initializedat definition.
+An array can decide the number of elements it can store. | The pointer can store the address of only one variable.
+Arrays are allocated at compile time. | Pointers are allocated at run-time.
+Memory allocation is in sequence. | Memory allocation is random.
+Arrays are static in nature i.e. they cannot be resized according to the user requirements. | Pointers are dynamic in nature i.e. memory allocated can be resized later.
+An array is a group of elements. | Pointer is not a group of elements.
 
+### ACCESSING ARRAY ELEMENTS USING POINTER
 
+```C++
+int *listPtr;
+int list [3]={10,20,30};
+listPtr = list; // listPtr is pointing to list [0]
+```
+
+- Access array element using index number:
+```C++
+cout<<<listPtr + 2; // points to the third element &list [2]
+cout << ": " << listPtr [2] <<< '\n';
+```
+
+- Access array element using dereference operator:
+```C++
+cout<<< (listPtr + 1); // is equivalent to list [1]
+cout<<< *(listPtr + 2); // is equivalent to list [2]
+```
+
+### SAMPLES
+
+1. 
+```C++
+float arr[3];
+
+// declare pointer variable
+float *ptr;
+
+cout<<"Displaying address using arrays: << endl";
+
+// use for loop to print addresses of all array elements
+for (int i = 0; i < 3; ++i) {
+    cout<<"&arr[" << i << "] = " << &arr[i] <<< endl;
+}
+
+// ptr = &arr[0]
+ptr = arr;
+
+cout<<"\nDisplaying address using pointers: "<<<< endl;
+
+// use for loop to print addresses of all array elements
+// using pointer notation
+for (int i 0; i < 3; ++i) {
+    cout<<"ptr + " << i << " = "<< ptr + i << endl;
+}
+```
+output:
+```C++
+Displaying address using
+arrays:
+&arr[0] = 0x7ff7bfeff32c
+&arr[1] = 0x7ff7bfeff330
+&arr[2] = 0x7ff7bfeff334
+
+Displaying address using
+pointers:
+ptr + 0 = 0x7ff7bfeff32c
+ptr + 1 = 0x7ff7bfeff330
+ptr + 2 = 0x7ff7bfeff334
+```
+
+2. 
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    float quiz[5];
+
+    // Insert data using pointer notation
+    cout << "Enter 5 numbers: ";
+    for (int i = 0; i < 5; ++i) {
+        // store input number in arr[i]
+        cin >> *(quiz + i);
+    }
+
+    // Display data using pointer notation
+    cout << "Displaying data: " << endl;
+    for (int i = 0; i < 5; ++i) {
+        // display value of arr[i]
+        cout << *(quiz + i) << endl;
+    }
+
+    return 0;
+}
+```
+output:
+```C++
+Enter 5 numbers: 10 20 30 40 50
+Displaying data:
+10
+20
+30
+40
+50
+```
+
+## POINTER AND FUNCTION
+
+### CALL BY REFERENCE VS CALL BY VALUE
+
+- Call by value: `void calculateBalance(int value);`
+
+- Call by reference:
+    - Using address/refernce: `void swap(int &n1, int &n2);`
+    - Using pointer: `void swap(int *n1, int *n2);`
