@@ -381,3 +381,5 @@ Displaying data:
 - Call by reference:
     - Using address/refernce: `void swap(int &n1, int &n2);`
     - Using pointer: `void swap(int *n1, int *n2);`
+
+### PASSING POINTER TO A FUNCTION
