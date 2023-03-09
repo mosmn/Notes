@@ -382,4 +382,190 @@ Displaying data:
     - Using address/refernce: `void swap(int &n1, int &n2);`
     - Using pointer: `void swap(int *n1, int *n2);`
 
-### PASSING POINTER TO A FUNCTION
+### FUNCTION RETURNS A POINTER
+
+1. Place * operator on the left side of the function's name.
+2. Return the pointer to the return value.
+3. When calling the function, if you want to access its value, make sure you include the asterisk on the left side of the name of the function
+
+```C++
+double GetWeeklyHours (void) {
+    double h = 46.50;
+    double hours = &h;
+    return hours;
+}
+
+double GetSalary(void) {
+    double salary = 26.48;
+    double *HourlySalary = &salary;
+    return HourlySalary;
+}
+
+int main(){
+    double hours, salary, WeeklySalary;
+    hours = GetWeeklyHours();
+    salary = GetSalary();
+    cout << "Weekly Hours: " << hours << '\n';
+    cout<<"Hourly Salary: " << salary << '\n';
+    WeeklySalary = hours * salary;
+    cout << "Weekly Salary: " << WeeklySalary << '\n';
+    return 0;
+}
+```
+output:
+```C++
+Weekly Hours: 46.5
+Hourly Salary: 26.48
+Weekly Salary: 1229.84
+```
+
+## POINTER TO POINTER
+
+- Also known as double pointer or multiple indirection.
+- When we define a pointer to a pointer, the first pointer is used to store the address of the variables, and the second pointer stores the address of the first pointer
+```C++
+int food = "Pizza";
+int *ptr = &food;
+int **ptr2 = &ptr;
+```
+
+Sample:
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    string food = "Pizza", *foodPtr1, **foodPtr2;
+
+    // assign address of food to foodPtr pointer
+    foodPtr1 = &food;
+    foodPtr2 = &foodPtr1;
+
+    cout << "Value of variable food: " << food << '\n';
+    cout << "Value using single pointer: " << *foodPtr1 << '\n';
+    cout << "Value using double pointer: " << **foodPtr2 << '\n';
+
+    // Changing **foodPtr2 will affect *foodPtr1 and food
+    **foodPtr2 = "Burger";
+    cout << "New value of food: " << food << '\n';
+    cout << "New value using single pointer: " << *foodPtr1 << '\n';
+
+    return 0;
+}
+```
+
+## POINTER AND DYNAMIC MEMORY ALLOCATION
+
+### C++ MEMORY MANAGEMENT
+
+- C++ allows us to allocate the memory of a variable or an array in run time(meaning when you execute the program). This is known as dynamic memory allocation.
+- In other programming languages such as Java and Python, the compiler automatically manages the memories allocated to variables. But this is not the case in C++.
+- In C++, we need to deallocate the dynamically allocated memory manually after we have no use for the variable using operators:`new` and `delete`.
+
+### OPERATORS new AND delete
+
+- The new operator can also be used to allocate memory for an array.
+- Once we no longer need to use an array that we have declared dynamically, we can deallocate the memory occupied by the array.
+- The delete operator returns the memory to the operating system.
+- Known as memory deallocation.
+```C++
+// declare an int pointer
+int* pointPtr;
+
+// dynamically allocate memory
+// using the new keyword
+pointPtr = new int;
+
+// assign value to allocated memory
+*pointPtr = 45;
+
+// print the value stored in memory
+cout << *pointPtr; // Output: 45
+
+// deallocate the memory
+delete pointPtr;
+```
+
+#### SAMPLES
+
+Sample 1:
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    // declare an int pointer
+    int* pointInt;
+
+    // declare a float pointer
+    float* pointFloat;
+
+    // dynamically allocate memory
+    // using the new keyword
+    pointInt = new int;
+    pointFloat = new float;
+
+    // assigning value to the memory
+    *pointInt = 45;
+    *pointFloat = 45.45f;
+
+    cout << *pointInt << endl;
+    cout << *pointFloat << endl;
+
+    // deallocate the memory
+    delete pointInt;
+    delete pointFloat;
+
+    return 0;
+}
+```
+output:
+```C++
+45
+45.45
+```
+
+Sample 2:
+```C++
+// C++ Program to store GPA of n number of students and display it
+// where n is the number of students entered by the user
+#include <iostream>
+using namespace std;
+
+int main () {
+    int num;
+    cout << "Enter total number of students: ";
+    cin >> num;
+
+    float* studentPtr;
+
+    // memory allocation of num number of floats
+    studentPtr = new float[num];
+
+    cout << "Enter GPA of students." << endl;
+    for (int i = 0; i < num; ++i) {
+        cout << "Student" << i + 1 << ": ";
+        cin >> *(studentPtr + i);
+    }
+
+    cout << "\nDisplaying GPA of students." << endl;
+    for (int i = 0; i < num; ++i) {
+        cout << "Student" << i + 1 << ": " << *(studentPtr + i) << endl;
+    }
+
+    // ptr memory is released
+    delete[] studentPtr;
+
+    return 0;
+}
+```
+output:
+```C++
+Enter total number of students: 3
+Enter GPA of students.
+Student1: 3.5
+Student2: 3.6
+Student3: 3.7
+```
+
+- Dynamic memory allocation can make memory management more efficient. Especially for arrays, where a lot of the times we don't know the size of the array until the run time.
