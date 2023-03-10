@@ -102,4 +102,119 @@ output:
 10
 20
 30
+``` 
+
+## Structure Arrays
+
+- We can declare arrays of structures.
+- The syntax is similar to that of declaring arrays of other data types.
+```C++
+struct person
+{
+    char name[20];
+    int age;
+    float salary;
+};
+
+int main()
+{
+    struct person p1[3];
+
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "Enter name: ";
+        cin >> p1[i].name;
+        cout << "Enter age: ";
+        cin >> p1[i].age;
+        cout << "Enter salary: ";
+        cin >> p1[i].salary;
+    }
+
+    cout << "Displaying Information:" << endl;
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "Name: " << p1[i].name << endl;
+        cout << "Age: " << p1[i].age << endl;
+        cout << "Salary: " << p1[i].salary << endl;
+    }
+
+    return 0;
+}
+```
+
+## Pointers to Structures
+
+- We can declare pointers to structures.
+- The syntax is similar to that of declaring pointers to other data types.
+```C++
+struct person
+{
+    char name[20];
+    int age;
+    float salary;
+};
+
+int main()
+{
+    struct person p1;
+    struct person *ptr; // or we can just write struct person *ptr = &p1;
+    ptr = &p1;
+    cout << "Enter name: ";
+    cin >> ptr->name;
+    cout << "Enter age: ";
+    cin >> ptr->age;
+    cout << "Enter salary: ";
+    cin >> ptr->salary;
+    cout << "Displaying Information:" << endl;
+    cout << "Name: " << ptr->name << endl;
+    cout << "Age: " << ptr->age << endl;
+    cout << "Salary: " << ptr->salary << endl;
+    return 0;
+}
+```
+
+## Nested Structures
+
+- We can define structures within structures.
+- The syntax is similar to that of defining structures.
+```C++
+struct address
+{
+    char city[20];
+    char state[20];
+    char country[20];
+};
+
+struct person
+{
+    char name[20];
+    int age;
+    float salary;
+    struct address add; // or just address add;
+};
+
+int main()
+{
+    struct person p1;
+    cout << "Enter name: ";
+    cin >> p1.name;
+    cout << "Enter age: ";
+    cin >> p1.age;
+    cout << "Enter salary: ";
+    cin >> p1.salary;
+    cout << "Enter city: ";
+    cin >> p1.add.city;
+    cout << "Enter state: ";
+    cin >> p1.add.state;
+    cout << "Enter country: ";
+    cin >> p1.add.country;
+    cout << "Displaying Information:" << endl;
+    cout << "Name: " << p1.name << endl;
+    cout << "Age: " << p1.age << endl;
+    cout << "Salary: " << p1.salary << endl;
+    cout << "City: " << p1.add.city << endl;
+    cout << "State: " << p1.add.state << endl;
+    cout << "Country: " << p1.add.country << endl;
+    return 0;
+}
 ```
