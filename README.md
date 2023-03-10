@@ -82,7 +82,7 @@
 - [Advanced Functions](sections/cpp/functions.md)
 - [Multidimensional Arrays](sections/cpp/multiarray.md)
 - [Pointers](sections/cpp/pointers.md)
-- [Structures](sections/cpp/structures.md)
+- [Structures](sections/cpp/struc.md)
 - [Objects and Classes](sections/cpp/objects-classes.md)
 - [File stream input and output](sections/cpp/file-stream.md)
 - [GUI](sections/cpp/gui.md)
