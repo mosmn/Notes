@@ -127,7 +127,7 @@
 - [Introduction](sections/theo/sep/intro.md)
 - [Software Processes](sections/theo/sep/process.md)
 - [Agile Software Development](sections/theo/sep/agile.md)
-- [Requirements engineering](sections/theo/sep/requirements.md)
+- [Requirements engineering](sections/theo/sep/re.md)
 - [System modelling](sections/theo/sep/system-modeling.md)
 - [Architectural design](sections/theo/sep/architectural-design.md)
 - [Design and implementation](sections/theo/sep/design-implementation.md)
