@@ -97,6 +97,10 @@
 - [Restricting and Sorting Data](sections/db/sql/sorting.md)
 - [Single-Row Functions](sections/db/sql/singlerf.md)
 - [Group Functions](sections/db/sql/group-functions.md)
+- [Displaying Data from Multiple Tables Using Joins](sections/db/sql/joins.md)
+- [Using Subqueries to Solve Queries](sections/db/sql/subqueries.md)
+- [Manipulating Data](sections/db/sql/manipulating.md)
+- [DDL statements](sections/db/sql/ddl.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 

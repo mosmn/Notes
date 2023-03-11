@@ -11,12 +11,12 @@ WHAT IS A REQUIREMENT?
     - May be the basis for the contract itself - therefore must be defined in detail;
     - Both these statements may be called requirements.
 
-### TYPES OF REQUIREMENT
+## TYPES OF REQUIREMENT
 
 1. User requirements: Statements in natural language plus diagrams of the services the system provides and its operational constraints. Written for customers. High-level abstract requirements
 2. System requirements: A structured document setting out detailed descriptions of the system’s functions, services and operational constraints. Defines what should be implemented. May be part of a contract between client and contractor. Detailed system descriptions
 
-Example:
+### Example
 
 User requirementss definition
 > 1. The Mentcare system shall generate monthly management reports showing the cost of drugs prescribed by each clinic during that month. 
@@ -28,8 +28,95 @@ System requirements specification
 > 1.4 If drugs are available in different dose units (e.g. 10mg, 20mg, etc) separate reports shall be created for each dose unit.
 > 1.5 Access to drug cost reports shall be restricted to authorized users as listed on a management access control list.
 
+### READERS OF DIFFERENT TYPES OF REQUIREMENTS SPECIFICATION 
+
+User requirements:
+- Client managers 
+- System end-users 
+- Client engineers 
+- Contractor managers 
+- System architects
+
+System requirements:
+- System end-users 
+- Client engineers 
+- System architects 
+- Software developers
+
+The readers of the user requirements are not usually concerned with how the system will be implemented and may be managers who are not interested in the detailed facilities of the system. 
+
+The readers of the system requirements need to know more precisely what the system will do because they are concerned with how it will support the business processes or because they are involved in the system implementation.
+
+System stakeholders - anyone who:
+- affected by the system in some way
+- has a legitimate interest in the system
+
+Stakeholder types:
+- End users
+- System managers
+- System owners
+- External stakeholders
+
 # Functional and nonfunctional requirements
 
+Functional requirements | Non-functional requirements
+--- | ---
+Statements of services the system should provide, how the system should react to particular inputs and how the system should behave in particular situations. | Constraints on the services or functions offered by the system such as timing constraints, constraints on the development process, standards, etc.
+
+## Functional requirements
+
+- Describe functionality or system services.
+- Depend on the type of software, expected users and the type of system where the software is used.
+- Functional user requirements may be high-level statements of what the system should do.
+- Functional system requirements should describe the system services in detail.
+
+### MENTCARE SYSTEM: FUNCTIONAL REQUIREMENTS
+
+- REQ1: A user shall be able to search the appointments lists for all clinics.
+- REQ2: The system shall generate each day, for each clinic, a list of patients who are expected to attend appointments that day.
+- REQ3: Each staff member using the system shall be uniquely identified by his or her 8-digit employee number.
+
+### REQUIREMENTS IMPRECISION
+
+- Problems arise when functional requirements are not precisely stated.
+- Ambiguous requirements may be interpreted in different ways by developers and users.
+- Consider the term ‘search’ in REQ1
+    - User intention – search for a patient name across all appointments in all clinics;
+    - Developer interpretation – search for a patient name in an individual clinic. User chooses clinic then search.
+
+### REQUIREMENTS COMPLETENESS AND CONSISTENCY
+
+- In principle, requirements should be both complete and consistent.
+    - Complete: They should include descriptions of all facilities required.
+    - Consistent: There should be no conflicts or contradictions in the descriptions of the system facilities.
+- In practice, because of system and environmental complexity, it is impossible to produce a complete and consistent requirements document.
+
+### HOW TO WRITE GOOD FUNCTIONAL REQUIREMENTS
+
+Must include these 3:
+1. Role
+2. Verb
+3. Condition
+
+For example:
+> A user shall be able to search the appointments lists for all clinics.
+Role: A user
+Verb: Shall be able to search
+Condition: The appointments lists for all clinics
+
+## Non-functional requirements
+
+- These define system properties and constraints e.g.reliability, response time and storage requirements.
+- Constraints are I/O device capability, system representations, etc.
+- Process requirements may also be specified mandating a particular IDE, programming language or development method.
+- Non-functional requirements may be more critical than functional requirements. If these are not met, the system may be useless.
+
+### NON-FUNCTIONAL REQUIREMENTS IMPLEMENTATION
+
+- Non-functional requirements may affect the overall architecture of a system rather than the individual components.
+    - For example, to ensure that performance requirements are met, you may have to organize the system to minimize communications between components.
+- A single non-functional requirement, such as a security requirement, may generate a number of related functional requirements that define system services that are required.
+    - It may also generate requirements that restrict existing requirements. 
 # Requirements engineering (RE) processes
 
 # Requirements elicitation
