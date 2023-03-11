@@ -148,6 +148,41 @@ Product requirements | Organisational requirements | External requirements
 Requirements which specify that the delivered product must behave in a particular way. | Requirements which are a consequence of organisational policies and procedures. | Requirements which arise from factors which are external to the system and its development process.
 e.g. execution speed, reliability, etc. | e.g. process standards used, implementation requirements, etc. | e.g. interoperability requirements, legislative requirements, etc.
 
+EXAMPLES OF NONFUNCTIONAL REQUIREMENTS IN THE MENTCARE SYSTEM:
+
+Product requirement:
+- The Mentcare system shall be available to all clinics during normal working hours (Mon–Fri, 0830–17.30).
+- Downtime within normal working hours shall not exceed five seconds in any one day.
+Organizational requirement:
+- Users of the Mentcare system shall authenticate themselves using their health authority identity card.
+External requirement:
+- The system shall implement patient privacy provisions as set out in HStan-03-2006-priv. 
+
+## GOALS VS REQUIREMENTS
+
+- Non-functional requirements may be very difficult to state precisely and imprecise requirements may be difficult to verify.
+- Goal: A general intention of the user such as ease of use.
+- Verifiable non-functional requirement: A statement using some measure that can be objectively tested.
+- Goals are helpful to developers as they convey the intentions of the system users.
+
+### EXAMPLE OF USABILITY REQUIREMENTS
+
+Goal:
+- The system should be easy to use by medical staff and should be organized in such a way that user errors are minimized.
+
+Testable non-functional requirement:
+- Medical staff shall be able to use all the system functions after four hours of training. After this training, the average number of errors made by experienced users shall not exceed two per hour of system use.
+
+### METRICS FOR SPECIFYING NONFUNCTIONAL REQUIREMENTS
+
+Property | Measure
+--- | ---
+Speed | Processed transactions/second. User/event response time. Screen refresh time.
+Size | Mbytes. Number of ROM chips.
+Ease of use | Training time. Number of help frames.
+Reliability | Mean time to failure. Probability of unavailability. Rate of failure occurrence. Availability.
+Robustness | Time to restart after failure. Percentage of events causing failure. Probability of data corruption on failure.
+Portability | Percentage of target dependent statements. Number of target systems.
 
 
 # Requirements engineering (RE) processes
