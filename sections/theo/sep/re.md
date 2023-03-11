@@ -99,11 +99,22 @@ Must include these 3:
 3. Condition
 
 For example:
-> A user shall be able to search the appointments lists for all clinics.
-Role: A user
-Verb: Shall be able to search
-Condition: The appointments lists for all clinics
 
+- A user shall be able to search the appointments lists for all clinics.
+    - Role: A user
+    - Verb: Shall be able to search
+    - Condition: The appointments lists for all clinics
+
+- The system shall generate each day, for each clinic, a list of patients who are expected to attend appointments that day.
+    - Role: The system
+    - Verb: Shall generate
+    - Condition: Each day, for each clinic, a list of patients who are expected to attend appointments that day.
+
+- Each staff member using the system shall be uniquely identified by his or her 8-digit employee number.
+    - Role: Each staff member using the system
+    - Verb: Shall be uniquely identified
+    - Condition: By his or her 8-digit employee number.
+    
 ## Non-functional requirements
 
 - These define system properties and constraints e.g.reliability, response time and storage requirements.
@@ -116,7 +127,29 @@ Condition: The appointments lists for all clinics
 - Non-functional requirements may affect the overall architecture of a system rather than the individual components.
     - For example, to ensure that performance requirements are met, you may have to organize the system to minimize communications between components.
 - A single non-functional requirement, such as a security requirement, may generate a number of related functional requirements that define system services that are required.
-    - It may also generate requirements that restrict existing requirements. 
+    - It may also generate requirements that restrict existing requirements.
+
+### RELATIONSHIP BETWEEN FUNC AND NON FUNC
+
+Normally func reqs is derived based on the features of system
+
+For non func reqs it were derived or a whole system without focusing on any particular features, But in some situation non func reqs are derived based on the features
+
+Example:
+- Features – F1 :Upload picture
+- Func reqs – FR1.1 –User shall be able to upload their picture for their profile
+- Non Func reqs – NFR1.1- The picture format must be in JPG
+- NFR1.2 - The picture size must not exceed than 100MB
+
+### NON-FUNCTIONAL CLASSIFICATIONS
+
+Product requirements | Organisational requirements | External requirements
+--- | --- | ---
+Requirements which specify that the delivered product must behave in a particular way. | Requirements which are a consequence of organisational policies and procedures. | Requirements which arise from factors which are external to the system and its development process.
+e.g. execution speed, reliability, etc. | e.g. process standards used, implementation requirements, etc. | e.g. interoperability requirements, legislative requirements, etc.
+
+
+
 # Requirements engineering (RE) processes
 
 # Requirements elicitation
