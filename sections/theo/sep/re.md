@@ -184,7 +184,15 @@ Reliability | Mean time to failure. Probability of unavailability. Rate of failu
 Robustness | Time to restart after failure. Percentage of events causing failure. Probability of data corruption on failure.
 Portability | Percentage of target dependent statements. Number of target systems.
 
-
 # Requirements engineering (RE) processes
 
+A SPIRAL VIEW OF THE REQUIREMENTS ENGINEERING PROCESS:
+![s](/imgs/spire.png)
+
 # Requirements elicitation
+
+# Requirements specification
+
+# Requirements validation
+
+# Requirements change
