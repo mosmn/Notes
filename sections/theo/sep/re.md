@@ -191,6 +191,29 @@ A SPIRAL VIEW OF THE REQUIREMENTS ENGINEERING PROCESS:
 
 # Requirements elicitation
 
+Purpose: to understand the work that stakeholders do and how they might use a new system to help support that work
+
+## Two requirement elicitation techniques
+
+1. Interviewing: talk to people about what they do.
+2. Observation or ethnography: watch people doing their job to see what artifacts they use, how they use them, and so on.
+
+## PROCESS ACTIVITIES IN REQUIREMENTS ELICITATION
+
+1. Requirements discovery
+    - interacting with stakeholders of the system to discover their requirements
+    - Domain requirements are also discovered
+2. Requirements classification and organization
+    - Unstructured collection of requirements, groups related requirements are organized into coherent clusters.
+3. Requirements prioritization and negotiation
+    - prioritize requirements and finding resolve requirements conflicts through negotiation
+4. Requirements specification
+    - Produce early draft of the software requirements documents
+    - Document as input into the next round of the spiral
+
+The cycle end when the requirements document has been produced
+
+
 # Requirements specification
 
 # Requirements validation
