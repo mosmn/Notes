@@ -204,6 +204,68 @@ ORA-00979: not a GROUP BY expression
 ```
 Either add my id in th GROUP BY or remove the ejob_id column from the 1 list.
 
+- You cannot use the WHERE clause to restrict groups.
+- You use the HAVING clause to restrict groups.
+- You cannot use group functions in the WHERE clause.
+```sql
+SELECT department_id, AVG(salary)
+FROM employees
+WHERE AVG(salary) > 8000
+GROUP BY department_id;
+```
+Output:
+```
+ORA-00934: group function is not allowed here
+00934.00000 - "group function is not allowed here"
+Cause:
+Action:
+Error at Line: 3 Column: 9
+```
+Cannot use the WHERE clause to restrict groups.
 
 
 # HAVING
+
+### Restricting Group Results with the HAVING Clause
+
+When you use the HAVING clause, the Oracle server restricts groups as follows:
+1. Rows are grouped.
+2. The group function is applied.
+3. Groups matching the HAVING clause are displayed.
+```sql
+SELECT column, group_function (column)
+FROM table
+[WHERE condition]
+[GROUP BY group_by_expression]
+[HAVING group_condition]
+[ORDER BY column];
+```
+
+### HAVING Clause Syntax
+
+```sql
+SELECT department_id, MAX(AVG(salary))
+FROM employees
+GROUP BY department_id;
+HAVING MAX(AVG(salary)) > 10000;
+```
+
+```sql
+SELECT job_id, SUM(salary) PAYROLL
+FROM employees
+WHERE job_id NOT LIKE 'REP%'
+GROUP BY job_id
+HAVING SUM(salary) > 11000;
+ORDER BY SUM(salary);
+```
+
+### Nesting Group Functions
+
+```sql
+SELECT MAX(AVG(salary))
+FROM employees
+GROUP BY department_id;
+```
+
+
+
