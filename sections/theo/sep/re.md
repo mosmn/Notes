@@ -273,6 +273,92 @@ Mathematical specifications | These notations are based on mathematical concepts
 Is it sufficient to use a single way of notation when writing the system requirements specifications? Justify your answer.
 - No, system requirements are detailed and complex, so it is not sufficient to use a single way of notation when writing the system requirements specifications. a single notation may not be able to fully capture all aspects of the requirements.
 
+## NATURAL LANGUAGE SPECIFICATION
+
+Requirements are written as natural language sentences supplemented by diagrams and tables.
+
+Used for writing requirements because it is expressive, intuitive and universal. This means that the requirements can be understood by users and customers.
+
+### GUIDELINES FOR WRITING REQUIREMENTS
+
+- Invent a standard format and use it for all requirements.
+- Use language in a consistent way. Use shall for mandatory requirements, should for desirable requirements.
+- Use text highlighting to identify key parts of the requirement.
+- Avoid the use of computer jargon.
+- Include an explanation (rationale) of why a requirement is necessary
+
+### PROBLEMS WITH NATURAL LANGUAGE
+
+- Lack of clarity
+- Requirements confusion
+- Requirements amalgamation
+
+## STRUCTURED SPECIFICATIONS
+
+An approach to writing requirements where the freedom of the requirements writer is limited and requirements are written in a standard way. This works well for some types of requirements e.g. requirements for embedded control system but is sometimes too rigid for writing business system requirements.
+
+### FORMAT USED FOR SPECIFYING FUNCTIONAL REQUIREMENTS
+
+- Definition of the function or entity
+- Description of inputs and where they come from
+- Description of outputs and where they go to
+- Information about the information needed for the computation and other entities used
+- Description of the action to be taken
+- Pre and post conditions (if appropriate)
+- The side effects (if any) of the function
+
+### A STRUCTURED SPECIFICATION OF A REQUIREMENT FOR AN INSULIN PUMP 
+
+Format | Description
+---|---
+Function | Compute insulin dose: Safe sugar level.
+Description | Computes the dose of insulin to be delivered when the current measured sugar level is in the safe zone between 3 and 7 units.
+Inputs | Current sugar reading (r2), the previous two readings (r0 and r1).
+Source | Current sugar reading from sensor. Other readings from memory.
+Outputs | CompDose-the dose in insulin to be delivered.
+Destination | Main control loop.
+Action | CompDose is zero if the sugar level is stable or falling or if the level is increasing but the rate of increase is decreasing. If the level is increasing and the rate of increase is increasing, then CompDose is computed by dividing the difference between the current sugar level and the previous level by 4 and rounding the result. If the result, is rounded to zero then CompDose is set to the minimum dose that can be delivered.
+Requires | Two previous readings so that the rate of change of sugar level can be computed.
+Precondition | The insulin reservoir contains at least the maximum allowed single dose of insulin.
+Postcondition | r0 is replaced by r1 then r1 is replaced by r2.
+Side effects | None.
+
+## TABULAR SPECIFICATION
+
+- Used to supplement natural language.
+- Particularly useful when you have to define a number of possible alternative courses of action.
+- For example, the insulin pump systems bases its computations on the rate of change of blood sugar level and the tabular specification explains how to calculate the insulin requirement for different scenarios.
+
+## USE CASES
+
+- Use cases are a kind of scenario that are included in the UML(unified modeling language).
+- Use cases identify the actors in an interaction and which describe the interaction itself.
+- A set of use cases should describe all possible interactions with the system.
+- High-level graphical model supplemented by more detailed tabular description (see Chapter 5).
+- UML sequence diagrams may be used to add detail to use-cases by showing the sequence of event processing in the system.
+
+## THE SOFTWARE REQUIREMENTS DOCUMENT
+
+- The software requirements document is the official statement of what is required of the system developers.
+- Should include both a definition of user requirements and a specification of the system requirements.
+- It is NOT a design document. As far as possible, it should set of WHAT the system should do rather than HOW it should do it.
+
+### USERS OF A REQUIREMENTS DOCUMENT
+
+User | For
+---|---
+System customers | Specify the requirements and read them to check that they meet their needs. Customers specify changes to the requirements.
+Managers | Use the requirements document to plan a bid for the system and to plan the system development process.
+System engineers | Use the requirements to understand what system is to be developed.
+System test engineers | Use the requirements to develop validation tests for the system.
+System maintenance engineers | Use the requirements to understand the system and the relationships between its parts.
+
+### REQUIREMENTS DOCUMENT VARIABILITY
+
+- Information in requirements document depends on type of system and the approach to development used.
+- Systems developed incrementally will, typically, have less detail in the requirements document.
+- Requirements documents standards have been designed e.g. IEEE standard. These are mostly applicable to the requirements for large systems engineering projects.
+
 # Requirements validation
 
 # Requirements change
