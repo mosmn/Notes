@@ -2,7 +2,7 @@
 
 As discussed in [chapter 2](/sections/theo/sep/process.md) system requirements are the description of ehat the system should do and the constraints on system operations.
 
-Requirements engineering (RE) -The process sof finding out, analyzing, documenting and schecking these services and constraints.
+Requirements engineering (RE) -The process sof finding out, analyzing, documenting and checking these services and constraints.
 
 WHAT IS A REQUIREMENT?
 - Definition : a high-level, abstract statement that a system should provide or a constraint on a system.
@@ -361,4 +361,70 @@ System maintenance engineers | Use the requirements to understand the system and
 
 # Requirements validation
 
+- Concerned with demonstrating that the requirements define the system that the customer really wants
+- Requirements error costs are high, so validation is very important
+    - Fixing a requirements error after delivery may cost up to 100 times the cost of fixing an implementation error. requirements define the system that the customer really wants
+
+REQUIREMENTS CHECKING:
+
+- validity
+- consistency
+- completeness
+- realism
+- verifiability
+
+## REQUIREMENTS VALIDATION TECHNIQUES
+
+How can we check that the requirements are valid? There are a number of techniques that can be used to check the requirements:
+
+- Requirements review - systimatic manual analysis of the requirements document
+- Prototyping - using an executable model of the system to check the requirements
+- Test case generation - developing tests for requirements to check testability
+
+### REQUIREMENTS REVIEWS
+
+- Regular reviews should be held while the requirements definition is being formulated.
+- Both client and contractor staff should be involved in reviews.
+- Reviews may be formal (with completed documents) or informal. Good communications between developers, customers and users can resolve problems at an early stage.
+
+REVIEW CHECKS:
+- Verifiability - is the requirement realistically testable?
+- Comprehensibility - is the requirement properly understood?
+- Traceability - is the origin of the requirement clearly stated?
+- Adaptability - can the requirement be changed without a large impact on other requirements?
+
 # Requirements change
+
+## REASONS FOR CHANGING REQUIREMENTS
+
+- The business and technical environment of the system always changes after installation. 
+- The people who pay for a system and the users of that system are rarely the same people. 
+- Large systems usually have a diverse user community, with many users having different requirements and priorities that may be conflicting or contradictory.
+
+## REQUIREMENTS MANAGEMENT
+
+Process of managing changing requirements during the requirements engineering process and system development.
+
+New requirements emerge as a system is being developed and after it has gone into use. Therefore, it is required to :
+- keep track of individual requirements and maintain links between dependent requirements to assess the impact of requirements changes. 
+- establish a formal process for making change proposals and linking these to system requirements. 
+
+EXAMPLE DEPENDENCY OF REQUIREMENTS:
+- REQ1 :The system must validate the bank card is a valid card.
+- REQ 2:The user should be able to input their PIN which consist of 6 numbers.
+- REQ1 must happen first before REQ 2
+- REQ1-> REQ2
+
+### Requirements management planning
+
+Requirements management planning is concerned with establishing how a set of evolving requirements will be managed. During the planning stage, you have to decide on a number of issues:
+1. Requirements identification: Each requirement must be uniquely identified so that it can be cross-referenced with other requirements and used in traceability assessments.
+2. A change management process: This is the set of activities that assess the impact and cost of changes. I discuss this process in more detail in the following section.
+3. Traceability policies: These policies define the relationships between each require- ment and between the requirements and the system design that should be recorded. The traceability policy should also define how these records should be maintained.
+4. Tool support: Requirements management involves the processing of large amounts of information about the requirements. Tools that may be used range from specialist requirements management systems to shared spreadsheets and simple database systems.
+
+### REQUIREMENTS MANAGEMENT TOOLS
+
+- Requirements storage - The requirements should be maintained in a secure, managed data store that is accessible to everyone involved in the requirements engineering process.
+- Change management - Tools can keep track of suggested changes and responses to these suggestions.
+- Traceability management - Allows possible relationships between requirements to be discovered.
