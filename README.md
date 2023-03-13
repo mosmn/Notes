@@ -20,11 +20,6 @@
     - [Data Communication and Networking](#data-communication-and-networking)
     - [Database Fundamentals](#database-fundamentals)
 
-- [Agile software development](#agile-software-development)
-    - [As a whole](#as-a-whole)
-    - [Scrum](#scrum)
-    - [Kanban](#kanban)
-
 - [Getting Hired](#getting-hired)
     - [Resume](#resume)
     - [Interview](#interview)
@@ -172,19 +167,5 @@
 - [Data modeling](sections/theo/dbf/data-modeling.md)
 - [Database design](sections/theo/dbf/database-design.md)
 - [Normalization](sections/theo/dbf/normalization.md)
-
-[Back to Table of Contents](#table-of-contents) ⬆
-
-# Agile software development
-
-### As a wholes
-
-- [What is Agile?](sections/agile/what-is-agile.md)
-- [Free Agile Resources](sections/agile/free-agile-resources.md)
-
-[Back to Table of Contents](#table-of-contents) ⬆
-### Scrum
-
-### Kanban
 
 [Back to Table of Contents](#table-of-contents) ⬆
