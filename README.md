@@ -21,8 +21,8 @@
     - [Database Fundamentals](#database-fundamentals)
 
 - [Getting Hired](#getting-hired)
-    - [Resume](#resume)
-    - [Interview](#interview)
+    - [Interview Prep](#interview-prep)
+    - [Resume Guide](#resume-guide)
 
 # Programming Notes
 ### Git
@@ -169,3 +169,17 @@
 - [Normalization](sections/theo/dbf/normalization.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
+
+# Getting Hired
+
+### Interview Prep
+
+- [JS Interview Questions](sections/interview/js-interview.md)
+- [React Interview Questions](sections/interview/react-interview.md)
+
+### Resume Guide
+
+- [Resume](sections/resume/resume.md)
+- [Cover Letter](sections/resume/cover-letter.md)
+- [Portfolio](sections/resume/portfolio.md)
+- [LinkedIn](sections/resume/linkedin.md)
