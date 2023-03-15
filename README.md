@@ -146,11 +146,11 @@
 - Modules 8 - 10: Communicating Between Networks
     - [Module 8: Network Layer](sections/theo/networking/module8.md)
     - [Module 9: Address Resolution](sections/theo/networking/module9.md)
-    - [Module 10: Network Address Translation](sections/theo/networking/module10.md)
+    - [Module 10: Basic Router Configuration](sections/theo/networking/module10.md)
 - Modules 11 - 13: IP Addressing
-    - [Module 11: IP Addressing](sections/theo/networking/module11.md)
-    - [Module 12: IPv6](sections/theo/networking/module12.md)
-    - [Module 13: Subnetting](sections/theo/networking/module13.md)
+    - [Module 11: IPv4 Addressing](sections/theo/networking/module11.md)
+    - [Module 12: IPv6 Addressing](sections/theo/networking/module12.md)
+    - [Module 13: ICMP](sections/theo/networking/module13.md)
 - Modules 14 - 15: Network Application Communications
     - [Module 14: Transport Layer](sections/theo/networking/module14.md)
     - [Module 15: Application Layer](sections/theo/networking/module15.md)

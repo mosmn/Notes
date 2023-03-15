@@ -151,6 +151,7 @@ Enterprise level switches include mitigation techniques known as dynamic ARP ins
  - Source IPv6 address - the source host's IPv6 address
  - Source MAC address - the source host's MAC address
  - Destination MAC Multicast - the IPv6 solicited-node multicast address is mapped to a special ethernet multicast MAC address
+ 
  ![ip](/imgs/ip6ns.png)
 
 ### IPv6 Neighbor Discovery Messages
