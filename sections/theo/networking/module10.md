@@ -176,7 +176,15 @@ The default gateway is only used when the host wants to send a packet to a devic
 
 ### Default Gateway on a Switch
 
+A switch that interconnects client computers is typically a Layer 2 device. As such, a Layer 2 switch does not require an IP address to function properly. However, an IP configuration can be configured on a switch to give an administrator remote access to the switch.
+
 To configure an IPv4 default gateway on a switch, use the `ip default-gateway ip-address` global configuration command. The ip-address that is configured is the IPv4 address of the local router interface connected to the switch.
+```
+Switch(config)# interface vlan 1
+Switch(config-if)# ip address ipaddress subnetmask
+Switch(config-if)# ip default-gateway ip-address
+Switch(config-if)# no shutdown
+```
 
 Note: Packets originating from host computers connected to the switch must already have the default gateway address configured on their host computer operating systems.
 
