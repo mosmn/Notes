@@ -145,7 +145,7 @@
     - [Module 7: Ethernet Switching](sections/theo/networking/module7.md)
 - Modules 8 - 10: Communicating Between Networks
     - [Module 8: Network Layer](sections/theo/networking/module8.md)
-    - [Module 9: Routing](sections/theo/networking/module9.md)
+    - [Module 9: Address Resolution](sections/theo/networking/module9.md)
     - [Module 10: Network Address Translation](sections/theo/networking/module10.md)
 - Modules 11 - 13: IP Addressing
     - [Module 11: IP Addressing](sections/theo/networking/module11.md)
