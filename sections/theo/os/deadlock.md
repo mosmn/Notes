@@ -81,14 +81,33 @@ Two main methods:
 
 ### Indirect Prevention
 
-- Mutual Exclusion: Cannot be
-disallowed
-if access to a
-resource requires
-mutual exclusion
-then it must be
-supported by the
-OS
+- Mutual Exclusion: 
+    - Cannot be disallowed
+    - if access to a resource requires mutual exclusion then it must be supported by the OS
+
+- Hold and Wait:
+    - require that a process request all of its required resources at one time and blocking the process until all requests can be granted simultaneously
+
+- No Preemption:
+    - If a process holding certain resources is denied a further request, that process must release its original resources and request them again
+    - OS may preempt the second process and require it to release its resources
+
+### Direct Prevention
+
+- Circular Wait:
+    - define a linear ordering of resource types
+
+#### Havender's Linear Ordering
+
+![Havender's Linear Ordering](/imgs/hlo.png)
+
+- Each resource type is labeled with a value with those resource commonly needed at the beginning of a tasks having lower values than those that typically come at the end of a task.
+
+- A process may request and hold resources in an ascending order only.
+    - This means that a process may not request any resource of a lower value (ordering value) so long as any resources of a highervalue are being held.
+
+- For example, while process P1 has possession of R4 it may not requestan R3 or an R2.
+    - A Process may not request any resource of a lower value if it still holds the higher one
 
 ## Deadlock Avoidance
 
