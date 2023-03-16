@@ -111,6 +111,82 @@ Two main methods:
 
 ## Deadlock Avoidance
 
+Sometimes it is not feasible to prevent deadlock. 
+    - This can occur when we need the most effective use of all our resources.
+
+Allows the three necessary conditions but makes judicious choices to assure that the deadlock point is never reached.
+
+Avoidance allows more concurrency than prevention
+
+A decision is made dynamically whether the current resource allocation request will, if granted, potentially lead to a deadlock
+
+Requires knowledge of future process requests
+
+Two approaches to deadlock avoidance:
+1. Resource Allocation Denial
+2. Process initiation Denial
+
+### Resource Allocation Denial
+
+Referred to as the banker’s algorithm
+
+- State of the system reflects the current allocation of resources to processes
+    1. Safe state
+        - There is at least one sequence of resource allocations to processes that does not result in a deadlock
+    2. Unsafe state 
+        - is a state that is not safe
+        - There is not enough resource to allocate to any process
+
+Bankers algorithm:
+- Concept: ensure that the system of processes and resources is always in a safe state
+- Mechanism: when a process makes a request for a set of resources
+    - Assume that the request is granted(ASSUMPTION NOT ACTUAL, just for the sake of the algorithm)
+    - Update the system state accordingly(BASED ON THE ASSUMPTION)
+    - Determine if the result is a safe state
+        - If so, grant the request;
+        - If not, block the process until it is safe to grant the request
+
+#### Determination of a Safe State
+
+![Determining a Safe State](/imgs/dss.png)
+
+Can any of the four processes be run to completion with the resources available?
+
+Steps needed to check either it is a safe state or not:
+
+1. Construct the Need Matrix
+    - Need = Claim Matrix – Allocation Matrix
+    ![Need Matrix](/imgs/nm.png)
+    - it shows how many resources needed by each program in order for the process to complete execution.
+2. To check either the current state is safe or not safe,
+    - Compare the content of available vector with the need matrix.
+        - Is there any process which can be allocated with the available resources and the process can run to completion?
+    ![Safe State](/imgs/dss2.png)
+    - For this example the system has 1 unit of R2 and 1 unit of R3. Based from the claim matrix P2 can runs to completion.
+3. After a process runs to completion, it will release all the resources to system. Construct new available vector.
+    - New AV = Current Av + Allocation Matrix of the chosen process
+
+    ![Safe State](/imgs/dss3.png)
+
+Repeat step 2 and 3 until all processes complete execution.
+
+- Determination of a Safe State P1 Executes
+![Determining a Safe State](/imgs/dssp1.png)
+
+- Determination of a Safe State P3 Executes
+![Determining a Safe State](/imgs/dssp3.png)
+
+- Determination of a Safe State P4 Executes
+![Determining a Safe State](/imgs/dssp4.png)
+
+When all processes run to completion, the value for available vector is equal to resource vector
+![Determining a Safe State](/imgs/dssf.png)
+
+Thus, the state defined originally is a safe state
+
+#### Determination of a Unsafe State
+
+
 ## Deadlock Detection
 
 # RECOVERY
