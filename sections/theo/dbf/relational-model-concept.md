@@ -68,7 +68,7 @@ We begin with a short excursion into the world of algebra. Suppose you are buyin
 ```
 CookieCost = NumberOfBoxes * $5
 ```
-A more general way to express the relationship between CookieCost and NumberOfBoxes is to say that CookieCost depends on NumberOfBoxes. Such a statement tells us the character of the relationship between CookieCost and NumberOfBoxes, even though it doesn’t give us the formula. More formally, we can say that CookieCost is functionally dependent on NumberOfBoxes. Such a statement can be written as:
+A more general way to express the relationship between CookieCost and NumberOfBoxes is to say that CookieCost depends on NumberOfBoxes. Such a statement tells us the character of the relationship between CookieCost and NumberOfBoxes, even though it doesn’t give us the formula. More formally, we can say that CookieCost is __functionally dependent__ on NumberOfBoxes. Such a statement can be written as:
 ```
 NumberOfBoxes -> CookieCost
 ```
@@ -186,3 +186,54 @@ In summary, the functional dependencies in ORDER_ITEM are:
 ```
 
 
+## Keys
+
+A key is a combination of one or more columns that is used to identify rows in a relation.​
+
+A composite key is a key that consists of two or more columns.
+
+### Candidate Keys
+
+A candidate key is a key that determines all of the other columns in a relation. (just like in the SKU_DATA table. the SKU and SKU_Description columns are candidate keys because they determine all of the other columns in the table.)​
+
+Candidate keys identify a unique row in a relation. Given the value of a candidate key, we can find one and only one row in the relation that has that value. For example, given the SKU value of 100100, we can find one and only one row in SKU_DATA. Similarly, given the OrderNumber and SKU values (2000, 101100), we can find one and only one row in ORDER_ITEM.
+
+### Primary Keys
+
+When designing a database, one of the candidate keys is selected to be the primary key. 
+
+This term is used because this key will be defined to the database management system (DBMS), and the DBMS will use it as its primary means for finding rows in a table. A table has only one primary key. The primary key can have one column, or it can be a composite.
+
+in short:
+A primary key is a candidate key selected as the primary means of identifying rows in a relation.
+- There is only one primary key per relation.​ 
+- The primary key may be a composite key.​ 
+- The ideal primary key is short, numeric, and never changes.
+
+### Surrogate Keys
+
+A surrogate key is an artificial column added to a relation to serve as a primary key.​
+- DBMS supplied​
+- Short, numeric, and never changes—an ideal primary key​
+- Has artificial values that are meaningless to users​
+- Normally hidden in forms and reports
+
+### Foreign Keys
+
+A foreign key is the primary key of one relation that is placed in another relation to form a link between the relations.​
+- A foreign key can be a single column or a composite key.​
+- The term refers to the fact that key values are foreign to the relation in which they appear as foreign key values.
+
+## The Referential Integrity Constraint
+
+A referential integrity constraint is a statement that limits the values of the foreign key to those already existing as primary key values in the corresponding relation.
+
+Foreign Key with a​ Referential Integrity Constraint:
+
+NOTE: The primary key of the relation is bolded. The foreign key is in italics.
+
+SKU_DATA (__SKU__, SKU_Description, Department, Buyer)​
+
+ORDER_ITEM (__OrderNumber__, *SKU* , Quantity, Price, ExtendedPrice)​
+
+Where ORDER_ITEM.SKU must exist in SKU_DATA.SKU
