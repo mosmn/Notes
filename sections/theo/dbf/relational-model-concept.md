@@ -82,6 +82,8 @@ In this case, we say that ExtendedPrice is functionally dependent on Quantity an
 ```
 Here the determinant is the composite (Quantity, UnitPrice).
 
+- - - -
+
 - A functional dependency occurs when the value of one (set of) attribute(s) determines the value of a second (set of) attribute(s): ​
 ```
 StudentID -> StudentName​
@@ -95,3 +97,92 @@ ExtendedPrice = Quantity X UnitPrice​
 (Quantity, UnitPrice) -> ExtendedPrice​
 ```
 - Function dependencies are not equations!
+
+### Composite Determinants
+
+Composite determinant = a determinant of a functional dependency that consists of more than one attribute​
+```
+(StudentID, CourseID) -> (Grade)
+```
+
+## Finding Functional Dependencies
+
+### Functional Dependencies in the SKU_DATA Table
+To find functional dependencies in a table, we must ask “Does any column determine the value of another column?” For example, consider the values of the SKU_DATA table in this Figure:
+
+![SKU_DATA Table](/imgs/sku.png)
+
+Consider the last two columns. If we know the value of Department, can we determine a unique value of Buyer? No, we cannot, because a Department may have more than one Buyer. In these sample data, ‘Water Sports’ is associated with Pete Hansen and Nancy Meyers. Therefore, Department does not functionally determine Buyer.
+
+What about the reverse? Does Buyer determine Department? In every row, for a given value of Buyer, do we find the same value of Department? Every time Jerry Martin appears, for example, is he paired with the same department? The answer is yes. Further, every time Cindy Lo appears, she is paired with the same department. The same is true for the other buyers. Therefore, assuming that these data are representative, Buyer does determine Department, and we can write:
+```
+Buyer -> Department
+```
+Does Buyer determine any other column? If we know the value of Buyer, do we know the value of SKU? No, we do not, because a given buyer has many SKUs assigned to him or her. Does Buyer determine SKU_Description? No, because a given value of Buyer occurs with many values of SKU_Description.
+
+What about the other columns? It turns out that if we know the value of SKU, we also know the values of all of the other columns. In other words:
+```
+SKU -> SKU_Description
+```
+because a given value of SKU will have just one value of SKU_Description. Next,
+```
+SKU -> Department
+```
+because a given value of SKU will have just one value of Department. And, finally,
+```
+SKU -> Buyer
+```
+because a given value of SKU will have just one value of Buyer. We can combine these three statements as:
+```
+SKU -> (SKU_Description, Department, Buyer)
+```
+For the same reasons, SKU_Description determines all of the other columns, and we can write:
+```
+SKU_Description -> (SKU, Department, Buyer)
+```
+In summary, the functional dependencies in the SKU_DATA table are:
+```
+SKU -> (SKU_Description, Department, Buyer)​
+SKU_Description -> (SKU, Department, Buyer)​
+Buyer -> Department
+```
+
+### Functional Dependencies in the ORDER_ITEM Table
+
+Now consider the ORDER_ITEM table in this Figure. For convenience, here is a copy of the data in that table:
+
+![ORDER_ITEM Table](/imgs/oi.png)
+
+What are the functional dependencies in the ORDER_ITEM table? Start on the left. Does OrderNumber determine another column? It does not determine SKU because several SKUs are associated with a given order. For the same reasons, it does not determine Quantity, Price, or ExtendedPrice. 
+
+What about SKU? SKU does not determine OrderNumber because several OrderNumbers are associated with a given SKU. It does not determine Quantity or ExtendedPrice for the same reason. 
+
+What about SKU and Price? From this data, it does appear that
+```
+SKU -> Price
+```
+but that might not be true in general. In fact, we know that prices can change after an order has been processed. Further, an order might have special pricing due to a sale or promotion. To keep an accurate record of what the customer actually paid, we need to associate a particular SKU price with a particular order. Thus:
+```
+(OrderNumber, SKU) -> Price
+```
+Considering the other columns, Quantity, Price, and ExtendedPrice do not determine anything else. You can decide this by looking at the sample data. You can reinforce this conclusion by thinking about the nature of sales. Would a Quantity of 2 ever determine an OrderNumber or an SKU? This makes no sense. At the grocery store, if I tell you I bought two of something, you have no reason to conclude that my OrderNumber was 1010022203466 or that I bought carrots. Quantity does not determine OrderNumber or SKU. Similarly, if I tell you that the price of an item was $3.99, there is no logical way to conclude what my OrderNumber was or that I bought a jar of green olives. Thus, Price does not determine OrderNumber or SKU. Similar comments pertain to ExtendedPrice. It turns out that no single column is a determinant in the ORDER_ITEM table.
+
+What about pairs of columns? We already know that
+```
+(OrderNumber, SKU) -> Price
+```
+Examining the data, (OrderNumber, SKU) determines the other two columns as well. Thus:
+```
+(OrderNumber, SKU) -> (Quantity, Price, ExtendedPrice)
+```
+This functional dependency makes sense. It means that given a particular order and a particular item on that order, there is only one quantity, one price, and one extended price. Notice, too, that because ExtendedPrice is computed from the formula ExtendedPrice = (Quantity * Price) we have:
+```
+(Quantity, Price) -> ExtendedPrice
+```
+In summary, the functional dependencies in ORDER_ITEM are:
+```
+(OrderNumber, SKU) -> (Quantity, Price, ExtendedPrice)
+(Quantity, Price) -> ExtendedPrice
+```
+
+
