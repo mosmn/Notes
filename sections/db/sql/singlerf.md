@@ -127,6 +127,10 @@ The following examples demonstrate the behavior of the RR datetime format elemen
 RR Datetime Format Examples
 Assume these queries are issued between 1950 and 1999:
 
+The TO_DATE function is used to convert the string '27-OCT-98' to a date format. The second argument of the function ('DD-MON-RR') specifies the format of the input string. In this case, 'DD' represents the day of the month, 'MON' represents the abbreviated name of the month, and 'RR' represents the two-digit year.
+
+The TO_CHAR function is then used to convert the resulting date value to a string in the format 'YYYY'. The second argument of the function ('YYYY') specifies the format of the output string. This function extracts the year component of the date and returns it in the specified format.
+
 ```sql
 SELECT TO_CHAR(TO_DATE('27-OCT-98', 'DD-MON-RR') ,'YYYY') "Year"
 FROM DUAL;
