@@ -389,13 +389,13 @@ Displaying data:
 3. When calling the function, if you want to access its value, make sure you include the asterisk on the left side of the name of the function
 
 ```C++
-double GetWeeklyHours (void) {
+double* GetWeeklyHours (void) {
     double h = 46.50;
     double hours = &h;
     return hours;
 }
 
-double GetSalary(void) {
+double* GetSalary(void) {
     double salary = 26.48;
     double *HourlySalary = &salary;
     return HourlySalary;
