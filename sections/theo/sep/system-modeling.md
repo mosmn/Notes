@@ -75,6 +75,103 @@ The lack of context model:
 
 # Interaction models
 
+Modeling system-to-system interaction highlights the communication problems that may arise.
+
+Modeling component interaction helps to understand if a proposed system structure is likely to deliver the required system performance and dependability.
+
+Two approaches for interaction modelling: Use case diagrams and sequence diagrams
+
+## Use case modeling
+
+- Use cases were developed originally to support requirements elicitation and now incorporated into the UML. 
+- Each use case represents a discrete task that involves external interaction with a system. 
+- Actors in a use case may be people or other systems. 
+- Represented diagramatically to provide an overview of the use case and in a more detailed textual form.
+
+Sample use cases Mentcare system Role ‘Medical Receptionist’:
+
+![mc](/imgs/usecase1.png)
+
+### UML Notation for USE CASE MODELLING
+
+![mc](/imgs/usecaseuml.png)
+![mc](/imgs/usecaseuml2.png)
+
+Actor:
+- Could be human beings, other system, timers and clocks or hardware device.
+- 2 types of actor classification: 
+    - Primary Actors: Actors that stimulate the system and the initiator of events.
+    - Secondary Actors: Actors that only receive stimuli from the system.
+- Actor Designing Consideration: 
+    - Who / what will be interested in the system
+    - Who / what will want to change the data in the system
+    - Who / what will want to interface with the system
+    - Who / what will want information from the system
+
+Use Case:
+- Use case should ideally begin with a verb.
+- Should not be open ended. Register, wrong. Register New User, right.
+
+Generalization:
+- Used when you find 2 or more use cases that have commonalities in behavior, structure and purpose.
+- A parent use case may be specialized into 1 or more child use cases that represent more specific form of the parent. example:
+
+![mc](/imgs/usecaseg.png)
+
+Include Relationship:
+- Used when 2 or more use cases share some common portion in a flow of events.
+- The common portion is grouped and extracted to form an inclusion use case to be shared among the use cases related.
+- Specifies that the source use case explicitly incorporates the behavior of another use case at a location specified by the source. example:
+
+![mc](/imgs/usecasei.png)
+
+Extend Relationship:
+- Extend relationship is used when 2 use cases are similar, but one does a bit more than the other.
+- A base case under extend relationship may develop an alternative flow invoking an alternative use case.
+- The extension use case adds extra behavior to the base use case.
+- Specifies that the target use case extends the behavior of the source. example:
+
+![mc](/imgs/usecasee.png)
+
+### Function transfer data
+
+![mc](/imgs/usecasef.png)
+
+This is specific use case for “transfer data”. It represents a simple overview of an
+interaction.
+
+two actors (sticky men):
+1. the operator who is transferring the data
+2. the patient record system.
+
+arrows indicates that the medical receptionist initiates the transaction and data is transferred to the patient record system.
+
+### Use case Description
+
+ID: | [Unique ID of this use case]
+-- | --
+Title: | [Enter the goal of the use case - preferably as a short, active verb phrase]
+Description: | [Describe the goal and context of this use case. This is usually an expanded version of what you entered in the "Title" field.]
+Primary Actor: | [A person or a software/hardware system that interacts with your system to achieve the goal of this use case.]
+Preconditions: | [Describe the state the system is in before the first event in this use case.]
+Postconditions: | [Describe the state the system is in after all the events in this use case have taken place.]
+Main Success Scenario: | [Describe the flow of events from preconditions to postconditions, when nothing goes wrong. This is the meat of the use case.]
+Alternatives scenario: | [Describe all the other scenarios for this use case - including exceptions and error cases.]
+
+Example: Use case LOGIN
+
+ID: | UC001
+-- | --
+Title: | Login to the system
+Description: | A registered user login to the system using username and password that have been created during the user registration process.
+Primary Actor: | User
+Preconditions: | User have registered to the system
+Postconditions: | The system will display a system dashboard
+Main Success Scenario: | 1. User will click the login link 2. System display the login page 3. User enter the username and password 4. User click the login button 5. System validates with user database 6. System display the user dashboard
+Alternatives scenario: | 3.1 User enter invalid username or password 3.1.1 System display message “ Wrong username or password” 3.1.2 System executes step no 2 3.2 User enter invalid username and password 3.2.1 System display message “ Wrong username and password” 3.2.2 System executes step no 2
+
+## Sequence Diagrams
+
 # Structural models 
 
 # Behavioral models
