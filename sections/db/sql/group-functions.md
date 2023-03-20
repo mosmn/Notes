@@ -267,5 +267,15 @@ FROM employees
 GROUP BY department_id;
 ```
 
+# The order of precedence for the most commonly used clauses is:
+
+1. FROM: specifies the tables to be used in the query.
+2. WHERE: filters the rows based on a specific condition.
+3. GROUP BY: groups the rows by one or more columns.
+4. HAVING: filters the groups based on a specific condition.
+5. SELECT: selects the columns to be included in the output.
+6. ORDER BY: sorts the output based on one or more columns.
+
+
 
 
