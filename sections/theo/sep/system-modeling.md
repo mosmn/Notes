@@ -158,6 +158,10 @@ Postconditions: | [Describe the state the system is in after all the events in t
 Main Success Scenario: | [Describe the flow of events from preconditions to postconditions, when nothing goes wrong. This is the meat of the use case.]
 Alternatives scenario: | [Describe all the other scenarios for this use case - including exceptions and error cases.]
 
+- the information normally comes from:
+    1. Use case diagram
+    2. Requirements gathered
+
 Example: Use case LOGIN
 
 ID: | UC001
@@ -171,6 +175,28 @@ Main Success Scenario: | 1. User will click the login link 2. System display the
 Alternatives scenario: | 3.1 User enter invalid username or password 3.1.1 System display message “ Wrong username or password” 3.1.2 System executes step no 2 3.2 User enter invalid username and password 3.2.1 System display message “ Wrong username and password” 3.2.2 System executes step no 2
 
 ## Sequence Diagrams
+
+- part of the UML
+- to model the interactions between the actors and the objects within a system.
+- shows the sequence of interactions that take place during a particular use case or use case instance.
+- The objects and actors involved are listed along the top of the diagram, with a dotted line drawn vertically from these.
+- interactions between objects are indicated by annotated arrows. 
+
+### Sequence diagram for View patient information
+
+![mc](/imgs/seq.png)
+
+Use case VIEW PATIENT INFO:
+
+ID: | UC03
+-- | --
+Title: | View Patient Info
+Description: | This use case displays the patient inform for the view of authorized medical receptionist
+Primary Actor: | Medical Receptionist
+Preconditions: | Medical receptionist must login to the system
+Postconditions: | The system displays the patient info
+Main Success Scenario: | 1. Medical receptionist clicks the view patient info link 2. The system display the view patient request page 3. Medical receptionist enters the patient ID and click the view button 4. System validates the User ID for the view access 5. System display the patient info
+Alternatives scenario: | 4.1 Access for view patient info is fail 4.1 The system display the error message “No Access”
 
 # Structural models 
 
