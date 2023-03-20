@@ -266,3 +266,42 @@ Similar to the part-of relationship in semantic data models.
 ![mc](/imgs/agg1.png)
 
 # Behavioral models
+
+Models of the dynamic behavior of a system as it is executing.
+• show what happens or what is supposed to happen when a system responds to a stimulus from its environment.
+• Two types of stimuli :
+• Data : Some data arrives that has to be processed by the system.
+• Events: Some event happens that triggers system processing. Events may have associated data, although this
+is not always the case.
+• Types of behavioral modelling:
+• Data-driven modelling
+• Event-driven modelling
+
+Models of the dynamic behavior of a system __as it is executing.__
+
+show what happens or what is supposed to happen when a system responds to a stimulus from its environment.
+
+Two types of stimuli :
+- Data : Some data arrives that has to be processed by the system.
+- Events: Some event happens that triggers system processing. Events may have associated data, although this is not always the case.
+
+Types of behavioral modelling:
+- Data-driven modelling
+- Event-driven modelling
+
+## Data-driven modelling
+
+- show the sequence of actions involved in processing input data and generating an associated output.  
+- useful during the analysis of requirements as they can be used to show end-to-end processing in a system.  
+- show the entire sequence of actions that takes place from an initial input being processed to the corresponding output. 
+- In UML, activity diagram and sequence diagram are used to represent the flow of data.
+
+## Event-driven modelling
+
+- shows how a system responds to external and internal events.
+- based on the assumption that a system has a finite number of states and that events (stimuli) may cause a transition from one state to another.
+- In UML, state diagrams show system states and events that cause transitions from one state to another.
+
+State diagram of a microwave oven:
+
+![mc](/imgs/st1.png)
