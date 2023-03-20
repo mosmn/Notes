@@ -186,6 +186,8 @@ Alternatives scenario: | 3.1 User enter invalid username or password 3.1.1 Syste
 
 ![mc](/imgs/seq.png)
 
+[watch this video](https://www.youtube.com/watch?v=pCK6prSq8aw)
+
 Use case VIEW PATIENT INFO:
 
 ID: | UC03
@@ -199,5 +201,68 @@ Main Success Scenario: | 1. Medical receptionist clicks the view patient info li
 Alternatives scenario: | 4.1 Access for view patient info is fail 4.1 The system display the error message “No Access”
 
 # Structural models 
+
+display the organization of a system in terms of the components that make up that system and their relationships.
+
+Two types:
+- static models - the structure of the system design
+- dynamic models - the organization of the system when it is executing.
+
+Created during discussing and designing the system architecture. 
+
+## Class diagrams
+
+- used when developing an object-oriented system model to show the classes in a system and the associations between theseclasses.
+- Object class - a general definition of one kind of system object.
+- Association - a link between classes that indicates that there is some relationship between these classes.
+- During the early stages, objects represent something in the real world, such as a patient, a prescription, doctor, etc.
+
+![mc](/imgs/classd.png)
+
+Classes and associations in the Mentcare system:
+
+![mc](/imgs/classd2.png)
+
+### Semantic Data Models
+
+- Used in database design
+- show the data entities, their associated attributes, and the relations between these entities
+- UML does not include a diagram type for database modeling
+- Class diagram is used to models data using objects and their relationships
+
+Extension of object class
+- The object class can show attributes and operation by extending the rectangle shape 
+
+![mc](/imgs/sdm1.png)
+
+## Generalization
+
+An everyday technique that we use to manage complexity.
+
+Replace entities in more general classes (animals, cars, houses, etc.) and learn the characteristics of these classes, rather than detailed characteristics of it
+
+Allows different members of classes that have some common characteristics e.g. squirrels and rats are rodents.
+
+Generalization in system models:
+- examine the classes in a system to see if there is scope for generalization. If changes are proposed, do not have to look at all classes in the system to see if they are affected by the change.
+- In object-oriented languages, such as Java, generalization is implemented using the class inheritance mechanisms built into the language.
+- In a generalization, the attributes and operations associated with higher-level classes are also associated with the lower-level classes.
+- The lower-level classes are subclasses inherit the attributes and operations from their superclasses. These lower-level classes then add more specific attributes and operations.
+
+A generalization hierarchy:
+
+![mc](/imgs/gen1.png)
+
+A generalization hierarchy with added detail:
+
+![mc](/imgs/gen2.png)
+
+## Aggregation
+
+Shows how classes that are collections are composed of other classes.
+
+Similar to the part-of relationship in semantic data models. 
+
+![mc](/imgs/agg1.png)
 
 # Behavioral models
