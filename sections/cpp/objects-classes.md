@@ -194,3 +194,93 @@ classDiagram
         -courseName : String
     }
 ```
+
+# Initializing Objects with Constructors
+
+When an object of class GradeBook is created, its data member courseName is initialized to the empty string by default.
+
+What if you want to provide a course name when you create a GradeBook object?
+- Each class you declare can provide a constructor that can be used to initialize an object of the class when the object is created.
+
+ A constructor is a special member function that must be defined with the same name as the class, so that the compiler can distinguish it from the class’s other member functions.
+
+ An important difference between constructors and other functions is that constructors cannot return values, so they cannot specify a return type (not even void).
+ 
+ Normally, constructors are declared public.
+
+ C++ requires a constructor call for each object that’s created, which helps ensure that each object is initialized properly before it’s used in a program.
+
+ The constructor call occurs implicitly when the object is created. If a class does not explicitly include a constructor, the compiler provides a default constructor—that is, a constructor with no parameters.
+
+ GradeBook object is created in line 31, the default constructor is called. The default constructor provided by the compiler creates a GradeBook object without giving any initial values to the object’s fundamental type data members. [Note: For data members that are objects of other classes, the default constructor implicitly calls each data member’s default constructor to ensure that the data member is initialized properly.]
+
+ This is why the string data member courseName was initialized to the empty string—the default constructor for class string sets the string’s value to the empty string. You’ll learn more about initializing data members that are objects of other classes in future chapters.
+
+ ```C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class GradeBook
+{
+    public:
+        // constructor initializes courseName with string supplied as argument
+        GradeBook(string name)
+        {
+            setCourseName(name);
+        }
+
+        void setCourseName(string name)
+        {
+            courseName = name;
+        }
+
+        string getCourseName()
+        {
+            return courseName;
+        }
+
+        void displayMessage()
+        {
+            cout << "Welcome to the grade book for\n" << getCourseName() << "!" << endl;
+        }
+
+    private:
+        string courseName;
+};
+
+int main()
+{
+    // create two GradeBook objects
+    GradeBook gradeBook1("CS101 Introduction to C++ Programming");
+    GradeBook gradeBook2("CS102 Data Structures in C++");
+
+    cout << "gradeBook1 created for course: " << gradeBook1.getCourseName() << "\ngradeBook2 created for course: " << gradeBook2.getCourseName() << endl;
+}
+```
+output:
+```C++
+gradeBook1 created for course: CS101 Introduction to C++ Programming
+gradeBook2 created for course: CS102 Data Structures in C++ Programming
+```
+
+## Two Ways to Provide a Default Constructor for a Class
+
+Any constructor that takes no arguments is called a default constructor. A class can get a default constructor in one of two ways:
+
+1. The compiler implicitly creates a default constructor in a class that does not define a constructor. Such a constructor does not initialize the class’s data members, but does call the default constructor for each data member that’s an object of another class. An uninitialized variable typically contains a “garbage” value. ​
+
+2. You explicitly define a constructor that takes no arguments. Such a default constructor will call the default constructor for each data member that’s an object of another class and will perform additional initialization specified by you. 
+
+Adding the Constructor to Class GradeBook’s UML Class Diagra:
+```mermaid
+classDiagram
+    GradeBook <|-- GradeBook
+    class GradeBook{
+        +GradeBook()
+        +setCourseName(name : String)
+        +getCourseName() : String
+        +displayMessage()
+        -courseName : String
+    }
+```
