@@ -54,3 +54,13 @@ UML Class Diagram for Class GradeBook:
 +-------------------+
 ```
 The plus sign (+) in front of the operation name indicates that displayMessage is a public operation in the UML
+
+using mermaid to generate UML diagram
+```mermaid
+classDiagram
+    GradeBook <|-- GradeBook
+    class GradeBook{
+        +displayMessage()
+    }
+```
+
