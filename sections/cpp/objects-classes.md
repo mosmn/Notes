@@ -277,10 +277,246 @@ Adding the Constructor to Class GradeBook’s UML Class Diagra:
 classDiagram
     GradeBook <|-- GradeBook
     class GradeBook{
-        +GradeBook()
+        <<constructor>> +GradeBook(name : String)
         +setCourseName(name : String)
         +getCourseName() : String
         +displayMessage()
         -courseName : String
     }
 ```
+
+# Placing a Class in a Separate File for Reusability
+
+Programmers who wish to use our GradeBook class cannot simply include the file from the last example in another program. As you know, function main begins the execution of every program, and every program must have exactly one main function. they will get extra “baggage”—our main function and their programs will then have two main functions. Attempting to compile a program with two main functions produces an error when the compiler tries to compile the second main function it encounters. So, placing main in the same file with a class definition prevents that class from being reused by other programs. In this section, we demonstrate how to make class GradeBook reusable by separating it into another file from the main function.
+
+## Headers
+
+Each of the previous examples in the chapter consists of a single .cpp file, also known as a __source-code__ file, that contains a GradeBook class definition and a main function. When building an object-oriented C++ program, it’s customary to define reusable source code (such as a class) in a file that by convention has a .h filename extension known as a __header.__ 
+
+Programs use #include preprocessor directives to include headers and take advantage of reusable software components, such as type string provided in the C++ Standard Library and user-defined types like class GradeBook.
+```C++
+#include <iostream>
+#include <string>
+#include "GradeBook.h"
+```
+
+Our next example separates the code to .h and .cpp. To help you prepare for the larger programs you’ll encounter later in this syllabus and in industry, we often use a separate source code file containing function main to test our classes (this is called a __driver program__).
+
+## The GradeBook.h Header File
+
+```C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class GradeBook
+{
+    public:
+        GradeBook(string name)
+        {
+            setCourseName(name);
+        }
+
+        void setCourseName(string name)
+        {
+            courseName = name;
+        }
+
+        string getCourseName()
+        {
+            return courseName;
+        }
+
+        void displayMessage()
+        {
+            cout << "Welcome to the grade book for\n" << getCourseName() << "!" << endl;
+        }
+
+    private:
+        string courseName;
+};
+```
+A header such as GradeBook.h cannot be used as a complete program, because it does not contain a main function. 
+
+## The main.cpp Source Code File
+
+```C++
+#include <iostream>
+#include "GradeBook.h"
+using namespace std;
+
+int main()
+{
+    GradeBook gradeBook1("CS101 Introduction to C++ Programming");
+    GradeBook gradeBook2("CS102 Data Structures in C++");
+
+    cout << "gradeBook1 created for course: " << gradeBook1.getCourseName() << "\ngradeBook2 created for course: " << gradeBook2.getCourseName() << endl;
+}
+```
+Notice that the name of the GradeBook.h header is enclosed in quotes (" ") rather than angle brackets (< >). Normally, a program’s source-code files and user-defined headers are placed in the same directory.
+
+When the preprocessor encounters a header name in quotes, it attempts to locate the header in the same directory as the file in which the #include directive appears. If the preprocessor cannot find the header in that directory, it searches for it in the same location(s) as the C++ Standard Library headers.
+
+# Separating the Interface from the Implementation (GradeBook.h, GradeBook.cpp, main.cpp)
+
+## The GradeBook.h Header File
+
+```C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class GradeBook
+{
+    public:
+        GradeBook(string); // constructor initializes courseName
+        void setCourseName(string); // function to set the course name
+        string getCourseName(); // function to retrieve the course name
+        void displayMessage(); // display a welcome message
+    private:
+        string courseName; 
+};
+```
+
+## The GradeBook.cpp Source Code File
+
+```C++
+#include <iostream>
+#include "GradeBook.h" // include definition of class GradeBook from GradeBook.h
+using namespace std;
+
+// constructor initializes courseName with string supplied as argument
+GradeBook::GradeBook(string name)
+{
+    setCourseName(name);
+}
+
+// function to set the course name
+void GradeBook::setCourseName(string name)
+{
+    courseName = name;
+}
+
+// function to retrieve the course name
+string GradeBook::getCourseName()
+{
+    return courseName;
+}
+
+// display a welcome message to the GradeBook user
+void GradeBook::displayMessage()
+{
+    cout << "Welcome to the grade book for\n" << getCourseName() << "!" << endl;
+}
+```
+
+## The main.cpp Source Code File
+
+```C++
+#include <iostream>
+#include "GradeBook.h" // include definition of class GradeBook from GradeBook.h
+using namespace std;
+
+int main()
+{
+    GradeBook gradeBook1("CS101 Introduction to C++ Programming");
+    GradeBook gradeBook2("CS102 Data Structures in C++");
+
+    cout << "gradeBook1 created for course: " << gradeBook1.getCourseName() << "\ngradeBook2 created for course: " << gradeBook2.getCourseName() << endl;
+}
+```
+
+# Validating Data with set Functions(Gradebook.h, Gradebook.cpp, main.cpp)
+
+GradeBook.h:
+```C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class GradeBook
+{
+    public:
+        GradeBook(string); // constructor initializes courseName
+        void setCourseName(string); // function to set the course name
+        string getCourseName(); // function to retrieve the course name
+        void displayMessage(); // display a welcome message
+    private:
+        string courseName; 
+};
+```
+
+GradeBook.cpp:
+```C++
+#include <iostream>
+#include "GradeBook.h" // include definition of class GradeBook from GradeBook.h
+using namespace std;
+
+// constructor initializes courseName with string supplied as argument
+GradeBook::GradeBook(string name)
+{
+    setCourseName(name);
+}
+
+// function to set the course name
+// ensures that the course name has at most 25 characters
+void GradeBook::setCourseName(string name)
+{
+    if (name.length() <= 25)
+        courseName = name;
+    if (name.length() > 25)
+    {
+        courseName = name.substr(0, 25); // select first 25 characters and ignore the rest
+        cout << "Name \"" << name << "\" exceeds maximum length (25).\nLimiting courseName to first 25 characters.\n" << endl;
+    }
+}
+
+// function to retrieve the course name
+string GradeBook::getCourseName()
+{
+    return courseName;
+}
+
+// display a welcome message to the GradeBook user
+void GradeBook::displayMessage()
+{
+    cout << "Welcome to the grade book for\n" << getCourseName() << "!" << endl;
+}
+```
+
+main.cpp:
+```C++
+#include <iostream>
+#include "GradeBook.h" // include definition of class GradeBook from GradeBook.h
+using namespace std;
+
+int main()
+{
+    // create two GradeBook objects:
+    // initialize courseName of gradeBook1 is too long
+    GradeBook gradeBook1("CS101 Introduction to C++ Programming");
+    GradeBook gradeBook2("CS102 Data Structures in C++");
+
+    // display initial value of courseName for each GradeBook
+    cout << "gradeBook1 created for course: " << gradeBook1.getCourseName() << "\ngradeBook2 created for course: " << gradeBook2.getCourseName() << endl;
+
+    //modify courseName of gradeBook1(with a valid-length string)
+    gradeBook1.setCourseName("CS101 C++ Programming");
+
+    // display new value of courseName for each GradeBook
+    cout << "\ngradeBook1 course name is: " << gradeBook1.getCourseName() << "\ngradeBook2 course name is: " << gradeBook2.getCourseName() << endl;
+}
+```
+output:
+```
+Name "CS101 Introduction to C++ Programming" exceeds maximum length (25).
+Limiting courseName to first 25 characters.
+
+gradeBook1 created for course: CS101 Introduction to C++
+gradeBook2 created for course: CS102 Data Structures in C++
+
+gradeBook1 course name is: CS101 C++ Programming
+gradeBook2 course name is: CS102 Data Structures in C++
+```
+
+
