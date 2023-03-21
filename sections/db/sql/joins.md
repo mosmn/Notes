@@ -194,3 +194,12 @@ CROSS JOIN departments; -- has 5 departments(5 rows)
 ```
 Whenever you have a table that you want to join with another table but there is no common column between them, you can use the CROSS JOIN clause to create a Cartesian product between the two tables.
 
+# Summary
+
+- NATURAL JOIN: SQL will decide the joining condition based on the column names. It selects rows from the two tables that have equal values in all matched columns.
+- JOIN USING: specifies the columns to use for the equijoin when several columns have the same names but different data types.
+- JOIN ON: specifies arbitrary conditions or specifies columns to join, and the join condition is separated from other search conditions.
+- LEFT/RIGHT/FULL OUTER JOIN: returns the results of the INNER join as well as the unmatched rows from the left (or right) table.
+- CROSS JOIN: returns a Cartesian product of the two tables.
+- AND/OR: additional conditions can be applied using these clauses.
+
