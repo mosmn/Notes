@@ -172,6 +172,13 @@ The access specifiers public and private may be repeated, but this is unnecessar
 
 Declaring data members with access specifier private is known as __data hiding.__
 
+A member function that is declared with access specifier private is known as a __private member function__ or __Utility function.__
+
+There are three types of access specifiers/modifiers:
+1. private members of a class are accessible only from within other members of the same class (or from their "friends"). If we do not specify any access specifier/modifier for the members inside the class then by default the access specifiers/modifier for the members will be Private.
+2. protected members are accessible from other members of the same class (or from their "friends"), and from members of their derived classes.
+3. public members are accessible from anywhere where the object is visible
+
 # Software Engineering with Set and Get Functions
 
 The set and get functions of a class also should be used by other member functions within the class to manipulate the class’s private data, although these member functions can access the private data directly.
