@@ -1,130 +1,146 @@
 # Demo PROJECT ERD
 
 
-erDiagram
-    Contractors ||--|{ Works : "works for"}
-    Contractors ||--o{ Services : "provides"}
-    Customers ||--|{ Works : "hires"}
-    Customers ||--o{ Services : "requests"}
-    Works ||--o{ Services : "involves"}
-    Works ||--|{ Contractors : "employs"}
-    Works ||--|{ Customers : "requested by"}
-    Contractors {
-        int Contractor_ID (PK)
-        string Contractor_First_Name
-        string Contractor_Last_Name
-        string Contractor_Description
-        string Contractor_Email
-        string Contractor_Contact
-        float Contractor_Hourly_Rate
-        date Hire_Date
-        int Service_ID (FK)
-        int Customer_ID (FK)
-    }
-    Customers {
-        int Customer_ID (PK)
-        string Customer_Name
-        string Customer_Email
-        string Customer_Phone
-        date Registration_Date
-        date Contract_Expiry_Date
-        int Service_ID (FK)
-    }
-    Services {
-        int Service_ID (PK)
-        string Service_Name
-        string Service_Description
-        string Service_Category
-        float Unit_Cost
-        int Lead_Time
-        boolean Availability
-        int Service_Reviews_and_Ratings
-    }
-    Works {
-        int Invoice_Number (PK)
-        date Start_Date
-        date End_Date
-        float Cost
-        date Transaction_Date
-        string Payment_Method
-        string Status
-        int Customer_ID (FK)
-        int Contractor_ID (FK)
-        int Service_ID (FK)
-    }
+create a ERD using mermaid base on these tables primary keys(PK) and foreign keys(FK):
+Contractors 
+
+Contractor ID (PK) 
+
+Contractor First Name 
+
+Contractor Last Name 
+
+Contractor Description 
+
+Contractor Email 
+
+Contractor Contact 
+
+Contractor Hourly Rate 
+
+Hire Date 
+
+Service ID (FK) 
+
+Customer ID (FK) 
+
+ 
+
+Customers  
+
+Customer ID (PK) 
+
+Customer Name 
+
+Customer Email 
+
+Customer Phone 
+
+Registration Date 
+
+Contract Expiry Date 
+
+Service ID (FK) 
+
+Services 
+
+Service ID (PK) 
+
+Service Name 
+
+Service Description 
+
+Service category 
+
+Unit Cost 
+
+Lead time (time required for delivery or completion of the service) 
+
+Availability 
+
+Service reviews and ratings 
+
+Contractor ID (FK) – Since this is only a list of services, we don’t need to add FK to this table. 
+
+Customer ID (FK) – Since this is only a list of services, we don’t need to add FK to this table. 
+
+ 
+
+Works 
+
+Invoice Number (PK) 
+
+Start date 
+
+End date 
+
+Cost 
+
+Transaction Date 
+
+Payment Method 
+
+Status  (pending, in progress, completed, cancelled) 
+
+Customer ID (FK) 
+
+Contractor ID (FK) 
+
+Service ID (FK)
 
 ```mermaid
 erDiagram
-    Contractors ||--|{ Works : "works for"}
-    Contractors ||--o{ Services : "provides"}
-    Customers ||--|{ Works : "hires"}
-    Customers ||--o{ Services : "requests"}
-    Works ||--o{ Services : "involves"}
-    Works ||--|{ Contractors : "employs"}
-    Works ||--|{ Customers : "requested by"}
-    Contractors {
-        int Contractor_ID (PK)
-        string Contractor_First_Name
-        string Contractor_Last_Name
-        string Contractor_Description
-        string Contractor_Email
-        string Contractor_Contact
-        float Contractor_Hourly_Rate
-        date Hire_Date
-        int Service_ID (FK)
-        int Customer_ID (FK)
+    CONTRACTORS ||..|| SERVICES : is
+    CONTRACTORS ||--o{ CUSTOMERS : serves
+    CONTRACTORS ||--o{ WORKS : works
+    CUSTOMERS ||--o{ WORKS : works
+    SERVICES ||--o{ WORKS : works
+    CONTRACTORS ||--|{ CONTRACTORS : is
+    CUSTOMERS ||--|{ CUSTOMERS : is
+    SERVICES ||--|{ SERVICES : is
+    WORKS ||--|{ WORKS : is
+    CONTRACTORS {
+        string ContractorID
+        string ContractorFirstName
+        string ContractorLastName
+        string ContractorDescription
+        string ContractorEmail
+        string ContractorContact
+        string ContractorHourlyRate
+        string HireDate
+        string ServiceID
+        string CustomerID
     }
-    Customers {
-        int Customer_ID (PK)
-        string Customer_Name
-        string Customer_Email
-        string Customer_Phone
-        date Registration_Date
-        date Contract_Expiry_Date
-        int Service_ID (FK)
+    CUSTOMERS {
+        string CustomerID
+        string CustomerName
+        string CustomerEmail
+        string CustomerPhone
+        string RegistrationDate
+        string ContractExpiryDate
+        string ServiceID
     }
-    Services {
-        int Service_ID (PK)
-        string Service_Name
-        string Service_Description
-        string Service_Category
-        float Unit_Cost
-        int Lead_Time
-        boolean Availability
-        int Service_Reviews_and_Ratings
+    SERVICES {
+        string ServiceID
+        string ServiceName
+        string ServiceDescription
+        string ServiceCategory
+        string UnitCost
+        string LeadTime
+        string Availability
+        string ServiceReviewsAndRatings
     }
-    Works {
-        int Invoice_Number (PK)
-        date Start_Date
-        date End_Date
-        float Cost
-        date Transaction_Date
-        string Payment_Method
+    WORKS {
+        string InvoiceNumber
+        string StartDate
+        string EndDate
+        string Cost
+        string TransactionDate
+        string PaymentMethod
         string Status
-        int Customer_ID (FK)
-        int Contractor_ID (FK)
-        int Service_ID (FK)
+        string CustomerID
+        string ContractorID
+        string ServiceID
     }
 ```
 
-[]: # ## Pointers to Structures
-[]: # 
-[]: # - We can declare pointers to structures.
-[]: # - The syntax is similar to that of declaring pointers to other data types.
-[]: # ```C++
-[]: # struct person
-[]: # {
-[]: #     char name[20];
-[]: #     int age;
-[]: #     float salary;
-[]: # };
-[]: # 
-[]: # int main()
-[]: # {
-[]: #     struct person p1;
-[]: #     struct person *ptr; // or we can just write struct person *ptr = &p1;
-[]: #     ptr = &p1;
-[]: #     cout << "Enter name: ";
-[]: #     cin >> ptr->name;
-[]: #     cout << "Enter age: ";
-[]: #     cin >> ptr->age;
