@@ -53,3 +53,107 @@ erDiagram
         int Service_ID (FK)
     }
 ```
+
+```mermaid
+erDiagram
+    Contractors ||--o{ Works : "performs"
+    Customers ||--o{ Works : "requests"
+    Works }o--|| Services : "contains"
+    Works }|--|| Payments : "includes"
+    Contractors {
+        ContractorID (PK)
+        ContractorFirstName
+        ContractorLastName
+        ContractorDescription
+        ContractorEmail
+        ContractorContact
+        ContractorHourlyRate
+        HireDate
+    }
+    Customers {
+        CustomerID (PK)
+        CustomerName
+        CustomerEmail
+        CustomerPhone
+        RegistrationDate
+        ContractExpiryDate
+    }
+    Services {
+        ServiceID (PK)
+        ServiceName
+        ServiceDescription
+        ServiceCategory
+        UnitCost
+        LeadTime
+        Availability
+        ServiceReviewsAndRatings
+    }
+    Works {
+        InvoiceNumber (PK)
+        StartDate
+        EndDate
+        Cost
+        TransactionDate
+        PaymentMethod
+        Status
+    }
+    Payments {
+        PaymentID (PK)
+        PaymentAmount
+        PaymentDate
+        PaymentMethod
+    }
+```
+
+```mermaid
+erDiagram
+    Contractors {
+        Contractor_ID (PK)
+        Contractor_First_Name
+        Contractor_Last_Name
+        Contractor_Description
+        Contractor_Email
+        Contractor_Contact
+        Contractor_Hourly_Rate
+        Hire_Date
+        Service_ID (FK)
+        Customer_ID (FK)
+    }
+
+    Customers {
+        Customer_ID (PK)
+        Customer_Name
+        Customer_Email
+        Customer_Phone
+        Registration_Date
+        Contract_Expiry_Date
+        Service_ID (FK)
+    }
+
+    Services {
+        Service_ID (PK)
+        Service_Name
+        Service_Description
+        Service_Category
+        Unit_Cost
+        Lead_Time
+        Availability
+        Service_Reviews_Ratings
+    }
+
+    Works {
+        Invoice_Number (PK)
+        Start_Date
+        End_Date
+        Cost
+        Transaction_Date
+        Status
+        Customer_ID (FK)
+        Contractor_ID (FK)
+        Service_ID (FK)
+    }
+
+    Contractors }|--|| Works
+    Customers }|--|| Works
+    Services }|--|| Works
+```
