@@ -285,3 +285,69 @@ classDiagram
     }
 ```
 
+## ID-Dependent Entities​
+
+An ID-dependent entity is an entity (child) whose identifier includes the identifier of another entity (parent).​
+
+The ID-dependent entity is a logical extension or subunit of the parent:​
+- BUILDING : APARTMENT​
+- PAINTING : PRINT​
+
+The minimum cardinality from the ID-dependent entity to the parent is always one.
+
+![ID-DEPENDENT](/imgs/dme14.png)
+
+## Weak Entities​
+
+A weak entity is an entity whose existence depends upon another entity.​
+
+All ID-Dependent entities are considered weak.​
+
+There are also non-ID-dependent weak entities.​
+- The identifier of the parent does not appear in the identifier of the weak child entity.
+
+![WEAK](/imgs/dme15.png)
+
+# IE Crow’s Foot Symbol Summary I
+
+![CROWSFOOT](/imgs/dme16.png)
+
+# Strong Entity Patterns
+
+## 1:1 Strong Entity Relationships
+
+![1:1](/imgs/dme17.png)
+
+## 1:N Strong Entity Relationships
+
+![1:N](/imgs/dme18.png)
+
+## N:M Strong Entity Relationships
+
+![N:M](/imgs/dme19.png)
+
+# ID-Dependent Relationships
+
+## The Association Pattern
+
+![ASSOCIATION](/imgs/dme20.png)
+
+## The Multivalued Attribute Pattern
+
+![MULTIVALUED](/imgs/dme21.png)
+![MULTIVALUED](/imgs/dme22.png)
+
+## Composite Multivalued Attributes
+
+![COMPOSITE](/imgs/dme23.png)
+
+## The Archetype/Instance Pattern
+
+The archetype/instance pattern occurs when the ID-dependent child entity is the physical manifestation (instance) of an abstract or logical parent.​
+- PAINTING : PRINT​
+- CLASS : SECTION​
+- YACHT_DESIGN : YACHT​
+- HOUSE_MODEL: HOUSE
+
+![ARCHETYPE](/imgs/dme24.png)
+![ARCHETYPE](/imgs/dme25.png)

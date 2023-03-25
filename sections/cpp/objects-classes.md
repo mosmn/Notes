@@ -286,7 +286,8 @@ Adding the Constructor to Class GradeBook’s UML Class Diagra:
 classDiagram
     GradeBook <|-- GradeBook
     class GradeBook{
-        <<constructor>> +GradeBook(name : String)
+        <<constructor>>
+        +GradeBook(name : String)
         +setCourseName(name : String)
         +getCourseName() : String
         +displayMessage()
