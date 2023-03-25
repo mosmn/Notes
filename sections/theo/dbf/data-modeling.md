@@ -1,61 +1,3 @@
-# Demo PROJECT ERD
-
-```mermaid
-erDiagram
-    CONTRACTORS ||..|| SERVICES : is
-    CONTRACTORS ||--o{ CUSTOMERS : serves
-    CONTRACTORS ||--o{ WORKS : works
-    CUSTOMERS ||--o{ WORKS : works
-    SERVICES ||--o{ WORKS : works
-    CONTRACTORS ||--|{ CONTRACTORS : is
-    CUSTOMERS ||--|{ CUSTOMERS : is
-    SERVICES ||--|{ SERVICES : is
-    WORKS ||--|{ WORKS : is
-    CONTRACTORS {
-        string ContractorID
-        string ContractorFirstName
-        string ContractorLastName
-        string ContractorDescription
-        string ContractorEmail
-        string ContractorContact
-        string ContractorHourlyRate
-        string HireDate
-        string ServiceID
-        string CustomerID
-    }
-    CUSTOMERS {
-        string CustomerID
-        string CustomerName
-        string CustomerEmail
-        string CustomerPhone
-        string RegistrationDate
-        string ContractExpiryDate
-        string ServiceID
-    }
-    SERVICES {
-        string ServiceID
-        string ServiceName
-        string ServiceDescription
-        string ServiceCategory
-        string UnitCost
-        string LeadTime
-        string Availability
-        string ServiceReviewsAndRatings
-    }
-    WORKS {
-        string InvoiceNumber
-        string StartDate
-        string EndDate
-        string Cost
-        string TransactionDate
-        string PaymentMethod
-        string Status
-        string CustomerID
-        string ContractorID
-        string ServiceID
-    }
-```
-
 # The Data Model
 
 A data model is a plan or blueprint for a database design.​
@@ -351,3 +293,74 @@ The archetype/instance pattern occurs when the ID-dependent child entity is the 
 
 ![ARCHETYPE](/imgs/dme24.png)
 ![ARCHETYPE](/imgs/dme25.png)
+
+# Mixed Patterns
+
+## The Line-Item Pattern
+
+![MIXED](/imgs/dme26.png)
+
+## The For-Use-By Pattern
+
+![MIXED](/imgs/dme27.png)
+
+# Recursive Relationships
+
+A recursive relationship occurs when an entity has a relationship to itself.
+
+## 1:1 Recursive Relationship
+
+![RECURSIVE](/imgs/dme28.png)
+
+## 1:N Recursive Relationship
+
+![RECURSIVE](/imgs/dme29.png)
+
+## N:M Recursive Relationship
+
+![RECURSIVE](/imgs/dme30.png)
+
+# EER Model
+
+Since 1980s there has been an increase in emergence of new database applications with more demanding requirements.​
+
+Basic concepts of ER modeling are not sufficient to represent requirements of newer, more complex applications.​
+
+Semantic concepts are incorporated into the original ER model and called the Enhanced Entity-Relationship (EER) model.​
+
+Examples of additional concept of EER model is called specialization / generalization.
+
+## Specialization/Generalization​
+
+Superclass/Supertype​
+- An entity type that includes one or more distinct subgroupings of its occurrences.​
+- The superclass contains all common attributes.​
+
+Subclass/Subtype​
+- A distinct subgrouping of occurrences of an entity type.​
+- Subclass contain specific attributes.
+
+Attribute Inheritance​
+- An entity in a subclass represents same ‘real world’ object as in superclass, and may possess subclass-specific attributes, as well as those associated with the superclass.​
+
+Specialization​
+- Process of maximizing differences between members of an entity by identifying their distinguishing characteristics.​
+
+Generalization​
+- Process of minimizing differences between entities by identifying their common characteristics.​
+
+### Subclass with Discriminator
+
+![DISCRIMINATOR](/imgs/dme31.png)
+
+### Subclass: Exclusive or Inclusive
+
+- If subclass are exclusive, one superclass relates to at most one subclass.​
+- If subclasses are inclusive, one superclass can relate to one or more subclasses.
+
+![EXCLUSIVE](/imgs/dme32.png)
+
+### IE Crow’s Foot Symbol Summary
+
+![CROWSFOOT](/imgs/dme33.png)
+​
