@@ -168,6 +168,67 @@ Cardinality means “count,” and is expressed as a number.​
 Maximum cardinality is the maximum number of entity instances that can participate in a relationship.​
 
 There are three types of maximum cardinality:​
--One-to-One [1:1]​
--One-to-Many [1:N]​
--Many-to-Many [N:M]
+- One-to-One [1:1]​
+- One-to-Many [1:N]​
+- Many-to-Many [N:M]
+
+Crows Foot notation:
+
+![CROWSFOOT](/imgs/dme8.png)
+
+#### Parent and Child Entities​:
+
+In a one-to-many relationship:​
+- The entity on the one side of the relationship is called the parent entity or just the parent.​
+- The entity on the many side of the relationship is called the child entity or just the child.​
+
+In the figure above, USER is the parent and VIDEO is the child
+
+#### HAS-A Relationships​:
+
+The relationships we have been discussing are known as HAS-A relationships:​
+
+Each entity instance has a relationship with another entity instance.​
+- A USER has rented one or more VIDEOS.​
+- A VIDEO has one borrowed USER.
+
+### Minimum Cardinality​
+
+Minimum cardinality is the minimum number of entity instances that must participate in a relationship.​
+
+Minimums are generally stated as either zero or one:​
+- IF zero [0] THEN participation in the relationship by the entity is optional, and no entity instance must participate in the relationship.​
+- IF one [1] THEN participation in the relationship by the entity is mandatory, and at least one entity instance must participate in the relationship
+
+Crows Foot notation:
+
+![CROWSFOOT](/imgs/dme9.png)
+
+#### Indicating Minimum Cardinality​:
+
+As shown in the examples in a following [image](####Crows Foot Notation​ for Minimum Cardinality​:)
+- Minimum cardinality of zero [0] indicating optional participation is indicated by placing an oval ssnext to the optional entity.​
+- Minimum cardinality of one [1] indicating mandatory (required) participation is indicated by placing a vertical hash mark next to the required entity.
+
+#### Reading Minimum Cardinality​:
+
+Look toward the entity in question:​
+- IF you see an oval THEN that entity is optional (minimum cardinality of zero [0]).​
+- IF you see a vertical hash mark THEN that entity is mandatory (required) (minimum cardinality of one [ 1]).
+
+#### Crows Foot Notation​ for Minimum Cardinality​:
+
+![CROWSFOOT](/imgs/dme10.png)
+
+## Data Modeling Notation:​ IE Crow’s Foot
+
+![CROWSFOOT](/imgs/dme11.png)
+
+### IE Crow’s Foot 1:N
+
+![CROWSFOOT](/imgs/dme12.png)
+
+### IE Crow’s Foot N:M
+
+![CROWSFOOT](/imgs/dme13.png)
+
