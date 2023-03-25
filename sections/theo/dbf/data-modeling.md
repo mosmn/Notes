@@ -110,15 +110,27 @@ Cardinality means “count,” and is expressed as a number.​
 Maximum cardinality is the maximum number of entity instances that can participate in a relationship.​
 
 There are three types of maximum cardinality:​
-- One-to-One [1:1]​
-- One-to-Many [1:N]​
-- Many-to-Many [N:M]
+- One-to-One [1:1]​ - In a 1:1 relationship, an entity instance of one type is related to, at most, one entity instance of the other type
+- One-to-Many [1:N]​ - Here a single instance of EMPLOYEE can be associated with many instances of COMPUTER, but a COMPUTER instance is associated with, at most, one instance of EMPLOYEE.
+- Many-to-Many [N:M] - According to the Qualification relationship, an EMPLOYEE instance can be associated with many SKILL instances, and a SKILL instance can be associated with many EMPLOYEE instances. This relationship documents the fact that an employee may have many skills and a skill may be held by many employees.
 
 Crows Foot notation:
 
 ![CROWSFOOT](/imgs/dme8.png)
 
+Sometimes students wonder why we do not write many-to-many relationships as N:N
+or M:M. The reason is that cardinality in one direction may be different from the cardinality in the other direction. In other words, in an N:M relationship, N need not equal M. An
+EMPLOYEE can have five skills, for example, but one of those skills can have three employees. Writing the relationship as N:M highlights the possibility that the cardinalities may be
+different.
+
+Sometimes the maximum cardinality is an exact number. For example, for a sports
+team, the number of players on the roster is limited to some fixed number, say, 15. In that
+case, the maximum cardinality between TEAM and PLAYER would be set to 15 rather than
+to the more general N.
+
 #### Parent and Child Entities​:
+
+When discussing one-to-many relationships, the terms parent and child are sometimes used. The parent is the entity on the 1 side of the relationship, and the child is the entity on the many side of the relationship. Thus, in a 1:N relationship between DEPARTMENT and EMPLOYEE, DEPARTMENT is the parent and EMPLOYEE is the child (one DEPARTMENT has many EMPLOYEEs).
 
 In a one-to-many relationship:​
 - The entity on the one side of the relationship is called the parent entity or just the parent.​
@@ -139,8 +151,8 @@ Each entity instance has a relationship with another entity instance.​
 Minimum cardinality is the minimum number of entity instances that must participate in a relationship.​
 
 Minimums are generally stated as either zero or one:​
-- IF zero [0] THEN participation in the relationship by the entity is optional, and no entity instance must participate in the relationship.​
-- IF one [1] THEN participation in the relationship by the entity is mandatory, and at least one entity instance must participate in the relationship
+- Optional participation. IF zero [0] THEN participation in the relationship by the entity is optional, and no entity instance must participate in the relationship.​
+- Mandatory participation. IF one [1] THEN participation in the relationship by the entity is mandatory, and at least one entity instance must participate in the relationship.
 
 Crows Foot notation:
 
@@ -148,7 +160,7 @@ Crows Foot notation:
 
 #### Indicating Minimum Cardinality​:
 
-As shown in the examples in a following [image](####Crows Foot Notation​ for Minimum Cardinality​:)
+As shown in the examples in a following [image](#crows-foot-notation-for-minimum-cardinality),​
 - Minimum cardinality of zero [0] indicating optional participation is indicated by placing an oval ssnext to the optional entity.​
 - Minimum cardinality of one [1] indicating mandatory (required) participation is indicated by placing a vertical hash mark next to the required entity.
 
@@ -158,7 +170,7 @@ Look toward the entity in question:​
 - IF you see an oval THEN that entity is optional (minimum cardinality of zero [0]).​
 - IF you see a vertical hash mark THEN that entity is mandatory (required) (minimum cardinality of one [ 1]).
 
-#### Crows Foot Notation​ for Minimum Cardinality​:
+#### Crows Foot Notation​ for Minimum Cardinality​
 
 ![CROWSFOOT](/imgs/dme10.png)
 
