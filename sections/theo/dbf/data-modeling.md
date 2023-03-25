@@ -232,3 +232,46 @@ Look toward the entity in question:​
 
 ![CROWSFOOT](/imgs/dme13.png)
 
+# Examples
+
+## Example 1
+
+I want a course registratio database. Store information about my students, including their IDs, names, and emails. A course should have information about course ID, course name, and instructor name.
+- How many entities do you need?​
+    - Student​
+    - Course​
+- Draw a diagram for each entity.
+```mermaid
+graph LR
+    Student[Student]
+    Course[Course]
+    Student -->|ID| ID1
+    Student -->|Name| Name1
+    Student -->|Email| Email1
+    Course -->|ID| ID2
+    Course -->|Name| Name2
+    Course -->|Instructor| Instructor2
+```
+
+## Example 2
+
+I am a the manager for apartment rental office. I want a database to maintain all my apartments. Each apartment building will have a building name, address, city, state, and zip code. A building has many apartments. An apartment has a apartment number, number of bedrooms, number of bathrooms, and rent cost.
+- How many entities do you need?​
+    - Building​
+    - Apartment​
+- Draw a diagram for each entity.
+```mermaid
+graph LR
+    Building[Building]
+    Apartment[Apartment]
+    Building -->|Name| Name1
+    Building -->|Address| Address1
+    Building -->|City| City1
+    Building -->|State| State1
+    Building -->|Zip| Zip1
+    Apartment -->|Number| Number2
+    Apartment -->|Bedrooms| Bedrooms2
+    Apartment -->|Bathrooms| Bathrooms2
+    Apartment -->|Rent| Rent2
+```
+
