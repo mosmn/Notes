@@ -243,17 +243,17 @@ I want a course registratio database. Store information about my students, inclu
 - Draw a diagram for each entity.
 ```mermaid
 classDiagram
-    Student
-    class Student{
-        ID
-        Name
-        Email
+    class Student {
+      <<entity>>
+      +ID (primary key)
+      +Name
+      +Email
     }
-    Course
-    class Course{
-        ID
-        Name
-        Instructor
+    class Course {
+      <<entity>>
+      +ID (primary key)
+      +Name
+      +Instructor
     }
 ```
 
@@ -265,17 +265,23 @@ I am a the manager for apartment rental office. I want a database to maintain al
     - Apartment​
 - Draw a diagram for each entity.
 ```mermaid
-graph LR
-    Building[Building]
-    Apartment[Apartment]
-    Building -->|Name| Name1
-    Building -->|Address| Address1
-    Building -->|City| City1
-    Building -->|State| State1
-    Building -->|Zip| Zip1
-    Apartment -->|Number| Number2
-    Apartment -->|Bedrooms| Bedrooms2
-    Apartment -->|Bathrooms| Bathrooms2
-    Apartment -->|Rent| Rent2
+classDiagram
+    class Building {
+      <<entity>>
+      +BuildingID (primary key)
+      +Name
+      +Address
+      +City
+      +State
+      +Zip
+    }
+    class Apartment {
+      <<entity>>
+      +BuildingID (primary key)
+      +ApartmentID (primary key)
+      +NumberOfBed
+      +NumberOfBath
+      +Rent
+    }
 ```
 
