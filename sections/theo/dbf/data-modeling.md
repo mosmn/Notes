@@ -242,15 +242,19 @@ I want a course registratio database. Store information about my students, inclu
     - Course​
 - Draw a diagram for each entity.
 ```mermaid
-graph LR
-    Student[Student]
-    Course[Course]
-    Student -->|ID| ID1
-    Student -->|Name| Name1
-    Student -->|Email| Email1
-    Course -->|ID| ID2
-    Course -->|Name| Name2
-    Course -->|Instructor| Instructor2
+classDiagram
+    Student
+    class Student{
+        ID
+        Name
+        Email
+    }
+    Course
+    class Course{
+        ID
+        Name
+        Instructor
+    }
 ```
 
 ## Example 2
