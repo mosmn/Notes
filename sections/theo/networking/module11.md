@@ -315,3 +315,108 @@ so on...
 # Subnet an IPv4 Network
 
 ### Subnet on an Octet Boundary
+
+IPv4 subnets are created by using one or more of the host bits as network bits. 
+
+This is done by extending the subnet mask to borrow some of the bits from the host portion of the address to create additional network bits. The more host bits that are borrowed, the more subnets that can be defined. 
+
+The more bits that are borrowed to increase the number of subnets reduces the number of hosts per subnet.
+
+Networks are most easily subnetted at the octet boundary of /8, /16, and /24. The table identifies these prefix lengths. Notice that using longer prefix lengths decreases the number of hosts per subnet.
+
+Subnet Masks on Octet Boundaries
+
+![Subnet Masks on Octet Boundaries](/imgs/ipv43.png)
+
+### Subnet within an Octet Boundary
+
+The examples shown thus far borrowed host bits from the common /8, /16, and /24 network prefixes. However, subnets can borrow bits from any host bit position to create other masks.
+
+For instance, a /24 network address is commonly subnetted using longer prefix lengths by borrowing bits from the fourth octet. This provides the administrator with additional flexibility when assigning network addresses to a smaller number of end devices.
+
+Subnet a /24 Network
+
+![Subnet a /24 Network](/imgs/ipv44.png)
+
+For each bit borrowed in the fourth octet, the number of subnetworks available is doubled, while reducing the number of host addresses per subnet:
+- /25 row - Borrowing 1 bit from the fourth octet creates 2 subnets supporting 126 hosts each.
+- /26 row - Borrowing 2 bits creates 4 subnets supporting 62 hosts each.
+- /27 row - Borrowing 3 bits creates 8 subnets supporting 30 hosts each.
+- /28 row - Borrowing 4 bits creates 16 subnets supporting 14 hosts each.
+- /29 row - Borrowing 5 bits creates 32 subnets supporting 6 hosts each.
+- /30 row - Borrowing 6 bits creates 64 subnets supporting 2 hosts each.
+
+### Subnet with the Magic Number
+
+its the last binary 1 in the subnet mask. [The magic number](https://contenthub.netacad.com/itn-dl/11.5.4)
+
+# Subnet a Slash 16 and a Slash 8 Prefix
+
+### Create Subnets with a Slash 16 prefix
+
+In a situation requiring a larger number of subnets, an IPv4 network is required that has more hosts bits available to borrow. For example, the network address 172.16.0.0 has a default mask of 255.255.0.0, or /16. This address has 16 bits in the network portion and 16 bits in the host portion. The 16 bits in the host portion are available to borrow for creating subnets. The table highlights all the possible scenarios for subnetting a /16 prefix.
+
+Subnet a /16 Network
+
+![Subnet a /16 Network](/imgs/ipv45.png)
+
+### Create 100 Subnets with a Slash 16 prefix
+
+Consider a large enterprise that requires at least 100 subnets and has chosen the private address 172.16.0.0/16 as its internal network address.
+
+When borrowing bits from a /16 address, start borrowing bits in the third octet, going from left to right. Borrow a single bit at a time until the number of bits necessary to create 100 subnets is reached.
+
+The figure displays the number of subnets that can be created when borrowing bits from the third octet and the fourth octet. Notice there are now up to 14 host bits that can be borrowed.
+
+Number of Subnets Created by Borrowing Bits:
+
+![Number of Subnets Created by Borrowing Bits](/imgs/ipv46.png)
+
+To satisfy the requirement of 100 subnets for the enterprise, 7 bits (i.e., 27 = 128 subnets) would need to be borrowed (for a total of 128 subnets)
+
+Recall that the subnet mask must change to reflect the borrowed bits. In this example, when 7 bits are borrowed, the mask is extended 7 bits into the third octet. In decimal, the mask is represented as 255.255.254.0, or a /23 prefix, because the third octet is 11111110 in binary and the fourth octet is 00000000 in binary.
+
+using the magic number technique, we can find the resulting subnets from 172.16.0.0 /23 up to 172.16.254.0 /23. watch the video for more details [The magic number](https://contenthub.netacad.com/itn-dl/11.5.4)
+
+for a total of 9 bits that were not borrowed. 29 results in 512 total host addresses. The first address is reserved for the network address and the last address is reserved for the broadcast address, so subtracting for these two addresses (29 - 2) equals 510 available host addresses for each /23 subnet.
+
+### Create 1000 Subnets with a Slash 8 prefix
+
+Some organizations, such as small service providers or large enterprises, may need even more subnets. For example, take a small ISP that requires 1000 subnets for its clients. Each client will need plenty of space in the host portion to create its own subnets.
+
+The ISP has a network address 10.0.0.0 255.0.0.0 or 10.0.0.0/8. This means there are 8 bits in the network portion and 24 host bits available to borrow toward subnetting. Therefore, the small ISP will subnet the 10.0.0.0/8 network.
+
+To create subnets, you must borrow bits from the host portion of the IPv4 address of the existing internetwork. Starting from the left to the right with the first available host bit, borrow a single bit at a time until you reach the number of bits necessary to create 1000 subnets. As shown in the figure, you need to borrow 10 bits to create 1024 subnets (210 = 1024). This includes 8 bits in the second octet and 2 additional bits from the third octet.
+
+The graphic shows how to compute the number of subnets created when borrowing bits from the second and third octets of an IPv4 network address. The formula to determine the number of subnets created is 2 to the power of the number of bits borrowed. The graphic shows an address of 10.0.0.0. Underneath, are the letters nnnnnnnn.hhhhhhhh.hhhhhhhh.hhhhhhhh. It starts by borrowing the first h bit in the second octet which results in 2 to the power of 1 = 2 subnets. When the first two h bits in the second octet are borrowed, the formula is 2 to the power of 2 = 4. This continues until the first 10 h bits are borrowed from the second and third octets resulting in 2 to the power of 10 = 1024.
+
+Number of Subnets Created by Borrowing Bits:
+
+![Number of Subnets Created by Borrowing Bits](/imgs/ipv47.png)
+
+This figure displays the network address and the resulting subnet mask, which converts to 255.255.192.0 or 10.0.0.0/18.
+
+Borrowing 10 bits to create the subnets, leaves 14 host bits for each subnet. Subtracting two hosts per subnet (one for the network address and one for the broadcast address) equates to 214 - 2 = 16382 hosts per subnet. This means that each of the 1000 subnets can support up to 16,382 hosts.
+
+# Subnet to Meet Requirements
+
+### Subnet Private versus Public IPv4 Address Space
+
+While it is nice to quickly segment a network into subnets, your organization’s network may use both public and private IPv4 addresses. This affects how you will subnet your network.
+
+a typical enterprise network:
+- Intranet - This is the internal part of a company’s network, accessible only within the organization. Devices in the intranet use private IPv4 addresses.
+- DMZ - This is part of the company’s network containing resources available to the internet such as a web server. Devices in the DMZ use public IPv4 addresses.
+
+Both the intranet and the DMZ have their own subnetting requirements and challenges.
+
+The intranet uses private IPv4 addressing space. This allows an organization to use any of the private IPv4 network addresses including the 10.0.0.0/8 prefix with 24 host bits and over 16 million hosts.
+
+Using a network address with 24 host bits makes subnetting easier and more flexible. This includes subnetting on an octet boundary using a /16 or /24.
+
+For example, the private IPv4 network address 10.0.0.0/8 can be subnetted using a /16 mask. As shown in the table, this results in 256 subnets, with 65,534 hosts per subnet. If an organization has a need for fewer than 200 subnets, allowing for some growth, this gives each subnet more than enough host addresses.
+
+What about the DMZ?
+- Because these devices need to be publicly accessible from the internet, the devices in the DMZ require public IPv4 addresses. The depletion of public IPv4 address space became an issue beginning in the mid-1990s. Since 2011, IANA and four out of five RIRs have run out of IPv4 address space. Although organizations are making the transition to IPv6, the remaining IPv4 address space remains severely limited. This means an organization must maximize its own limited number of public IPv4 addresses. This requires the network administrator to subnet their public address space into subnets with different subnet masks, in order to minimize the number of unused host addresses per subnet. This is known as Variable Subnet Length Masking (VLSM).
+
+### Minimize Unused Host IPv4 Addresses and Maximize Subnets
