@@ -160,4 +160,100 @@ Policies:
 
 # Non-Preemptive Policies
 
+## First-Come-First-Served (FCFS)
+
+- Simplest scheduling policy.
+- Selection Function: Will select the process based on the arrival time.
+- Decision mode: Non - Preemptive
+- Also known as first-in-first-out (FIFO) or a strict queuing scheme
+- When the current process ceases to execute, the longest process in the Ready queue is selected
+
+Process | Arrival Time | Service Time
+--- | --- | ---
+A | 0 | 3
+B | 2 | 6
+C | 4 | 4
+D | 6 | 5
+E | 8 | 2
+
+Waiting time = start execution time – arrival time
+- start execution time is the time when the process is selected to be executed, meaning its calculated based on the service time of the previous processes.
+
+```
+Process A -> 0 - 0 = 0
+Process B -> 3 - 2 = 1
+Process C -> 9 - 4 = 5
+Process D -> 13 - 6 = 7
+Process E -> 18 - 8 = 10
+```
+
+                        Total waiting time
+Average Waiting Time = --------------------
+                        Number of processes
+```
+= 0+1+5+7+10
+  -------------
+        5
+
+= 4.6ms
+```
+
+Performs much better for long processes than short ones
+ 
+Tends to favor processor-bound processes (mostly uses processor) over I/O-bound processes (mostly uses I/O)
+1. When a processor-bound process is running, all of the I/O bound processes must wait.
+2. Some of these may be in I/O queues (blocked state) but may move back to the ready queue while the processor-bound process is executing.
+3. At this point, most or all of the I/O devices may be idle, even though there is potentially work for them to do.
+4. When the currently running process leaves the Running state, the ready I/Obound processes quickly move through the Running state and become blocked on I/O events.
+5. If the processor-bound process is also blocked, the processor becomes idle.
+6. Thus, FCFS may result in inefficient use of both the processor and the I/O devices.
+
+## Shortest Process Next (SPN)
+
+- Selection Function: Will select the process with the shortest service time.
+- Decision mode: Non - Preemptive
+- A short process will jump to the head of the queue
+- Possibility of starvation for longer processes, as long as there is a steady flow of shorter processes
+
+Process | Arrival Time | Service Time
+--- | --- | ---
+A | 0 | 3
+B | 2 | 6
+C | 4 | 4
+D | 6 | 5
+E | 8 | 2
+
+Waiting time = total of (start execution time – arrival time)
+```
+Process A -> 0
+Process B -> 3 - 2 = 1
+Process C -> 11 - 4 = 7
+Process D -> 15 - 6 = 9
+Process E -> 9 - 8 = 1
+```
+                            
+                        Total waiting time
+Average Waiting Time = --------------------
+                        Number of processes
+```
+= 1+7+9+1
+  -------------
+        5
+
+= 3.6ms
+```
+
+One difficulty is the need to know, or at least estimate, the required processing time of each process
+
+If the programmer’s estimate is substantially under the actual running time, the system may abort the job
+
+## Highest Response Ratio Next (HRRN)
+
+
 # Preemptive Policies
+
+## Shortest Remaining Time (SRT)
+
+## Round Robin
+
+## Feedback
