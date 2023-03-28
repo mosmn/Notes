@@ -631,6 +631,23 @@ int main()
     s.printAnnualSales(); // no control statements in main
 }
 ```
+Output:
+```
+Enter sales amount for month1: 1000
+Enter sales amount for month2: 2000
+Enter sales amount for month3: 3000
+Enter sales amount for month4: 4000
+Enter sales amount for month5: 5000
+Enter sales amount for month6: 6000
+Enter sales amount for month7: 7000
+Enter sales amount for month8: 8000
+Enter sales amount for month9: 9000
+Enter sales amount for month10: 10000
+Enter sales amount for month11: 11000
+Enter sales amount for month12: 12000
+
+The total annual sales are: $66000.00
+```
 
 # Preprocessor Wrapper
 
@@ -645,4 +662,360 @@ In SalesPerson.h
 When we build larger programs, other definitions and declarations will also be placed in headers. The preceding preprocessor wrapper prevents the code between #ifndef(which means “if not defined”) and #endiffrom being included if the name SALESPERSON_H has been defined.
 
 If the header has not been included previously in a file, the name SALESPERSON_H is defined by the #define directive and the header statements are included. If the header has been included previously, SALESPERSON_H is defined already and the header is not included again. Attempts to include a header multiple times (inadvertently) typically occur in large programs with many headers that may themselves include other headers.
+
+# Composition and Inheritance
+
+Often, classes do not have to be created “from scratch.” Rather, they can include objects of other classes as members or they may be derived from other classes that provide attributes and behaviors the new classes can use. Such software reuse can greatly enhance productivity and simplify code maintenance.
+
+Including class objects as members of other classes is called __composition__
+Deriving new classes from existing classes is called __inheritance__
+
+# Object size
+
+People new to object-oriented programming often suppose that objects must be quite large because they contain data members and member functions.
+
+Logically, this is true—you may think of objects as containing data and functions (and our discussion has certainly encouraged this view); physically, however, this is not true
+
+Objects contain only data, so objects are much smaller than if they also contained member functions. Applying operator sizeof to a class name or to an object of that class will report only the size of the class’s data members.
+
+The compiler creates one copy (only) of the member functions separate from all objects of the class. All objects of the class share this one copy.
+
+Each object, of course, needs its own copy of the class’s data, because the data can vary among the objects. The function code is nonmodifiable and, hence, can be shared among all objects of one class.
+
+# Class Scope and Accessing Class Members
+
+```C++
+// Demonstrating the class member access operators . and ->
+#include <iostream>
+using namespace std;
+
+// class Count definition
+class Count {
+public: // public data is dangerous
+    // sets the value of private data member x
+    void setX( int value)
+    {
+        x = value;
+    } // end function setx
+
+    // prints the value of private data member x
+    void print()
+    {
+        cout << x << endl;
+    } //end function print
+
+private:
+    int x;
+}; // end class Count
+
+// function main begins program execution
+int main(void)
+{
+    Count counter; // create counter object
+    Count *counterPtr = &counter; // create pointer to counter
+    Count &counterRef = counter; // create reference to counter
+
+    cout << "Set x to 1 and print using the object's name: ";
+    counter.setX( 1 ); // set data member x to 1
+    counter.print(); // call member function print
+
+    cout << "Set x to 2 and print using a reference to an object: ";
+    counterRef.setX( 2 ); // set data member x to 2
+    counterRef.print(); // call member function print
+
+    cout<<"Print using object's name instead of reference: ";
+    counter.print(); // call member function print
+
+    cout << "Set x to 3 and print using a pointer to an object: ";
+    counterPtr->setX( 3 ); // set data member x to 3
+    counterPtr->print(); // call member function print
+}
+```
+Output:
+```
+Set x to 1 and print using the object's name: 1
+Set x to 2 and print using a reference to an object: 2
+Print using object's name instead of reference: 2
+Set x to 3 and print using a pointer to an object: 3
+```
+
+# Constructors with Default Arguments
+
+Like other functions, constructors can specify default arguments. 
+
+The default arguments to the constructor ensure that, even if no values are provided in a constructor call, the constructor still initializes the data members.
+
+A constructor that defaults all its arguments is also a default constructor—that is, a constructor that can be invoked with no arguments. There can be at most one default constructor per class.
+
+### Test.h
+```C++
+#ifndef TIME_H
+#define TIME_H
+
+class Test
+{
+public:
+    Test(double = 0.0, double = 0.0, double = 0.0 );
+    void Display();
+private:
+    double test1;
+    double test2;
+    double test3;
+    double CalculateTotal();
+};
+
+#endif
+```
+
+### Test.cpp
+```C++
+#include <iostream>
+#include "test.h"
+#include<iomanip>
+using namespace std;
+
+Test::Test(double t1, double t2, double t3)
+{
+    test1 = t1;
+    test2= t2;
+    test3 = t3;
+}
+
+double Test::CalculateTotal()
+{
+    return test1+test2+test3;
+}
+
+void Test::Display()
+{
+    cout<<"The total for all 3 tests is: "<<showpoint<< setw(10) <<right<<
+        setprecision(2) << fixed <<Calculate Total() << endl;
+}
+```
+
+### main.cpp
+```C++
+#include <iostream>
+#include "test.h"
+#include<iomanip>
+
+void main (void)
+{
+    Test t1;
+    Test t2(5);
+    Test t3(5, 7);
+    Test t4(5, 9, 10);
+
+    t1.Display();
+    t2.Display();
+    t3.Display();
+    t4.Display();
+
+    system("pause");
+}
+```
+Output:
+```
+The total for all 3 tests is: 0.00
+The total for all 3 tests is: 5.00
+The total for all 3 tests is: 12.00
+The total for all 3 tests is: 24.00
+```
+
+# Destructors
+
+destructor is another type of special member function. The name of the destructor for a class is the tilde character (~) followed by the class name.
+
+This naming convention has intuitive appeal, because as we’ll see in a later chapter, the tilde operator is the bitwise complement operator, and, in a sense, the destructor is the complement of the constructor.
+
+A class’s destructor is called implicitly when an object is destroyed. This occurs, for example, as an automatic object is destroyed when program execution leaves the scope in which that object was instantiated. The destructor itself does not actually release the object’s memory—it performs termination housekeeping before the object’s memory is reclaimed, so the memory may be reused to hold new objects.
+
+Even though destructors have not been provided for the classes presented so far, every class has a destructor. If you do not explicitly provide a destructor, the compiler creates an “empty” destructor.
+
+[Note: We’ll see that such an implicitly created destructor does, in fact, perform important operations on objects that are created through composition]
+
+# When Constructors and Destructors Are Called
+
+Constructors and Destructors are called implicitly by the compiler. The order in which these function calls occur depends on the order in which execution enters and leaves the scopes where the objects are instantiated.
+
+Generally, destructor calls are made in the reverse order of the corresponding constructor calls, but as we’ll see in next examples, the storage classes of objects can alter the order in which destructors are called.
+
+## Constructors and Destructors for Objects in Global Scope
+
+Constructors are called for objects defined in global scope before any other function (including main) in that file begins execution (although the order of execution of global object constructors between files is not guaranteed).
+
+The corresponding destructors are called when main terminates. Function exit forces a program to terminate immediately and does not execute the destructors of automatic objects.
+
+The function often is used to terminate a program when an error is detected in the input or if a file to be processed by the program cannot be opened. Function abort performs similarly to function exit but forces the program to terminate immediately, without allowing the destructors of any objects to be called. Function abort is usually used to indicate an abnormal termination of the program.
+
+## Constructors and Destructors for Local Automatic Objects
+
+The constructor for an automatic local object is called when execution reaches the point where that object is defined—the corresponding destructor is called when execution leaves the object’s scope (i.e., the block in which that object is defined has finished executing).
+
+Constructors and destructors for automatic objects are called each time execution enters and leaves the scope of the object. Destructors are not called for automatic objects if the program terminates with a call to function exit or function abort.
+
+## Constructors and Destructors for static Local Objects
+
+The constructor for a static local object is called only once, when execution first reaches the point where the object is defined—the corresponding destructor is called when main terminates or the program calls function exit.
+
+Global and static objects are destroyed in the reverse order of their creation. Destructors are not called for static objects if the program terminates with a call to function abort.
+
+### CreateAndDestroy.h
+```C++
+// CreateAndDestroy class definition.
+// Member functions defined in CreateAndDestroy.cpp.
+#include <string>
+using namespace std;
+
+#ifndef CREATE_H
+#define CREATE_H
+
+class CreateAndDestroy
+{
+public:
+   CreateAndDestroy( int, string ); // constructor
+   ~CreateAndDestroy(); // destructor
+private:
+    int objectID; // ID number for object
+    string message; // message describing object
+    }; //end class CreateAndDestroy
+
+#endif
+```
+
+### CreateAndDestroy.cpp
+```C++
+// CreateAndDestroy class member-function definitions.
+#include <iostream>
+#include "CreateAndDestroy.h" // include CreateAndDestroy class definition
+using namespace std;
+
+// constructor
+CreateAndDestroy::CreateAndDestroy( int ID, string messageString)
+{
+    objectID = ID; // set object's ID number
+    message= messageString; // set object's descriptive message
+
+    cout << "Object " << objectID << " constructor runs "
+        << message << endl;
+} //end CreateAndDestroy constructor
+// destructor
+CreateAndDestroy::~CreateAndDestroy()
+{
+    // output newline for certain objects; helps readability
+    cout << (objectID == 1 || objectID == 6 ? "\n" : "");
+
+    cout << "Object " << objectID << " destructor runs "
+        << message << endl;
+} //end CreateAndDestroy destructor
+```
+
+### main.cpp
+```C++
+// destructors are called.
+#include <iostream>
+#include "CreateAndDestroy.h" // include CreatedDestroy class definition
+using namespace std;
+
+void create(); // function prototype
+CreateAndDestroy first(1, "(global before main)"); // global object
+
+int main()
+{
+    cout << "MAIN FUNCTION: EXECUTION BEGINS" << endl;
+    CreateAndDestroy second( 2, "(local automatic in main)");
+    static CreateAndDestroy third( 3, "(local static in main)");
+
+    create(); // call function to create objects
+
+    cout << "MAIN FUNCTION: EXECUTION RESUMES" << endl;
+    CreateAndDestroy fourth( 4, "(local automatic in main)");
+    cout << "MAIN FUNCTION: EXECUTION ENDS" << endl;
+} // end main
+
+// function to create objects
+void create()
+{
+    cout << "CREATE FUNCTION: EXECUTION BEGINS" << endl;
+    CreateAndDestroy fifth( 5, "(local automatic in create)" );
+    static CreateAndDestroy sixth( 6, "(local static in create)");
+    CreateAndDestroy seventh( 7, "(local automatic in create)");
+    cout << "CREATE FUNCTION: EXECUTION ENDS" << endl;
+} // end function create
+```
+
+# Default Memberwise Assignment
+
+The assignment operator (=) can be used to assign an object to another object of the same type. By default, such assignment is performed by memberwise assignment—each data member of the object on the right of the assignment operator is assigned individually to the same data member in the object on the left of the assignment operator.
+
+However, Memberwise assignment can cause serious problems when used with a class whose data members contain pointers to dynamically allocated memory.
+
+### dma.h
+```C++
+#ifndef DATE_H
+#define DATE_H
+
+class Date
+{
+public:
+    Date( int = 1, int = 1, int = 2000 ); // default constructor
+    void print();
+private:
+    int month; // 1-12 (January-December)
+    int day; // 1-31 based on month
+    int year; // any year
+}; // end class Date
+
+#endif
+```
+
+### dma.cpp
+```C++
+// Date constructor (should do range checking)
+#include <iostream>
+#include "Date.h" // include Date class definition
+using namespace std;
+
+Date::Date( int m, int d, int y )
+{
+    month = m;
+    day = d;
+    year = y;
+} // end Date constructor
+
+// print Date object in form month/day/year
+void Date::print()
+{
+    cout << month << '/' << day << '/' << year;
+} // end function print
+```
+
+### main.cpp
+```C++
+#include <iostream>
+#include "Date.h" // include Date class definition
+using namespace std;
+
+int main()
+{
+    Date date1( 7, 4, 2004 ); // instantiate object date1
+    Date date2; // instantiate object date2
+
+    cout << "date1 = ";
+    date1.print();
+    cout << "\ndate2 = ";
+    date2.print();
+
+    cout << "\n\nAssigning date1 to date2:" << endl;
+
+    date2 = date1; // Default memberwise assignment
+
+    cout << "date1 = ";
+    date1.print();
+    cout << "\ndate2 after default memberwise assignment = ";
+    date2.print();
+
+    cout << endl;
+} // end main
+```
 
