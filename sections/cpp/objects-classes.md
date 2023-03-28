@@ -834,6 +834,70 @@ Even though destructors have not been provided for the classes presented so far,
 
 [Note: We’ll see that such an implicitly created destructor does, in fact, perform important operations on objects that are created through composition]
 
+## Destructor with auto vs static objects
+
+When a function ends all auto objects are destroyed in reverse order of creation(Stack, last in first out). When a program ends all static objects are destroyed in reverse order of creation.
+
+```C++
+#include <iostream>
+using namespace std;
+
+class AutoVsStatic
+{
+public:
+    AutoVsStatic(int i, string num)
+    {
+        x = i;
+        s = num;
+        cout << x << "&" << s << " Created" << endl;
+    }
+    ~AutoVsStatic()
+    {
+        cout << x << "&" << s << " Destroyed" << endl;
+    }
+
+private:
+    int x;
+    string s;
+};
+
+void func()
+{
+    AutoVsStatic a(4, "four"); 
+    static AutoVsStatic b(5, "five");
+    AutoVsStatic c(6, "six"); // 4) all objects are created in the order they are declared 
+} // 5) function ends. therefor, all objects (EXCEPT STATIC) are destroyed in reverse order of creation
+
+int main()
+{
+    AutoVsStatic a(1, "one");// 2) then main function is called and all objects before the next function call are created
+    static AutoVsStatic b(2, "two");
+    func(); // 3) then func() is called hence we go to that function and execute it before returning to main
+    AutoVsStatic c(3, "three"); // 6) we return to main and create the last object
+
+    return 0;
+}
+
+AutoVsStatic z(0, "zero"); // 1) global varibles are always created first, and they are STATIC BY DEFAULT
+```
+Output:
+```
+0&zero Created
+1&one Created
+2&two Created
+4&four Created
+5&five Created
+6&six Created
+6&six Destroyed
+4&four Destroyed
+3&three Created
+3&three Destroyed
+1&one Destroyed
+5&five Destroyed
+2&two Destroyed
+0&zero Destroyed
+```
+
 # When Constructors and Destructors Are Called
 
 Constructors and Destructors are called implicitly by the compiler. The order in which these function calls occur depends on the order in which execution enters and leaves the scopes where the objects are instantiated.
