@@ -529,4 +529,120 @@ gradeBook1 course name is: CS101 C++ Programming
 gradeBook2 course name is: CS102 Data Structures in C++
 ```
 
+# Access Functions and Utility Functions
+
+Access functions can read or display data. Another common use for access functions is to test the truth or falsity of conditions—such functions are often called predicate functions.​
+
+The next program demonstrates the notion of a utility function (also called a helper function). A utility function is not part of a class’s public interface; rather, it’s a private member function that supports the operation of the class’s other member functions. Utility functions are not intended to be used by clients of a class (but can be used by friends of a class, as we’ll see in Chapter 5).​
+
+Class SalesPerson declares an array of 12 monthly sales figures and the prototypes for the class’s constructor and member functions that manipulate the array.
+
+## Utility Functions
+
+### SalesPerson.h
+
+```C++
+#ifndef SALESPERSON_H
+#define SALESPERSON_H
+
+class SalesPerson
+{
+    public:
+        static const int monthsPerYear = 12; // months in one year
+        SalesPerson(); // constructor
+        void getSalesFromUser(); // input sales from keyboard
+        void setSales(int, double); // set sales for a specific month
+        void printAnnualSales(); // summarize and print sales
+    private:
+        double totalAnnualSales(); // prototype for utility function
+        double sales[monthsPerYear]; // 12 monthly sales figures
+};
+
+#endif
+```
+
+### SalesPerson.cpp
+
+```C++
+//SalesPerson class member-function definitions
+#include <iostream>
+#include "SalesPerson.h" // include class definition
+#include <iomanip>
+using namespace std;
+
+//initialize elements of array sales to 0.0
+SalesPerson::SalesPerson()
+{
+    for (int i = 0; i < monthsPerYear; ++i)
+        sales[i] = 0.0;
+}
+
+//get 12 sales figures from the user at the keyboard
+void SalesPerson::getSalesFromUser()
+{
+    double salesFigure;
+    for (int i = 1; i < monthsPerYear; ++i)
+    {
+        cout << "Enter sales amount for month" << i << ": ";
+        cin >> salesFigure;
+        setSales(i, salesFigure);
+    }
+}// end function getSalesFromUser
+
+//set one of the 12 monthly sales figures; function subtracts 1 from month value for proper subscript in sales array
+void SalesPerson::setSales(int month, double amount)
+{
+    //test for valid month and amount values
+    if (month >= 1 && month <= monthsPerYear && amount > 0)
+        sales[month - 1] = amount; //adjust for subscripts 0-11
+    else //invalid month or amount value
+        cout << "Invalid month or sales figure" << endl;
+}// end function setSales
+
+//print total annual sales (with the help of utility function)
+void SalesPerson::printAnnualSales()
+{
+    cout << setprecision(2) << fixed
+         << "\nThe total annual sales are: $" << totalAnnualSales() << endl; //call utility function
+}// end function printAnnualSales
+
+//private utility function to total annual sales
+double SalesPerson::totalAnnualSales()
+{
+    double total = 0.0; //initialize total
+    for (int i = 0; i < monthsPerYear; ++i) //summarize sales results
+        total += sales[i]; //add month i sales to total
+    return total;
+}// end function totalAnnualSales
+```
+
+### main.cpp
+
+```C++
+// Utility function demonstration.
+// Compile this program with SalesPerson.cpp
+// include Salesperson class definition from Salesperson.h
+#include "Salesperson.h"
+
+int main()
+{
+    SalesPerson s; // create SalesPerson object s
+    s.getSalesFromUser(); // note simple sequential code; there are
+    s.printAnnualSales(); // no control statements in main
+}
+```
+
+# Preprocessor Wrapper
+
+In SalesPerson.h
+```C++
+// prevent multiple inclusions of header
+#ifndef SALESPERSON_H
+#define SALESPERSON_H
+....
+#endif
+```
+When we build larger programs, other definitions and declarations will also be placed in headers. The preceding preprocessor wrapper prevents the code between #ifndef(which means “if not defined”) and #endiffrom being included if the name SALESPERSON_H has been defined.
+
+If the header has not been included previously in a file, the name SALESPERSON_H is defined by the #define directive and the header statements are included. If the header has been included previously, SALESPERSON_H is defined already and the header is not included again. Attempts to include a header multiple times (inadvertently) typically occur in large programs with many headers that may themselves include other headers.
 

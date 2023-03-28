@@ -187,10 +187,11 @@ Process D -> 13 - 6 = 7
 Process E -> 18 - 8 = 10
 ```
 
+```
                         Total waiting time
 Average Waiting Time = --------------------
                         Number of processes
-```
+
 = 0+1+5+7+10
   -------------
         5
@@ -231,11 +232,13 @@ Process C -> 11 - 4 = 7
 Process D -> 15 - 6 = 9
 Process E -> 9 - 8 = 1
 ```
-                            
+
+![s](/imgs/ups6.png)
+
+```                           
                         Total waiting time
 Average Waiting Time = --------------------
                         Number of processes
-```
 = 1+7+9+1
   -------------
         5
