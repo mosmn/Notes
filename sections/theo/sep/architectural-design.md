@@ -233,3 +233,107 @@ Disadvantages | The format for data transfer has tso be agreed upon between comm
 ![a](/imgs/swa9.png)
 
 # Application architectures
+
+Application systems are designed to meet an organisational need. 
+
+As businesses have much in common, their application systems also tend to have a common architecture that reflects the application requirements. 
+
+A generic application architecture is an architecture for a type of software system that may be configured and adapted to create a system that meets specific requirements.
+
+### Use of application architectures
+
+- As a starting point for architectural design.
+- As a design checklist.
+- As a way of organising the work of the development team.
+- As a means of assessing components for reuse.
+- As a vocabulary for talking about application types.
+
+## Examples of application types
+
+Transaction processing applications
+- Data-centred applications that process user requests and update information in a system database.
+- Example :
+    - E-commerce systems;
+    - Reservation systems.
+
+Language processing systems
+- Applications where the users’ intentions are specified in a formal language that is processed and interpreted by the system.
+- Example:
+    - Compilers;
+    - Command interpreters.
+
+### Transaction processing systems
+
+- Process user requests for information from a database or requests to update the database.
+- From a user perspective a transaction is:
+    - Any coherent sequence of operations that satisfies a goal;
+    - For example - find the times of flights from London to Paris.
+- Users make asynchronous requests for service which are then processed by a transaction manager.
+
+#### The software architecture of an ATM system
+
+![a](/imgs/swa10.png)
+
+### Information systems architecture
+
+Information systems are often organized as a layered architecture.
+
+These are transaction-based systems as interaction with these systems generally involves database transactions.
+
+Layers include:
+- The user interface
+- User communications
+- Information retrieval
+- System database
+
+general model:
+
+![a](/imgs/swa11.png)
+
+The architecture of the Mentcare system:
+
+![a](/imgs/swa12.png)
+
+#### Web-based information systems
+
+the user interface is implemented using a web browser.
+
+Example E-commerce systems are
+- accept electronic orders for goods or services and then arrange delivery of these goods or services to the customer.
+- the application-specific layer includes additional functionality supporting a ‘shopping cart’ in which users can place a number of items in separate transactions, then pay for them all together in a single transaction.
+
+Server implementation:
+Multi-tier client server architecture:
+- The web server is responsible for all user communications, with the user interface implemented using a web browser;
+- The application server is responsible for implementing application-specific logic as well as information storage and retrieval requests;
+- The database server moves information to and from the database and handles transaction management.
+
+
+### Language processing systems
+
+Accept a natural or artificial language as input and generate some other representation of that language.
+
+May include an interpreter to act on the instructions in the language that is being processed.
+
+the architecture:
+
+![a](/imgs/swa13.png)
+
+#### Compiler components
+
+A semantic analyzer that uses information from the syntax tree and the symbol table to check the semantic correctness of the input language text.
+
+A code generator that ‘walks’ the syntax tree and generates abstract machine code.
+
+#### A pipe and filter compiler architecture
+
+![a](/imgs/swa14.png)
+
+Components | Description
+---|---
+lexical analyzer | takes input language tokens and converts them to an internal form
+symbol table | holds information about the names of entities (variables, class names, object names, etc.) used in the text that is being translated.
+syntax analyzer | checks the syntax of the language being translated.
+syntax tree | an internal structure representing the program being compiled.
+semantic analyzer | uses information from the syntax tree and the symbol table to check the semantic correctness of the input language text
+code generator | ‘walks’ the syntax tree and generates abstract machine code
