@@ -321,9 +321,9 @@ the architecture:
 
 #### Compiler components
 
-A semantic analyzer that uses information from the syntax tree and the symbol table to check the semantic correctness of the input language text.
+__A semantic analyzer__ that uses information from the syntax tree and the symbol table to check the semantic correctness of the input language text.
 
-A code generator that ‘walks’ the syntax tree and generates abstract machine code.
+__A code generator__ that ‘walks’ the syntax tree and generates abstract machine code.
 
 #### A pipe and filter compiler architecture
 

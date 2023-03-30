@@ -252,11 +252,44 @@ If the programmer’s estimate is substantially under the actual running time, t
 
 ## Highest Response Ratio Next (HRRN)
 
+- Selection Function: Will select the process with the greatest ratio.
+```
+Ratio = (time spent waiting + expected service time) / expected service time
+```
+
+- Decision mode: Non - Preemptive
+- Attractive because it counts the age of the process in the system
+- While shorter jobs are favored, aging without service increases the ratio so that a longer process will eventually get past competing shorter jobs
+
+Calculate the `time spent waiting`:
+- c 9-4 = 5
+- d 9-6 = 3
+- d 9-8 = 1
+
+Calculate the Ration using the above formula:
+- (5+4)/4 = 2.25 ----> therefore C would be selected to run next.
+- (3+5)/5 = 1.5
+- (1+2)/2 = 1.5 
 
 # Preemptive Policies
 
 ## Shortest Remaining Time (SRT)
 
+- Selection Function: Will select the process with the shortest expected service time.
+- Decision mode: Preemptive
+- Risk of starvation of longer processes
+- Should give superior turnaround time performance to SPN because a short job is given immediate preference to a running longer job
+
+Process | Arrival Time | Service Time
+--- | --- | ---
+A | 0 | 3
+B | 2 | 6
+C | 4 | 4
+D | 6 | 5
+E | 8 | 2
+
+![s](/imgs/ups7.png)
+see how as soon as proccess C arrived its given immediate control
 ## Round Robin
 
 ## Feedback
