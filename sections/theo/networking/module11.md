@@ -420,3 +420,30 @@ What about the DMZ?
 - Because these devices need to be publicly accessible from the internet, the devices in the DMZ require public IPv4 addresses. The depletion of public IPv4 address space became an issue beginning in the mid-1990s. Since 2011, IANA and four out of five RIRs have run out of IPv4 address space. Although organizations are making the transition to IPv6, the remaining IPv4 address space remains severely limited. This means an organization must maximize its own limited number of public IPv4 addresses. This requires the network administrator to subnet their public address space into subnets with different subnet masks, in order to minimize the number of unused host addresses per subnet. This is known as Variable Subnet Length Masking (VLSM).
 
 ### Minimize Unused Host IPv4 Addresses and Maximize Subnets
+
+there are two considerations when planning subnets:
+1. the number of host addresses required for each network 
+2. and the number of individual subnets needed.
+
+### Example: Efficient IPv4 Subnetting
+
+In this example, corporate headquarters has been allocated a public network address of 172.16.0.0/22 (10 host bits) by its ISP. this will provide 1,022 host addresses.(2^10-2)
+
+Note: 172.16.0.0/22 is part of the IPv4 private address space. We are using this address instead of an actual public IPv4 address.
+
+The topology shown in the figure consists of five sites; a corporate office and four branch sites. Each site requires internet connectivity and therefore, five internet connections. This means that the organization requires 10 subnets from the company’s 172.16.0.0/22 public address. The largest subnet requires 40 addresses.
+
+![i](/imgs/ipv48.png)
+
+Because the largest subnet requires 40 hosts, a minimum of 6 host bits are needed to provide addressing for 40 hosts. This is determined by using this formula: 26 - 2 = 62 hosts.
+
+Using the formula for determining subnets results in 16 subnets: 24 = 16. Because the example internetwork requires 10 subnets, this will meet the requirement and allow for some additional growth.
+
+Therefore, the first 4 host bits can be used to allocate subnets. This means two bits from the 3rd octet and two bits from the 4th octet will be borrowed. When 4 bits are borrowed from the 172.16.0.0/22 network, the new prefix length is /26 with a subnet mask of 255.255.255.192.
+
+# VLSM
+
+### VLSM Basics - Video
+
+1. Subnets dont have to be equal sizes, as long as their address ranges do not overlap
+2. when creating subnets it is easier to work from larger to smalller

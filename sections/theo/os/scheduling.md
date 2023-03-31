@@ -290,6 +290,96 @@ E | 8 | 2
 
 ![s](/imgs/ups7.png)
 see how as soon as proccess C arrived its given immediate control
+
+Waiting time = total of (start execution time – arrival time)
+```
+Process A -> 0
+Process B -> (3 - 2) + (10-4) = 7
+Process C -> 4-4 = 0
+Process D -> 15-6 = 9
+Process E -> 8-8 = 0
+```
+
+average wt = 3.2ms
+
 ## Round Robin
 
+- A straightforward way to reduce the penalty that short jobs suffer with FCFS is to use pre-emption based on a clock.
+- Selection Function: Will select the process as FCFS after each time quantum.
+- Decision mode: Preemptive (time quantum basis)
+- Also known as time slicing because each process is given a slice of time before being preempted
+- Principal design issue is the length of the time quantum, or slice, to be used
+- there is processing overhead involved in handling the clock Interrupt and performing the scheduling and dispatching function.
+- Particularly effective in a general-purpose time-sharing system or transaction processing system
+- One drawback is its relative treatment of processor-bound and I/O-bound processes
+
+
+### (q=1)
+
+- A clock interrupt is generated at periodic intervals.
+- When the interrupt occurs, the currently running process is placed in the ready queue, and the next ready job is selected on a FCFS basis.
+- This technique is also known as time slicing , because each process is given a slice of time before being preempted.
+
+Process | Arrival Time | Service Time
+--- | --- | ---
+A | 0 | 3
+B | 2 | 6
+C | 4 | 4
+D | 6 | 5
+E | 8 | 2
+
+![s](/imgs/ups8.png)
+
+Running Ready
+A,A,B (interrupts A), A (waits in the queue),
+A (interrupts B), B (waits in the queue),
+B, C (interrupts B), B (waits in the queue),
+B (interrupts C),
+D (arrive),
+C (waits in the queue),
+D (interrupts B), B (waits in the
+C (interrupts D), queue), D (waits in the queue),
+B (interrupts C), C (waits in the queue),
+E (arrive),
+E (interrupts B) B (waits in the queue),
+
+Waiting time = total of (start execution time – arrival time)
+```
+Process A -> 3-2 = 1
+Process B -> (4-3) + (6-5) + (9-7) + (13-10)+ (17-14) = 10
+Process C -> (5-4) + (8-6) + (12-9) + (16-13)= 9
+Process D -> (7-6) + (11-8) + (15-12) + (18-16) = 9
+Process E -> (10-8) + (14-11) = 5
+```
+
 ## Feedback
+
+- Penalize jobs that have been running longer
+- A short process will complete quickly without slipping very far down the hierarchy of ready queues
+- A longer process will gradually drift down
+- Within each queue (not the lowest queue), a simple FCFS mechanism is used.
+- For lowest priority queue
+    - a process cannot go lower, but it is returned to this queue repeatedly until it completes execution, it will treated in round robin fashion.
+- Newer shorter processes are favored over older, longer processes.
+
+Process | Arrival Time | Service Time
+--- | --- | ---
+A | 0 | 3
+B | 2 | 6
+C | 4 | 4
+D | 6 | 5
+E | 8 | 2
+
+![s](/imgs/ups9.png)
+
+# Summary
+
+The operating system must make three types of scheduling decisions with respect to the execution of processes:
+1. Long-term – determines when new processes are admitted to the system
+2. Medium-term – part of the swapping function and determines when a program is brought into main memory so that it may be executed
+3. Short-term – determines which ready process will be executed next by the processor
+
+- From a user’s point of view, response time is generally the most important characteristic of a system
+- From a system’s point of view, throughput or processor utilization is important
+- Algorithms:
+    - FCFS, SPN, HRRN, SRT, Round Robin and Feedback

@@ -21,6 +21,7 @@ Versions:​
 
 Something that can be identified and the users want to track:​
 - Entity class—a collection of entities of a given type​
+  - Entities of a given type are grouped into an entity class. Thus, the EMPLOYEE entity class is the collection of all EMPLOYEE entities.
 - Entity instance—the occurrence of a particular entity​
 
 There are usually many instances of an entity in an entity class.
@@ -71,6 +72,8 @@ Entity Attribute Display​ in Data Models:
 
 ![IDENTIFIER](/imgs/dme5.png)
 
+BY THE WAY: Notice the correspondence between identifiers and keys. The term identifier is used in a data model, and the term key (which we have already introduced in our discussion of relational databases in Chapter 3) is used in a database design. Thus, entities have identifiers, and tables (or relations) have keys. Identifiers serve the same role for entities that keys serve for tables.
+
 ## Relationships
 
 Entities can be associated with one another in relationships:​
@@ -95,9 +98,15 @@ Ternary Relationship​:
 
 ![TERNARY](/imgs/dme7.png)
 
-Entities and Tables:
+### Entities and Tables
+
 - The principle difference between an entity and a table (relation) is that you can express a relationship between entities without using foreign keys.​
 - This makes it easier to work with entities in the early design process where the very existence of entities and the relationships between them is uncertain.
+
+In the E-R model, you can specify a relationship just by drawing a line connecting two entities. Because you are doing logical data modeling and not physical database design, you need not worry about primary and foreign keys, referential integrity constraints, and the like. Most data modeling products will allow you to consider such details if you choose to, but they do
+not require it.
+
+This characteristic makes entities easier to work with than tables, especially early in a project when entities and relationships are fluid and uncertain. You can show relationships between entities before you even know what the identifiers are. For example, you can say that a DEPARTMENT relates to many EMPLOYEEs before you know any of the attributes of either EMPLOYEE or DEPARTMENT. This characteristic enables you to work from the general to the specific. First, identify the entities, then think about relationships, and, finally, determine the attributes.
 
 ## Cardinality
 
@@ -118,15 +127,9 @@ Crows Foot notation:
 
 ![CROWSFOOT](/imgs/dme8.png)
 
-Sometimes students wonder why we do not write many-to-many relationships as N:N
-or M:M. The reason is that cardinality in one direction may be different from the cardinality in the other direction. In other words, in an N:M relationship, N need not equal M. An
-EMPLOYEE can have five skills, for example, but one of those skills can have three employees. Writing the relationship as N:M highlights the possibility that the cardinalities may be
-different.
+Sometimes students wonder why we do not write many-to-many relationships as N:N or M:M. The reason is that cardinality in one direction may be different from the cardinality in the other direction. In other words, in an N:M relationship, N need not equal M. An EMPLOYEE can have five skills, for example, but one of those skills can have three employees. Writing the relationship as N:M highlights the possibility that the cardinalities may be different.
 
-Sometimes the maximum cardinality is an exact number. For example, for a sports
-team, the number of players on the roster is limited to some fixed number, say, 15. In that
-case, the maximum cardinality between TEAM and PLAYER would be set to 15 rather than
-to the more general N.
+Sometimes the maximum cardinality is an exact number. For example, for a sports team, the number of players on the roster is limited to some fixed number, say, 15. In that case, the maximum cardinality between TEAM and PLAYER would be set to 15 rather than to the more general N.
 
 #### Parent and Child Entities​:
 
@@ -171,6 +174,23 @@ Look toward the entity in question:​
 - IF you see a vertical hash mark THEN that entity is mandatory (required) (minimum cardinality of one [ 1]).
 
 #### Crows Foot Notation​ for Minimum Cardinality​
+
+To better understand these terms, consider Figure 5-6. In the Employee_Identity relationship in Figure 5-6(a), the hash marks indicate that an EMPLOYEE is required to have a
+BADGE, and a BADGE must be allocated to an EMPLOYEE. Such a relationship is referred
+to as a mandatory-to-mandatory (M-M) relationship because entities are required on
+both sides. The complete specification for the Employee_Identity relationship is that it is a
+1:1, M-M relationship.
+
+In Figure 5-6(b), the two small circles indicate that the Computer_Assignment relationship is an optional-to-optional (O-O) relationship. This means that an EMPLOYEE
+need not have a COMPUTER and a COMPUTER need not be assigned to an EMPLOYEE.
+The Computer_Assignment relationship is thus a 1:N, O-O relationship.
+
+Finally, in Figure 5-6(c), the combination of a circle and a hash mark indicates an
+optional-to-mandatory (O-M) relationship. Here an EMPLOYEE must be assigned
+to at least one SKILL, but a SKILL may not necessarily be related to any EMPLOYEE. The
+complete specification for the Qualification relationship is thus an N:M, O-M relationship.
+The positions of the circle and the hash mark are important. Because the circle is next to
+EMPLOYEE, it means that the employee is optional in the relationship.
 
 ![CROWSFOOT](/imgs/dme10.png)
 
