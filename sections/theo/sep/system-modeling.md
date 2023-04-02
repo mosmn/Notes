@@ -133,6 +133,14 @@ Extend Relationship:
 
 ![mc](/imgs/usecasee.png)
 
+## STEPS
+
+▪ Identify the actors
+▪ For each actor, identify their roles
+▪ Identify what are the task required by the actor to perform in order to achieve the goal
+▪ Create use case for each goal
+▪ Structure the use case 
+
 ### Function transfer data
 
 ![mc](/imgs/usecasef.png)

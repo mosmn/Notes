@@ -1083,3 +1083,26 @@ int main()
 } // end main
 ```
 
+# CHHEATS SHEET
+
+The error message suggests that the linker is still unable to find the definitions for the `GetPointers()`, `display()`, and `Student(string)` member functions of the `Student` class. 
+
+One possible reason for this error could be that the order of compilation is incorrect. In C++, the order of compilation matters, and the dependent files should be listed after the files on which they depend.
+
+Here is the correct order of compilation for your files:
+```
+g++ -c student.cpp
+g++ -c main.cpp
+g++ -o program main.o student.o
+```
+
+This command sequence first compiles `student.cpp` and `main.cpp` separately into object files `student.o` and `main.o`, respectively, and then links them together to create the executable `program`.
+
+Make sure that you run these commands in the same directory where your files `main.cpp` and `student.cpp` are located.
+
+After this, try running the executable `program` again, and it should run without any errors.
+
+```
+./program
+```
+
