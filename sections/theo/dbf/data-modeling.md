@@ -269,9 +269,13 @@ The ID-dependent entity is a logical extension or subunit of the parent:​
 
 The minimum cardinality from the ID-dependent entity to the parent is always one.
 
+we use an entity with rounded corners to represent the ID-dependent entity. 
+
 ![ID-DEPENDENT](/imgs/dme14.png)
 
-## Weak Entities​
+### Strong Entities and Weak Entities
+
+A strong entity is an entity that represents something that can exist on its own. For example, PERSON is a strong entity—we consider people to exist as individuals in their own right. 
 
 A weak entity is an entity whose existence depends upon another entity.​
 
@@ -281,6 +285,19 @@ There are also non-ID-dependent weak entities.​
 - The identifier of the parent does not appear in the identifier of the weak child entity.
 
 ![WEAK](/imgs/dme15.png)
+
+### Dashed line
+
+use a solid line to represent the relationship between the ID-dependent entity and its parent. This type of relationship is called an identifying relationship.
+
+A relationship drawn with a dashed line is used between strong entities (and also weak entities that are Non–ID-Dependent) and is called a nonidentifying relationship because there are no ID-dependent entities in the relationship (ID-dependent entities may participate in other, nonidentifying relationships in addition to their identifying relationships—Figure 5-33 shows an example).
+
+### Weak Entity Summary
+
+- A weak entity is an entity whose existence depends on another entity.
+- An ID-dependent entity is a weak entity whose identifier includes the identifier of another entity.
+- Identifying relationships are used to represent ID-dependent entities.
+- Some entities are weak but not ID-dependent. Using data modeling tools, they are shown with nonidentifying relationships, with separate documentation indicating they are weak.
 
 # IE Crow’s Foot Symbol Summary I
 

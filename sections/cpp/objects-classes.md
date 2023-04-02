@@ -1083,7 +1083,7 @@ int main()
 } // end main
 ```
 
-# CHHEATS SHEET
+# CHHEAT SHEET
 
 The error message suggests that the linker is still unable to find the definitions for the `GetPointers()`, `display()`, and `Student(string)` member functions of the `Student` class. 
 

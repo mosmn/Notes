@@ -79,6 +79,7 @@
 - [Pointers](sections/cpp/pointers.md)
 - [Structures](sections/cpp/struc.md)
 - [Objects and Classes](sections/cpp/objects-classes.md)
+- [Inheritance](sections/cpp/inheritance.md)
 - [File stream input and output](sections/cpp/file-stream.md)
 - [GUI](sections/cpp/gui.md)
 - [Recources](sections/cpp/resources.md)
