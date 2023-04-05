@@ -34,7 +34,7 @@ IPv6 addresses are not case-sensitive and can be written in either lowercase or 
 ![ip](/imgs/ipv61.png)
 
 Preferred Format:
-The previous figure also shows that the preferred format for writing an IPv6 address is x:x:x:x:x:x:x:x, with each “x” consisting of four hexadecimal values. The term octet refers to the eight bits of an IPv4 address. In IPv6, a hextet is the unofficial term used to refer to a segment of 16 bits, or four hexadecimal values. Each “x” is a single hextet which is 16 bits or four hexadecimal digits.
+The previous figure also shows that the preferred format for writing an IPv6 address is `x:x:x:x:x:x:x:x`, with each “x” consisting of four hexadecimal values. The term octet refers to the eight bits of an IPv4 address. In IPv6, a hextet is the unofficial term used to refer to a segment of 16 bits, or four hexadecimal values. Each “x” is a single hextet which is 16 bits or four hexadecimal digits.
 
 Preferred format means that you write IPv6 address using all 32 hexadecimal digits. It does not necessarily mean that it is the ideal method for representing the IPv6 address. In this module, you will see two rules that help to reduce the number of digits needed to represent an IPv6 address.
 
@@ -69,14 +69,14 @@ The second rule to help reduce the notation of IPv6 addresses is that a double c
 
 The double colon (::) can only be used once within an address, otherwise there would be more than one possible resulting address. When used with the omitting leading 0s technique, the notation of IPv6 address can often be greatly reduced. This is commonly known as the compressed format.
 
-Here is an example of the incorrect use of the double colon: 2001:db8::abcd::1234.
+Here is an example of the incorrect use of the double colon: `2001:db8::abcd::1234`.
 
 The double colon is used twice in the example above. Here are the possible expansions of this incorrect compressed format address:
 
-- 2001:db8::abcd:0000:0000:1234
-- 2001:db8::abcd:0000:0000:0000:1234
-- 2001:db8:0000:abcd::1234
-- 2001:db8:0000:0000:abcd::1234
+- `2001:db8::abcd:0000:0000:1234`
+- `2001:db8::abcd:0000:0000:0000:1234`
+- `2001:db8:0000:abcd::1234`
+- `2001:db8:0000:0000:abcd::1234`
 
 If an address has more than one contiguous string of all-0 hextets, best practice is to use the double colon (::) on the longest string. If the strings are equal, the first string should use the double colon (::).
 
@@ -102,8 +102,241 @@ The prefix length can range from 0 to 128. The recommended IPv6 prefix length fo
 
 The graphic shows an IPv6 address divided into a 64-bit prefix and a 64-bit interface ID. The 64-bit prefix is 2001:0db8:000a:0000. The 64-bit interface ID is 0000:0000:0000:0000.
 
-IPv6 Prefix Length
-PrefixInterface ID0000:0000:0000:00002001:0db8:000a:000064 bits64 bitsExample: 2001:db8:a::/64
+IPv6 Prefix Length:
+
+PrefixInterface ID0000:0000:0000:00002001:0db8:000a:000064 bits64 bitsExample: `2001:db8:a::/64`
 The prefix or network portion of the address is 64 bits in length, leaving another 64 bits for the interface ID (host portion) of the address.
 
 It is strongly recommended to use a 64-bit Interface ID for most networks. This is because stateless address autoconfiguration (SLAAC) uses 64 bits for the Interface ID. It also makes subnetting easier to create and manage.
+
+### Types of IPv6 Unicast Addresses
+
+An IPv6 unicast address uniquely identifies an interface on an IPv6-enabled device. 
+
+A packet sent to a unicast address is received by the interface which is assigned that address. 
+
+Similar to IPv4, a source IPv6 address must be a unicast address. The destination IPv6 address can be either a unicast or a multicast address.
+
+the types of Ipv6 addresses are: 
+- Global Unicast
+- Link-local
+- Loopback - `::1/128`
+- Unspecified Address -`::`
+- Unique Local - `fc00::/7 - fdff::/7`
+- Embedded IPv4
+
+
+Unlike IPv4 devices that have only a single address, IPv6 addresses typically have two unicast addresses:
+- Global Unicast Address (GUA) - This is similar to a public IPv4 address. These are globally unique, internet-routable addresses. GUAs can be configured statically or assigned dynamically.
+- Link-local Address (LLA) - This is required for every IPv6-enabled device. LLAs are used to communicate with other devices on the same local link. With IPv6, the term link refers to a subnet. LLAs are confined to a single link. Their uniqueness must only be confirmed on that link because they are not routable beyond the link. In other words, routers will not forward packets with a link-local source or destination address.
+
+### A Note About the Unique Local Address
+
+Unique local addresses (range fc00::/7 to fdff::/7) are not yet commonly implemented. Therefore, this module only covers GUA and LLA configuration. However, unique local addresses may eventually be used to address devices that should not be accessible from the outside, such as internal servers and printers.
+
+The IPv6 unique local addresses have some similarity to RFC 1918 private addresses for IPv4, but there are significant differences:
+
+- Unique local addresses are used for local addressing within a site or between a limited number of sites.
+- Unique local addresses can be used for devices that will never need to access another network.
+- Unique local addresses are not globally routed or translated to a global IPv6 address.
+
+Note: Many sites also use the private nature of RFC 1918 addresses to attempt to secure or hide their network from potential security risks. However, this was never the intended use of these technologies, and the IETF has always recommended that sites take the proper security precautions on their internet-facing router.
+
+### IPv6 GUA
+
+IPv6 global unicast addresses (GUAs) are globally unique and routable on the IPv6 internet. These addresses are equivalent to public IPv4 addresses
+
+
+The figure shows the range of values for the first hextet where the first hexadecimal digit for currently available GUAs begins with a 2 or a 3. This is only 1/8th of the total available IPv6 address space, excluding only a very small portion for other types of unicast and multicast addresses.
+
+![ip](/imgs/ipv62.png)
+
+IPv6 Address with a /48 Global Routing Prefix and /64 Prefix:
+
+![ip](/imgs/ipv63.png)
+
+### IPv6 GUA Structure
+
+#### Global Routing Prefix
+
+The global routing prefix is the prefix, or network, portion of the address that is assigned by the provider, such as an ISP, to a customer or site. 
+- For example, it is common for ISPs to assign a /48 global routing prefix to its customers. The global routing prefix will usually vary depending on the policies of the ISP.
+
+The previous figure shows a GUA using a /48 global routing prefix. /48 prefixes are a common global routing prefix that is assigned and will be used in most of the examples throughout this course.
+
+For example, the IPv6 address 2001:db8:acad::/48 has a global routing prefix that indicates that the first 48 bits (3 hextets) (2001:db8:acad) is how the ISP knows of this prefix (network). The double colon (::) following the /48 prefix length means the rest of the address contains all 0s. The size of the global routing prefix determines the size of the subnet ID.
+
+#### Subnet ID
+
+The Subnet ID field is the area between the Global Routing Prefix and the Interface ID. 
+
+Unlike IPv4 where you must borrow bits from the host portion to create subnets, IPv6 was designed with subnetting in mind. The Subnet ID is used by an organization to identify subnets within its site. The larger the subnet ID, the more subnets available.
+
+Note: Many organizations are receiving a /32 global routing prefix. Using the recommended /64 prefix in order to create a 64-bit Interface ID, leaves a 32 bit Subnet ID. This means an organization with a /32 global routing prefix and a 32-bit Subnet ID will have 4.3 billion subnets, each with 18 quintillion devices per subnet. That is as many subnets as there are public IPv4 addresses!
+
+The IPv6 address in the previous figure has a /48 Global Routing Prefix, which is common among many enterprise networks. This makes it especially easy to examine the different parts of the address. Using a typical /64 prefix length, the first 3 hextets are for the network portion of the address, with the fourth hextet indicating the Subnet ID. The remaining four hextets are for the Interface ID.
+
+#### Interface ID
+
+The IPv6 interface ID is equivalent to the host portion of an IPv4 address. The term Interface ID is used because a single host may have multiple interfaces, each having one or more IPv6 addresses. The figure shows an example of the structure of an IPv6 GUA. It is strongly recommended that in most cases /64 subnets should be used, which creates a 64-bit interface ID. A 64-bit interface ID allows for 18 quintillion devices or hosts per subnet.
+
+A /64 subnet or prefix (Global Routing Prefix + Subnet ID) leaves 64 bits for the interface ID. This is recommended to allow SLAAC-enabled devices to create their own 64-bit interface ID. It also makes developing an IPv6 addressing plan simple and effective.
+
+Note: Unlike IPv4, in IPv6, the all-0s and all-1s host addresses can be assigned to a device. The all-1s address can be used because broadcast addresses are not used within IPv6. The all-0s address can also be used, but is reserved as a Subnet-Router anycast address, and should be assigned only to routers.
+
+### IPv6 LLA
+
+An IPv6 link-local address (LLA) enables a device to communicate with other IPv6-enabled devices on the same link and only on that link (subnet). Packets with a source or destination LLA cannot be routed beyond the link from which the packet originated.
+
+The GUA is not a requirement. However, every IPv6-enabled network interface must have an LLA.
+
+If an LLA is not configured manually on an interface, the device will automatically create its own without communicating with a DHCP server. IPv6-enabled hosts create an IPv6 LLA even if the device has not been assigned a global unicast IPv6 address. This allows IPv6-enabled devices to communicate with other IPv6-enabled devices on the same subnet. This includes communication with the default gateway (router).
+
+IPv6 LLAs are in the fe80::/10 range. The /10 indicates that the first 10 bits are 1111 1110 10xx xxxx. The first hextet has a range of 1111 1110 1000 0000 (fe80) to 1111 1110 1011 1111 (febf).
+
+The figure shows an example of communication using IPv6 LLAs. The PC is able to communicate directly with the printer using the LLAs.
+
+There are two ways that a device can obtain an LLA:
+- Statically - This means the device has been manually configured.
+- Dynamically - This means the device creates its own interface ID by using randomly generated values or using the Extended Unique Identifier (EUI) method, which uses the client MAC address along with additional bits
+
+# GUA and LLA Static Configuration
+
+### Static GUA Configuration on a Router
+
+the command to configure an IPv6 GUA on an interface is ipv6 address `ipv6-address/prefix-length`
+
+The example configuration uses the topology shown in the figure and these IPv6 subnets:
+
+2001:db8:acad:1::/64
+2001:db8:acad:2::/64
+2001:db8:acad:3::/64
+
+The graphic shows two PCs, PC1 and PC2. PC1 is connected to a switch and has the IPv6 address 2001:db8:acad:1::10/64. PC2 is connected to a switch and has the IPv6 address 2001:db8:acad:2::10/64. The two switches are connected to a router, R1. PC1 is connected through the switch to R1s G0/0/0 interface which has IPv6 address 2001:db8:acad:1::1/64. PC2 is connected through the switch to R1s G0/0/1 interface which has IPv6 address 2001:db8:acad:2::1/64. R1 connects to the cloud through its S0/1/0 interface which has IPv6 address 2001:db8:acad:3::1/64.
+
+Example Topology
+
+![Example Topology](/imgs/ipv46.png)
+
+IPv6 GUA Configuration on Router R1
+```
+R1(config)# interface gigabitethernet 0/0/0
+R1(config-if)# ipv6 address 2001:db8:acad:1::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# interface gigabitethernet 0/0/1
+R1(config-if)# ipv6 address 2001:db8:acad:2::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# interface serial 0/1/0
+R1(config-if)# ipv6 address 2001:db8:acad:3::1/64
+R1(config-if)# no shutdown
+```
+
+### Static GUA Configuration on a Windows Host
+
+Manually configuring the IPv6 address on a host is similar to configuring an IPv4 address.
+
+Just as with IPv4, configuring static addresses on clients does not scale to larger environments. For this reason, most network administrators in an IPv6 network will enable dynamic assignment of IPv6 addresses.
+
+There are two ways in which a device can obtain an IPv6 GUA automatically:
+- Stateless Address Autoconfiguration (SLAAC)
+- Stateful DHCPv6
+
+Note: When DHCPv6 or SLAAC is used, the LLA of the router will automatically be specified as the default gateway address.
+
+### Static Configuration of a Link-Local Unicast Address
+
+LLAs can be configured manually using the ipv6 address ipv6-link-local-address link-local command. When an address begins with this hextet within the range of fe80 to febf, the link-local parameter must follow the address.
+
+The figure shows an example topology with LLAs on each interface.
+
+The graphic shows two PCs, PC1 and PC2. PC1 is connected to a switch and has the IPv6 address 2001:db8:acad:1::10/64. PC2 is connected to a switch and has the IPv6 address 2001:db8:acad:2::10/64. The two switches are connected to a router, R1. PC1 is connected through the switch to R1s G0/0/0 interface which has IPv6 address 2001:db8:acad:1::1/64 and the LLA address of fe80::1:1. PC2 is connected through the switch to R1s G0/0/1 interface which has IPv6 address 2001:db8:acad:2::1/64 and the LLA address of fe80::2:1. R1 connects to the cloud through its S0/1/0 interface which has IPv6 address 2001:db8:acad:3::1/64 and the LLA address of fe80::3:1.
+
+Example Topology with LLAs
+
+![Example Topology with LLAs](/imgs/ipv65.png)
+
+IPv6 LLA Configuration on Router R1
+```
+R1(config)# interface gigabitethernet 0/0/0
+R1(config-if)# ipv6 address fe80::1:1 link-local
+R1(config-if)# exit
+R1(config)# interface gigabitethernet 0/0/1
+R1(config-if)# ipv6 address fe80::2:1 link-local
+R1(config-if)# exit
+R1(config)# interface serial 0/1/0
+R1(config-if)# ipv6 address fe80::3:1 link-local
+R1(config-if)# exit
+```
+Statically configured LLAs are used to make them more easily recognizable as belonging to router R1. In this example, all the interfaces of router R1 have been configured with an LLA that begins with fe80::n:1.
+
+Note: The exact same LLA could be configured on each link as long as it is unique on that link. This is because LLAs only have to be unique on that link. However, common practice is to create a different LLA on each interface of the router to make it easy to identify the router and the specific interface.
+
+# Dynamic Addressing for IPv6 GUAs
+
+### RS and RA Messages
+
+For the GUA, a device obtains the address dynamically through Internet Control Message Protocol version 6 (ICMPv6) messages.
+
+IPv6 routers periodically send out ICMPv6 RA messages, every 200 seconds, to all IPv6-enabled devices on the network. An RA message will also be sent in response to a host sending an ICMPv6 RS message, which is a request for an RA message.
+
+- RS messages are sent to all IPv6 routers by hosts requesting addressing information.
+- RA messages are sent to all IPv6 nodes. If Method 1 (SLAAC only) is used, the RA includes network prefix, prefix-length, and default-gateway information.
+
+RA messages are on IPv6 router Ethernet interfaces. The router must be enabled for IPv6 routing, which is not enabled by default. To enable a router as an IPv6 router, the `ipv6 unicast-routing` global configuration command must be used.
+
+The ICMPv6 RA message is a suggestion to a device on how to obtain an IPv6 GUA. The ultimate decision is up to the device operating system. The ICMPv6 RA message includes the following:
+- Network prefix and prefix length - This tells the device which network it belongs to.
+- Default gateway address - This is an IPv6 LLA, the source IPv6 address of the RA message.
+- DNS addresses and domain name - These are the addresses of DNS servers and a domain name.
+
+There are three methods for RA messages:
+- Method 1: SLAAC - “I have everything you need including the prefix, prefix length, and default gateway address.”
+- Method 2: SLAAC with a stateless DHCPv6 server - “Here is my information but you need to get other information such as DNS addresses from a stateless DHCPv6 server.”
+- Method 3: Stateful DHCPv6 (no SLAAC) - “I can give you your default gateway address. You need to ask a stateful DHCPv6 server for all your other information.”
+
+### Method 1: SLAAC(Stateless Address Autoconfiguration)
+
+SLAAC is a method that allows a device to create its own GUA without the services of DHCPv6.
+
+Using SLAAC, devices rely on the ICMPv6 RA messages of the local router to obtain the necessary information.
+
+By default, the RA message suggests that the receiving device use the information in the RA message to create its own IPv6 GUA and all other necessary information. The services of a DHCPv6 server are not required.
+
+SLAAC is stateless, which means there is no central server (for example, a stateful DHCPv6 server) allocating GUAs and keeping a list of devices and their addresses. With SLAAC, the client device uses the information in the RA message to create its own GUA. As shown in the figure, the two parts of the address are created as follows:
+- Prefix - This is advertised in the RA message.
+- Interface ID - This uses the EUI-64 process or by generating a random 64-bit number, depending on the device operating system.
+
+![SLAAC](/imgs/ipv66.png)
+
+### Method 2: SLAAC and Stateless DHCPv6
+
+A router interface can be configured to send a router advertisement using SLAAC and stateless DHCPv6.
+
+As shown in the figure, with this method, the RA message suggests devices use the following:
+- SLAAC to create its own IPv6 GUA
+- The router LLA, which is the RA source IPv6 address, as the default gateway address
+- A stateless DHCPv6 server to obtain other information such as a DNS server address and a domain name
+
+Note: A stateless DHCPv6 server distributes DNS server addresses and domain names. It does not allocate GUAs.
+
+![SLAAC and Stateless DHCPv6](/imgs/ipv67.png)
+
+### Method 3: Stateful DHCPv6
+
+A router interface can be configured to send an RA using stateful DHCPv6 only.
+
+Stateful DHCPv6 is similar to DHCP for IPv4. A device can automatically receive its addressing information including a GUA, prefix length, and the addresses of DNS servers from a stateful DHCPv6 server.
+
+As shown in the figure, with this method, the RA message suggests devices use the following:
+- The router LLA, which is the RA source IPv6 address, for the default gateway address.
+- A stateful DHCPv6 server to obtain a GUA, DNS server address, domain name and other necessary information.
+
+![Stateful DHCPv6](/imgs/ipv68.png)
+
+A stateful DHCPv6 server allocates and maintains a list of which device receives which IPv6 address. DHCP for IPv4 is stateful.
+
+Note: The default gateway address can only be obtained dynamically from the RA message. The stateless or stateful DHCPv6 server does not provide the default gateway address.
+
+### EUI-64 Process vs. Randomly Generated
