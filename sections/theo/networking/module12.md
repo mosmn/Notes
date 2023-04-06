@@ -340,3 +340,159 @@ A stateful DHCPv6 server allocates and maintains a list of which device receives
 Note: The default gateway address can only be obtained dynamically from the RA message. The stateless or stateful DHCPv6 server does not provide the default gateway address.
 
 ### EUI-64 Process vs. Randomly Generated
+
+- When the RA message is either SLAAC or SLAAC with stateless DHCPv6, the client must generate its own interface ID.​
+
+- The interface ID can be created using the EUI-64 process or a randomly generated 64-bit number.
+
+#### EUI-64 Process
+
+The IEEE defined the Extended Unique Identifier (EUI) or modified EUI-64 process which performs the following:​
+
+A 16 bit value of fffe (in hexadecimal) is inserted into the middle of the 48-bit Ethernet MAC address of the client.​
+
+The 7th bit of the client MAC address is reversed from binary 0 to 1.​
+
+Example:
+
+```
++-----------------+-----------------+
+| 48-bit MAC Address | fc:99:47:75:ce:e0 |
++-----------------+-----------------+
+| EUI-64 Interface ID | fe:99:47:ff:fe:75:ce:e0 |
++-----------------+-----------------+
+```
+
+#### Randomly Generated
+
+Depending upon the operating system, a device may use a randomly generated interface ID instead of using the MAC address and the EUI-64 process.​
+
+Beginning with Windows Vista, Windows uses a randomly generated interface ID instead of one created with EUI-64.
+```
+C:\> ipconfig
+Windows IP Configuration
+Ethernet adapter Local Area Connection:
+   Connection-specific DNS Suffix  . :
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:50a5:8a35:a5bb:66e1
+   Link-local IPv6 Address . . . . . : fe80::50a5:8a35:a5bb:66e1
+   Default Gateway . . . . . . . . . : fe80::1
+C:\>
+```
+Note: To ensure the uniqueness of any IPv6 unicast address, the client may use a process known as Duplicate Address Detection (DAD). This is similar to an ARP request for its own address. If there is no reply, then the address is unique.
+
+# Dynamic Addressing for IPv6 LLAs
+
+### Dynamic LLAs
+
+All IPv6 interfaces must have an IPv6 LLA.​
+
+Like IPv6 GUAs, LLAs can be configured dynamically.​
+
+The figure shows the LLA is dynamically created using the fe80::/10 prefix and the interface ID using the EUI-64 process, or a randomly generated 64-bit number.
+
+![Dynamic LLAs](/imgs/ipv69.png)
+
+### Dynamic LLAs on Windows
+
+Operating systems, such as Windows, will typically use the same method for both a SLAAC-created GUA and a dynamically assigned LLA.​
+- EUI-64 Generated Interface ID
+​```
+C:\> ipconfig
+Windows IP Configuration
+Ethernet adapter Local Area Connection:
+Connection-specific DNS Suffix . :
+IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:fc99:47ff:fe75:cee0
+Link-local IPv6 Address . . . . . : fe80::fc99:47ff:fe75:cee0
+Default Gateway . . . . . . . . . : fe80::1
+C:\>
+```
+- Random 64-Bit Generated Interface ID
+​```
+C:\> ipconfig
+Windows IP Configuration
+Ethernet adapter Local Area Connection:
+   Connection-specific DNS Suffix  . :
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:50a5:8a35:a5bb:66e1
+   Link-local IPv6 Address . . . . . : fe80::50a5:8a35:a5bb:66e1
+   Default Gateway . . . . . . . . . : fe80::1
+C:\>
+```
+​
+### Dynamic LLAs on Cisco Routers
+
+Cisco routers automatically create an IPv6 LLA whenever a GUA is assigned to the interface. By default, Cisco IOS routers use EUI-64 to generate the interface ID for all LLAs on IPv6 interfaces.​
+
+Here is an example of a LLA dynamically configured on the G0/0/0 interface of R1:​
+```
+R1# show interface gigabitEthernet 0/0/0
+GigabitEthernet0/0/0 is up, line protocol is up
+  Hardware is ISR4221-2x1GE, address is 7079.b392.3640 (bia 7079.b392.3640)
+(Output omitted)
+R1# show ipv6 interface brief
+GigabitEthernet0/0/0   [up/up]
+    FE80::7279:B3FF:FE92:3640
+    2001:DB8:ACAD:1::1
+GigabitEthernet0/0/1   [up/up]
+    FE80::7279:B3FF:FE92:3641
+    2001:DB8:ACAD:2::1
+Serial0/1/0            [up/up]
+    FE80::7279:B3FF:FE92:3640
+    2001:DB8:ACAD:3::1
+Serial0/1/1            [down/down]
+    unassigned
+R1#
+```
+
+### Verify IPv6 Address Configuration
+
+- The show ipv6 interface brief Command on R1
+```
+R1# show ipv6 interface brief
+GigabitEthernet0/0/0   [up/up]
+    FE80::1:1
+    2001:DB8:ACAD:1::1
+GigabitEthernet0/0/1   [up/up]
+    FE80::1:2
+    2001:DB8:ACAD:2::1
+Serial0/1/0            [up/up]
+    FE80::1:3
+    2001:DB8:ACAD:3::1
+Serial0/1/1            [down/down]
+    unassigned
+R1#
+```
+
+- The show ipv6 route Command on R1
+```
+R1# show ipv6 route
+IPv6 Routing Table - default - 7 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+
+C   2001:DB8:ACAD:1::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:1::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+C   2001:DB8:ACAD:2::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:2::1/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:3::/64 [0/0]
+     via Serial0/1/0, directly connected
+L   2001:DB8:ACAD:3::1/128 [0/0]
+     via Serial0/1/0, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+R1#
+```
+
+- The ping Command on R1
+```
+R1# ping 2001:db8:acad:1::10
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 2001:DB8:ACAD:1::10, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+R1#
+```
+
+# IPv6 Multicast Addresses
