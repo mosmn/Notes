@@ -496,3 +496,71 @@ R1#
 ```
 
 # IPv6 Multicast Addresses
+
+### Assigned IPv6 Multicast Addresses
+
+IPv6 multicast addresses have the prefix ff00::/8.
+Note: Multicast addresses can only be destination addresses and not source addresses.
+
+There are two types of IPv6 multicast addresses:
+- Well-known multicast addresses
+- Solicited node multicast addresses
+
+### Well-Known IPv6 Multicast Addresses
+
+Well-known IPv6 multicast addresses are assigned. Assigned multicast addresses are reserved multicast addresses for predefined groups of devices.
+
+An assigned multicast address is a single address used to reach a group of devices running a common protocol or service.
+
+There are two common IPv6 Assigned multicast groups:​
+- ff02::1 All-nodes multicast group - This is a multicast group that all IPv6-enabled devices join. A packet sent to this group is received and processed by all IPv6 interfaces on the link or network. ​
+- ff02::2 All-routers multicast group - This is a multicast group that all IPv6 routers join. A router becomes a member of this group when it is enabled as an IPv6 router with the `ipv6 unicast-routing` global configuration command.
+
+### Solicited-Node IPv6 Multicast Addresses
+
+The advantage of a solicited-node multicast address is that it is mapped to a special Ethernet multicast address.
+
+This allows the Ethernet NIC to filter the frame by examining the destination MAC address without sending it to the IPv6 process to see if the device is the intended target of the IPv6 packet.
+
+# Subnet an IPv6 Network
+
+### Subnet Using the Subnet ID
+
+IPv6 was designed with subnetting in mind. ​
+- A separate subnet ID field in the IPv6 GUA is used to create subnets. ​
+- The subnet ID field is the area between the Global Routing Prefix and the interface ID.
+
+### IPv6 Subnetting Example
+
+Given the 2001:db8:acad::/48 global routing prefix with a 16 bit subnet ID.​
+- Allows 65,536 /64 subnets​
+- The global routing prefix is the same for all subnets.​
+- Only the subnet ID hextet is incremented in hexadecimal for each subnet.
+
+![IPv6 Subnetting Example](/imgs/ipv610.png)
+
+### IPv6 Subnet Allocation
+
+As shown in the figure, the example topology requires five subnets, one for each LAN as well as for the serial link between R1 and R2. Unlike the example for IPv4, with IPv6 the serial link subnet will have the same prefix length as the LANs. Although this may seem to “waste” addresses, address conservation is not a concern when using IPv6.
+
+![IPv6 Subnet Allocation](/imgs/ipv611.png)
+
+As shown in the next figure, the five IPv6 subnets were allocated, with the subnet ID field 0001 through 0005 used for this example. Each /64 subnet will provide more addresses than will ever be needed.
+
+![IPv6 Subnet Allocation](/imgs/ipv612.png)
+
+### Router Configured with IPv6 Subnets
+
+```
+R1(config)# interface gigabitethernet 0/0/0
+R1(config-if)# ipv6 address 2001:db8:acad:1::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# interface gigabitethernet 0/0/1
+R1(config-if)# ipv6 address 2001:db8:acad:2::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# interface serial 0/1/0
+R1(config-if)# ipv6 address 2001:db8:acad:3::1/64
+R1(config-if)# no shutdown
+```
