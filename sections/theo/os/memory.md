@@ -298,4 +298,125 @@ It also provide a measure of protection:
 
 # Paging
 
+Partition memory into equal fixed-size
+
+Process is also divided into equal fixedsize chunks of the same size as memory
+
+- Pages - chunks of a process
+- Frames - available chunks of memory
+
+![Paging](/imgs/mman10.png)
+
+OS maintains a page table for each process.
+- The page table shows the frames location of each page of the process.
+    - Used by processor to produce a physical address
+- OS also maintains a single free frame list of all frames in memory that are currently occupied and available pages
+
+![Paging](/imgs/mman11.png)
+
+Simple paging similar to fixed partitioning but the different are:
+- In paging the partitions are rather small
+- Program may occupy more than one partitions and no need to be contiguous.
+
+Within the program, each logical address consists of a page number and an offset within the page.
+
+Logical to physical address translation is done by processor and the processor must know how to access the page table of current process.
+
+Presented with a logical address (page #, offset), the processor uses the page table to produce a physical address (frame #, offset).
+
+## Address Translation
+
+The following steps are needed for address translation:
+1. Extract the page number as the leftmost n bits of the logical address.
+2. Use the page number as an index into the process page table to find the frame number k.
+3. The starting physical address of the frame is k X 2m, and the physical address of the referenced byte is that number plus the offset. This physical address need not be calculated; it is easily constructed by appending the frame number to the offset.
+
+Consider 16bit addresses are used, and the page size is 1Kb
+- Logical Address = 0000010111011110
+- Page Number used 6 bits and Offset used 10 bits
+    - 000001 0111011110
+    - Page number = 1 Offset = 478
+
+![Paging](/imgs/mman12.png)
+
+This page 1 is residing in memory frame 6 = binary 000110.
+- Physical address = 0001100111011110
+    - 000110 0111011110
+    - Frame Number = 6 Offset = 478
+
+## Summary
+
+Memory is divided into small equal-size frames.
+
+Each process is divided into frame-size pages
+
+Smaller processes require fewer pages, larger processes require more.
+
+When a process is brought in, all of its pages are loaded into available frames, and a page table is set up.
+
+This approach solves many problems inherent in partitioning.
+
 # Segmentation
+
+A program can be subdivided into segments
+
+Segments vary in length
+
+Have the maximum segment
+
+Addresses consists of:
+- Segment# | Offset
+
+Similar to dynamic partitioning the different is that with segmentation a program may occupy more than one partition and these partitions does not need to be contiguous.
+
+Eliminates internal fragmentation but external fragmentation still exist
+- However because a process is broken up into a number of smaller pieces, the external fragmentation should be less.
+
+Paging is invisible for the programmer but segmentation is visible and is provided as a convenience for organizing programs and data.
+- Programmer or compiler will assign programs and data to different segments
+- For modular programming, the program or data may be further broken down into multiple segments
+- The principal inconvenience is that the programmer must be aware of the maximum segment size limittion.
+
+## Address Translation
+
+No simple relationship between logical addresses and physical addresses (like paging).
+
+Every process will have a segment table
+
+Analogous form paging, a simple segmentation scheme would make use of segment table for each process and a list of free blocks of memory.
+
+Each segment table entry would have to give the starting address in memory of the corresponding segment.
+
+The entry should also provide the length of the segment, to assure that invalid addresses are not used.
+
+When process enters the Running state, the address of its segment table is loaded into a special register used by the memory management hardware.
+
+Every process will have a segment table that consists of:
+- Segment Number | Length | Base
+    - Segment Number: the segment numbr of a process
+    - Length: length of the segment
+    - Base: starting address of the segment in memory
+
+Length will be used to assure that invalid addresses are not used.
+
+Consider 16bit addresses, maximum number of segments is 16.
+
+Logical Address = 0001001011110000
+
+Segment Number used 4 bits and Offset used 12 bits
+- 0001 100111011110
+- Segment Number = 1 Offset = 752
+
+The following steps are needed for address translation:
+1. Extract the segment number as the leftmost n bits of the logical address.
+2. Use the segment number as an index into the process segment table to find the starting physical address of the segment.
+3. Compare the offset, expressed in the rightmost m bits, to the length of the segment. If the offset greater than the length, the address is invalid.
+4. The desired physical address is the sum of the starting physical address of the segment plus the offset.
+
+![Segmentation](/imgs/mman13.png)
+
+## Summary
+
+A process is divided into a number of segments which need not be equal size.
+
+When a process brought in, all of its segments are loaded into available regions of memory, and a segment table is setup.
