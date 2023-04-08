@@ -102,11 +102,199 @@ Simpler technique that do not use virtual memory:
 
 # Partitioning
 
+The simplest scheme for managing the available memory is to partition it into regions with fixed boundaries.
+- Divide the memory to small size partition.
+
+Two types of partitioning:
+- Fixed Partitioning
+- Dynamic Partitionings
+
 ## Fixed Partitioning
+
+### Equal Size Partition
+
+Divide the memory into same size partition
+
+Any process whose size is less than or equal to the partition size can be loaded into an available partition
+
+The operating system can swap out a process if all partitions are full and no process in the Ready or Running state
+
+![Equal Size Partition](/imgs/mman2.png)
+
+1. A program may not fit in a partition.
+    - The programmer must design the program with “overlays”
+        - Program and data are organized in such away that various modules can be assigned the same region of memory with a main program responsible for switching in and out as needed
+2. Memory use is inefficient.
+    - Any program, no matter how small, occupies an entire partition. This is called internal fragmentation. (If the memory allocated to the process is slightly larger than the memory demanded, then the difference between allocated and demanded memory is known as internal fragmentation.)
+        - E.g. Program length 2MB, it occupies an 8MB partition. So 6MB is internal fragmentation.
+    
+### Unequal Size Partition
+
+Divide the memory into different partition size.
+
+Using unequal size partitions helps lessen the problems
+- A program as large as 16MB can be accommodate without need to overlays it.
+- Partition smaller than 8MB allow smaller program to be accommodate with less internal fragmentation.
+
+![Unequal Size Partition](/imgs/mman3.png)
+
+### Placement Algorithm
+
+Where to put / load process in memory.
+
+Equal-size partitions:
+- If there is an available partition, a process can be loaded into that partition because all partitions are of equal size, it does not matter which partition is used
+- If all partitions are occupied by blocked processes, choose one process to swap out to make room for the new process
+
+Unequal-size partitions:
+- Multiple queues
+- Single queues
+
+#### Use of multiple queues
+
+- Assign each process to the smallest partition within which it will fit
+- A queue for each partition size
+- Tries to minimize internal fragmentation
+- Problem: some queues will be empty if no processes within a size range is present
+
+![Multiple Queues](/imgs/mman4.png)
+
+#### Use of single queue
+
+- When a process is loaded into memory, the smallest available partition that will hold the process is selected
+- If all partitions are occupied:
+    - Preference to swapping out the smallest partition that will hold the incoming process.
+    - Also have to consider other factors such as priority and blocked vs. ready process.
+- Increases the level of multiprogramming at the expense of internal fragmentation
+
+![Single Queue](/imgs/mman5.png)
+
+### Advantages and Disadvantages
+
+Advantages | Disadvantages
+---|---
+Simple and require minimal OS software and processing overhead | The number of partitions specified at system generation time limits the number of active (not suspended) processes in the system.
+Unequal-size partition provides a degree of flexibility to fixed partitioning | Because partition sizes are preset at system generation time, small jobs will not utilize partition space efficiently.
+
+The used of fixed partitioning is almost unknown today.
+
+Example of OS that use this technique was an early IBM mainframe OS, OS/MFT (Multiprogramming with a Fixed Number of Tasks).
 
 ## Dynamic Partitioning
 
+Partitions are of variable length and number
+
+Each process is allocated exactly as much memory as it requires.
+
+Used in IBM’s OS/MVT (Multiprogramming with a Variable number of Tasks)
+
+An example using 64 MB of memory is shown in Figure 7.4.
+
+![Dynamic Partitioning](/imgs/mman6.png)
+
+Eventually holes are formed in the memory.
+
+Memory will become more and more fragmented, and memory utilization declines.
+
+This hole is called external fragmentation.
+- Referring to fact that the memory is external to all partitions becomes increasingly fragmented.
+
+Technique to overcome external fragmentation is called compaction.
+- Time to time OS shifts the processes so that they are contiguous and so that all of free memory is together in one block.
+- Disadvantages: time consuming and waste CPU time
+
+From figure 7.4h, compaction will result in a block of free memory of length 16M, and this maybe sufficient to load an additional process.
+
+### Placement Algorithm
+
+Where to put / load process in memory.
+
+Best-fit | First-fit | Next-fit
+---|---|---
+Choose the block that is closest in size to the request | Begins to scan memory from the beginning and chooses the first available block that is large enough | Begins to scan memory from the location of the last placement and chooses the next available block that is large enough
+Choose smallest hole | Choose first hole from beginning | Choose first hole from last placement
+
+![Placement Algorithm](/imgs/mman7.png)
+
 ## Buddy System
+
+Both fixed and dynamic partitioning schemes have drawbacks.
+
+An interesting compromise is the buddy system.
+
+Space available for allocation is treated as a single block
+
+Memory blocks are available of size 2<sup>K</sup> words, L ≤ K ≤ U, where:
+2^L = smallest size block that is allocated
+2^U = larger size block that is allocated; generally 2^u is the size of the entire memory available for allocation.
+
+![Buddy System](/imgs/mman8.png)
+
+Example shows in Figure 7.6 using 1MB initial block.
+
+The first request, A, is for 100kb is needed.
+- The initial block is divided into two 512k buddies.
+    - The first of these is divided into two 256K buddies, and the first these is divided into two 128K buddies, one of which is allocated to A.
+
+The next request B, requires 256K block. Such block is already available and is allocated.
+
+The process continues with splitting and combine back into 256K, which immediately combine back with its buddy.
+
+Figure 7.7 shows a binary tree representation of the buddy allocation immediately after the release B request.
+
+The leaf nodes represent the current partitioning of the memory.
+
+If two buddies are leaf nodes, then at least one must be allocated, otherwise they would be combine into a larger block.
+
+### Relocation
+
+When program loaded into memory the actual (physical / absolute address ) memory locations are determined
+
+A process may occupy different partitions which means different physical memory locations during execution
+
+Compaction will also cause a program to occupy a different partition which means different physical memory locations
+
+Thus the locations of instruction and data referenced by a process are not fixed.
+
+#### Types of addresses
+
+- Logical or Virtual
+    - reference to a memory location independent of the current assignment of data to memory
+- Relative
+    - address is expressed as a location relative to some known point
+- Physical or Absolute
+    - actual location in main memory
+
+Programs that employ relative addresses in memory used dynamic run-time loading.
+
+It means all of the memory references in the loaded process are relative to the origin of the program.
+
+Hardware mechanism is needed for translating relative addressed to physical memory addresses at the time of execution of the instruction that contain the reference.
+
+Figure 7.8 shows the way in which this address translation is dynamically accomplished.
+
+![Relocation](/imgs/mman9.png)
+
+When a process is assigned to the Running state:
+- Base register - loaded with the starting address in memory of the process.
+- Bounds register - loaded with the address of the ending location of the process
+
+These values must be set when the program is loaded into memory or when the process image is swapped in.
+
+During execution of the process, relative address are encountered.
+- These include the contents of the instruction register, instruction addresses that occur in branch and call instruction, and addresses that occur in load and store instruction.
+
+Each relative address goes through two steps of manipulation by the processor:
+1. The value in the base register is added to the relative address to produce an absolute address.
+    - Address translation
+2. The resulting address is compared to the value in the bound register
+    - Check either address valid or not
+    - If the address within bounds, then the instruction execution may proceed, otherwise an interrupt is generated to the OS which must respond to the error.
+
+The scheme in Figure 7.8 allows programs to be swapped in and out of memory during execution.
+
+It also provide a measure of protection:
+- Each process image is isolated by the contents of the base and bounds registers and safe from unwanted accesses by other processes.
 
 # Paging
 
