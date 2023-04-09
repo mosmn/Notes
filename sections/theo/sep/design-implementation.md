@@ -141,7 +141,7 @@ The main focus is not on programming, but on implementation issues
 
 1. The abstraction level
     - don’t reuse software directly but rather use knowledge of successful abstractions in the design of your software
-2. The object level
+2. The object level(we dont modify the code we just use it as it is e.g. using a library like iomanip)
     - directly reuse objects from a library rather than writing the code yourself. Find appropriate libraries and discover if the objects and methods offer the functionality that you need.
 3. The component level
     - Components are collections of objects and object classes that operate together to provide related functions and services
@@ -150,7 +150,7 @@ The main focus is not on programming, but on implementation issues
     - reuse entire application systems.
     - involves configuration of these systems by adding and modifying code (if you are reusing a software product line) or by using the system’s own configuration interface
 
-### Cost related with reuse
+#### Cost related with reuse
 
 The costs of the time spent in looking for software to reuse and assessing whether it meets your needs
 
@@ -225,10 +225,38 @@ Development platform (host):
     - data management facilities for the software being developed
     - integration mechanisms that allow tools to work together.
 
-### Consideration issues in choosing development platform
+### Consideration issues in choosing development platform or development IDE
 
 - The hardware and software requirements of a component
 - The availability requirements of the system
 - Component communications
 
-# Open source development 
+# Open source development
+
+The source code of a software system is published and volunteers are invited to participate in the development process
+
+The source code should not be proprietary but rather should always be available for users to examine and modify as they wish.
+
+Example : LINUX, Java, the Apache web server and the mySQL database management system.
+
+## Open source issues
+
+Should the product that is being developed make use of open source components?
+
+Should an open source approach be used for the software’s development?
+
+## Open-source licensing
+
+A fundamental principle of open-source development is that source code should be freely available, this does not mean that anyone can do as they wish with that code.
+- Legally, the developer of the code (either a company or an individual) still owns the code. They can place restrictions on how it is used by including legally binding conditions in an open-source software license.
+- Some open-source developers believe that if an open-source component is used to develop a new system, then that system should also be open source.
+- Others are willing to allow their code to be used without this restriction. The developed systems may be proprietary and sold as closed source systems.
+
+## License models
+
+1. The GNU General Public License (GPL)
+    - if you use open source software that is licensed under the GPL license, then you must make that software open source.
+2. The GNU Lesser General Public License (LGPL)
+    - you can write components that link to open source code without having to publish the source of these components.
+3. The BSD license
+    - you are not obliged to re-publish any changes or modifications made to open source code. You can include the code in proprietary systems that are sold
