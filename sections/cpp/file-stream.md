@@ -172,5 +172,199 @@ output:
 ```
 
 # 7.2 File I/O
+
 ## 7.2.1 What is File I/O?
+
+### WHY USE FILES FOR INPUT/OUTPUT?
+
+Keyboard input and screen output deal with temporary data.
+
+Filesprovide a way to storedatapermanently.
+
+Files store a sequence of data as raw data bytes.
+
+The end of a file is either denoted by a end-of-file marker or a specific byte number.
+
+Programmatic processing of them is required to derive any meaning out of them.
+
+File processing:
+1. File input – read from the file (`ifstream`)
+2. File output – write to the file (`ofstream`)
+3. File input/output – input AND output (`fstream`)
+
+### FILE MODES
+
+Various file modes supported by C++:
+
+Ios file mode | Meaning
+--------------|--------
+app | Opens the file in append mode
+ate | Seeks to the end of the file before reading/writing
+binary | Opens the file in binary mode (instead of text mode)
+in | Opens the file in read mode (default for ifstream)
+out | Opens the file in write mode (default for ofstream)
+trunc | Erases the file if it already exists
+
 ## 7.2.2 Working with Sequential Data Files
+
+### BASIC STEPS TO PERFORM FILE PROCESSING
+
+1. Include header file for processing file (`#include <fstream>`)
+2. OpenFile
+- Determine purpose then specify file name, location and mode
+- Example: `ofstream outClientfile("clients.txt", ios::out);`
+3. Perform operation to the opened file
+- To write -use `ofstream` or `fstream` object and the stream insertion operator `<<`
+- To read – use `ifstream` or `fstream` object and the stream extraction operator `>>`
+4. Close File – explicitly close the file
+- Example: `outClientfile.close();`
+
+### CREATING A SEQUENTIAL FILE
+
+```C++
+#include<iostream>
+#include<fstream> //required for file I/O
+#include <cstdlib> //exit function prototype
+using namespace std;
+int main(){
+    //ofstream constructor opens file
+    ofstream outClientFile{"clients.txt", ios::out};
+
+    cout<<"Enter the account, nam, and balance.\n" 
+        << "Enter end-of-file(ctrl+z) to end input.\n";
+
+    int account;
+    string name;
+    double balance;
+
+    //read account, name, and balance, then place in file
+    while(cin>> account >> name >> balance) {
+        outClientFile << account <<<< name <<< << balance << endl;
+        cout << "? ";
+    }
+    outClientFile.close();
+    return 0;
+}
+```
+output:
+```
+Enter the account, nam, and balance.
+Enter end-of-file to end input
+? 100 James 25.45
+? 200 White 567.87
+? 300 Anna 0.00
+? ^Z
+```
+clients.txt
+```
+100 James 25.45
+200 White 567.87
+300 Anna 0
+```
+
+### FILE I/O WITH CHECKS ON OPEN
+
+```C++
+#include<iostream>
+#include<fstream> //required for file I/O
+#include <cstdlib> //exit function prototype
+using namespace std;
+int main(){
+    //ofstream constructor opens file
+    ofstream outClientFile{"clients.txt", ios::out};
+
+    //exit program if ofstream could not open file
+    if(!outClientFile){
+        cerr << "File could not be opened" << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    cout<<"Enter the account, nam, and balance.\n" 
+        << "Enter end-of-file(ctrl+z) to end input.\n";
+
+    int account;
+    string name;
+    double balance;
+
+    //read account, name, and balance, then place in file
+    while(cin>> account >> name >> balance) {
+        outClientFile << account <<<< name <<< << balance << endl;
+        cout << "? ";
+    }
+    outClientFile.close();
+    return 0;
+}
+```
+
+### READING FROM A SEQUENTIAL FILE
+
+```C++
+#include<iostream>
+#include<fstream> //required for file I/O
+#include <cstdlib> //exit function prototype
+#include <iomanip>
+using namespace std;
+
+//Display single record from file
+void Display (int acc, string n, double bal){
+    cout<<< left <<< setw(10) <<< acc << setw(13) << n << setw(7) << setprecision (2) << right << bal <<< endl;
+}
+
+int main(){
+    //ifstream constructor opens the file
+    ifstream inClientFile{"clients.txt", ios::in};
+
+    //exit program if unable to create a file
+    if (!inClientFile) {
+        cerr << "File could not be opened" << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    cout<<<< left <<< setw(10) << "Account" << setw(13) << "Name" << "Balance \n" <<< fixed;
+    int account;
+    string name;
+    double balance;
+
+    //display each record in the file
+    while (inClientFile >> account >> name >> balance) {
+        Display (account, name, balance);
+    }
+
+    inClientFile.close(); //explicitly close the file
+    return 0;
+}
+```
+output:
+```
+Account   Name        Balance
+100       James       25.45
+200       White       567.87
+300       Anna        0.00
+```
+
+### APPENDING A SEQUENTIAL FILE
+
+```C++
+#include<iostream>
+#include<fstream> //required for file I/O
+#include <cstdlib> //exit function prototype
+using namespace std;
+
+int main(){
+    cout << "Opening clients.txt for appending\n";
+
+    ofstream outClientFile{"clients.txt", ios::app};
+
+    //exit program if ofstream could not open file
+    if(!outClientFile){
+        cerr << "File could not be opened" << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    outClientFile << "400 Smith 99.99\n"
+                    << "500 Jones 88.88\n";
+    
+    outClientFile.close();
+    cout << "Done" << endl;
+    return 0;
+}
