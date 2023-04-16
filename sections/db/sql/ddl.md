@@ -311,29 +311,6 @@ LAST_NAME NOT NULL VARCHAR2(25)
 ANNSAL NOT NULL NUMBER
 ```
 
-
-ALTER TABLE
-Use the ALTER TABLE statement to:
-Add a new column
-Modify an existing column definition
-Define a default value for the new column
-Drop a column
-Rename a column
-Change table to read-only status
-Read-Only Tables
-You can use the ALTER TABLE syntax to:
-Put a table into read-only mode, which prevents DDL or DML changes during table maintenance • Put the table back into read/write mode
-ALTER TABLE employees READ ONLY;
-perform table maintenance and then
--- return table back to read/write mode
-ALTER
-TABLE employees READ WRITE;
-ha a non-transfe
-Dropping a Table
-Moves a table to the recycle bin
-Removes the table and all its data entirely if the PURGE clause is specified
-Invalidates dependent objects and removes object privileges on the table
-
 # ALTER TABLE statement
 
 Use the ALTER TABLE statement to:
