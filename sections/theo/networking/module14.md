@@ -266,3 +266,143 @@ By default, the netstat command will attempt to resolve IP addresses to domain n
 # TCP Communication Process
 
 ### TCP Server Processes
+
+An individual server cannot have two services assigned to the same port number within the same transport layer services. For example, a host running a web server application and a file transfer application cannot have both configured to use the same port, such as TCP port 80.
+
+An active server application assigned to a specific port is considered open, which means that the transport layer accepts, and processes segments addressed to that port. Any incoming client request addressed to the correct socket is accepted, and the data is passed to the server application. There can be many ports open simultaneously on a server, one for each active server application.
+
+### TCP Connection Establishment
+
+In some cultures, when two persons meet, they often greet each other by shaking hands. Both parties understand the act of shaking hands as a signal for a friendly greeting. Connections on the network are similar. In TCP connections, the host client establishes the connection with the server using the three-way handshake process.
+
+- Step 1. SYN(syncrnaization): The initiating client requests a client-to-server communication session with the server.
+
+![e](/imgs/tranl5.png)
+
+- Step 2. ACK(acknowldgment) and SYN: The server acknowledges the client-to-server communication session and requests a server-to-client communication session.
+
+![e](/imgs/tranl6.png)
+
+- Step 3. ACK: The initiating client acknowledges the server-to-client communication session.
+
+![e](/imgs/tranl7.png)
+
+The three-way handshake validates that the destination host is available to communicate. In this example, host A has validated that host B is available.
+
+### Session Termination
+
+To close a connection, the Finish (FIN) control flag must be set in the segment header. 
+
+To end each one-way TCP session, a two-way handshake, consisting of a FIN segment and an Acknowledgment (ACK) segment, is used. 
+
+Therefore, to terminate a single conversation supported by TCP, four exchanges are needed to end both sessions. Either the client or the server can initiate the termination.
+
+- Step 1. FIN: When the client has no more data to send in the stream, it sends a segment with the FIN flag set.
+
+![e](/imgs/tranl8.png)
+
+- Step 2. ACK: The server sends an ACK to acknowledge the receipt of the FIN to terminate the session from client to server.
+
+![e](/imgs/tranl9.png)
+
+- Step 3. FIN: The server sends a FIN to the client to terminate the server-to-client session.
+
+![e](/imgs/tranl10.png)
+
+- Step 4. ACK: The client responds with an ACK to acknowledge the FIN from the server.
+
+![e](/imgs/tranl11.png)
+
+
+### TCP Three-way Handshake Analysis
+
+TCP is a full-duplex protocol, where each connection represents two one-way communication sessions.
+
+To establish the connection, the hosts perform a three-way handshake. As shown in the figure, control bits in the TCP header indicate the progress and status of the connection.
+
+These are the functions of the three-way handshake:
+- It establishes that the destination device is present on the network.
+- It verifies that the destination device has an active service and is accepting requests on the destination port number that the initiating client intends to use.
+- It informs the destination device that the source client intends to establish a communication session on that port number.
+
+__The connection and session mechanisms enable TCP reliability function.__
+
+The six bits in the Control Bits field of the TCP segment header are also known as flags. A flag is a bit that is set to either on or off.
+
+The six control bits flags are as follows:
+- URG - Urgent pointer field significant
+- ACK - Acknowledgment flag used in connection establishment and session termination
+- PSH - Push function
+- RST - Reset the connection when an error or timeout occurs
+- SYN - Synchronize sequence numbers used in connection establishment
+- FIN - No more data from sender and used in session termination
+
+# Reliability and Flow Control
+
+### TCP Reliability - Guaranteed and Ordered Delivery
+
+TCP can also help maintain the flow of packets so that devices do not become overloaded.​
+
+There may be times when TCP segments do not arrive at their destination or arrive out of order.​
+
+All the data must be received and the data in these segments must be reassembled into the original order.​
+
+Sequence numbers are assigned in the header of each packet to achieve this goal.
+
+### TCP Reliability - Data Loss and Retransmission
+
+No matter how well designed a network is, data loss occasionally occurs.​
+
+TCP provides methods of managing these segment losses. Among these is a mechanism to retransmit segments for unacknowledged data.
+
+Host operating systems today typically employ an optional TCP feature called selective acknowledgment (SACK), negotiated during the three-way handshake. If both hosts support SACK, the receiver can explicitly acknowledge which segments (bytes) were received including any discontinuous segments. The sending host would therefore only need to retransmit the missing data. For example, in the next figure, again using segment numbers for simplicity, host A sends segments 1 through 10 to host B. If all the segments arrive except for segments 3 and 4, host B can acknowledge that it has received segments 1 and 2 (ACK 3), and selectively acknowledge segments 5 through 10 (SACK 5-10). Host A would only need to resend segments 3 and 4.
+
+### TCP Flow Control - Window Size and Acknowledgments
+
+TCP also provides mechanisms for flow control as follows:​
+- Flow control is the amount of data that the destination can receive and process reliably.​
+- Flow control helps maintain the reliability of TCP transmission by adjusting the rate of data flow between source and destination for a given session.
+
+### TCP Flow Control - Maximum Segment Size (MSS)
+
+Maximum Segment Size (MSS) is the maximum amount of data that the destination device can receive.​
+
+A common MSS is 1,460 bytes when using IPv4.​
+
+A host determines the value of its MSS field by subtracting the IP and TCP headers from the Ethernet maximum transmission unit (MTU), which is 1500 bytes be default. ​
+
+1500 minus 40 (20 bytes for the IPv4 header and 20 bytes for the TCP header) leaves 1460 bytes.​
+
+### TCP Flow Control – Congestion Avoidance
+
+When congestion occurs on a network, it results in packets being discarded by the overloaded router.​
+
+To avoid and control congestion, TCP employs several congestion handling mechanisms, timers, and algorithms.​
+
+# UDP Communication
+
+### UDP Low Overhead versus Reliability
+
+UDP does not establish a connection. UDP provides low overhead data transport because it has a small datagram header and no network management traffic.
+
+### UDP Datagram Reassembly
+
+UDP does not track sequence numbers the way TCP does.​
+
+UDP has no way to reorder the datagrams into their transmission order.​
+
+UDP simply reassembles the data in the order that it was received and forwards it to the application.​
+
+### UDP Server Processes and Requests
+
+UDP-based server applications are assigned well-known or registered port numbers.​
+
+UDP receives a datagram destined for one of these ports, it forwards the application data to the appropriate application based on its port number.
+
+### UDP Client Processes
+
+The UDP client process dynamically selects a port number from the range of port numbers and uses this as the source port for the conversation.​
+
+The destination port is usually the well-known or registered port number assigned to the server process.​
+
+After a client has selected the source and destination ports, the same pair of ports are used in the header of all datagrams in the transaction.​
