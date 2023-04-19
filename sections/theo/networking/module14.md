@@ -406,3 +406,5 @@ The UDP client process dynamically selects a port number from the range of port 
 The destination port is usually the well-known or registered port number assigned to the server process.​
 
 After a client has selected the source and destination ports, the same pair of ports are used in the header of all datagrams in the transaction.​
+
+
