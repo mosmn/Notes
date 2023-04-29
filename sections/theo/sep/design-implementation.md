@@ -260,3 +260,4 @@ A fundamental principle of open-source development is that source code should be
     - you can write components that link to open source code without having to publish the source of these components.
 3. The BSD license
     - you are not obliged to re-publish any changes or modifications made to open source code. You can include the code in proprietary systems that are sold
+    - If you use open-source components, you must acknowledge the original creator of the code. The MIT license is a variant of the BSD license with similar conditions.
