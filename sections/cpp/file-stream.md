@@ -385,6 +385,14 @@ in | Opens the file in read mode (default for ifstream)
 out | Opens the file in write mode (default for ofstream)
 trunc | Erases the file if it already exists
 
+Functions for binary file handling:
+
+- `get()`: read a byte and point to the next byte to read
+- `put()`: write a byte and point to the next location for write
+- `read()`: block reading
+- `write()`: block writing
+- `flush()`: Save data from the buffer to the output file.
+
 ## 7.2.2 Working with Sequential Data Files
 
 ### BASIC STEPS TO PERFORM FILE PROCESSING
@@ -548,3 +556,23 @@ int main(){
     cout << "Done" << endl;
     return 0;
 }
+```
+
+### Using eof to read the entire file
+
+```C++
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main() {
+    ifstream in("myFile.txt");
+    char a;
+    while (!in.eof()) {
+        in.get(a);
+        cout << a;
+    }
+    in.close();
+    return 0;
+}
+```
