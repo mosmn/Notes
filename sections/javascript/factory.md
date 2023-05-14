@@ -34,3 +34,5 @@ console.log(a); // ???????
 Is it 17 or 99? Do you know why? Can you edit the code so that it prints the other value?
 
 The answer is 17, and the reason it’s not 99 is that on line 4, the outer variable a is not redefined, rather a new a is created inside the scope of that function. In the end, figuring out scope in most contexts is not all that complicated, but it is crucial to understanding some of the more advanced concepts that are coming up soon, so take your time to understand what’s going on in the following resources.
+
+

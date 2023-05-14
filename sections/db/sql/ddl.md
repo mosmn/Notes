@@ -320,6 +320,87 @@ Use the ALTER TABLE statement to:
 - Drop a column
 - Rename a column
 - Change table to read-only status
+The ALTER TABLE statement is used to modify the structure of an existing table in a database. Here are some examples of how the ALTER TABLE statement can be used:
+
+1. Add a new column:
+To add a new column to an existing table, use the following syntax:
+
+```
+ALTER TABLE table_name ADD column_name data_type;
+```
+
+For example, to add a new column called "phone_number" of type VARCHAR(20) to a table called "customers", use the following statement:
+
+```
+ALTER TABLE customers ADD phone_number VARCHAR(20);
+```
+
+2. Modify an existing column definition:
+To modify the definition of an existing column, use the following syntax:
+
+```
+ALTER TABLE table_name MODIFY column_name new_data_type;
+```
+
+For example, to change the data type of a column called "age" from INT to SMALLINT in a table called "employees", use the following statement:
+
+```
+ALTER TABLE employees MODIFY age SMALLINT;
+```
+
+3. Define a default value for a new column:
+To define a default value for a new column, use the following syntax:
+
+```
+ALTER TABLE table_name ADD column_name data_type DEFAULT default_value;
+```
+
+For example, to add a new column called "status" of type VARCHAR(10) with a default value of "active" to a table called "orders", use the following statement:
+
+```
+ALTER TABLE orders ADD status VARCHAR(10) DEFAULT 'active';
+```
+
+4. Drop a column:
+To drop an existing column from a table, use the following syntax:
+
+```
+ALTER TABLE table_name DROP COLUMN column_name;
+```
+
+For example, to drop a column called "address" from a table called "customers", use the following statement:
+
+```
+ALTER TABLE customers DROP COLUMN address;
+```
+
+5. Rename a column:
+To rename an existing column in a table, use the following syntax:
+
+```
+ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
+```
+
+For example, to rename a column called "product_code" to "item_code" in a table called "products", use the following statement:
+
+```
+ALTER TABLE products RENAME COLUMN product_code TO item_code;
+```
+
+6. Change table to read-only status:
+To change a table to read-only status, use the following syntax:
+
+```
+ALTER TABLE table_name READ ONLY;
+```
+
+For example, to make a table called "sales" read-only, use the following statement:
+
+```
+ALTER TABLE sales READ ONLY;
+```
+
+Note that once a table is set to read-only status, no further modifications can be made to the table structure or data.
 
 ## Read-Only Tables
 
