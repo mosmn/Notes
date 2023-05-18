@@ -82,6 +82,7 @@
 - [Inheritance](sections/cpp/inheritance.md)
 - [File stream input and output](sections/cpp/file-stream.md)
 - [GUI](sections/cpp/gui.md)
+- [Standard Template Library](sections/cpp/stl.md)
 - [Recources](sections/cpp/resources.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
@@ -185,4 +186,5 @@
 - [Cover Letter](sections/resume/cover-letter.md)
 - [Portfolio](sections/resume/portfolio.md)
 - [LinkedIn](sections/resume/linkedin.md)
+
 

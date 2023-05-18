@@ -320,7 +320,6 @@ Use the ALTER TABLE statement to:
 - Drop a column
 - Rename a column
 - Change table to read-only status
-The ALTER TABLE statement is used to modify the structure of an existing table in a database. Here are some examples of how the ALTER TABLE statement can be used:
 
 1. Add a new column:
 To add a new column to an existing table, use the following syntax:
@@ -400,7 +399,31 @@ For example, to make a table called "sales" read-only, use the following stateme
 ALTER TABLE sales READ ONLY;
 ```
 
-Note that once a table is set to read-only status, no further modifications can be made to the table structure or data.
+7. Rename a table:
+To rename an existing table in a database, use the following syntax:
+
+```
+ALTER TABLE old_table_name RENAME TO new_table_name;
+```
+
+For example, to rename a table called "customers" to "clients", use the following statement:
+
+```
+ALTER TABLE customers RENAME TO clients;
+```
+
+8. Rename a column:
+To rename an existing column in a table, use the following syntax:
+
+```
+ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
+```
+
+For example, to rename a column called "emp_name" to "full_name" in a table called "employees", use the following statement:
+
+```
+ALTER TABLE employees RENAME COLUMN emp_name TO full_name;
+```
 
 ## Read-Only Tables
 
