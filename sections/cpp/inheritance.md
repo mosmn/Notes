@@ -115,4 +115,133 @@ class Triangle: public Polygon, public Output;
 ```
 
 ```C++
+#include <iostream>
+using namespace std;
+
+class Polygon {
+  protected:
+    int width, height;
+  public:
+    void set_values (int a, int b)
+      { width=a; height=b;}
+ };
+
+class Output {
+  public:
+    void print (int i);
+};
+
+void Output::print (int i) {
+  cout << i << '\n';
+}
+
+class Rectangle: public Polygon, public Output {
+  public:
+    int area ()
+      { return width*height; }
+};
+
+class Triangle: public Polygon, public Output {
+  public:
+    int area ()
+      { return width*height/2; }
+};
+
+int main () {
+  Rectangle rect;
+  Triangle trgl;
+  rect.set_values (4,5);
+  trgl.set_values (4,5);
+  rect.print (rect.area());
+  trgl.print (trgl.area());
+  return 0;
+}
 ```
+
+---
+# Notes
+
+## Other way to define constructors
+
+```C++
+class Rectangle {
+    int width, height;
+  public:
+    Rectangle (int w, int h) : width(w), height(h) {}
+};
+```
+
+## Virtual
+
+take a look at this:
+```C++
+class Polygon {
+  protected:
+    int width, height;
+  public:
+    void set_values (int a, int b)
+      { width=a; height=b;}
+    calc(); // cannot be done, because parent cannot inherit from child
+};
+
+class Rectangle: public Polygon {
+  void calc(){
+    return width*height;
+  }
+};
+```
+
+The problem with this is that only the derivided class can inherit from the base class. The base class cannot inherit from the derived class. Thats why we use virtual.
+
+The function definition for calc() is in the derived class, ehich means the ownership of calc() is in the derived class.
+
+Virtual is a keyword that switches the ownership of the function to the base class.
+
+```C++
+class Polygon {
+  protected:
+    int width, height;
+    virtual void calc() = 0; // owned by the parent, used differently by each child
+  public:
+    void set_values (int a, int b)
+      { width=a; height=b;}
+};
+
+class Rectangle: public Polygon {
+  void calc(){
+    return width*height;
+  }
+};
+```
+
+## Instantiation of an object
+
+Creating a parent array and filling it with different child objects.
+
+```C++
+int main()
+{
+    polygon *poly[2];
+    poly[0] = new rectangle(4,5);
+    poly[1] = new triangle(4,5);
+}
+```
+
+## Inheriting constructors
+
+```C++
+class Polygon {
+  protected:
+    int width, height;
+  public:
+    Polygon (int a, int b) : width(a), height(b) {}
+};
+
+class Rectangle : public Polygon {
+  public:
+    Rectangle (int a, int b) : Polygon(a,b) {}
+    int area ()
+      { return width*height; }
+};
+```
+
