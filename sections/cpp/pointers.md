@@ -391,7 +391,7 @@ Displaying data:
 ```C++
 double* GetWeeklyHours (void) {
     double h = 46.50;
-    double hours = &h;
+    double *hours = &h;
     return hours;
 }
 
@@ -403,8 +403,8 @@ double* GetSalary(void) {
 
 int main(){
     double hours, salary, WeeklySalary;
-    hours = GetWeeklyHours();
-    salary = GetSalary();
+    hours = *GetWeeklyHours();
+    salary = *GetSalary();
     cout << "Weekly Hours: " << hours << '\n';
     cout<<"Hourly Salary: " << salary << '\n';
     WeeklySalary = hours * salary;
