@@ -15,6 +15,88 @@ console.log(jeff.name); // 'jeff'
 jeff.sayHello(); // calls the function and logs 'hello!'
 ```
 
+Using factories is a powerful way to organize and contain the code you’re writing. For example, if we’re writing any sort of game, we’re probably going to want objects to describe our players and encapsulate all of the things our players can do (functions!).
+
+```js
+const Player = (name, level) => {
+  let health = level * 2;
+  const getLevel = () => level;
+  const getName  = () => name;
+  const die = () => {
+    // uh oh
+  };
+  const damage = x => {
+    health -= x;
+    if (health <= 0) {
+      die();
+    }
+  };
+  const attack = enemy => {
+    if (level < enemy.getLevel()) {
+      damage(1);
+      console.log(`${enemy.getName()} has damaged ${name}`);
+    }
+    if (level >= enemy.getLevel()) {
+      enemy.damage(1);
+      console.log(`${name} has damaged ${enemy.getName()}`);
+    }
+  };
+  return {attack, damage, getLevel, getName}; // only the returned variables and functions are public, and the rest are private(health, die).
+};
+
+const jimmie = Player('jim', 10);
+const badGuy = Player('jeff', 5);
+jimmie.attack(badGuy);
+```
+
+## Inheritance with factories
+
+```js
+const Person = (name) => {
+  const sayName = () => console.log(`my name is ${name}`);
+  return {sayName};
+}
+
+const Nerd = (name) => {
+  // simply create a person and pull out the sayName function with destructuring assignment syntax!
+  const {sayName} = Person(name);
+  const doSomethingNerdy = () => console.log('nerd stuff');
+  return {sayName, doSomethingNerdy};
+}
+
+const jeff = Nerd('jeff');
+
+jeff.sayName(); // my name is jeff
+jeff.doSomethingNerdy(); // nerd stuff
+```
+This pattern is great because it allows you to pick and choose which functions you want to include in your new object. 
+
+If you want to go ahead and lump ALL of another object in, you can certainly do that as well with `Object.assign`
+```js
+const Nerd = (name) => {
+  const prototype = Person(name);
+  const doSomethingNerdy = () => console.log('nerd stuff');
+  return Object.assign({}, prototype, {doSomethingNerdy});
+}
+```
+The `Object.assign()` static method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
+- syntax: `Object.assign(target, ...sources)`
+- Parameters
+  - target: The target object — what to apply the sources' properties to, which is returned after it is modified.
+  - sources: The source object(s) — objects containing the properties you want to apply.
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// Expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget === target);
+// Expected output: true
+```
+
 # Scope and Closure
 
 Scope is the term that refers to where things like variables and functions can be used in your code.  
