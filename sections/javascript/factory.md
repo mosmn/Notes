@@ -160,3 +160,59 @@ counter(); // 3
 - As above, the function `counter` is a closure. It has access to the variable count and can both print and increment it, but there is no other way for our program to access that variable.
 
 Making supporting functions inaccessible makes your code easier to refactor, easier to test, and easier to reason about for you and anyone else that wants to use your objects.
+
+# The Module Pattern
+
+Without using the module pattern, its going to look like this:
+```js
+const calculator = () => {
+  const add = (a, b) => a + b;
+  const sub = (a, b) => a - b;
+  const mul = (a, b) => a * b;
+  const div = (a, b) => a / b;
+  return {
+    add,
+    sub,
+    mul,
+    div,
+  };
+};
+
+const calc = calculator();
+
+calc.add(3,5); // 8
+calc.sub(6,2); // 4
+calc.mul(14,5534); // 77476
+```
+
+Modules are actually very similar to factory functions. The main difference is how they’re created.
+
+Meet a module:
+```js
+const calculator = (() => {
+  const add = (a, b) => a + b;
+  const sub = (a, b) => a - b;
+  const mul = (a, b) => a * b;
+  const div = (a, b) => a / b;
+  return {
+    add,
+    sub,
+    mul,
+    div,
+  };
+})();
+
+calculator.add(3,5); // 8
+calculator.sub(6,2); // 4
+calculator.mul(14,5534); // 77476
+```
+The concepts are exactly the same as the factory function. However, instead of creating a factory that we can use over and over again to create multiple objects, the module pattern wraps the factory in an IIFE (Immediately Invoked Function Expression).
+
+The concept is simple: write a function, wrap it in parentheses, and then immediately call the function by adding () to the end of it.
+
+## Namespacing
+
+A useful side-effect of encapsulating the inner workings of our programs into objects is namespacing. 
+- Namespacing is a technique that is used to avoid naming collisions in our programs. 
+  - For example, it’s easy to imagine scenarios where you could write multiple functions with the same name. In our calculator example, what if we had a function that added things to our HTML display, and a function that added numbers and operators to our stack as the users input them? It is conceivable that we would want to call all three of these functions add which, of course, would cause trouble in our program. 
+- If all of them were nicely encapsulated inside of an object, then we would have no trouble: `calculator.add()`, `displayController.add()`, `operatorStack.add()`.
