@@ -245,6 +245,11 @@ let User = makeClass("Hello");
 new User().sayHi(); // Hello
 ```
 
+A class element can be characterized by three aspects:
+- Kind: Getter, setter, method, or field
+- Location: Static or instance
+- Visibility: Public or private
+
 ## Getters/setters
 
 Just like literal objects, classes may include getters/setters, computed properties etc.
@@ -364,3 +369,51 @@ class MyClass {
 ```
 `MyClass` is technically a function (the one that we provide as `constructor`), while methods, getters and setters are written to `MyClass.prototype`.
 
+## Static methods and fields
+
+The static keyword defines a static method or field for a class. Static properties (fields and methods) are defined on the class itself instead of each instance. Static methods are often used to create utility functions for an application, whereas static fields are useful for caches, fixed-configuration, or any other data that don't need to be replicated across instances.
+```js
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  static displayName = "Point";
+  static distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+
+    return Math.hypot(dx, dy);
+  }
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+p1.displayName; // undefined
+p1.distance; // undefined
+p2.displayName; // undefined
+p2.distance; // undefined
+
+console.log(Point.displayName); // "Point"
+console.log(Point.distance(p1, p2)); // 7.0710678118654755
+```
+
+## Private class features
+
+Using private fields, the definition can be refined as below.
+```js
+class Rectangle {
+  #height = 0;
+  #width;
+  constructor(height, width) {
+    this.#height = height;
+    this.#width = width;
+  }
+}
+```
+It's an error to reference private fields from outside of the class; they can only be read or written within the class body. By defining things that are not visible outside of the class, you ensure that your classes' users can't depend on internals, which may change from version to version.
+
+Private fields can only be declared up-front in a field declaration. They cannot be created later through assigning to them, the way that normal properties can.
+
+# Inheritances
