@@ -417,3 +417,96 @@ It's an error to reference private fields from outside of the class; they can on
 Private fields can only be declared up-front in a field declaration. They cannot be created later through assigning to them, the way that normal properties can.
 
 # Inheritances
+
+## extends
+
+The `extends` keyword is used in class declarations or class expressions to create a class that is a child of another class.
+- syntax: `class ChildClass extends ParentClass { /* … */ }`
+
+```js
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name); // call the super class constructor and pass in the name parameter
+  }
+
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const d = new Dog("Mitzie");
+d.speak(); // Mitzie barks.
+```
+If there is a constructor present in the subclass, it needs to first call super() before using this. The super keyword can also be used to call corresponding methods of super class.
+```js
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Lion extends Cat {
+  speak() {
+    super.speak();
+    console.log(`${this.name} roars.`);
+  }
+}
+
+const l = new Lion("Fuzzy");
+l.speak();
+// Fuzzy makes a noise.
+// Fuzzy roars.
+```
+
+## Mix-ins
+
+Abstract subclasses or mix-ins are templates for classes. A class can only have a single superclass, so multiple inheritance from tooling classes, for example, is not possible. The functionality must be provided by the superclass.
+
+A function with a superclass as input and a subclass extending that superclass as output can be used to implement mix-ins:
+```js
+const calculatorMixin = (Base) =>
+  class extends Base {
+    calc() {}
+  };
+
+const randomizerMixin = (Base) =>
+  class extends Base {
+    randomize() {}
+  };
+Copy to Clipboard
+```
+A class that uses these mix-ins can then be written like this:
+```js
+class Foo {}
+class Bar extends calculatorMixin(randomizerMixin(Foo)) {}
+```
+
+# Pros and cons for classes
+
+It’s A “Good” Part Because:
+- Class is something everyone learns and making the syntax better is a good thing.
+- It’s an optional feature and there are other ways to create objects like factory functions.
+- Using it for limited purposes is fine.
+It’s A “Bad” Part Because:
+- The concept of “Class” doesn’t exist in JavaScript.
+- Concept of classes makes things brittle. Prototypes are better and very flexible.
+- It guides people away from goodness and power of functional programming.
+
+### Composition over Inheritance 
+
+Many people think that class syntax is misleading for JavaScript and Inheritance is best avoided, and thus Factory Functions that use Composition are inherently better.
+- [video](https://www.youtube.com/watch?v=wfMtDGfHWpA)
