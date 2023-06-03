@@ -166,9 +166,20 @@ Webpack is simply a tool for bundling modules.
 
 At its core, webpack is a static module bundler for modern JavaScript applications. When webpack processes your application, it internally builds a dependency graph from one or more entry points and then combines every module your project needs into one or more bundles, which are static assets to serve your content from.
 
-### Explain what the concepts “entry” and “output” mean as relates to webpack.
+[GETTING STARTED](https://webpack.js.org/guides/getting-started/)
 
-# Briefly explain what a development dependency is.
+### The concepts “entry” and “output” mean as relates to webpack.
+
+There are a couple of key concepts to understanding how webpack works - entry and output. 
+
+We rearranged the files into a `src` and `dist` folder. Technically we could have called those folders anything, but those names are typical. 
+- `src` is our source directory. In other words, src is where we write all of the code that webpack is going to bundle up for us. When webpack runs, it goes through all of our files looking for any import statements and then compiles all of the code we need to run our site into a single file inside of the dist folder (short for distribution). 
+    - Our entry file, then is the main application file that links (either directly or indirectly) to all of the other modules in our project. In this example, it is `/src/index.js`. 
+- The output file is the compiled version - dist/main.js.
+
+[CORE CONCEPTS](https://webpack.js.org/concepts/)
+
+# Development dependencies
 
 Development dependencies, or `devDependencies` are packages that are consumed by requiring them in files or run as binaries, during the development phase. These are packages that are only necessary during development and not necessary for the production build. Some examples of packages that would only be required during development are babel plugins and presets, test runners and linter packages.
 
@@ -194,12 +205,189 @@ For CSS, there’s Sass, Less, and Stylus, to name a few. For JavaScript, the mo
 
 Typescript is a language that is essentially identical to next generation JavaScript, but also adds optional static typing. 
 
-# Briefly describe what a task runner is and how it’s used in front-end development.
+# Task runner and how it’s used in front-end development.
 
 A tool that automates different parts of the build process. For frontend development, tasks include minifying code, optimizing images, running tests, etc.
 
-# Describe how to write an npm automation script.
+In 2013, Grunt was the most popular frontend task runner, with Gulp following shortly after. Both rely on plugins that wrap other command line tools. Nowadays the most popular choice seems to be using the scripting capabilities built into the npm package manager itself, which doesn’t use plugins but instead works with other command line tools directly.
 
-# Explain one of the main benefits of writing code in modules.
+Let’s write some npm scripts to make using webpack easier. This involves simply changing the package.json file as follows:
+```json
+{  
+  "name": "modern-javascript-example",  
+  "version": "1.0.0",  
+  "description": "",  
+  "main": "index.js",  
+  "scripts": {  
+    "test": "echo \"Error: no test specified\" && exit 1",  
+    "build": "webpack --progress --mode=production",  
+    "watch": "webpack --progress --watch" 
+  },  
+  "author": "",  
+  "license": "ISC",  
+  "dependencies": {  
+    "moment": "^2.22.2"  
+  },  
+  "devDependencies": {  
+    "@babel/core": "^7.0.0",  
+    "@babel/preset-env": "^7.0.0",  
+    "babel-loader": "^8.0.2",  
+    "webpack": "^4.17.1",  
+    "webpack-cli": "^3.1.0"  
+  }  
+}
+```
+Here we’ve added two new scripts, build and watch. To run the build script, you can enter in the command line:
+```
+$ npm run build
+```
+This will run webpack (using configuration from the webpack.config.js we made earlier) with the --progress option to show the percent progress and the --mode=production option to minimize the code for production. To run the watch script:
+```
+$ npm run watch
+```
+This uses the --watch option instead to automatically re-run webpack each time any JavaScript file changes, which is great for development.
 
-# Explain “named” exports and “default” exports.
+Note that the scripts in package.json can run webpack without having to specify the full path ./node_modules/.bin/webpack, since node.js knows the location of each npm module path. This is pretty sweet! We can make things even sweeter by installing webpack-dev-server, a separate tool which provides a simple web server with live reloading. To install it as a development dependency, enter the command:
+```
+$ npm install webpack-dev-server --save-dev
+```
+Then add an npm script to package.json:
+```json
+{  
+  "name": "modern-javascript-example",  
+  "version": "1.0.0",  
+  "description": "",  
+  "main": "index.js",  
+  "scripts": {  
+    "test": "echo \"Error: no test specified\" && exit 1",  
+    "build": "webpack --progress -p",  
+    "watch": "webpack --progress --watch",  
+    "serve": "webpack-dev-server --open"  
+  },  
+  "author": "",  
+  "license": "ISC",  
+  "dependencies": {  
+    "moment": "^2.19.1"  
+  },  
+  "devDependencies": {  
+    "@babel/core": "^7.0.0",  
+    "@babel/preset-env": "^7.0.0",  
+    "babel-loader": "^8.0.2",  
+    "webpack": "^3.7.1",  
+    "webpack-dev-server": "^3.1.6"  
+  }  
+}
+```
+Now you can start your dev server by running the command:
+```
+$ npm run serve
+```
+This will automatically open the index.html website in your browser with an address of localhost:8080 (by default). Any time you change your JavaScript in index.js, webpack-dev-server will rebuild its own bundled JavaScript and refresh the browser automatically. This is a surprisingly useful time saver, as it allows you to keep your focus on the code instead of having to continually switch contexts between the code and the browser to see new changes.
+
+## how to write an npm automation script.
+
+Given it's not particularly fun to run a local copy of webpack from the CLI, we can set up a little shortcut. Let's adjust our package.json by adding an npm script:
+```json
+package.json
+
+ {
+   "name": "webpack-demo",
+   "version": "1.0.0",
+   "description": "",
+   "private": true,
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    // "build"
+    "build": "webpack"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+     "webpack": "^5.4.0",
+     "webpack-cli": "^4.2.0"
+   },
+   "dependencies": {
+     "lodash": "^4.17.20"
+   }
+ }
+```
+Now the `npm run build` command can be used in place of the `npx` command we used earlier. Note that within scripts we can reference locally installed npm packages by name the same way we did with npx. This convention is the standard in most npm-based projects because it allows all contributors to use the same set of common scripts.
+
+# ES6 Modules
+
+There are only 2 components to it - `import` and `export`.
+```js
+// a file called functionOne.js
+const functionOne = () => console.log('FUNCTION ONE!');
+
+export { functionOne };
+```
+```js
+// another JS file
+import { functionOne } from './functionOne';
+
+functionOne(); // this should work as expected!
+```
+When using ES6 modules, only what is exported can be accessed in other modules by importing.
+
+### one of the main benefits of writing code in modules.
+
+Code reuse. If, for instance, you have written some functions that manipulate the DOM in a specific way, putting all of those into their own file as a ‘module’ means that you can copy that file and re-use it very easily!
+
+## Import
+
+The static import declaration is used to import read-only live bindings which are exported by another module. The imported bindings are called live bindings because they are updated by the module that exported the binding, but cannot be re-assigned by the importing module.
+
+syntax:
+```js
+import defaultExport from "module-name";
+import * as name from "module-name";
+import { export1 } from "module-name";
+import { export1 as alias1 } from "module-name";
+import { default as alias } from "module-name";
+import { export1, export2 } from "module-name";
+import { export1, export2 as alias2, /* … */ } from "module-name";
+import { "string name" as alias } from "module-name";
+import defaultExport, { export1, /* … */ } from "module-name";
+import defaultExport, * as name from "module-name";
+import "module-name";
+```
+- `defaultExport`: Name that will refer to the default export from the module. Must be a valid JavaScript identifier.
+- `module-name`: The module to import from. The evaluation of the specifier is host-specified. This is often a relative or absolute URL to the .js file containing the module. In Node, extension-less imports often refer to packages in node_modules. Certain bundlers may permit importing files without extensions; check your environment. Only single quoted and double quoted Strings are allowed.
+- `name`: Name of the module object that will be used as a kind of namespace when referring to the imports. Must be a valid JavaScript identifier.
+- `exportN`: Name of the exports to be imported. The name can be either an identifier or a string literal, depending on what module-name declares to export. If it is a string literal, it must be aliased to a valid identifier.
+- `aliasN`: Names that will refer to the named imports. Must be a valid JavaScript identifier.
+
+`import` declarations can only be present in modules, and only at the top-level (i.e. not inside blocks, functions, etc.).
+
+There are four forms of import declarations:
+1. Named import: `import { export1, export2 } from "module-name";`
+2. Default import: `import defaultExport from "module-name";`
+3. Namespace import: `import * as name from "module-name";`
+4. Side effect import: `import "module-name";`
+
+## Export
+
+There are 2 different ways to use exports in your code: named exports and default exports.
+
+### Explain “named” exports and “default” exports.
+
+Which option you use depends on what you’re exporting. As a general rule if you want to export multiple functions use named exports with this pattern:
+```js
+// a file called myModule.js
+const functionOne = () => 'ONE';
+const functionTwo = () => 'TWO';
+
+export {
+  functionOne,
+  functionTwo
+};
+```
+And to import them:
+```js
+// index.js in /src folder
+import {functionOne, functionTwo} from './myModule';
+```
+Using this pattern gives you the freedom to only import the functions you need in the various files of your program. So it’s perfectly fine to only import functionOne if that’s the only one you need.
+
