@@ -367,7 +367,46 @@ There are four forms of import declarations:
 3. Namespace import: `import * as name from "module-name";`
 4. Side effect import: `import "module-name";`
 
+[REFER HERE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+
 ## Export
+
+The export declaration is used to export values from a JavaScript module. Exported values can then be imported into other programs with the import declaration or dynamic import. The value of an imported binding is subject to change in the module that exports it — when a module updates the value of a binding that it exports, the update will be visible in its imported value.
+
+syntax:
+```js
+// Exporting declarations
+export let name1, name2/*, … */; // also var
+export const name1 = 1, name2 = 2/*, … */; // also var, let
+export function functionName() { /* … */ }
+export class ClassName { /* … */ }
+export function* generatorFunctionName() { /* … */ }
+export const { name1, name2: bar } = o;
+export const [ name1, name2 ] = array;
+
+// Export list
+export { name1, /* …, */ nameN };
+export { variable1 as name1, variable2 as name2, /* …, */ nameN };
+export { variable1 as "string name" };
+export { name1 as default /*, … */ };
+
+// Default exports
+export default expression;
+export default function functionName() { /* … */ }
+export default class ClassName { /* … */ }
+export default function* generatorFunctionName() { /* … */ }
+export default function () { /* … */ }
+export default class { /* … */ }
+export default function* () { /* … */ }
+
+// Aggregating modules
+export * from "module-name";
+export * as name1 from "module-name";
+export { name1, /* …, */ nameN } from "module-name";
+export { import1 as name1, import2 as name2, /* …, */ nameN } from "module-name";
+export { default, /* …, */ } from "module-name";
+export { default as name1 } from "module-name";
+```
 
 There are 2 different ways to use exports in your code: named exports and default exports.
 
@@ -391,3 +430,4 @@ import {functionOne, functionTwo} from './myModule';
 ```
 Using this pattern gives you the freedom to only import the functions you need in the various files of your program. So it’s perfectly fine to only import functionOne if that’s the only one you need.
 
+[REFER HERE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
