@@ -9,7 +9,7 @@ These principles are as follows:
 
 ## Single Responsibility
 
-Single Responsibility Principle: states that a class (or object or module… you get the point) should only have one responsibility. This doesn’t mean that an object can only do one thing, but it does mean that everything an object does should be part of one responsibility.
+Single Responsibility Principle: states that a class (or object or module… you get the point) should only have one responsibility(It’s fine to call other functionality, but it shouldn’t be written there.). This doesn’t mean that an object can only do one thing, but it does mean that everything an object does should be part of one responsibility.
 
 Another way to think about the Single Responsibility Principle is that __a given method/class/component should have a single reason to change.__ Otherwise, if an object is trying to have multiple responsibilities, changing one aspect might affect another.
 
@@ -36,175 +36,255 @@ While not prescriptive, this set of role stereotypes provides an excellent menta
 ### Example
 
 ```js
-function Product(id, description) {
-    this.getId = function() {
-        return id;
-    };
-    this.getDescription = function() {
-        return description;
-    };
-}
-
-function Cart(eventAggregator) {
-    var items = [];
-
-    this.addItem = function(item) {
-        items.push(item);
-    };
-}
-
-var products = [
-    new Product(1, "Star Wars Lego Ship"),
-    new Product(2, "Barbie Doll"),
-    new Product(3, "Remote Control Airplane")],
-    cart = new Cart();
-
-(function() {
-    function addToCart() {
-        var productId = $(this).attr('id');
-        var product = $.grep(products, function(x) {
-            return x.getId() == productId;
-        })[0];
-        cart.addItem(product);
-
-        var newItem = $('<li></li>')
-            .html(product.getDescription())
-            .attr('id-cart', product.getId())
-            .appendTo("#cart");
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
     }
 
-    products.forEach(function(product) {
-        var newItem = $('<li></li>')
-            .html(product.getDescription())
-            .attr('id', product.getId())
-            .dblclick(addToCart)
-            .appendTo("#products");
-    });
-})();
+    start() {
+        if (...) { // Logic to determine whether or not the car should start
+            this.errorLog(`The car ${this.make} ${this.model} started.`);
+            return true;
+        }
+        this.errorLog(`The car ${this.make} ${this.model} failed to start.`);
+        return false;
+    }
+
+    errorLog(message) {
+        console.log(message);
+    } // This method is a violation of the Single Responsibility Principle
+}
 ```
-While not overly complex, this example illustrates a number of unrelated responsibilities which are grouped together within a single anonymous function. Let’s consider each responsibility:
-
-First, we have behavior defined to handle populating the Cart model when an item is double-clicked.
-
-Second, we have behavior defined to add items to the cart view when an item is double-clicked.
-
-Third, we have behavior defined to populate the products view with the initial set of products.
-
-Let’s break these three responsibilities out into their own objects:
+Let’s look at a bad example. In the code below, the Car class has a single method; start. When this method is called the car may or may not start, depending on some logic which isn’t included here as it’s not important. The class will then log some information depending on the outcome. But notice how the logging functionality is implemented as a method of this class. This violates the single responsibility principle, because the logic for logging the information should not be a responsibility of the Car class.
 ```js
-function Event(name) {
-    this._handlers = [];
-    this.name = name;
+class ErrorLog {
+    static log(message) {
+        console.log(message);
+    }
 }
-Event.prototype.addHandler = function(handler) {
-    this._handlers.push(handler);
-};
-Event.prototype.removeHandler = function(handler) {
-    for (var i = 0; i < handlers.length; i++) {
-        if (this._handlers[i] == handler) {
-            this._handlers.splice(i, 1);
-            break;
+
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    start() {
+        if (...) { // Logic to determine whether or not the car should start
+            ErrorLog.log(`The car ${this.make} ${this.model} started.`);
+            return true;
         }
+        ErrorLog.log(`The car ${this.make} ${this.model} failed to start.`);
+        return false;
     }
-};
-Event.prototype.fire = function(eventArgs) {
-    this._handlers.forEach(function(h) {
-        h(eventArgs);
-    });
-};
-
-var eventAggregator = (function() {
-    var events = [];
-
-    function getEvent(eventName) {
-        return $.grep(events, function(event) {
-            return event.name === eventName;
-        })[0];
-    }
-
-    return {
-        publish: function(eventName, eventArgs) {
-            var event = getEvent(eventName);
-
-            if (!event) {
-                event = new Event(eventName);
-                events.push(event);
-            }
-            event.fire(eventArgs);
-        },
-
-        subscribe: function(eventName, handler) {
-            var event = getEvent(eventName);
-
-            if (!event) {
-                event = new Event(eventName);
-                events.push(event);
-            }
-
-            event.addHandler(handler);
-        }
-    };
-})();
-
-function Cart() {
-    var items = [];
-
-    this.addItem = function(item) {
-        items.push(item);
-        eventAggregator.publish("itemAdded", item);
-    };
 }
-
-var cartView = (function() {
-    eventAggregator.subscribe("itemAdded", function(eventArgs) {
-        var newItem = $('<li></li>')
-            .html(eventArgs.getDescription())
-            .attr('id-cart', eventArgs.getId())
-            .appendTo("#cart");
-    });
-})();
-
-var cartController = (function(cart) {
-    eventAggregator.subscribe("productSelected", function(eventArgs) {
-        cart.addItem(eventArgs.product);
-    });
-})(new Cart());
-
-function Product(id, description) {
-    this.getId = function() {
-        return id;
-    };
-    this.getDescription = function() {
-        return description;
-    };
-}
-
-var products = [
-    new Product(1, "Star Wars Lego Ship"),
-    new Product(2, "Barbie Doll"),
-    new Product(3, "Remote Control Airplane")];
-
-var productView = (function() {
-    function onProductSelected() {
-        var productId = $(this).attr('id');
-        var product = $.grep(products, function(x) {
-            return x.getId() == productId;
-        })[0];
-        eventAggregator.publish("productSelected", {
-            product: product
-        });
-    }
-
-    products.forEach(function(product) {
-        var newItem = $('<li></li>')
-            .html(product.getDescription())
-            .attr('id', product.getId())
-            .dblclick(onProductSelected)
-            .appendTo("#products");
-    });
-})();
 ```
-In our revised design, we’ve removed our anonymous function and replace it with objects to coordinate each of the separate set of responsibilities.  A cartView was introduced to coordinate the population of the cart display, a cartController was introduced to coordinate the population of the cart model, and a productView was introduced to coordinate the population of the products display.  We also introduced an Event Aggregator to facilitate communication between the objects in a loosely-coupled way.  While this design results in a larger number of objects, each object now focuses on fulfilling a specific role within the overall orchestration with minimal coupling between the objects.
+The logger is stored in a separate class, which means its functionality is separate to the Car class. The Car class can be changed, moved around or even deleted without affecting the logger class. Likewise, if a change is required to the logger class, it only needs to be carried out in a single place.
+
+## Open/Closed Principle
+
+The open-closed principle says that code should be open for extension, but closed for modification. What this means is that if we want to add additional functionality, we should be able to do so simply by extending the original functionality, without the need to modify it.
+
+To explain this, let’s look at an example. Below we have a Vehicle class. When a Vehicle instance is created, we pass in the fuel capacity and fuel efficiency. To get our range, we simply multiply our capacity by our efficiency.
+```js
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+
+    getRange() {
+        return this.fuelCapacity * this.fuelEfficiency;
+    }
+}
+
+const standardVehicle = new Vehicle(10, 15);
+
+console.log(standardVehicle.getRange()); // Outputs '150'
+```
+But let’s say we add a new type of vehicle; a hybrid vehicle. This vehicle doesn’t just have standard fuel-based range, it also has an electric range which it can use as well. To find out the range now, we need to modify our getRange() method to check if the vehicle is hybrid, and add its electric range if so:
+```js
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+
+    getRange() {
+        let range = this.fuelCapacity * this.fuelEfficiency;
+
+        if (this instanceof HybridVehicle) {
+            range += this.electricRange;
+        }
+        return range;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+}
+
+const standardVehicle = new Vehicle(10, 15);
+const hybridVehicle = new HybridVehicle(10, 15, 50);
+
+console.log(standardVehicle.getRange()); // Outputs '150'
+console.log(hybridVehicle.getRange()); // Outputs '200'
+```
+This violates the open-closed principle, because whilst adding our new HybridVehicle class we have had to go back and modify the code of our Vehicle class in order to make it work. Going forward, every time we add a new type of vehicle that might have different parameters for its range, we’ll have to continually modify that existing getRange function.
+
+Instead what we could do, is to override the getRange method in the HybridVehicle class, giving the correct output for both Vehicle types, without every modifying the original code:
+```js
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+
+    getRange() {
+        return this.fuelCapacity * this.fuelEfficiency;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+
+    getRange() {
+        return (this.fuelCapacity * this.fuelEfficiency) + this.electricRange;
+    }
+}
+
+const standardVehicle = new Vehicle(10, 15);
+const hybridVehicle = new HybridVehicle(10, 15, 50);
+
+console.log(standardVehicle.getRange()); // Outputs '150'
+console.log(hybridVehicle.getRange()); // Outputs '200'
+```
+
+## Liskov Substitution Principle
+
+The Liskov substitution principle states that any class should be substitutable for its parent class without unexpected consequences. In others words, if the classes Cat and Dog extend the class Animal, then we would expect all of the functionality held within the Animal class to behave normally for a Cat and Dog object.
+
+A classic example of a Liskov substitution violation is the “square & rectangle problem”. In this problem, it is posed that a Square class can inherit from a Rectangle class. On the face of it, this makes sense; both shapes have two sides, and both calculate their area by multiplying their sides by each other.
+
+But the problem arises when we try to utilise some Rectangle functionality on a Square object. Let’s look at an example:
+```js
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    setHeight(newHeight) {
+        this.height = newHeight;
+    }
+}
+
+class Square extends Rectangle {}
+
+const rectangle = new Rectangle(4, 5);
+const square = new Square(4, 4);
+
+console.log(`Height: ${rectangle.height}, Width: ${rectangle.width}`); // Outputs 'Height: 4, Width: 5' (correct)
+console.log(`Height: ${square.height}, Width: ${square.width}`); // Outputs 'Height: 4, Width: 4' (correct)
+
+square.setHeight(5);
+console.log(`Height: ${square.height}, Width: ${square.width}`); // Outputs 'Height: 5, Width: 4' (wrong)
+```
+In this example we initialise a Rectangle and Square, and output their dimensions. We then call the Rectangle.setHeight() on the Square object, and output its dimensions again. What we find is that the square now has a different height than its length, which of course makes for an invalid square.
+
+This can be solved, using polymorphism, an if statement in the Rectangle class, or a variety of other methods. But the real cause of the issue is that Square is not a good child class of Rectangle, and that in reality, perhaps both shapes should inherit from a Shape class instead.
+
+## Interface Segregation Principle
+
+The interface segregation principle states that an entity should never be forced to implement an interface that contains elements which it will never use. For example, a Penguin should never be forced to implement a Bird interface if that Bird interface includes functionality relating to flying, as penguins (spoiler alert) cannot fly.
+
+Now, this functionality is a little more difficult to demonstrate using JavaScript, due to its lack of interfaces. However, we can demonstrate it by using composition.
+
+Composition is a subject all by itself, but I’ll give a very high level introduction: Instead of inheriting an entire class, we can instead add chunks of functionality to a class. Here’s an example that actually addresses the interface segregation principle:
+```js
+class Penguin {}
+
+class Bird {}
+
+const flyer = {
+    fly() {
+        console.log(`Flap flap, I'm flying!`);
+    },
+};
+
+Object.assign(Bird.prototype, flyer);
+
+const bird = new Bird();
+bird.fly(); // Outputs 'Flap flap, I'm flying!'
+
+const penguin = new Penguin();
+penguin.fly(); // 'Error: penguin.fly is not a function'
+```
+What this example does is to add the flying functionality (or interface) only to the class(es) that require it. This means that penguins won’t be given the ability to fly, whereas birds will.
+
+This is one method of adhering to the interface segregation principle, but it is a fairly rough example (as, once again, JavaScript doesn’t play well with interfaces).
+
+## Dependency Inversion Principle
+
+The dependency injection principle states that high level code should never depend on low level interfaces, and should instead use abstractions. It’s all about decoupling code.
+
+Not following? I don’t blame you, but it’s surprisingly simple.
+
+Let’s say we have a piece of software that runs an online store, and within that software one of the classes (PurchaseHandler) handles the final purchase. This class is capable of charging the user’s credit card, and does so by using a PayPal API:
+```js
+class PurchaseHandler {
+    processPayment(paymentDetails, amount) {
+        // Complicated, PayPal specific logic goes here
+        const paymentSuccess = PayPal.requestPayment(paymentDetails, amount);
+
+        if (paymentSuccess) {
+            // Do something
+            return true;
+        }
+
+        // Do something
+        return false;
+    }
+}
+```
+The problem here is that if we change from PayPal to Square (another payment processor) in 6 months time, this code breaks. We need to go back and swap out our PayPal API calls for Square API calls. But in addition, what if the Square API wants different types of data? Or perhaps it wants us to “stage” a payment first, and then to process it once staging has completed?
+
+That’s bad, and so we need to abstract the functionality out instead.
+
+Rather than directly call the PayPal API from our payment page, we’ll instead create another class called PaymentHandler. The interface for this class will remain the same no matter what underlying payment system we use, even if the two systems are completely different. We’ll still need to make changes to the PaymentHandler interface if we change payment processor, but our higher level interface remains unchanged.
+```js
+class PurchaseHandler {
+    processPayment(paymentDetails, amount) {
+        const paymentSuccess = PaymentHandler.requestPayment(
+            paymentDetails,
+            amount
+        );
+
+        if (paymentSuccess) {
+            // Do something
+            return true;
+        }
+
+        // Do something
+        return false;
+    }
+}
+
+class PaymentHandler {
+    requestPayment(paymentDetails, amount) {
+        // Complicated, PayPal specific logic goes here
+        return PayPal.requestPayment(paymentDetails, amount);
+    }
+}
+```
+Now you may be looking at this and thinking “but wait, that’s way more code”, and you’d be right. Like many of the SOLID principles (and indeed OO principles in general), the objective is less about writing less code or writing it quicker, and more about writing better code. The above change will save you days or maybe even weeks further down the line, in exchange for spending a few hours on it now.
 
 # Loosely Coupled Objects
 
