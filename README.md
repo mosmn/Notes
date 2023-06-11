@@ -63,7 +63,7 @@
     - [OOP Principles](sections/javascript/OOP-Principles.md)
 
 - JavaScript in the Real World
-    - [DOM](sections/javascript/dom.md)
+    - [Dynamic User Interface Interactions](sections/javascript/dynamic-ui.md)
 
 - Asynchronous JavaScript and APIs
     - [Callbacks](sections/javascript/callbacks.md)

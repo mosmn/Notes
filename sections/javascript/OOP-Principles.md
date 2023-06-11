@@ -291,3 +291,17 @@ Now you may be looking at this and thinking “but wait, that’s way more code�
 Obviously, all of our objects are intended to work together to form our final application. You should take care, however, to make sure that your individual objects can stand alone as much as possible. Tightly coupled objects are objects that rely so heavily on each other that removing or changing one will mean that you have to completely change another one - a real bummer.
 
 This one is related pretty strongly to ‘Single Responsibility’ but takes a different angle. As an example, if we were writing a game and wanted to completely change how the User Interface worked, we should be able to do that without completely reworking the game logic. So we should be able to start off writing our game using primarily console.log()s and then add in a bunch of DOM functions later without touching the game logic.
+
+Some ways to reduce coupling between modules:
+
+## Patterns to Reduce Coupling
+
+These patterns are often a variation of the so-called observer pattern. One such variation is referred to as the Pub/Sub or Publish/Subscribe pattern.
+
+In some cases the observer registers itself with the event emitter directly in order to be notified whenever a certain event occurs. The downside to this approach is that an observer “knows” about the event emitter object and what observables or events to observe through the registration process.
+
+We can do better. There are many versions of the Pub/Sub pattern that involve a mediator object, which helps to further minimize coupling between modules. A mediator object is an object that isolates the publisher from the subscriber.
+
+THINK OF IT LIKE THIS: Airplanes never communicate directly with each other. Airplanes instead only provide information to, and receive information from the tower, and therefore do not “know” about one another without information from the tower.
+
+There are a variety of libraries available to implement Pub/Sub-type patterns.[PubSubJS](https://github.com/mroderick/PubSubJS) is a topic-based JavaScript Pub/Sub library. Topic-based simply means that there are topics that a module can either subscribe to, publish to, or both. A module is also able to unsubscribe from a topic if needed.
