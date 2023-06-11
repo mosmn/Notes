@@ -34,8 +34,7 @@
 ### HTML
 
 - [Linking a file](sections/html/linking.md)
-- [Creating a table](sections/html/table.md)
-- [Creating a Form](sections/html/form.md)
+- [Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
 
 ### CSS
 
@@ -64,6 +63,7 @@
 
 - JavaScript in the Real World
     - [Dynamic User Interface Interactions](sections/javascript/dynamic-ui.md)
+    - [Form Validation](sections/javascript/form-validation.md)
 
 - Asynchronous JavaScript and APIs
     - [Callbacks](sections/javascript/callbacks.md)
