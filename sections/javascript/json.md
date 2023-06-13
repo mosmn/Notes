@@ -17,7 +17,7 @@ Converting a string to a native object is called deserialization, while converti
 
 ## JSON structure
 
-You can include the same basic data types inside JSON as you can in a standard JavaScript object — strings, numbers, arrays, booleans, and other object literals. This allows you to construct a data hierarchy, like so:
+You can include the same basic data types inside JSON as you can in a standard JavaScript object — strings, numbers, arrays, booleans, and other object literals. This allows you to construct a data hierarchy, like so
 
 ```json
 {
