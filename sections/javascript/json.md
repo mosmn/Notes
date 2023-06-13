@@ -103,3 +103,17 @@ Above we mentioned that JSON text basically looks like a JavaScript object insid
 ]
 ```
 The above is perfectly valid JSON. You'd just have to access array items (in its parsed version) by starting with an array index, for example `[0]["powers"][0]`.
+
+## Converting between objects and text
+
+- `parse()`: Accepts a JSON string as a parameter, and returns the corresponding JavaScript object.
+    - A common use of JSON is to exchange data to/from a web server.
+    - When receiving data from a web server, the data is always a string.
+    - Parse the data with `JSON.parse()`, and the data becomes a JavaScript object.
+    - [SEE MORE](https://www.w3schools.com/js/js_json_parse.asp)
+- `stringify()`: Accepts an object as a parameter, and returns the equivalent JSON string.
+    - When sending data to a web server, the data has to be a string.
+    - Convert a JavaScript object into a string with `JSON.stringify()`.
+    - [SEE MORE](https://www.w3schools.com/js/js_json_stringify.asp)
+
+[SEE MORE](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON#converting_between_objects_and_text)
