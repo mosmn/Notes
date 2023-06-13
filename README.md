@@ -66,7 +66,7 @@
     - [Form Validation](sections/javascript/form-validation.md)
 
 - Asynchronous JavaScript and APIs
-    - [Callbacks](sections/javascript/callbacks.md)
+    - [JSON](sections/javascript/json.md)
 
 - Testing JavaScript
     - [Jest](sections/javascript/jest.md)
