@@ -57,3 +57,18 @@ The cause of callback hell is when people try to write JavaScript in a way where
         - Ask more experienced coders you know to show you examples of good modules until you have a good idea of what they look like. If it takes more than a few minutes to understand what is happening, it probably isn't a very good module.
 
 3. Handle every single error
+
+# Promises
+
+Essentially, a promise is an object that might produce a value at some point in the future.
+
+Lets say `getData()`is a function that fetches some data from a server and returns it as an object that we can use in our code:
+```js
+const getData = function() {
+  // go fetch data from some API...
+  const data = fetch('https://api.github.com')
+  // clean it up a bit and return it as an object:
+  .then(response => response.json())
+  return data
+}
+```
