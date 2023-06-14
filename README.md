@@ -68,6 +68,7 @@
 - Asynchronous JavaScript and APIs
     - [JSON](sections/javascript/json.md)
     - [Asynchronous Code](sections/javascript/async.md)
+    - [Working With APIs](sections/javascript/api.md)
 
 - Testing JavaScript
     - [Jest](sections/javascript/jest.md)
