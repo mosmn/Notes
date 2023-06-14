@@ -18,7 +18,6 @@ function processUserInput(callback) {
   callback(name);
 }
 
-
 processUserInput(greeting);
 ```
 The above example is a __synchronous callback__, as it is executed immediately.
@@ -98,3 +97,8 @@ p.then(function(result) {
 ```
 
 [SEE MORE](https://davidwalsh.name/promises)
+
+# Event Loop(How JavaScript Works)
+
+[VIDEO](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+
