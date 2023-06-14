@@ -98,7 +98,11 @@ p.then(function(result) {
 
 [SEE MORE](https://davidwalsh.name/promises)
 
-# Event Loop(How JavaScript Works)
+# Event Loop(How JavaScript(execution context) Works)
 
 [VIDEO](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
+# You Don't Know JS
+
+- [Chapter 2](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch2.md#chapter-2-callbacks): explains the problems with callbacks and why callback hell will be your worst enemy (hint: it’s the inversion of control and non-linear nature of callbacks)
+- [Chapter 3](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md): goes deep into the how and why of promises.
