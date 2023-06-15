@@ -70,3 +70,10 @@ For security reasons, by default, browsers restrict HTTP requests to outside sou
 
 - [WIKI](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 - [ARTICLE](https://javascript.info/fetch-crossorigin)
+
+With fetch, you are able to easily supply a JavaScript object for options. It comes right after the URL as a second parameter to the fetch function:
+```js
+fetch('https://url.com/some/url', {
+  mode: 'cors'
+})
+```
