@@ -12,7 +12,7 @@ function getPersonsInfo(name) {
 async function getPersonsInfo(name) {
   const people = await server.getPeople();
   const person = people.find(person => { return person.name === name });
-  return person;
+  return person; // if does indeed return a promise, that means it will return a resolved promise with the 'person' object found.
 }
 ```
 
@@ -51,3 +51,21 @@ server.getPeople().then(async people => {
 
 # Error Handling
 
+Handling errors in `async` functions is very easy. Promises have the `.catch()` method for handling rejected promises, and since async functions just return a promise, you can simply call the function, and append a `.catch()` method to the end.
+```js
+asyncFunctionCall().catch(err => {
+  console.error(err)
+});
+```
+But there is another way: the mighty `try/catch` block! If you want to handle the error directly inside the `async` function, you can use `try/catch` just like you would inside synchronous code.
+```js
+async function getPersonsInfo(name) {
+  try {
+    const people = await server.getPeople();
+    const person = people.find(person => { return person.name === name });
+    return person;
+  } catch (error) {
+    // Handle the error any way you'd like
+  }
+}
+```
