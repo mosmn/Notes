@@ -64,9 +64,11 @@ fetch('https://url.com/some/url')
 ```
 This does the same thing as the XHR code above, but it’s much easier to use.
 
-# CORS(Cross-Origin Resource Sharing)
+## CORS(Cross-Origin Resource Sharing)
 
-For security reasons, by default, browsers restrict HTTP requests to outside sources (which is exactly what we’re trying to do here).
+For security reasons, by default, browsers restrict HTTP requests to outside sources.
+
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. 
 
 - [WIKI](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 - [ARTICLE](https://javascript.info/fetch-crossorigin)
@@ -77,3 +79,5 @@ fetch('https://url.com/some/url', {
   mode: 'cors'
 })
 ```
+
+- [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
