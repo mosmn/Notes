@@ -63,6 +63,7 @@ fetch('https://url.com/some/url')
   });
 ```
 This does the same thing as the XHR code above, but it’s much easier to use.
+- Unlike `XMLHttpRequest` that is a callback-based API, Fetch is promise-based and provides a better alternative that can be easily used in service workers. 
 
 ## CORS(Cross-Origin Resource Sharing)
 
