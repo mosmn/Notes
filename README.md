@@ -69,12 +69,18 @@
     - [JSON](sections/javascript/json.md)
     - [Asynchronous Code](sections/javascript/async.md)
     - [Working With APIs](sections/javascript/api.md)
+    - [Async and Await](sections/javascript/async-await.md)
 
 - Testing JavaScript
     - [Jest](sections/javascript/jest.md)
 
 - React JS
     - [React JS](sections/javascript/reactjs.md)
+
+- Data Structures & Algorithms
+    - [Big O Notation](sections/javascript/big-o.md)
+    - [Data Structures](sections/javascript/data-structures.md)
+    - [Algorithms](sections/javascript/algorithms.md)
 
 ### C++
 
@@ -88,6 +94,16 @@
 - [File stream input and output](sections/cpp/file-stream.md)
 - [GUI](sections/cpp/gui.md)
 - [Standard Template Library](sections/cpp/stl.md)
+- Data Structures & Algorithms
+    - [Stack](sections/cpp/stack.md)
+    - [Queue](sections/cpp/queue.md)
+    - [Linked List](sections/cpp/linked-list.md)
+    - [Binary Search Tree](sections/cpp/bst.md)
+    - [Graph](sections/cpp/graph.md)
+    - [Hashing](sections/cpp/hashing.md)
+    - [Sorting](sections/cpp/sorting.md)
+    - [Searching](sections/cpp/searching.md)
+    - [Recursion](sections/cpp/recursion.md)
 - [Recources](sections/cpp/resources.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
