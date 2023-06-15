@@ -21,3 +21,52 @@ API key is random and unique to you.
     - On the other hand, it can also be a way for those services to mitigate and recuperate operating costs. 
         - WeatherAPI, for example, provides not only a free tier but a variety of paid tiers that can cost up to 65 USD/month! After all, running servers costs money, and APIs are no exception.
 - As such, you’ll find that most API services, if not all, provide paid tiers that come with the ability to make more frequent requests, or provide access to more information unavailable in lower tiers
+
+# Fetching Data
+
+So how do we actually get the data from an API into our code?
+A couple of years ago the main way to access API data in your code was using an `XMLHttpRequest`. This function still works in all browsers, but unfortunately, it is not particularly nice to use. The syntax looks something like this:
+```js
+// Just getting XHR is a mess!
+if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+  request = new XMLHttpRequest();
+} else if (window.ActiveXObject) { // IE
+  try {
+    request = new ActiveXObject('Msxml2.XMLHTTP');
+  }
+  catch (e) {
+    try {
+      request = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    catch (e) {}
+  }
+}
+
+// Open, send.
+request.open('GET', 'https://url.com/some/url', true);
+request.send(null);
+```
+Developers, feeling the pain of having to write that stuff out, began writing 3rd party libraries to take care of this and make it much easier to use. Some of the more popular libraries are:
+- [axios](https://github.com/axios/axios)
+- [superagent](https://github.com/ladjs/superagent)
+both of which have their strengths and weaknesses.
+
+More recently, however, web browsers have begun to implement a new native function for making HTTP requests. Meet fetch:
+```js
+// URL (required), options (optional)
+fetch('https://url.com/some/url')
+  .then(function(response) {
+    // Successful response :)
+  })
+  .catch(function(err) {
+    // Error :(
+  });
+```
+This does the same thing as the XHR code above, but it’s much easier to use.
+
+# CORS(Cross-Origin Resource Sharing)
+
+For security reasons, by default, browsers restrict HTTP requests to outside sources (which is exactly what we’re trying to do here).
+
+- [WIKI](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
+- [ARTICLE](https://javascript.info/fetch-crossorigin)
