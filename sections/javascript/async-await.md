@@ -34,7 +34,15 @@ The async keyword can also be used with any of the ways a function can be create
 ```js
  anArray.forEach(async item => {
    // do something asynchronously for each item in 'anArray'
-   // one could also use .map here to return an array of promises to use with 'Promise.all()'
+   // one could also use .map here to return an array of promises to use with 'Promise.all()' e.g.:
+   const promises = anArray.map(async item => {
+     // do something asynchronously for each item in 'anArray'
+     return result;
+   });
+    const results = await Promise.all(promises);
+
+    // print results
+    console.log(results);
  });
 ```
 ```js
@@ -66,6 +74,11 @@ async function getPersonsInfo(name) {
     return person;
   } catch (error) {
     // Handle the error any way you'd like
+
   }
 }
 ```
+
+- [Solid introduction to async/await](https://javascript.info/async-await)
+- [Good examples](https://codeburst.io/javascript-es-2017-learn-async-await-by-example-48acc58bad65)
+- [Video](https://www.youtube.com/watch?v=9YkUCxvaLEk)
