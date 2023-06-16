@@ -30,6 +30,7 @@
 - [Commands](sections/git/gitcommand.md)
 - [Clone a repository](sections/git/gitclone.md)
 - [Branch](sections/git/branch.md)
+- [Deploying a subfolder](sections/git/subfolder.md)
 
 ### HTML
 
