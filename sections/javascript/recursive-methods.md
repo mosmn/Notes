@@ -72,3 +72,5 @@ When a function makes a nested call, the following happens:
 - The execution context associated with it is remembered in a special data structure called __execution context stack.__
 - The nested call executes.
 - After it ends, the old execution context is retrieved from the stack, and the outer function is resumed from where it stopped.
+
+- [See what happens during the pow(2, 3) call](https://javascript.info/recursion#the-execution-context-and-stack)
