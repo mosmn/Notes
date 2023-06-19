@@ -50,6 +50,7 @@
 
 - Basics
     - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
+    - [Array Methods](https://javascript.info/array-methods)
 
 - Linting
     - [Eslint Setup](sections/javascript/eslint.md)
@@ -79,6 +80,7 @@
     - [React JS](sections/javascript/reactjs.md)
 
 - Data Structures & Algorithms
+    - [Recursive Methods](sections/javascript/recursive-methods.md)
     - [Big O Notation](sections/javascript/big-o.md)
     - [Data Structures](sections/javascript/data-structures.md)
     - [Algorithms](sections/javascript/algorithms.md)
