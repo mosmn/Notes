@@ -66,4 +66,18 @@ Asymptotic Notations are used to describe the running time of an algorithm. Beca
 - Theta Notation - represents both the upper bound and lower bound and therefore analyses the average case complexity of an algorithm.
 Big O is the one you’ll most commonly see referenced because you need to be sure the worst-case scenario for any code you write is scalable as the inputs grow in your application.
 
+## Big O Notation
 
+Big O gives us a consistent way to measure the efficiency of an algorithm. It gives us a measurement for the time it takes for an algorithm to run as the input grows so that you can directly compare the performance of two algorithms and pick the best one.
+
+Big O is not a piece of code you can put your algorithm into and it tells you how efficient it is. __You will need to measure how the number of steps changes as the data grows__, and using this you can apply a Big O Notation to it and measure it against other algorithms. In many cases you’ll be using a data structure in which the ways you interact with it are well known, and in that case it’s easier to judge how it will scale as the input changes.
+
+The Big O Notations in the order of speed from fastest to slowest are:
+- O(1) - Constant Complexity
+- O(log N) - Logarithmic Complexity
+- O(N) - Linear Complexity
+- O(N log N) - N x log N Complexity
+- O(n²) - Quadratic Complexity
+- O(n³) - Cubic Complexity
+- O(2ⁿ) - Exponential Complexity
+- O(N!) - Factorial Complexity

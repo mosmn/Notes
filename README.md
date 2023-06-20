@@ -74,10 +74,8 @@
     - [Async and Await](sections/javascript/async-await.md)
 
 - Testing JavaScript
-    - [Jest](sections/javascript/jest.md)
 
 - React JS
-    - [React JS](sections/javascript/reactjs.md)
 
 - Data Structures & Algorithms
     - [Recursive Methods](sections/javascript/recursive-methods.md)
