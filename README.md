@@ -81,7 +81,7 @@
 
 - Data Structures & Algorithms
     - [Recursive Methods](sections/javascript/recursive-methods.md)
-    - [Big O Notation](sections/javascript/big-o.md)
+    - [Time Complexity](sections/javascript/time-complexity.md)
     - [Data Structures](sections/javascript/data-structures.md)
     - [Algorithms](sections/javascript/algorithms.md)
 
