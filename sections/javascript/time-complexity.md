@@ -57,3 +57,13 @@ You’ve probably realised the answer is it depends. If you set maxNumber to be 
 __So what we really want to be able to measure is how the number of steps of our algorithm changes when the data changes. This helps us answer the question of whether the code we write will scale.__
 
 To do that, we need to delve into a new concept: Asymptotic Notations and, in particular, Big O.
+
+# Asymptotic Notations
+
+Asymptotic Notations are used to describe the running time of an algorithm. Because an algorithm’s running time can differ depending on the input, there are several notations that measure that running time in different ways. The 3 most common are as follows:
+- Big O Notation - represents the upper bound of an algorithm. This means the worst-case scenario for how the algorithm will perform.
+- Omega Notation - represents the lower bound of an algorithm. This is the best-case scenario.
+- Theta Notation - represents both the upper bound and lower bound and therefore analyses the average case complexity of an algorithm.
+Big O is the one you’ll most commonly see referenced because you need to be sure the worst-case scenario for any code you write is scalable as the inputs grow in your application.
+
+
