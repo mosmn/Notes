@@ -102,19 +102,25 @@ While we’re looking at the simplest form of Big O, let’s take a look at one 
 Do the number of steps matter? Yes, they might. We’ll touch on when this may be the case a little later.
 
 ### O(log N) - Logarithmic Complexity
+
+Logarithmic a quantity representing the power to which a fixed number (the base) must be raised to produce a given number.
+
 Logarithmic Complexity tells us that the numbers of steps an algorithm takes increases by 1 as the data doubles. That’s still pretty efficient when you think about it. Going from 5,000 to 10,000 data elements and only taking one additional step can scale really well.
 
 One such algorithm that does this is Binary Search. It only works on sorted arrays, but if you have an array of 10 items in sorted order
-
+```js
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
 and wanted to know if it had the number 7, Binary Search would guess the middle item of the array and see what is there. Because the array is sorted, if the number at the middle index was 6, then we know anything to the left of that index cannot be the number 7, as those items must be lower than 6 in a sorted array.
-
+```js
 arr = [-, -, -, -, -, 6, 7, 8, 9, 10]
+```
 Therefore in just one step, we’ve eliminated half of the array. We can do the same with the remaining half. We can guess the middle index and see if it’s 7. Half of that (half of an array) array eliminated again. In this case, the middle index would be 8, and we know that 7 is less than 8 so we can eliminate anything to the right of the number 8.
-
+```js
 arr = [6, 7, 8, -, -]
+```
 We can keep doing this until we have an array of just one item. If it matches the number we’re looking for, we’ve found it. If not, then it isn’t in the array.
-
+åå
 The below table summarises the size of an array doubling and how many steps in Big O terms we would need to arrive at one element to see if it matches what we’re looking for:
 ```
 Size	Steps
