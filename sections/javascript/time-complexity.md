@@ -1,3 +1,5 @@
+# “Time complexity”: analysing how the runtime of an algorithm changes as the input increases.
+
 In programming, there are two ways we can measure the efficiency of our code. We can measure the time complexity or the space complexity.
 
 # Efficiency Basics
@@ -73,14 +75,14 @@ Big O gives us a consistent way to measure the efficiency of an algorithm. It gi
 Big O is not a piece of code you can put your algorithm into and it tells you how efficient it is. __You will need to measure how the number of steps changes as the data grows__, and using this you can apply a Big O Notation to it and measure it against other algorithms. In many cases you’ll be using a data structure in which the ways you interact with it are well known, and in that case it’s easier to judge how it will scale as the input changes.
 
 The Big O Notations in the order of speed from fastest to slowest are:
-- O(1) - Constant Complexity
-- O(log N) - Logarithmic Complexity
-- O(N) - Linear Complexity
-- O(N log N) - N x log N Complexity
-- O(n²) - Quadratic Complexity
-- O(n³) - Cubic Complexity
-- O(2ⁿ) - Exponential Complexity
-- O(N!) - Factorial Complexity
+- O(1) - Constant Complexity,pronounced “Big O of 1”
+- O(log N) - Logarithmic Complexity, pronounced “Big O of log N”
+- O(N) - Linear Complexity, pronounced “Big O of N”
+- O(N log N) - N x log N Complexity, pronounced “Big O of N log N”
+- O(n²) - Quadratic Complexity, pronounced “Big O of N squared”
+- O(n³) - Cubic Complexity, pronounced “Big O of N cubed”
+- O(2ⁿ) - Exponential Complexity, pronounced “Big O of 2 to the N”
+- O(N!) - Factorial Complexity, pronounced “Big O of N factorial”
 
 ### O(1) - Constant Complexity
 
@@ -226,4 +228,6 @@ function oddNumbers(maxNumber) {
 }
 Not much of a change, but this time we increase currentNumber by 2. How does this affect our algorithm runtime? Well, for an input of n, the number of steps is approximately half as we iterate by 2 each time. This is an algorithm of O(N/2) but as I’ve mentioned earlier, Big O doesn’t concern itself with constants because they aren’t relative to how an algorithm scales as the input changes and it wouldn’t be fun or easy to have to compare an algorithm of O(N/2 + 5 N) against O(N + 5 / 2N). Therefore, the Big O efficiency of both algorithms is O(N). They scale at the same rate as the input grows.
 
--[Big O Notation in JavaScript by Doable Danny](https://www.doabledanny.com/big-o-notation-in-javascript)
+- [Big O Notation in JavaScript by Doable Danny](https://www.doabledanny.com/big-o-notation-in-javascript)
+- [Big-O cheat sheet](https://www.bigocheatsheet.com/)
+- [Step-by-step Big O Complexity Analysis Guide, using JavaScript](https://www.sahinarslan.tech/posts/step-by-step-big-o-complexity-analysis-guide-using-javascript)
