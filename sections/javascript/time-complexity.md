@@ -116,7 +116,7 @@ arr = [6, 7, 8, -, -]
 We can keep doing this until we have an array of just one item. If it matches the number we’re looking for, we’ve found it. If not, then it isn’t in the array.
 
 The below table summarises the size of an array doubling and how many steps in Big O terms we would need to arrive at one element to see if it matches what we’re looking for:
-
+```
 Size	Steps
 1	1
 2	2
@@ -124,7 +124,7 @@ Size	Steps
 8	4
 16	5
 32	6
-Pretty impressive eh!
+```
 
 ### O(N) - Linear Complexity
 This one is pretty easy to wrap your head around. Linear Complexity just tells us that as the number of items grows, the number of steps grows at exactly the same rate. Every time you iterate over an array is an example of Linear Complexity. If you have an array of 5 items, then we can iterate every element in 5 steps. An array of 10 items can be iterated in 10 steps. If you come across any algorithm with a Big O efficiency of O(N), you know that the number of steps will increase in line with the number of elements in your data structure.
@@ -137,12 +137,48 @@ One such algorithm is merge sort, and it just so happens you tackle this project
 ### O(n²) - Quadratic Complexity
 You’ve probably written code with a Quadratic Complexity on your programming journey. It’s commonly seen when you loop over a data set and within each loop you loop over it again. Therefore, when the number of items in the data increases by 1, it requires 2 extra iterations. 2 extra items requires 4 extra iterations (2 in the outer loop and two in the inner loop). 3 extra items adds 9 steps, and 4 adds 16 extra steps. We hope you can see where we’re going with this…
 
+#### Example 3 – Quadratic time complexity: Big O(n^2)
+
+Here’s a function called multiplyAll which accepts two arrays. It first makes sure they’re of equal length; if they are then it will continue down and multiply every number in the first array with every number in the second array and return the sum of all these products.
+```js
+function multiplyAll(arr1, arr2) {
+  if (arr1.length !== arr2.length) return undefined
+  let total = 0
+  for (let i of arr1) {
+    for (let j of arr2) {
+      total += i * j
+    }
+  }
+  return total
+}
+let result1 = multiplyAll([1, 2], [5, 6]) // 33
+let result2 = multiplyAll([1, 2, 3, 4], [5, 3, 1, 8]) // 170
+```
+It does this using two for-loops. The first for-loop loops over the first array. Then inside this for-loop, we have a second, nested for loop, which loops over every item in the second array. So, for every item we loop over in the first array, we have to loop over every item in the second array.
+
+If we pass in two arrays of length two ([1, 2] and [5, 6]), then for the first run through the outer loop, i will point at 1. It will then loop through the second array starting with 5, and 1 * 5 will be added to the total. It will then go to the second element in the second array and do 1 * 6 and add it to the total.
+
+Then we get to the end of that loop, so we go back to the outer loop, and increment to the second element which is 2. We then do 2 * 5 and add it to the total, then, finally, 2 * 6 and add it to the total.
+
+As we can see, for every item in the first array, we have to loop over every single item in the second array and perform a multiplication. So the total number of operations will be the length of the first array, which is n, times the length of the second array, which is also n, because we checked to make sure they are the same length. This results in a Big O(n^2) - quadratic time complexity.
+
+If you are incredibly astute, you may have noticed that technically this algorithm would have a Big O(3 * n^2), because for every item in arr1, we:
+
+- loop over every item in arr2 (n^2 operations)
+- multiply two numbers (another n^2 operations)
+- add to the total (another n^2 operations).
+- Therefore, the total number of operations is n^2 + n^2 + n^2 which equals 3n^2 .
+
+But remember again, with Big O Notation, we are looking at the big picture, the worst-case scenario as the input length approaches infinity, and 3 times infinity is still infinity – a humungous number. So as the input size grows, this 3 becomes insignificant in the grand scheme of things and we simplify to say that this algorithm has a Big O(n^2) - “quadratic time-complexity”.
+
+Let’s reintroduce the graph of Big O Notation and discuss quadratic time complexity…
+
 ### O(n³) - Cubic Complexity
 Think triple nested loops baby. 1 extra item adds 3 extra steps, 2 adds 8, and 3 adds about 27. 100 items will be about 1,000,000 steps. Ouch!
 
 ### O(2ⁿ) - Exponential Complexity
 Exponential Complexity means that with each item added to the data size, the number of steps doubles from the previous number of steps. Let’s provide a little table to see how quickly this can get out of hand.
-
+```
 Size	Steps
 1	2
 2	4
@@ -154,6 +190,7 @@ Size	Steps
 8	256
 9	512
 10	1024
+```
 You want to avoid this if at all possible, otherwise you won’t be processing much data quickly.
 
 ### O(N!) - Factorial Complexity
@@ -168,7 +205,7 @@ If Big O gives us the worst-case scenario of how our algorithm will scale, what 
 
 ### Big Ω (Omega Notation)
 Omega Notations gives us the best-case scenario for an algorithm. To understand where this might be, let’s look at a method and discuss how we can measure its complexity.
-
+```js
 function findValue(arr) {
   for (let i = 0; i < arr.length; i++) {
     let item = arr[i];
@@ -177,6 +214,7 @@ function findValue(arr) {
     }
   }
 }
+```
 In the worst case (Big O), which would happen if the item is not in the array, we would say it had linear complexity O(N). This is because the item we are looking for is not in the array, so our code must iterate on every value. If the array input doubles in size then the worst case also means our method must double the number of iterations looking for the item.
 
 However, in the best-case scenario the value we are looking for will be the first item in the array. In this case our algorithm takes just one step. This has a complexity of O(1). This is its Omega Complexity.
@@ -199,7 +237,7 @@ Using a worst-case scenario we can make sure our algorithm will scale in all out
 If we write two algorithms with the same complexity, does that mean they’re equally good to use? We’ll answer this question with two code examples which we’ll then discuss a bit further to try and answer the question.
 
 The first example is some code we’ve seen already, our oddNumbers function.
-
+```js
 function oddNumbers(maxNumber) {
   let currentNumber = 1;
 
@@ -211,10 +249,11 @@ function oddNumbers(maxNumber) {
     currentNumber += 1;
   }
 }
+```
 The time complexity of this algorithm is O(N). As the data size increases, the number of steps of our algorithm increases at the same rate.
 
 Let’s look at another version:
-
+```js
 function oddNumbers(maxNumber) {
   let currentNumber = 1;
 
@@ -226,6 +265,7 @@ function oddNumbers(maxNumber) {
     currentNumber += 2;
   }
 }
+```
 Not much of a change, but this time we increase currentNumber by 2. How does this affect our algorithm runtime? Well, for an input of n, the number of steps is approximately half as we iterate by 2 each time. This is an algorithm of O(N/2) but as I’ve mentioned earlier, Big O doesn’t concern itself with constants because they aren’t relative to how an algorithm scales as the input changes and it wouldn’t be fun or easy to have to compare an algorithm of O(N/2 + 5 N) against O(N + 5 / 2N). Therefore, the Big O efficiency of both algorithms is O(N). They scale at the same rate as the input grows.
 
 - [Big O Notation in JavaScript by Doable Danny](https://www.doabledanny.com/big-o-notation-in-javascript)
