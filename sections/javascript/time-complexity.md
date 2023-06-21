@@ -81,3 +81,149 @@ The Big O Notations in the order of speed from fastest to slowest are:
 - O(n³) - Cubic Complexity
 - O(2ⁿ) - Exponential Complexity
 - O(N!) - Factorial Complexity
+
+### O(1) - Constant Complexity
+
+```js
+arr = [1, 2, 3, 4, 5]
+```
+If we want to look up what is at index 2, we can get to the element using arr[2] which would give us back 3. This takes just one step. If we double our array…
+```js
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+We can still access any element in just one step. arr[7] gives us 8 in a single step. Our array can keep growing and we can always access any element in a single step. It’s constant. Hence we have O(1).
+
+Looking up something in one step is as good as it gets for time complexity.
+
+While we’re looking at the simplest form of Big O, let’s take a look at one of its little gotchas to keep in mind. You may have thought a moment ago, is it really just one step? The answer is technically no, in reality the computer must first look up where the array is in memory, then from the first element in the array it needs to jump to the index argument provided. That’s at least a couple of steps. So you wouldn’t be wrong for writing something like O(1 + 2(steps)). However, the 2 steps are merely incidental. With an array of 10,000 elements, it still takes the same amount of steps as if the array was 2 elements. Because of this, Big O doesn’t concern itself with these incidental numbers. They don’t provide any context to how the complexity grows when the data size changes, because they are constant, and so in Big O they are dropped. Big O only wants to tell us an algorithm’s complexity relative to the size of the input.
+
+Do the number of steps matter? Yes, they might. We’ll touch on when this may be the case a little later.
+
+### O(log N) - Logarithmic Complexity
+Logarithmic Complexity tells us that the numbers of steps an algorithm takes increases by 1 as the data doubles. That’s still pretty efficient when you think about it. Going from 5,000 to 10,000 data elements and only taking one additional step can scale really well.
+
+One such algorithm that does this is Binary Search. It only works on sorted arrays, but if you have an array of 10 items in sorted order
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+and wanted to know if it had the number 7, Binary Search would guess the middle item of the array and see what is there. Because the array is sorted, if the number at the middle index was 6, then we know anything to the left of that index cannot be the number 7, as those items must be lower than 6 in a sorted array.
+
+arr = [-, -, -, -, -, 6, 7, 8, 9, 10]
+Therefore in just one step, we’ve eliminated half of the array. We can do the same with the remaining half. We can guess the middle index and see if it’s 7. Half of that (half of an array) array eliminated again. In this case, the middle index would be 8, and we know that 7 is less than 8 so we can eliminate anything to the right of the number 8.
+
+arr = [6, 7, 8, -, -]
+We can keep doing this until we have an array of just one item. If it matches the number we’re looking for, we’ve found it. If not, then it isn’t in the array.
+
+The below table summarises the size of an array doubling and how many steps in Big O terms we would need to arrive at one element to see if it matches what we’re looking for:
+
+Size	Steps
+1	1
+2	2
+4	3
+8	4
+16	5
+32	6
+Pretty impressive eh!
+
+### O(N) - Linear Complexity
+This one is pretty easy to wrap your head around. Linear Complexity just tells us that as the number of items grows, the number of steps grows at exactly the same rate. Every time you iterate over an array is an example of Linear Complexity. If you have an array of 5 items, then we can iterate every element in 5 steps. An array of 10 items can be iterated in 10 steps. If you come across any algorithm with a Big O efficiency of O(N), you know that the number of steps will increase in line with the number of elements in your data structure.
+
+### O(N log N) - N x log N Complexity
+You can’t say this one isn’t appropriately named. This notation means we have an algorithm which initially is O(log N) such as our example earlier of Binary Search where it repeatedly breaks an array in half, but with O(N log N) each of those array halves is processed by another algorithm with a complexity of O(N).
+
+One such algorithm is merge sort, and it just so happens you tackle this project in our course :)
+
+### O(n²) - Quadratic Complexity
+You’ve probably written code with a Quadratic Complexity on your programming journey. It’s commonly seen when you loop over a data set and within each loop you loop over it again. Therefore, when the number of items in the data increases by 1, it requires 2 extra iterations. 2 extra items requires 4 extra iterations (2 in the outer loop and two in the inner loop). 3 extra items adds 9 steps, and 4 adds 16 extra steps. We hope you can see where we’re going with this…
+
+### O(n³) - Cubic Complexity
+Think triple nested loops baby. 1 extra item adds 3 extra steps, 2 adds 8, and 3 adds about 27. 100 items will be about 1,000,000 steps. Ouch!
+
+### O(2ⁿ) - Exponential Complexity
+Exponential Complexity means that with each item added to the data size, the number of steps doubles from the previous number of steps. Let’s provide a little table to see how quickly this can get out of hand.
+
+Size	Steps
+1	2
+2	4
+3	8
+4	16
+5	32
+6	64
+7	128
+8	256
+9	512
+10	1024
+You want to avoid this if at all possible, otherwise you won’t be processing much data quickly.
+
+### O(N!) - Factorial Complexity
+A factorial is the product of the sequence of n integers. The factorial of 4(4!) is 4 * 3 * 2 * 1.
+
+You will come across Factorial Complexity if you ever need to calculate permutations or combinations. If you have an array and have to work out all the combinations you can make from the array, that is a Factorial complexity. It’s manageable for a small number of items, but the leap with each new item in a dataset can be huge.
+
+The factorial of 3 is 6 (3 * 2 * 1). The factorial of 4 is 24. The factorial of 10? 3,628,800. So you can see how quickly things can get out of hand.
+
+## Alternatives to Big O
+If Big O gives us the worst-case scenario of how our algorithm will scale, what alternatives are there?
+
+### Big Ω (Omega Notation)
+Omega Notations gives us the best-case scenario for an algorithm. To understand where this might be, let’s look at a method and discuss how we can measure its complexity.
+
+function findValue(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let item = arr[i];
+    if (item === 1) {
+      return item
+    }
+  }
+}
+In the worst case (Big O), which would happen if the item is not in the array, we would say it had linear complexity O(N). This is because the item we are looking for is not in the array, so our code must iterate on every value. If the array input doubles in size then the worst case also means our method must double the number of iterations looking for the item.
+
+However, in the best-case scenario the value we are looking for will be the first item in the array. In this case our algorithm takes just one step. This has a complexity of O(1). This is its Omega Complexity.
+
+Omega Notation isn’t considered as useful because it is unlikely our item will often be the first item in our data structure search, so it doesn’t give us any idea how well the algorithm will scale.
+
+### Big-Θ (Big-Theta Notation)
+While Omega Notation measures the best-case scenario for an algorithm’s efficiency, and Big O measures the worst case, Theta looks to give the exact value or a useful range between narrow upper and lower bounds.
+
+If we had some code that looped every item in an array, then it doesn’t matter the size of the array. Our algorithm will always run in O(N) time in its best-case and worst-case scenarios. In that case we know it’s exact performance in all scenarios is O(N), and that is the Theta performance of our algorithm. For other algorithms, Theta may represent both the lower and upper bound of an algorithm that has different complexities. We won’t get into this more here because Big O is the primary notation used for general algorithm time complexity.
+
+This is just a simplistic explanation to try to make the topic approachable. If you do happen to be mathematically minded, then you’ll find more detailed explanations with a quick search online.
+
+## Why Big O
+Now that we’ve touched on the different ways of quantifying an algorithm’s efficiency, hopefully it’s clear why we choose to use the worst-case scenario when measuring the efficiency of that algorithm.
+
+Using a worst-case scenario we can make sure our algorithm will scale in all outcomes. If we write an algorithm that could potentially run in constant time, but could also run in linear time in the worst case, it can only scale as the input grows if it still works when the worst case does happen. You need to be confident your code won’t lock up and leave users frustrated if you suddenly get an input of a million items instead of 10.
+
+## Algorithms with the same complexity
+If we write two algorithms with the same complexity, does that mean they’re equally good to use? We’ll answer this question with two code examples which we’ll then discuss a bit further to try and answer the question.
+
+The first example is some code we’ve seen already, our oddNumbers function.
+
+function oddNumbers(maxNumber) {
+  let currentNumber = 1;
+
+  while (currentNumber < maxNumber) {
+    if (currentNumber % 2 !== 0) {
+      console.log(currentNumber);
+    }
+
+    currentNumber += 1;
+  }
+}
+The time complexity of this algorithm is O(N). As the data size increases, the number of steps of our algorithm increases at the same rate.
+
+Let’s look at another version:
+
+function oddNumbers(maxNumber) {
+  let currentNumber = 1;
+
+  while (currentNumber < maxNumber) {
+    if (currentNumber % 2 !== 0) {
+      console.log(currentNumber);
+    }
+
+    currentNumber += 2;
+  }
+}
+Not much of a change, but this time we increase currentNumber by 2. How does this affect our algorithm runtime? Well, for an input of n, the number of steps is approximately half as we iterate by 2 each time. This is an algorithm of O(N/2) but as I’ve mentioned earlier, Big O doesn’t concern itself with constants because they aren’t relative to how an algorithm scales as the input changes and it wouldn’t be fun or easy to have to compare an algorithm of O(N/2 + 5 N) against O(N + 5 / 2N). Therefore, the Big O efficiency of both algorithms is O(N). They scale at the same rate as the input grows.
+
+-[Big O Notation in JavaScript by Doable Danny](https://www.doabledanny.com/big-o-notation-in-javascript)
