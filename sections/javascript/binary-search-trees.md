@@ -30,3 +30,20 @@ Also called an ordered or sorted binary tree, is a rooted binary tree data struc
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/200px-Binary_search_tree.svg.png)
 
 - [How to Construct a Binary Search Tree?](https://www.youtube.com/watch?v=FvdPo8PBQtc)
+
+
+### Binary tree traversal
+
+The process of visiting each node in the tree exactly once in some order. Based on the order in which the nodes are visited, there are [two types of tree traversal](https://www.youtube.com/watch?v=9RHO6jU--GU):
+- Breadth-first traversal
+- Depth-first traversal
+
+1. Breadth-first traversal(level order traversal)
+    - Visit all the nodes at the same level(left to right) before going to the next level
+    - [Breadth-first traversal](https://www.youtube.com/watch?v=86g8jAQug04) 
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/200px-Breadth-first-tree.svg.png)
+
+2. Depth-first traversal
+    - If we visit a child we must visit all of its descendants before going to the next sibling
+    - [Depth-first traversal](https://www.youtube.com/watch?v=9RHO6jU--GU)
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Depth-First-Search.gif/200px-Depth-First-Search.gif)
