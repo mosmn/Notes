@@ -45,5 +45,9 @@ The process of visiting each node in the tree exactly once in some order. Based 
 
 2. Depth-first traversal
     - If we visit a child we must visit all of its descendants before going to the next sibling
+    - There are three types of depth-first traversal:
+        - Pre-order traversal: `root -> left -> right`
+        - In-order traversal: `left -> root -> right`
+        - Post-order traversal: `left -> right -> root`
     - [Depth-first traversal](https://www.youtube.com/watch?v=9RHO6jU--GU)
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Depth-First-Search.gif/200px-Depth-First-Search.gif)
