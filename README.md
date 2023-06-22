@@ -80,6 +80,8 @@
 - Data Structures & Algorithms
     - [Recursive Methods](sections/javascript/recursive-methods.md)
     - [Time Complexity](sections/javascript/time-complexity.md)
+    - [Space Complexity](sections/javascript/space-complexity.md)
+    - [Common Data Structures and Algorithms](sections/javascript/common-data-structures-algorithms.md)
 
 ### C++
 

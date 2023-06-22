@@ -55,3 +55,19 @@ function sumObjectValues(obj) {
 }
 ```
 Here as the object size increases, the space it uses grows in a linear way.
+
+## Other considerations
+
+One of the common areas that causes confusion when considering space complexity is what constitutes using space in the context of an algorithm. In an earlier example we wrote methods that duplicated an array and object argument. We did that to be explicit. But what if we’d written the method as:
+```js
+function sumArr(arr) {
+  let sum = 0;
+  arr.forEach((number) => {
+    sum += number;
+  });
+  return sum;
+}
+```
+When a data structure is passed in as the argument, especially for languages that pass arrays by reference rather than value, it can be a bit unclear if that method considers the space used by that data structure when calculating its space complexity. If we didn’t count it, then it would be easy for all our methods to have great space usage on paper because we put the onus on the caller to allocate that space. If we did count it, but the data structure was created for use by many different methods, then the space complexity for all those methods is O(N) when they aren’t utilizing additional space. Then consider that if your method receives an array as an input and loops it, an index must be created for the loop which uses additional space.
+
+Ultimately when you consider Big O measures the worst-case scenario, it would be easier to err on the side of caution and do consider the space of arguments passed to your method.
