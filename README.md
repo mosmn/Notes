@@ -78,10 +78,19 @@
 - React JS
 
 - Data Structures & Algorithms
+    - [Intro](sections/javascript/intro.md)
     - [Recursive Methods](sections/javascript/recursive-methods.md)
     - [Time Complexity](sections/javascript/time-complexity.md)
     - [Space Complexity](sections/javascript/space-complexity.md)
-    - [Common Data Structures and Algorithms](sections/javascript/common-data-structures-algorithms.md)
+    - Common Data Structures and Algorithms
+        - [Linked Lists](sections/javascript/linked-lists.md)
+        - [Stacks](sections/javascript/stacks.md)
+        - [Queues](sections/javascript/queues.md)
+        - [Hash Tables](sections/javascript/hash-tables.md)
+        - [Binary Search Trees](sections/javascript/binary-search-trees.md)
+        - [Graphs](sections/javascript/graphs.md)
+        - [Sorting Algorithms](sections/javascript/sorting-algorithms.md)
+        - [Searching Algorithms](sections/javascript/searching-algorithms.md)
 
 ### C++
 
