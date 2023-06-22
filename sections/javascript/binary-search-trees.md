@@ -27,6 +27,6 @@ Lets say we have an array of numbers `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` and we wa
 
 Also called an ordered or sorted binary tree, is a rooted binary tree data structure with the key of each internal node being greater than all the keys in the respective node's left subtree and less than the ones in its right subtree.
 
-![gif](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/200px-Binary_search_tree.svg.png)
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/200px-Binary_search_tree.svg.png)
 
-### How to Construct a Binary Search Tree?
+- [How to Construct a Binary Search Tree?](https://www.youtube.com/watch?v=FvdPo8PBQtc)
