@@ -19,8 +19,8 @@ Why learn algorithms?
 - provides novel "lens" on processes outside of computer science and technology:
     - quantum mechanics, economic markets, evolution
 
->"Perhaps the most important principle for the good algorithm designer is to refuse to be content."
--Aho, Hopcroft, and Ullman, The Design and
-Analysis of Computer Algorithms, 1974
+>"Perhaps the most important principle for the good algorithm designer is to refuse to be content." -Aho, Hopcroft, and Ullman, The Design and Analysis of Computer Algorithms, 1974
 
 You should always ask, CAN WE DO BETTER?
+
+- [What is an Algorithm and How Does it Make You a Better Programmer](http://blog.thefirehoseproject.com/posts/what-is-an-algorithm/)
