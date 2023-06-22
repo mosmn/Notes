@@ -84,13 +84,8 @@
     - [Space Complexity](sections/javascript/space-complexity.md)
     - Common Data Structures and Algorithms
         - [Linked Lists](sections/javascript/linked-lists.md)
-        - [Stacks](sections/javascript/stacks.md)
-        - [Queues](sections/javascript/queues.md)
-        - [Hash Tables](sections/javascript/hash-tables.md)
+        - [Stacks & Queues](sections/javascript/stacks-queues.md)
         - [Binary Search Trees](sections/javascript/binary-search-trees.md)
-        - [Graphs](sections/javascript/graphs.md)
-        - [Sorting Algorithms](sections/javascript/sorting-algorithms.md)
-        - [Searching Algorithms](sections/javascript/searching-algorithms.md)
 
 ### C++
 
