@@ -20,7 +20,13 @@ Lets say we have an array of numbers `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` and we wa
 3. Otherwise, if the target is less than the middle, change the end point to be just to the left of the middle(eliminate the right half of the array)
 4. Otherwise, if the target is greater than the middle, change the start point to be just to the right of the middle(eliminate the left half of the array)
     - the element at index [4] is 5, 8 is greater than 5 so we eliminate the left half of the array
-    - start point: index = [5]
-5. Repeat steps 1 - 4 until the target is found or the array is empty
+    - start point: `index = [5]`
+5. Repeat steps 1 - 4 until the target is found or (sub)array is empty
 
+## Binary search tree
 
+Also called an ordered or sorted binary tree, is a rooted binary tree data structure with the key of each internal node being greater than all the keys in the respective node's left subtree and less than the ones in its right subtree.
+
+![gif](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/200px-Binary_search_tree.svg.png)
+
+### How to Construct a Binary Search Tree?
