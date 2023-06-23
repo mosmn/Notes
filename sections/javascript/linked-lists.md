@@ -9,7 +9,7 @@ In some programming languages, the size of an array is a concern and one of the 
 
 __A linked list is a linear collection of data elements called nodes that “point” to the next node by means of a pointer.__
 
-![gif](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fremove-last-node-of-the-linked-list%2F&psig=AOvVaw1ouHPX_My_S9fvT8CXAZlO&ust=1687592684022000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNC2ieXy2P8CFQAAAAAdAAAAABAd)
+![gif](https://media.geeksforgeeks.org/wp-content/uploads/20200318172830/ezgif.com-gif-maker2.gif)
 
 Each node holds a single element of data and a link or pointer to the next node in the list.
 
