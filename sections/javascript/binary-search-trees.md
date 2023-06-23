@@ -40,12 +40,14 @@ The process of visiting each node in the tree exactly once in some order. Based 
 
 1. Breadth-first traversal(level order traversal)
     - Visit all the nodes at the same level(left to right) before going to the next level
+    - Code implementaion uses queue
     - [Breadth-first traversal](https://www.youtube.com/watch?v=86g8jAQug04) 
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/200px-Breadth-first-tree.svg.png)
 
 2. Depth-first traversal
     - If we visit a child we must visit all of its descendants before going to the next sibling
+    - Code implementation uses stack(context stack)
     - There are three types of depth-first traversal:
         - Pre-order traversal: `root -> left -> right`
         - In-order traversal: `left -> root -> right` (inorder traversal of a binary search tree will always give you a sorted list)
