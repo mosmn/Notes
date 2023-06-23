@@ -18,5 +18,7 @@ A head node is the first node in the list, a tail node is the last node in the l
 `[ NODE(head) ] -> [ NODE ] -> [ NODE(tail) ] -> null`
 
 They are linear data structures, which means that there is a sequence and an order to how they are constructed and traversed.
+- [see more](https://dev.to/vaidehijoshi/whats-a-linked-list-anyway)
+- [also](https://web.archive.org/web/20200217010131/http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html)
 
 [Video](https://www.youtube.com/watch?v=oiW79L8VYXk)
