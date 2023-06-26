@@ -98,3 +98,13 @@ Not all functions need to be , or should be, pure. For example, an event handler
 Another reason to use pure functions where possible is testing and refactoring.
 
 __One of the major benefits of using pure functions is they are immediately testable. They will always produce the same result if you pass in the same arguments.__
+
+# Mocking
+
+There are two solutions to the ‘tightly coupled code’ problem. The first, and best option is to simply remove those dependencies from your code as we did above, but that is simply not always possible.
+
+The second option is mocking - writing “fake” versions of a function that always behaves exactly how you want. For example, if you’re testing a function that gets information from a DOM input, you really don’t want to have to set up a webpage and dynamically insert something into the input just to run your tests. With a mock function, you could just create a fake version of the input-grabbing function that always returns a specific value and use THAT in your test.
+
+A few simple mocks here and there are OK. Some of your app will inevitably involve side-effects (reading from or writing to the network or filesystem, for instance). When you do have a genuine need for mocks, keep them simple. Little more than basic stubs are ideal.
+
+The more you break your problems down into simple, [pure functions](#pure-functions), the easier it will be to test your code without mocks.
