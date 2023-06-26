@@ -18,6 +18,8 @@ Why even do unit testing?
 
 # Jest
 
+[Jest Docs](https://jestjs.io/docs/getting-started)
+
 Install jest using npm
 ```bash
 npm install --save-dev jest
@@ -39,3 +41,4 @@ module.exports = {
 };
 ```
 
+- [Using jest with webpack](https://jestjs.io/docs/webpack)
