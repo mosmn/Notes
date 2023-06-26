@@ -74,6 +74,8 @@
     - [Async and Await](sections/javascript/async-await.md)
 
 - Testing JavaScript
+    - [Testing Basics](sections/javascript/testing-basics.md)
+    - [Isolation](sections/javascript/isolation.md)
 
 - React JS
 
