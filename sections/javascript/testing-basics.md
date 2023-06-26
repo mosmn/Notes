@@ -15,3 +15,27 @@ How does it work?
 
 Why even do unit testing?
 - Because complexitiy grows over time
+
+# Jest
+
+Install jest using npm
+```bash
+npm install --save-dev jest
+```
+Generate a basic configuration file
+```bash
+jest --init
+```
+By default, the current version of Jest will not recognize ES6 import statements.
+To fix this, we need to install the Babel compiler and the preset-env plugin.
+```bash
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+```
+Configure Babel to target your current version of Node by creating a `babel.config.js` file in the root of your project:
+```js
+babel.config.js
+module.exports = {
+  presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+};
+```
+
