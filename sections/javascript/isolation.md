@@ -108,3 +108,12 @@ The second option is mocking - writing “fake” versions of a function that al
 A few simple mocks here and there are OK. Some of your app will inevitably involve side-effects (reading from or writing to the network or filesystem, for instance). When you do have a genuine need for mocks, keep them simple. Little more than basic stubs are ideal.
 
 The more you break your problems down into simple, [pure functions](#pure-functions), the easier it will be to test your code without mocks.
+
+# TAP
+
+TAP is the [Test Anything Protocol](https://en.wikipedia.org/wiki/Test_Anything_Protocol#History) that has been around since 1987. Almost every important automated testing tool supports TAP output. There are TAP processors that produce colored console reports, processors that make pretty, styled HTML, processors that can branch on results and trigger various hooks, and on and on…
+
+You could think of Tape as a pure CLI tool that takes unit tests as input and produces TAP as output. Using standard Unix tools available on every Node platform, you can integrate tape with literally any tooling that can read from stdin and understand TAP output.
+
+Jest TAP output:
+![Jest TAP output](https://www.lambdatest.com/resources/images/resolve-this-issue.png)
