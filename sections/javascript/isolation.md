@@ -109,6 +109,8 @@ A few simple mocks here and there are OK. Some of your app will inevitably invol
 
 The more you break your problems down into simple, [pure functions](#pure-functions), the easier it will be to test your code without mocks.
 
+- [Mocking is a Code Smell](https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a)
+
 # TAP
 
 TAP is the [Test Anything Protocol](https://en.wikipedia.org/wiki/Test_Anything_Protocol#History) that has been around since 1987. Almost every important automated testing tool supports TAP output. There are TAP processors that produce colored console reports, processors that make pretty, styled HTML, processors that can branch on results and trigger various hooks, and on and on…
@@ -117,3 +119,7 @@ You could think of Tape as a pure CLI tool that takes unit tests as input and pr
 
 Jest TAP output:
 ![Jest TAP output](https://www.lambdatest.com/resources/images/resolve-this-issue.png)
+
+[Setup and Teardown](https://jestjs.io/docs/setup-teardown)
+
+[Handling mock functions](https://jestjs.io/docs/mock-functions)
