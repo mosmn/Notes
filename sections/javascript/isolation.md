@@ -123,3 +123,5 @@ Jest TAP output:
 [Setup and Teardown](https://jestjs.io/docs/setup-teardown)
 
 [Handling mock functions](https://jestjs.io/docs/mock-functions)
+
+[Magic tricks of testing](https://www.youtube.com/watch?v=URSWYvyc42M)

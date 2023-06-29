@@ -23,3 +23,9 @@ Use subtree push to send it to the `gh-pages` branch on GitHub.
 ```sh
 git subtree push --prefix dist origin gh-pages
 ```
+
+### Script
+
+```sh
+"ghpages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
+```
