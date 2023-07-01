@@ -1,49 +1,109 @@
-### How to
+### Git Basic Commands
 
-To add a new file to the repository:
+#### git status
 
-    git add <file>
+To check the status of your repository and see which files are modified, staged, or untracked, use the following command:
 
-To commit the changes:
-    
-    git commit -m "message"
+```shell
+git status
+```
 
-To push the changes to the remote repository:
+#### git log
 
-    git push
+To view the commit history of your repository, including the author, date, and commit message, use the following command:
 
-To pull the changes from the remote repository:
+```shell
+git log
+```
 
-    git pull
+#### git add
 
-To clone a repository:
+To add a new file or stage changes to an existing file for the next commit, use the following command:
 
-    git clone <url>
+```shell
+git add <file>
+```
 
-To create a new branch:
+#### git commit
 
-    git checkout -b <branch>
+To commit your changes with a descriptive message, use the following command:
 
-To switch to an existing branch:
+```shell
+git commit -m "message"
+```
 
-    git checkout <branch>
+#### git push
 
-To merge a branch into the current branch:
+To push your committed changes to a remote repository, use the following command:
 
-    git merge <branch>
+```shell
+git push
+```
 
-To delete a branch:
+#### git pull
 
-    git branch -d <branch>
+To fetch and merge the latest changes from a remote repository to your local repository, use the following command:
 
-To delete a branch on the remote repository:
+```shell
+git pull
+```
 
-    git push origin --delete <branch>
+#### git clone
 
-To delete a file from the repository:
+To create a local copy of a remote repository, use the following command:
 
-    git rm <file>
+```shell
+git clone <url>
+```
 
-To delete a file from the repository and commit the changes:
+#### git checkout
 
-    git rm <file> && git commit -m "message"
+To switch to a different branch or create a new branch, use the following command:
+
+```shell
+git checkout <branch>
+```
+
+To create a new branch and switch to it in a single command, use:
+
+```shell
+git checkout -b <branch>
+```
+
+#### git merge
+
+To merge changes from one branch into the current branch, use the following command:
+
+```shell
+git merge <branch>
+```
+
+#### git branch
+
+To list all branches in your repository, use the following command:
+
+```shell
+git branch
+```
+
+To delete a branch, use the following command:
+
+```shell
+git branch -d <branch>
+```
+
+#### git rm
+
+To delete a file from the repository, use the following command:
+
+```shell
+git rm <file>
+```
+
+To delete a file from the repository and commit the changes in a single command, use:
+
+```shell
+git rm <file> && git commit -m "message"
+```
+
+These are just a few of the basic Git commands that can help you manage your version-controlled projects effectively. Feel free to explore more advanced Git functionalities and learn about additional commands as you become more familiar with Git.
