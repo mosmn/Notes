@@ -27,5 +27,8 @@ Your message here
 Press the `Esc` key to switch to command mode.
 Type `:wq`(including the colon) and press Enter. This command saves the commit message and exits the editor.
 
-
 __only amend commits that have not been pushed anywhere__. The reason for this is that `git commit --amend` does not simply edit the last commit,_it replaces that commit with an entirely new one_. This means that you could potentially destroy a commit other developers are basing their work on.
+
+### Changing Multiple Commits
+
+To modify commits further back in history, we can use the `git rebase` command. 
