@@ -159,33 +159,6 @@ __When using `git reset --hard`, be aware that it modifies history and can have 
 1. When collaborating with others on a project, Git requires you to update your local branch with the latest commits from the remote repository before pushing your changes.
 2. If you attempt to push a commit that would create a conflict on the remote repository without updating your local branch, you'll receive an error message to prevent overwriting other people's work.
 3. Instead of using `git push --force` to overwrite the remote repository, it is recommended to update your local history by fetching the latest changes, merging them into your branch, and then attempting to push again.
-       1. Fetch the latest changes from the remote repository:
-       ```
-       git fetch origin
-       ```
-
-       2. Switch to your branch (e.g., `main`):
-       ```
-       git checkout main
-       ```
-
-       3. Merge the changes from the remote branch (e.g., `origin/main`) into your local branch:
-       ```
-       git merge origin/main
-       ```
-
-       4. Resolve any merge conflicts if they occur. Git will guide you through the process.
-
-       5. Once the conflicts are resolved, commit the merged changes:
-       ```
-       git commit -m "Merge remote-tracking branch 'origin/main' into main"
-       ```
-
-       6. Finally, push the merged changes to the remote repository:
-       ```
-       git push origin main
-       ```
-By following these steps, you ensure that your local branch is updated with the latest changes from the remote repository, and you can push your changes without overwriting commits created by others.
 
 Using `git push --force`:
 1. The `git push --force` command overwrites the remote repository with your own local history.
