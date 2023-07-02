@@ -70,4 +70,69 @@ $ git add test3.md && git commit -m 'Create third file'
 $ git add test4.md && git commit -m 'Create fourth file'
 ```
 
-hahahahah
+To split the commit "Create third file and create fourth file" into two smaller commits using the interactive rebase tool and `git reset`, follow these steps:
+
+1. Open the interactive rebase tool by running the command:
+
+   ```
+   git rebase -i HEAD~2
+   ```
+
+2. In the interactive rebase file, locate the commit "Create third file and create fourth file" and change the command from `pick` to `edit`. Save and close the file.
+
+3. Run the following command to reset the commit to the one right before HEAD:
+
+   ```
+   git reset HEAD^
+   ```
+
+4. Now you can add and commit the files individually. For example:
+
+   ```
+   git add test3.md
+   git commit -m 'Create third file'
+   ```
+
+   ```
+   git add test4.md
+   git commit -m 'Create fourth file'
+   ```
+
+5. Once you have added and committed the files separately, you can continue the rebase process by running:
+
+   ```
+   git rebase --continue
+   ```
+
+   This will apply the remaining commits and complete the rebase.
+
+#### Different `git reset` options:
+
+- `git reset` without any additional flags will reset both the HEAD and the staging area (index) to the specified commit.
+- `git reset --soft` will only move the HEAD to the specified commit while leaving the staging area unchanged.
+- `git reset --hard` will move the HEAD, update the staging area, and overwrite the working directory to match the specified commit. This can potentially result in data loss, so use it with caution.
+
+__When using `git reset --hard`, be aware that it modifies history and can have implications for shared repositories and collaboration with other developers. Make sure you understand the consequences and communicate with your team members about its usage.__
+
+# Working with Remotes:
+
+1. When collaborating with others on a project, Git requires you to update your local branch with the latest commits from the remote repository before pushing your changes.
+2. If you attempt to push a commit that would create a conflict on the remote repository without updating your local branch, you'll receive an error message to prevent overwriting other people's work.
+3. Instead of using `git push --force` to overwrite the remote repository, it is recommended to update your local history by fetching the latest changes, merging them into your branch, and then attempting to push again.
+
+Using `git push --force`:
+1. The `git push --force` command overwrites the remote repository with your own local history.
+2. However, using `git push --force` can be dangerous when collaborating with others since it can potentially destroy their work.
+3. It is best to use `git push --force` only when necessary and when you are certain it is appropriate, such as when updating pull requests or removing sensitive information accidentally uploaded to a repository.
+4. An alternative to `git push --force` is `git push --force-with-lease`, which checks if the branch you're attempting to push to has been updated and sends an error message if it has, allowing you to fetch the work and update your local repository.
+
+# Branches as Pointers
+
+1. In Git, a branch is not a group of commits but a pointer to a single commit.
+2. Each commit is a snapshot of the file contents and also a pointer that points to the commit that came before it.
+3. When you create a branch, it points to the most recent commit in the branch.
+4. The HEAD pointer is a special pointer that keeps track of the branch you're currently on.
+5. Git uses these pointers to navigate and track the commit history.
+6. For example, when using `git rebase -i HEAD~2`, Git starts with the HEAD pointer, which points to the most recent commit. It then follows the pointers of subsequent commits to identify which commits to edit.
+
+Remember that working with remotes and manipulating history can have serious implications when collaborating with others. It's important to use caution, communicate with your team, and follow best practices to avoid destroying or overwriting their work.
