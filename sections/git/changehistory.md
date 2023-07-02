@@ -1,5 +1,45 @@
 # Changing history
 
+First make sure you understand the following concepts:
+
+1. HEAD:
+   - In Git, HEAD is a special pointer that represents the current commit you are viewing or working on in your repository.
+   - It is essentially a reference to the latest commit on the current branch.
+   - HEAD helps you navigate through the commit history and work with the files in your repository.
+   - It can be visualized as a pointer pointing to the tip of the current branch.
+
+   Example:
+   Let's say you have a Git repository with three commits: A, B, and C, where C is the latest commit. The branch you're currently on is called "main." In this case, HEAD will be pointing to commit C, indicating that it's the commit you are currently viewing or working on.
+
+   ```
+   main
+     |
+     v
+   A -> B -> C (HEAD)
+   ```
+
+2. Staging Area (Index):
+   - The staging area, also known as the index, is an intermediate area between your working directory and the Git repository.
+   - It is where you assemble and prepare the changes you want to include in the next commit.
+   - Before a commit, you add the modified or new files to the staging area to include them in the upcoming commit.
+   - It allows you to selectively stage specific changes or files rather than committing all the changes in your working directory.
+
+   Example:
+   Imagine you have made changes to three files: file1.txt, file2.txt, and file3.txt. Out of these, you want to include changes from file1.txt and file3.txt in the next commit. To achieve this, you would add file1.txt and file3.txt to the staging area while keeping file2.txt unchanged.
+
+   ```
+   Changes in working directory:
+   file1.txt (modified)
+   file2.txt (unchanged)
+   file3.txt (modified)
+
+   Staging area:
+   file1.txt (modified)
+   file3.txt (modified)
+   ```
+
+   By adding file1.txt and file3.txt to the staging area, you are preparing them to be part of the next commit. The files in the staging area will be included in the commit when you run the `git commit` command.
+
 ### Changing The Last Commit
 
 Lets say we run this command:
