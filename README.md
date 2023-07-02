@@ -31,6 +31,8 @@
 - [Clone a repository](sections/git/gitclone.md)
 - [Branch](sections/git/branch.md)
 - [Deploying a subfolder](sections/git/subfolder.md)
+- [Change history](sections/git/changehistory.md)
+- [Open source contributions](sections/git/contributions.md)
 
 ### HTML
 
