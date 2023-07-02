@@ -154,6 +154,10 @@ To split the commit "Create third file and create fourth file" into two smaller 
 
 __When using `git reset --hard`, be aware that it modifies history and can have implications for shared repositories and collaboration with other developers. Make sure you understand the consequences and communicate with your team members about its usage.__
 
+[For more on Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+
+[For more on Reset](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
+
 # Working with Remotes:
 
 1. When collaborating with others on a project, Git requires you to update your local branch with the latest commits from the remote repository before pushing your changes.
@@ -186,7 +190,7 @@ __When using `git reset --hard`, be aware that it modifies history and can have 
        ```
        git push origin main
        ```
-       
+
 By following these steps, you ensure that your local branch is updated with the latest changes from the remote repository, and you can push your changes without overwriting commits created by others.
 
 Using `git push --force`:
@@ -205,3 +209,16 @@ Using `git push --force`:
 6. For example, when using `git rebase -i HEAD~2`, Git starts with the HEAD pointer, which points to the most recent commit. It then follows the pointers of subsequent commits to identify which commits to edit.
 
 Remember that working with remotes and manipulating history can have serious implications when collaborating with others. It's important to use caution, communicate with your team, and follow best practices to avoid destroying or overwriting their work.
+
+# Best Practices
+
+best practices for these commands:
+- If working on a team project, make sure rewriting history is safe to do and others know you’re doing it.
+- Ideally, stick to using these commands only on branches that you’re working with by yourself.
+- Using the -f flag to force something should scare you, and you better have a really good reason for using it.
+- Don’t push after every single commit, changing published history should be avoided when possible.
+- Regarding the specific commands we’ve covered:
+       - For git amend never amend commits that have been pushed to remote repositories.
+       - For git rebase never rebase a repository that others may work off of.
+       - For git reset never reset commits that have been pushed to remote repositories.
+       - For git push --force only use it when appropriate, use it with caution, and preferably default to using git push --force-with-lease.
