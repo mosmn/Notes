@@ -50,3 +50,22 @@ Once you're satisfied with your changes, run
 __this is a very dangerous tool if misused, so be careful. Most importantly, remember that if you have to rebase commits in a shared repository, make sure you’re doing so for a very good reason that your coworkers are aware of.__
 
 ### Squashing Commits
+
+Let’s say we want to squash the second commit into the first commit on the list, which is Create first file. First let’s rebase all the way back to our root commit by typing `git rebase -i --root`. Now what we’ll do is pick that first commit, as the one which the second commit is being squashed into:
+```shell
+pick e30ff48 Create first file
+squash 92aa6f3 Create second file
+pick 05e5413 Create third file and create fourth file
+```
+Rename the commit to Create first and second file, then finish the rebase.
+
+### Splitting Up a Commit
+
+Let’s have a look at the commit `Create third file and create fourth file`. At the moment we’re using blank files for convenience, but let’s say these files contained functionality and the commit was describing too much at once. In that case what we could do is split it up into two smaller commits by, once again, using the interactive `rebase` tool.
+
+Change pick to edit for the commit we’re going to split. Now, run `git reset HEAD^`, which resets the commit to the one right before HEAD. This allows us to add the files individually, add, and commit them individually. All together it would look something like this:
+```shell
+$ git reset HEAD^
+$ git add test3.md && git commit -m 'Create third file'
+$ git add test4.md && git commit -m 'Create fourth file'
+```
