@@ -35,7 +35,7 @@
    ```
    git merge main
    ```
-6. Resolve any merge conflicts using the skills you learned in the Deeper Look at Git lesson.
+6. Resolve any merge conflicts that arise. If you need help, check out this [article on resolving merge conflicts](https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 7. Send your feature branch back up to your origin (your fork of the upstream repository) by using the following command:
    ```
    git push origin your_feature_name
