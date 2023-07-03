@@ -30,9 +30,11 @@
 - [Commands](sections/git/gitcommand.md)
 - [Clone a repository](sections/git/gitclone.md)
 - [Branch](sections/git/branch.md)
+- [Merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
 - [Deploying a subfolder](sections/git/subfolder.md)
 - [Change history](sections/git/changehistory.md)
 - [Open source contributions](sections/git/contributions.md)
+- [Think like a git](https://think-like-a-git.net/)
 
 ### HTML
 
