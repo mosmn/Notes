@@ -82,6 +82,7 @@
     - [Isolation](sections/javascript/isolation.md)
 
 - React JS
+- [Introduction](sections/javascript/react/intro.md)
 
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
