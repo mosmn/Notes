@@ -131,3 +131,21 @@ Explore your application's performance by learning about ReportWebVitals [here](
 React Developer Tools is a browser extension that enhances the browser's developer tools to help you inspect React components that compose your application. It provides features to inspect and modify the React component tree, view props, state, and hooks for each component, and perform basic debugging tasks. Install React Developer Tools as a Chrome extension [here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
 
 For instructions on installing React Developer Tools and basic debugging techniques, refer to this [article](https://www.pluralsight.com/guides/debugging-components-with-react-developer-tools).
+
+
+# React Learning Resources
+
+Here are some learning resources for React:
+
+1. Start with the [Quick Start page](https://reactjs.org/docs/getting-started.html) in the React documentation. It provides a short introductory tour of React, introducing concepts like components, props, and state.
+
+2. The React documentation itself is a valuable resource for diving deeper into specific concepts. You can refer back to it later when you need to refresh your understanding or delve into more advanced topics.
+
+3. To supplement your learning, read the following lessons:
+   - [Lesson 1](https://reactjs.org/tutorial/tutorial.html): This lesson provides an overview of React's syntax and basic concepts.
+   - [Lesson 2](https://reactjs.org/docs/components-and-props.html): This lesson focuses on components and props, which are fundamental building blocks in React.
+   - [Lesson 3](https://reactjs.org/docs/state-and-lifecycle.html): This lesson covers state and lifecycle methods, important concepts for managing and updating component data.
+
+4. Watch the following videos:
+   - [Introduction to React](https://www.youtube.com/watch?v=pgAvVxowaYU): This video provides a quick explanation of React and its key concepts.
+   - [React Components](https://www.youtube.com/watch?v=20g1XScJLJA): These videos (one and two) from the same series focus on components, which are at the core of React development. You can code along with the entire course if you find it helpful and enjoyable.
