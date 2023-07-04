@@ -83,6 +83,7 @@
 
 - React JS
     - [Introduction](sections/javascript/react/intro.md)
+    -  [State and Props](sections/javascript/react/state-props.md)
 
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
