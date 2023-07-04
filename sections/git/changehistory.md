@@ -247,3 +247,4 @@ Sure! Here are step-by-step instructions to enable the Gitlense interactive reba
    This command configures Git to use VSCode as the default editor for interactive rebases and other operations.
 
 That's it! You have successfully enabled the Gitlense interactive rebase tool and set VSCode as your global Git editor. Now you can use Gitlense for interactive rebases within VSCode.
+ 
