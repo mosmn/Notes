@@ -222,3 +222,28 @@ best practices for these commands:
        - For git rebase never rebase a repository that others may work off of.
        - For git reset never reset commits that have been pushed to remote repositories.
        - For git push --force only use it when appropriate, use it with caution, and preferably default to using git push --force-with-lease.
+
+
+Sure! Here are step-by-step instructions to enable the Gitlense interactive rebase tool in VSCode:
+
+1. Make sure you have Gitlense installed in VSCode. If you haven't installed it yet, you can do so by following these steps:
+   - Open Visual Studio Code (VSCode).
+   - Go to the Extensions view by clicking on the square icon on the left sidebar or by pressing `Ctrl+Shift+X` (`Cmd+Shift+X` on macOS).
+   - Search for "Gitlense" in the search bar at the top of the Extensions view.
+   - Click on the "Gitlense" extension by Eric Amodio in the search results.
+   - Click the "Install" button to install the extension.
+   - Wait for the installation to complete.
+
+2. Open the VSCode command palette by pressing `Ctrl+Shift+P` (`Cmd+Shift+P` on macOS). This will open a text input field at the top of the VSCode window.
+
+3. Type "Gitlense: Enable Interactive Rebase Tool" in the command palette text input field. As you type, you should see the matching command in the dropdown list.
+
+4. Once you see the "Gitlense: Enable Interactive Rebase Tool" command in the dropdown list, select it by clicking on it or by using the arrow keys to navigate to it and then pressing Enter.
+
+5. After enabling the interactive rebase tool, you need to set VSCode as your global Git editor by running the following command in your terminal:
+   ```shell
+   git config --global core.editor "code --wait"
+   ```
+   This command configures Git to use VSCode as the default editor for interactive rebases and other operations.
+
+That's it! You have successfully enabled the Gitlense interactive rebase tool and set VSCode as your global Git editor. Now you can use Gitlense for interactive rebases within VSCode.
