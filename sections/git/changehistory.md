@@ -224,7 +224,7 @@ best practices for these commands:
        - For git push --force only use it when appropriate, use it with caution, and preferably default to using git push --force-with-lease.
 
 
-Sure! Here are step-by-step instructions to enable the Gitlense interactive rebase tool in VSCode:
+Enable the Gitlense interactive rebase tool in VSCode:
 
 1. Make sure you have Gitlense installed in VSCode. If you haven't installed it yet, you can do so by following these steps:
    - Open Visual Studio Code (VSCode).
