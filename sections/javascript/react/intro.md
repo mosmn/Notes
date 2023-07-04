@@ -1,3 +1,5 @@
+[Offical React Docs](https://react.dev/learn)
+
 # Components
 
 Applications built with React are made up of reusable components. Components serve as the "building blocks" of your application or project. Dividing your application into separate components is a recommended practice when using React. Each component represents a specific part of your UI or functionality. Let's look at an example of how a simple homepage could be divided into components:
@@ -22,6 +24,8 @@ import ExampleComponent from "./components/ExampleComponent"
 ```
 
 In the above code, we import the `ExampleComponent` from the `./components/ExampleComponent` file. The parent component, in this case, would be `App.js`.
+
+![img](https://blog.logrocket.com/wp-content/uploads/2021/04/react-app-diagram.png)
 
 When structuring components, it may take some time to determine the best organization, especially when dealing with concepts like state and props. However, dividing your application into components helps maintain code organization and facilitates tracking the relationships between components.
 
@@ -96,10 +100,9 @@ The differences between functional and class components:
 
 ### Create-react-app
 
-Developers at Facebook have created a tool called create-react-app, which automates the setup and configuration of a complete React application. By running a single command, create-react-app handles all the necessary steps to get your project up and running quickly.
+Developers at Facebook have created a tool called [create-react-app](https://github.com/facebook/create-react-app), which automates the setup and configuration of a complete React application. By running a single command, create-react-app handles all the necessary steps to get your project up and running quickly.
 
-To see the concepts we've discussed in action, you can run the following command in your terminal:
-
+To see the concepts in action, run the following command:
 ```
 npx create-react-app my-first-react-app
 ```
@@ -119,10 +122,12 @@ root.render(
 
 This code tells React to render the `App` component into the DOM, specifically into the element with the id "root." In your project, you'll find a root `div` in the `index.html` file located in the `public` directory. If you decide to name your main application component something other than `App.js`, be sure to update its name in `index.js` accordingly.
 
-To gain a better understanding of how create-react-app works and the files it generates, refer to this article and watch this video, which explain the file system created by create-react-app. You can also explore your application's performance by learning about ReportWebVitals [here](https://create-react-app.dev/docs/measuring-performance/).
+How create-react-app works: [article](https://blog.logrocket.com/getting-started-with-create-react-app/#introduction), [video](https://www.youtube.com/watch?v=rUdtgnwrA14). Explains the file system created by create-react-app. 
+
+Explore your application's performance by learning about ReportWebVitals [here](https://create-react-app.dev/docs/measuring-performance/).
 
 ### React Developer Tools
 
-React Developer Tools is a browser extension that enhances the browser's developer tools to help you inspect React components that compose your application. It provides features to inspect and modify the React component tree, view props, state, and hooks for each component, and perform basic debugging tasks. You can install React Developer Tools as a Chrome extension [here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
+React Developer Tools is a browser extension that enhances the browser's developer tools to help you inspect React components that compose your application. It provides features to inspect and modify the React component tree, view props, state, and hooks for each component, and perform basic debugging tasks. Install React Developer Tools as a Chrome extension [here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
 
-For instructions on installing React Developer Tools and basic debugging techniques, refer to this article. The extension is a valuable tool for React developers, as it allows for easier debugging and understanding of the component structure and state within your application.
+For instructions on installing React Developer Tools and basic debugging techniques, refer to this [article](https://www.pluralsight.com/guides/debugging-components-with-react-developer-tools).
