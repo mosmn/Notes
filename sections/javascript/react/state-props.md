@@ -7,7 +7,7 @@ In React, props are used to share values or functionality between components. Th
 - Props are accessed using `this.props.propertyName` syntax in class components.
 - Props can be passed as attributes in JSX, similar to assigning attributes to HTML elements.
 - It is important to pass `props` to the constructor of the child component and call `super(props)` to be able to access `this.props` in the child component.
-- Props can be used with both class components and functional components.
+- Props can be used with both class components and functional components. In functional components, props are passed as a parameter to the function. Refer to the [Official React documentation](https://react.dev/learn#sharing-data-between-components) to see how functional components can be used with props.
 - Props can be functions, and they can be attached to events in JSX by assigning them to the appropriate event attribute.
 - Event attributes in JSX must be camelCased.
 - JavaScript code in JSX must be wrapped in curly braces.
@@ -169,6 +169,8 @@ Understanding the purpose and usage of props in React is essential for building 
 
 # State
 
+In React, state is used to handle values that can change over time. It allows us to manage dynamic data in our components. State is one of the core concepts in React and plays a crucial role in building interactive and dynamic applications.
+
 - State is used to handle values that can change over time in React.
 - The `state` is an object that holds the mutable data for a component.
 - State is declared and initialized in the constructor of a class component using `this.state = { ... }`.
@@ -183,6 +185,51 @@ Understanding the purpose and usage of props in React is essential for building 
 - When the button is clicked, the `countUp` method is called, which updates the state and triggers a re-render of the component.
 - Destructuring can also be used to directly access state properties without using `this.state`.
 
-It's important to note that the provided example uses class components to handle state. State management can also be achieved using functional components with hooks like `useState()`.
+It's important to note that the provided example uses class components to handle state. State management can also be achieved using functional components with hooks like `useState()`. Refer to the [Official React Documentation](https://react.dev/learn#updating-the-screen).
 
 ## Code Example
+
+```javascript
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      count: 0,
+    };
+
+    this.countUp = this.countUp.bind(this);
+  }
+
+  countUp() {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.countUp}>Click Me!</button>
+        <p>{this.state.count}</p>
+      </div>
+    );
+  }
+}
+```
+
+In this example, we have a simple counter application. The `App` component extends the `Component` class from React.
+
+State is declared in the constructor of the `App` component using the `this.state` syntax. The initial state is defined as an object with a property `count` set to the value `0`. It's important to note that state should always be declared in the constructor of a class component. (Functional components have a different approach to handling state, which will be covered later.)
+
+The `countUp` method is defined within the `App` component. It uses the `setState` method provided by React to update the state. Inside `setState`, we pass an object that represents the new state we want to set. In this case, we increment the value of `count` by 1.
+
+To ensure that `this` refers to the correct context within the `countUp` method, it needs to be bound to the component instance. This is done in the constructor using `this.countUp = this.countUp.bind(this)`. Binding the method allows it to access the correct instance of the component and its state.
+
+In the `render` method, we define the JSX that will be rendered. It includes a button with an `onClick` event that triggers the `countUp` method. When the button is clicked, the `countUp` method is called, updating the state and triggering a re-render of the component. The current value of `count` from the state is displayed using `{this.state.count}`.
+
+It's worth mentioning that state in React should be treated as immutable. This means that you should not directly modify the state, but instead use the `setState` method provided by React to update it. Modifying state directly can lead to unexpected behavior or bugs.
+
+By properly managing state, you can create interactive components that respond to user interactions and update their display accordingly.
