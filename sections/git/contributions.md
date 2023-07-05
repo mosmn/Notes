@@ -13,7 +13,7 @@
 
 ### Ongoing Workflow
 
-1. Create a new feature branch for the specific feature you want to build. Use descriptive branch names and follow the branching practices you learned in the Revisiting Rock Paper Scissors lesson.
+1. Create a [new feature branch](branch.md)
 2. When you're done with your feature, fetch the most updated copy of the upstream repository using the following command:
    ```
    git fetch upstream
