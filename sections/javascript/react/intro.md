@@ -102,6 +102,8 @@ The differences between functional and class components:
 
 Developers at Facebook have created a tool called [create-react-app](https://github.com/facebook/create-react-app), which automates the setup and configuration of a complete React application. By running a single command, create-react-app handles all the necessary steps to get your project up and running quickly.
 
+Create React App is a toolchain(a set of distinct software development tools linked by specific stages). It is specifically recommended by the React community for building [single-page applications (SPAs) the contents on the page are rewritten from the server, and the content changes without a browser refresh.](https://blog.logrocket.com/single-page-applications-css-transitions/#what-are-spas)
+
 To see the concepts in action, run the following command:
 ```
 npx create-react-app my-first-react-app
@@ -137,11 +139,5 @@ For instructions on installing React Developer Tools and basic debugging techniq
 
 1. Start with the [Quick Start page](https://reactjs.org/docs/getting-started.html) in the React documentation. It provides a short introductory tour of React, introducing concepts like components, props, and state.
 
-2. Lessons:
-   - [Lesson 1](https://reactjs.org/tutorial/tutorial.html): This lesson provides an overview of React's syntax and basic concepts.
-   - [Lesson 2](https://reactjs.org/docs/components-and-props.html): This lesson focuses on components and props, which are fundamental building blocks in React.
-   - [Lesson 3](https://reactjs.org/docs/state-and-lifecycle.html): This lesson covers state and lifecycle methods, important concepts for managing and updating component data.
-
-3. Videos:
-   - [Introduction to React](https://www.youtube.com/watch?v=pgAvVxowaYU): This video provides a quick explanation of React and its key concepts.
-   - [React Components](https://www.youtube.com/watch?v=20g1XScJLJA): These videos (one and two) from the same series focus on components, which are at the core of React development. You can code along with the entire course if you find it helpful and enjoyable.
+2. Videos:
+   - [Series](https://youtu.be/JPT3bFIwJYA)
