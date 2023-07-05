@@ -166,3 +166,23 @@ export default MyComponent;
 In the above code snippet, the `title` and `onButtonClicked` props are destructured from `this.props`. This allows them to be directly accessed within the `render` method without using `this.props.title` or `this.props.onButtonClicked`.
 
 Understanding the purpose and usage of props in React is essential for building components that can share data and functionality. By passing props from parent components to child components, you can create a modular and reusable code structure.
+
+# State
+
+- State is used to handle values that can change over time in React.
+- The `state` is an object that holds the mutable data for a component.
+- State is declared and initialized in the constructor of a class component using `this.state = { ... }`.
+- In the example, a simple counter app is shown.
+- The initial state is set with `count` property initialized to 0.
+- The `setState()` method is used to update the state. It takes an object as an argument, and properties within that object are merged into the current state.
+- It's important to treat state as immutable and avoid directly changing the state without using `setState()`. Modifying state directly can lead to unexpected behavior or bugs.
+- The `countUp` method is defined to update the count value by incrementing it by 1.
+- In the constructor, the `countUp` method is bound to the component instance using `bind()` to maintain the correct context of `this`.
+- In the render method, the current value of `count` is accessed using `this.state.count`.
+- The count value is displayed within a paragraph element using JSX.
+- When the button is clicked, the `countUp` method is called, which updates the state and triggers a re-render of the component.
+- Destructuring can also be used to directly access state properties without using `this.state`.
+
+It's important to note that the provided example uses class components to handle state. State management can also be achieved using functional components with hooks like `useState()`.
+
+## Code Example
