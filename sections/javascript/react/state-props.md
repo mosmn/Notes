@@ -184,6 +184,8 @@ In React, state is used to handle values that can change over time. It allows us
 - The count value is displayed within a paragraph element using JSX.
 - When the button is clicked, the `countUp` method is called, which updates the state and triggers a re-render of the component.
 - Destructuring can also be used to directly access state properties without using `this.state`.
+- In React, it is legal and powerful to pass one component's state down to multiple children components.
+- This allows for the sharing of state among components and ensures that when the state is changed, each child component using that state is automatically re-rendered with the new value.
 
 It's important to note that the provided example uses class components to handle state. State management can also be achieved using functional components with hooks like `useState()`. Refer to the [Official React Documentation](https://react.dev/learn#updating-the-screen).
 
@@ -233,3 +235,107 @@ In the `render` method, we define the JSX that will be rendered. It includes a b
 It's worth mentioning that state in React should be treated as immutable. This means that you should not directly modify the state, but instead use the `setState` method provided by React to update it. Modifying state directly can lead to unexpected behavior or bugs.
 
 By properly managing state, you can create interactive components that respond to user interactions and update their display accordingly.
+
+### Passing State as Props
+
+Yes, it is perfectly legal and powerful to pass state as a prop in React. It allows you to share a piece of state from a parent component to multiple child components. When the state is updated, each child component using that state will automatically re-render with the new value.
+
+Let's consider an example where we have a forum webpage. The main component of the site is called `Forum`, and it needs to know the user's username. When a user views a post or reply they wrote, the author should be displayed as "me" instead of their username.
+
+To achieve this, we can keep the username as a piece of data in the state of a parent component, let's call it `App`. By keeping the username in the state of `App`, we can pass it down as a prop to both the `NavBar` component and the `Forum` component.
+
+Here's an example of how it can be implemented:
+
+```javascript
+// App.js
+
+import React, { Component } from 'react';
+import NavBar from './NavBar';
+import Forum from './Forum';
+import Footer from './Footer';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: 'user123',
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <NavBar username={this.state.username} />
+        <Forum username={this.state.username} />
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+In the `App` component's `render` method, we pass the `username` state as a prop to both the `NavBar` component and the `Forum` component. By doing so, any changes to the `username` state will automatically trigger a re-render of both the `NavBar` and `Forum` components, reflecting the updated value.
+
+The `Footer` component, on the other hand, does not need access to the username state, so it is not passed as a prop to that component. As a result, the `Footer` component will not re-render when the username state changes.
+
+This approach provides a clean and efficient way to share state between components, allowing for better organization and separation of concerns.
+
+# State and props in functional components
+
+- React provides the ability to create components as functions, called functional components.
+- In functional components, props are not passed as an argument to the constructor but as an argument to the component itself.
+- The main difference in accessing props between class components and functional components is that in class components, props are accessed using `this.props.someFunction`, while in functional components, `this` is not used, and props are accessed directly as `props.someFunction`.
+- Here's an example to illustrate the difference:
+
+```javascript
+// MyComponent.js
+
+import React from 'react';
+
+function MyComponent(props) {
+  return <div>{props.title}</div>;
+}
+
+export default MyComponent;
+```
+
+```javascript
+// App.js
+
+import React from 'react';
+import MyComponent from './MyComponent';
+
+function App() {
+  return (
+    <div>
+      <MyComponent title="Hello World" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+- In the example above, `MyComponent` is a functional component that receives props as an argument. The `title` prop is accessed directly as `props.title` within the component.
+- Similarly, the `App` component is also a functional component that renders the `MyComponent` component with the `title` prop set to `"Hello World"`.
+- Destructuring can also be used to simplify accessing props within a functional component. By destructuring `title` from `props` in the function's parameter parentheses or using `const {title} = props` within the function, the `title` prop can be directly referenced as `{title}` within the component.
+```javascript
+// MyComponent.js
+
+import React from 'react';
+
+function MyComponent({title}) {
+  return <div>{title}</div>;
+}
+
+export default MyComponent;
+```
+
+Using state in functional components:
+- Before the introduction of React Hooks, functional components were used only for returning JSX logic with props and could not access or manage state.
+- With the introduction of React Hooks, state can now be set and accessed in functional components as well.
+- Hooks allow for managing state and other React features in functional components, making them a preferred choice over class components in modern React development.
+- While the details of React Hooks are not covered in the provided code examples, they are an important concept to learn and will be covered in a separate lesson.
+- Understanding both class components and functional components, including their usage of state and props, is crucial as a React developer.
