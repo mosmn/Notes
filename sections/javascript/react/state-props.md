@@ -57,6 +57,7 @@ class App extends Component {
   render() {
     return (
       <div>
+      {/* props here are title */}
         <MyComponent title="React" />
       </div>
     );
@@ -115,6 +116,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        {/* props here are title and onButtonClicked */}
         <MyComponent title="React" onButtonClicked={this.onClickBtn} />
       </div>
     );
@@ -166,6 +168,8 @@ export default MyComponent;
 In the above code snippet, the `title` and `onButtonClicked` props are destructured from `this.props`. This allows them to be directly accessed within the `render` method without using `this.props.title` or `this.props.onButtonClicked`.
 
 Understanding the purpose and usage of props in React is essential for building components that can share data and functionality. By passing props from parent components to child components, you can create a modular and reusable code structure.
+
+For more information on props, check out [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
 
 # State
 
@@ -337,5 +341,12 @@ Using state in functional components:
 - Before the introduction of React Hooks, functional components were used only for returning JSX logic with props and could not access or manage state.
 - With the introduction of React Hooks, state can now be set and accessed in functional components as well.
 - Hooks allow for managing state and other React features in functional components, making them a preferred choice over class components in modern React development.
-- While the details of React Hooks are not covered in the provided code examples, they are an important concept to learn and will be covered in a separate lesson.
 - Understanding both class components and functional components, including their usage of state and props, is crucial as a React developer.
+
+# Unidirectional data flow
+
+- Unidirectional data flow is a technique used in React where data has one-way transfer from parent components to child components as props.
+- React doesn't support bi-directional binding to ensure a clean data flow architecture.
+- State is owned by a single component in React, and changes in state only affect its child components.
+- One-way data flow provides advantages such as easier debugging, better data control, and improved efficiency.
+- By following unidirectional data flow, React ensures data flows in a single direction, giving better control and efficiency in managing data within the application.
