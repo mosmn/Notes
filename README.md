@@ -24,6 +24,8 @@
     - [Interview Prep](#interview-prep)
     - [Resume Guide](#resume-guide)
 
+- [Resources](#resources)
+
 # Programming Notes
 ### Git
 
@@ -83,7 +85,7 @@
 
 - React JS
     - [Introduction](sections/javascript/react/intro.md)
-    -  [State and Props](sections/javascript/react/state-props.md)
+    - [State and Props](sections/javascript/react/state-props.md)
 
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
@@ -117,7 +119,6 @@
     - [Sorting](sections/cpp/sorting.md)
     - [Searching](sections/cpp/searching.md)
     - [Recursion](sections/cpp/recursion.md)
-- [Recources](sections/cpp/resources.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
@@ -221,4 +222,16 @@
 - [Portfolio](sections/resume/portfolio.md)
 - [LinkedIn](sections/resume/linkedin.md)
 
+# Resources
+
+- [CCNA](https://www.netacad.com/courses/networking/ccna-v7-introduction-networks)
+- [The Odin Project](https://www.theodinproject.com/)
+- [MDN](https://developer.mozilla.org/en-US/)
+- Books
+    - [Database Systems: Design, Implementation, and Management](https://www.amazon.com/Database-Systems-Design-Implementation-Management/dp/1337627903)
+    - [Operating System Concepts](https://www.amazon.com/Operating-System-Concepts-Abraham-Silberschatz/dp/1118063333)
+    - [Software Engineering: A Practitioner's Approach](https://www.amazon.com/Software-Engineering-Practitioners-Roger-Pressman/dp/0078022126)
+    - [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
+    - [C++ Data Structures and Algorithm Design Principles](https://www.amazon.com/Data-Structures-Algorithm-Design-Principles/dp/1683920848)
+    - [Cracking the Coding Interview](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850)
 
