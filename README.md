@@ -37,6 +37,7 @@
 - [Change history](sections/git/changehistory.md)
 - [Open source contributions](sections/git/contributions.md)
 - [Think like a git](https://think-like-a-git.net/)
+- [Deploy React app into Github Pages](https://medium.com/@isharamalaviarachchi/how-to-deploy-your-react-app-into-github-pages-b2c96292b18e)
 
 ### HTML
 
@@ -86,6 +87,7 @@
 - React JS
     - [Introduction](sections/javascript/react/intro.md)
     - [State and Props](sections/javascript/react/state-props.md)
+    
 
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
