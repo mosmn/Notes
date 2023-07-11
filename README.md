@@ -87,6 +87,8 @@
 - React JS
     - [Introduction](sections/javascript/react/intro.md)
     - [State and Props](sections/javascript/react/state-props.md)
+    - [Handling Input](sections/javascript/react/handling-input.md)
+    - [Lifecycle Methods](sections/javascript/react/lifecycle.md)
     
 
 - Data Structures & Algorithms
