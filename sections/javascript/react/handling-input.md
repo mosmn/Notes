@@ -168,7 +168,7 @@ const Overview = (props) => {
 export default Overview;
 ```
 
-## Hard: Editing Tasks
+## Editing Tasks
 
 1. Modify the `Overview` component code in `Overview.js`.
 2. Add the `handleEditTask` and `handleDeleteTask` props.

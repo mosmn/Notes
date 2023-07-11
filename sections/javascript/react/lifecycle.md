@@ -4,7 +4,7 @@ A component's lifecycle refers to the sequence of stages it goes through in the 
 
 ## componentDidMount
 
-The `componentDidMount` method is called when a component is mounted, meaning it is inserted into the DOM tree. It is a good place to perform tasks such as connecting to web APIs, setting timers, or adding event listeners.
+The `componentDidMount` method is called when a component is mounted, meaning it is inserted into the DOM tree. It is a good place to perform tasks such as connecting to web APIs, setting timers, or adding event listeners. [See more](https://react.dev/reference/react/Component#componentdidmount)
 
 ```jsx
 class ExampleComponent extends React.Component {
@@ -35,7 +35,7 @@ class ExampleComponent extends React.Component {
 
 ## componentDidUpdate
 
-The `componentDidUpdate` method is called when a component updates, except for the initial render. It is useful for performing actions after a component has been updated, such as manipulating the DOM or sending network requests based on certain conditions.
+The `componentDidUpdate` method is called when a component updates, except for the initial render. It is useful for performing actions after a component has been updated, such as manipulating the DOM or sending network requests based on certain conditions. [See more](https://react.dev/reference/react/Component#componentdidupdate)
 
 ```jsx
 class ExampleComponent extends React.Component {
@@ -50,10 +50,13 @@ class ExampleComponent extends React.Component {
   }
 }
 ```
+`prevProps` and `prevState` are built-in objects provided by React. They are parameters passed to the `componentDidUpdate` method and contain the previous props and state values of the component.
+
+`nextProps` and `nextState` are also built-in objects provided by React. They are parameters passed to the `shouldComponentUpdate` method and contain the next props and state values of the component.
 
 ## componentWillUnmount
 
-The `componentWillUnmount` method is called when a component is about to be unmounted, meaning it is being removed from the DOM tree. It is typically used to clean up any resources or subscriptions created in the `componentDidMount` method.
+The `componentWillUnmount` method is called when a component is about to be unmounted, meaning it is being removed from the DOM tree. It is typically used to clean up any resources or subscriptions created in the `componentDidMount` method.[See more](https://react.dev/reference/react/Component#componentwillunmount)
 
 ```jsx
 class ExampleComponent extends React.Component {
@@ -123,3 +126,153 @@ Note: The example provided uses class components, but with the introduction of R
 ---
 
 These lifecycle methods allow you to control the behavior of your components at different stages of their life. By utilizing these methods effectively, you can perform actions based on specific events and ensure proper cleanup when components are unmounted.
+
+# Example
+
+Code from this [video](https://www.youtube.com/watch?v=m_mtV4YaI8c).
+
+```jsx
+import './App.css';
+import React, { Component } from 'react';
+
+const ErrorComponent = () => <div>{props.ignore}</div>;
+
+class Counter extends Component {
+  constructor(props) {
+    console.log('Constructor');
+    super(props);
+
+    this.state = {
+      count: 0,
+      seed: 0,
+    };
+
+    this.increment = () => this.setState({ count: this.state.count + 1 });
+    this.decrement = () => this.setState({ count: this.state.count - 1 });
+  }
+
+  // Executed during mounting and updating phases
+  static getDerivedStateFromProps(props, state) {
+    if (props.seed && state.seed !== props.seed) {
+      console.log('Get Derived State From Props');
+      console.log('-------------------');
+      // Returns an object to update the state based on the props
+      return {
+        seed: props.seed,
+        count: props.seed,
+      };
+    }
+    console.log('Get Derived State From Props - DO NOT UPDATE STATE');
+    console.log('-------------------');
+    return null;
+  }
+
+  // Executed after the component output has been rendered to the DOM
+  componentDidMount() {
+    console.log('Component Did Mount');
+    console.log('-------------------');
+  }
+
+  // Executed before rendering when new props or state are received
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.ignoreProp && this.props.ignoreProp !== nextProps.ignoreProp) {
+      console.log('Should Component Update - DO NOT RENDER');
+      console.log('-------------------');
+      return false; // Prevents re-rendering of the component
+    }
+    console.log('Should Component Update - RENDER');
+    console.log('-------------------');
+    return true; // Allows re-rendering of the component
+  }
+
+  // Executed right before the changes from Virtual DOM are to be reflected in the DOM
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('Get Snapshot Before Update');
+    console.log('-------------------');
+    return null;
+  }
+
+  // Renders the component's UI
+  render() {
+    console.log('Render');
+
+    if (this.props.showErrorComponent && this.state.error) {
+      return <div>We have encountered an error! {this.state.error.message}</div>;
+    }
+
+    return (
+      <div>
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
+        <div className="counter">Counter: {this.state.count}</div>
+        {this.props.showErrorComponent ? <ErrorComponent /> : null}
+      </div>
+    );
+  }
+
+  // Executed after the component's updates are flushed to the DOM
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('Component Did Update');
+    console.log('-------------------');
+  }
+
+  // Executed immediately before a component is unmounted and destroyed
+  componentWillUnmount() {
+    console.log('Component Will Unmount');
+    console.log('-------------------');
+  }
+
+  // Catches and handles errors that occur within child components
+  componentDidCatch(error, info) {
+    console.log('Component Did Catch');
+    console.log('-------------------');
+
+    this.setState({ error, info });
+  }
+}
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mount: true,
+      ignoreProp: 0,
+      seed: 40,
+      showErrorComponent: false,
+    };
+
+    this.mountCounter = () => this.setState({ mount: true });
+    this.unmountCounter = () => this.setState({ mount: false });
+    this.ignoreProp = () => this.setState({ ignoreProp: Math.random() });
+    this.seedGenerator = () => this.setState({ seed: Number.parseInt(Math.random() * 100) });
+    this.toggleError = () => this.setState({ showErrorComponent: !this.state.showErrorComponent });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>React Practice</h1>
+        <button onClick={this.mountCounter} disabled={this.state.mount}>
+          Mount Counter
+        </button>
+        <button onClick={this.unmountCounter} disabled={!this.state.mount}>
+          Unmount Counter
+        </button>
+        <button onClick={this.ignoreProp}>Ignore Prop</button>
+        <button onClick={this.seedGenerator}>Generate Seed</button>
+        <button onClick={this.toggleError}>Toggle Error</button>
+        {this.state.mount ? (
+          <Counter
+            ignoreProp={this.state.ignoreProp}
+            seed={this.state.seed}
+            showErrorComponent={this.state.showErrorComponent}
+          />
+        ) : null}
+      </div>
+    );
+  }
+}
+
+export default App;
+```
