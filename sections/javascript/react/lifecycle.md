@@ -1,308 +1,125 @@
-# Handling Inputs, Rendering Lists, and Form Submission in React
+# Lifecycle Methods
 
-1. To render lists in React, use the `map` function to iterate over an array of items and return a component for each item.
-   ```jsx
-   <ul>
-     {tasks.map((task) => {
-       return <li key={task.id}>{task.text}</li>;
-     })}
-   </ul>
-   ```
+A component's lifecycle refers to the sequence of stages it goes through in the DOM. React provides several lifecycle methods that allow you to perform certain tasks at specific points during a component's life. The commonly used lifecycle methods are:
 
-2. When rendering lists, make sure to assign a unique `key` prop to each component. The `key` helps React efficiently update and re-render components when the list changes.
-   ```jsx
-   {tasks.map((task) => {
-     return <li key={task.id}>{task.text}</li>;
-   })}
-   ```
+## componentDidMount
 
-3. To handle input fields and forms in React, use event handlers and state management.
-   ```jsx
-   <input
-     onChange={handleChange}
-     value={task.text}
-     type="text"
-     id="taskInput"
-   />
-   ```
-
-4. For form submission, use the `onSubmit` event on the `<form>` element. Prevent the default form behavior using `e.preventDefault()` to avoid page refresh.
-   ```jsx
-   <form onSubmit={onSubmitTask}>
-     <input
-       onChange={handleChange}
-       value={task.text}
-       type="text"
-       id="taskInput"
-     />
-     <button type="submit">Add Task</button>
-   </form>
-   ```
-
-5. Use the `concat` or spread operator to update arrays in state. Avoid directly modifying state arrays or using the `push` method, as it can lead to errors and incorrect rendering.
-   ```jsx
-   this.setState({
-     tasks: this.state.tasks.concat(this.state.task),
-     task: { text: "" },
-   });
-   ```
-
-6. When rendering components, pass data as props to child components. This allows child components to access and display the data.
-   ```jsx
-   <Overview tasks={tasks} />
-   ```
-
-7. Remember to import necessary modules, such as `React`, `Component`, and any additional packages or components used in your code.
-   ```jsx
-   import React, { Component } from "react";
-   ```
-
-### Complete code:
-```jsx
-// Overview.js
-
-import React from "react";
-
-const Overview = (props) => {
-  const { tasks } = props;
-
-  return (
-    <ul>
-      {tasks.map((task) => {
-        return <li key={task.id}>{task.text}</li>;
-      })}
-    </ul>
-  );
-};
-
-export default Overview;
-```
+The `componentDidMount` method is called when a component is mounted, meaning it is inserted into the DOM tree. It is a good place to perform tasks such as connecting to web APIs, setting timers, or adding event listeners.
 
 ```jsx
-// App.js
-
-import React, { Component } from "react";
-import Overview from "./components/Overview";
-import uniqid from "uniqid";
-
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      task: {
-        text: '', 
-        id: uniqid()
-      },
-      tasks: [],
-    };
+class ExampleComponent extends React.Component {
+  componentDidMount() {
+    // Perform tasks after the component is mounted
   }
 
-  handleChange = (e) => {
-    this.setState({
-      task: {
-        text: e.target.value,
-        id: this.state.task.id,
-      },
-    });
-  };
-
-  onSubmitTask = (e) => {
-    e.preventDefault();
-    this.setState({
-      tasks: this.state.tasks.concat(this.state.task),
-      task: {
-        text: '', 
-        id: uniqid()
-      },
-    });
-  };
-
   render() {
-    const { task, tasks } = this.state;
+    // Component's rendering logic
+  }
+}
+```
 
+## render
+
+The `render` method is a required method in React class components. It contains the logic that determines what the component should display on the screen. Conditional rendering can be done by returning null if nothing should be shown.
+
+```jsx
+class ExampleComponent extends React.Component {
+  render() {
+    // Component's rendering logic
     return (
-      <div>
-        <form onSubmit={this.onSubmitTask}>
-          <label htmlFor="taskInput">Enter task</label>
-          <input
-            onChange={this.handleChange}
-            value={task.text}
-            type="text"
-            id="taskInput"
-          />
-          <button type="submit">Add Task</button>
-        </form>
-        <Overview tasks={tasks} />
-      </div>
+      // JSX code representing the component's UI
     );
   }
 }
-
-export default App;
 ```
 
-## Displaying Task Numbers
+## componentDidUpdate
 
-1. Modify the `Overview` component code in `Overview.js`.
-2. Add the `index` parameter in the `map` function callback.
-3. Use `index + 1` to display the task number in the list item.
+The `componentDidUpdate` method is called when a component updates, except for the initial render. It is useful for performing actions after a component has been updated, such as manipulating the DOM or sending network requests based on certain conditions.
 
 ```jsx
-// Overview.js
-
-import React from "react";
-
-const Overview = (props) => {
-  const { tasks } = props;
-
-  return (
-    <ul>
-      {tasks.map((task, index) => {
-        return <li key={task.id}>{`Task ${index + 1}: ${task.text}`}</li>;
-      })}
-    </ul>
-  );
-};
-
-export default Overview;
-```
-
-## Hard: Editing Tasks
-
-1. Modify the `Overview` component code in `Overview.js`.
-2. Add the `handleEditTask` and `handleDeleteTask` props.
-3. Add edit and delete buttons for each task.
-4. Add `onClick` event handlers to the edit and delete buttons, calling the respective functions with the task as the argument.
-
-```jsx
-// Overview.js
-
-import React from "react";
-
-const Overview = (props) => {
-  const { tasks, handleEditTask, handleDeleteTask } = props;
-
-  return (
-    <ul>
-      {tasks.map((task) => {
-        return (
-          <li key={task.id}>
-            <span>{task.text}</span>
-            <button onClick={() => handleEditTask(task)}>Edit</button>
-            <button onClick={() => handleDeleteTask(task)}>Delete</button>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-
-export default Overview;
-```
-
-1. Modify the `App` component code in `App.js`.
-2. Import the `Overview` component and `uniqid` package.
-3. Add the `editingTaskId` state variable to track the currently edited task.
-4. Create the `handleEditTask` function to set the task and `editingTaskId` in state.
-5. Create the `handleDeleteTask` function to remove the task from state.
-6. Modify the `onSubmitTask` function to handle both adding a new task and updating an existing task.
-7. Update the render method to pass the necessary props to the `Overview` component.
-
-```jsx
-// App.js
-
-import React, { Component } from "react";
-import Overview from "./components/Overview";
-import uniqid from "uniqid";
-
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      task: {
-        text: "",
-        id: uniqid(),
-      },
-      tasks: [],
-      editingTaskId: null,
-    };
+class ExampleComponent extends React.Component {
+  componentDidUpdate(prevProps, prevState) {
+    // Perform tasks after the component updates
+    // Compare previous props and state with current props and state
+    // to determine if specific actions need to be taken
   }
 
-  handleChange = (e) => {
-    this.setState({
-      task: {
-        text: e.target.value,
-        id: this.state.task.id,
-      },
-    });
+  render() {
+    // Component's rendering logic
+  }
+}
+```
+
+## componentWillUnmount
+
+The `componentWillUnmount` method is called when a component is about to be unmounted, meaning it is being removed from the DOM tree. It is typically used to clean up any resources or subscriptions created in the `componentDidMount` method.
+
+```jsx
+class ExampleComponent extends React.Component {
+  componentWillUnmount() {
+    // Clean up tasks before the component is unmounted
+  }
+
+  render() {
+    // Component's rendering logic
+  }
+}
+```
+
+Note: In the latest version of React, the `componentWillUnmount` method has been deprecated. It is recommended to use other methods like `useEffect` or `cleanup functions` for performing cleanup tasks.
+
+![Lifecycle Methods](https://i0.wp.com/programmingwithmosh.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-31-at-1.44.28-PM.png?ssl=1)
+
+---
+
+The following code example demonstrates how these lifecycle methods can be used in a class component:
+
+```jsx
+class ChatRoom extends React.Component {
+  state = {
+    serverUrl: 'https://localhost:1234'
   };
 
-  onSubmitTask = (e) => {
-    e.preventDefault();
-    const { tasks, task, editingTaskId } = this.state;
+  componentDidMount() {
+    this.setupConnection();
+  }
 
-    if (editingTaskId) {
-      // Update existing task
-      const updatedTasks = tasks.map((t) => {
-        if (t.id === editingTaskId) {
-          return { ...t, text: task.text };
-        }
-        return t;
-      });
-
-      this.setState({
-        tasks: updatedTasks,
-        task: { text: "", id: uniqid() },
-        editingTaskId: null,
-      });
-    } else {
-      // Add new task
-      this.setState({
-        tasks: tasks.concat(task),
-        task: { text: "", id: uniqid() },
-      });
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.roomId !== prevProps.roomId ||
+      this.state.serverUrl !== prevState.serverUrl
+    ) {
+      this.destroyConnection();
+      this.setupConnection();
     }
-  };
+  }
 
-  handleEditTask = (task) => {
-    this.setState({
-      task: { text: task.text, id: task.id },
-      editingTaskId: task.id,
-    });
-  };
+  componentWillUnmount() {
+    this.destroyConnection();
+  }
 
-  handleDeleteTask = (task) => {
-    const { tasks } = this.state;
-    const updatedTasks = tasks.filter((t) => t.id !== task.id);
-    this.setState({ tasks: updatedTasks });
-  };
+  setupConnection() {
+    // Perform tasks to set up the connection
+  }
+
+  destroyConnection() {
+    // Perform tasks to clean up the connection
+  }
 
   render() {
-    const { task, tasks } = this.state;
-
+    // Component's rendering logic
     return (
-      <div>
-        <form onSubmit={this.onSubmitTask}>
-          <label htmlFor="taskInput">Enter task</label>
-          <input
-            onChange={this.handleChange}
-            value={task.text}
-            type="text"
-            id="taskInput"
-          />
-          <button type="submit">Add Task</button>
-        </form>
-        <Overview
-          tasks={tasks}
-          handleEditTask={this.handleEditTask}
-          handleDeleteTask={this.handleDeleteTask}
-        />
-      </div>
+      // JSX code representing the component's UI
     );
   }
 }
-
-export default App;
 ```
+
+In the above example, the `componentDidMount` method is used to set up the connection, `componentDidUpdate` method is used to handle updates to `roomId` or `serverUrl`, and `componentWillUnmount` method is used to clean up the connection before the component is unmounted.
+
+Note: The example provided uses class components, but with the introduction of React Hooks, functional components with `useEffect` can be used as an alternative to lifecycle methods.
+
+---
+
+These lifecycle methods allow you to control the behavior of your components at different stages of their life. By utilizing these methods effectively, you can perform actions based on specific events and ensure proper cleanup when components are unmounted.
