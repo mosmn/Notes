@@ -86,6 +86,40 @@ export default App;
 
 In the example above, we use the `useEffect` Hook to change the color of a `<div>` element on each click. The effect is triggered when the component mounts, and whenever the `color` state value changes. The effect adds an event listener for clicks and updates the `color` state based on the current color value.
 
+You have three different options for the dependency array:
+
+Leave it empty. If you leave it empty the useEffect hook would look something like this:
+```jsx
+useEffect(() => {
+  // Do something
+}, []);
+```
+This option is equal to a componentDidMount lifecycle method, meaning the hook runs one time when the component mounts (is inserted in the DOM tree)
+
+Add a dependency to the array. Like we did it in our example code.
+```jsx
+useEffect(() => {
+  // Do something
+}, [color]);
+```
+This way, the useEffect hook will re-run anytime the dependency (color) changes. This is similar to a componentDidUpdate method, with the only difference that it only runs when a certain condition has changed.
+
+Leave out the dependency array.
+```jsx
+useEffect(() => {
+  // Do something
+});
+```
+You can also completely leave out the dependency array. This way, the useEffect hook runs anytime the component is updated, AND right after the initial render. This is the difference compared to the componentDidUpdate lifecycle method, because it also runs after the initial render. This way it would be equal to a componentDidMount and componentDidUpdate method combined.
+
+The return statement we are adding to our useEffect is actually equal to a componentWillUnmount method.
+```jsx
+return () => {
+  document.removeEventListener("click", changeColorOnClick);
+};
+```
+If you write a return statement like the above in a useEffect, it will do the same as a componentWillUnmount method. As you can see, there is a lot to the useEffect hook. You can also create your own custom hooks if desired. However, with the above mentioned hooks useState and useEffect you will be fine in most of your smaller projects.
+
 ## Ref Hooks
 
 Ref Hooks allow components to store and access mutable values or references to DOM elements. The commonly used ref Hook is:
