@@ -95,11 +95,12 @@ const App = () => {
 export default App;
 ```
 
-## :id
+## Dynamic parameter
 
-- The `:id` is a dynamic parameter that can be used to access the id of the current route.
-- It is used in the `path` prop of the `Route` component.
-- It is imported from `react-router-dom`.
+- Dynamic parameters are used to pass data to a component.
+- They are used to create dynamic routes.
+- They are defined using a colon (`:`) followed by the parameter name.
+- They are accessed using the `useParams` hook.
 
 ```jsx
 // RouteSwitch.js
@@ -107,13 +108,15 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Profile from "./Profile";
+import Post from "./Post";
 
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Post />} />
       </Routes>
     </BrowserRouter>
   );
@@ -121,22 +124,25 @@ const RouteSwitch = () => {
 
 export default RouteSwitch;
 ```
-
+- The `:id` is a dynamic parameter that can be used to access the id of the current route.
+- It is used in the `path` prop of the `Route` component.
 ```jsx
-// App.js
+// Profile.js
 import React from "react";
 import { Link } from "react-router-dom";
 
-const App = () => {
+const Profile = () => {
   return (
     <div>
-      <h1>Hello from App</h1>
-      <Link to="/profile/1">Go to Profile</Link>
+      <h1>Hello from Profile</h1>
+      <Link to="/profile/1">Go to Post 1</Link>
+      <Link to="/profile/2">Go to Post 2</Link>
+      <Link to="/profile/3">Go to Post 3</Link>
     </div>
   );
 };
 
-export default App;
+export default Profile;
 ```
 
 ## useParams
@@ -146,19 +152,133 @@ export default App;
 - It is imported from `react-router-dom`.
 
 ```jsx
-// Profile.js
+// Post.js
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const Profile = () => {
+const Post = () => {
   const { id } = useParams();
   return (
     <div>
-      <h1>Hello from Profile</h1>
-      <h2>Id: {id}</h2>
+      <h1>Post {id}</h1>
     </div>
   );
 };
 
-export default Profile;
+export default Post;
 ```
+
+## Error Page
+
+- The `Route` component can be used to create an error page.
+- The `*` is used to match all routes that are not defined.
+- It is used in the `path` prop of the `Route` component.
+
+```jsx
+// RouteSwitch.js
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import App from "./App";
+import Profile from "./Profile";
+import Post from "./Post";
+
+const RouteSwitch = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Post />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default RouteSwitch;
+```
+
+## Nesting Route
+
+- The `Route` component can be used to nest routes.
+```jsx
+// RouteSwitch.js
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import App from "./App";
+import Profile from "./Profile";
+import Post from "./Post";
+
+const RouteSwitch = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/profile">
+            <Route index element={<Profile />} />
+            <Route path=":id" element={<Post />} />
+        </Route>
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default RouteSwitch;
+```
+- The `index` is used to match the route without any parameters.
+
+## Sharing a layout
+
+- Creating a layout component.
+```jsx
+// PostLayout.js
+import {Link, Outlet} from 'react-router-dom';
+
+const PostLayout = () => {
+    return (
+        <div>
+            <h1>Post Layout</h1>
+            <Link to="/profile/1">Go to Post 1</Link>
+            <Link to="/profile/2">Go to Post 2</Link>
+            <Link to="/profile/3">Go to Post 3</Link>
+            <Outlet />
+        </div>
+    )
+}
+
+export default PostLayout;
+```
+- The `Outlet` component is used to render the content of the current route.
+```jsx
+// RouteSwitch.js
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import App from "./App";
+import Profile from "./Profile";
+import Post from "./Post";
+import PostLayout from "./PostLayout";
+
+const RouteSwitch = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/profile" element={<PostLayout />}>
+            <Route index element={<Profile />} />
+            <Route path=":id" element={<Post />} />
+        </Route>
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default RouteSwitch;
+```
+
+
+
+
+
+
