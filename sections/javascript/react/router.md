@@ -277,6 +277,76 @@ const RouteSwitch = () => {
 export default RouteSwitch;
 ```
 
+### You can also remove the path prop from the parent route if your routs dont have any common path but share a common layout.
+
+```jsx
+// RouteSwitch.js
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import App from "./App";
+import Profile from "./Profile";
+import Post from "./Post";
+import PostLayout from "./PostLayout";
+
+const RouteSwitch = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route element={<PostLayout />}>
+            <Route index element={<Profile />} />
+            <Route path=":id" element={<Post />} />
+        </Route>
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default RouteSwitch;
+```
+
+### Outlet context prop
+
+- The `Outlet` component can be used to pass props to the child routes using the `context` prop.
+```jsx
+// PostLayout.js
+import {Link, Outlet} from 'react-router-dom';
+
+const PostLayout = () => {
+    return (
+        <div>
+            <h1>Post Layout</h1>
+            <Link to="/profile/1">Go to Post 1</Link>
+            <Link to="/profile/2">Go to Post 2</Link>
+            <Link to="/profile/3">Go to Post 3</Link>
+            <Outlet context={{name: "John Doe"}} />
+        </div>
+    )
+}
+
+export default PostLayout;
+```
+- Now you can access the `name` prop in the child routes using the `useOutletContext` hook.
+```jsx
+// Post.js
+import React from "react";
+import { useOutletContext, useParams } from "react-router-dom";
+
+const Post = () => {
+  const { id } = useParams();
+  const obj = useOutletContext();
+    return (
+        <div>
+        <h1>Post {id}</h1>
+        <h2>Author: {obj.name}</h2>
+        </div>
+    );
+};
+
+export default Post;
+```
+
 
 
 
