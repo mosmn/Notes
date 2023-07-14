@@ -94,6 +94,36 @@ const App = () => {
 
 export default App;
 ```
+- The `to` prop is used to specify the path to navigate to.
+
+### replace
+
+- The `replace` prop is used to replace the current page in the history stack.
+
+```jsx
+// App.js
+import React from "react";
+import { Link } from "react-router-dom";
+
+const App = () => {
+  return (
+    <div>
+      <h1>Hello from App</h1>
+      <Link to="/profile" replace>
+        Go to Profile
+      </Link>
+    </div>
+  );
+};
+
+export default App;
+```
+When you navigate to the profile page, the current page will be removed from the history stack. so when you click the back button, you will not be able to go back to the previous page.
+
+### reloadDocument
+
+- The `reloadDocument` prop is used to reload the document when the link is clicked.
+
 
 ## Dynamic parameter
 
@@ -346,9 +376,4 @@ const Post = () => {
 
 export default Post;
 ```
-
-
-
-
-
 
