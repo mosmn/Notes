@@ -26,3 +26,19 @@ npm install @testing-library/user-event
 5. Import the `userEvent` API from the `@testing-library/user-event` package. This API allows you to simulate user interactions with the webpage during testing. Alternatively, you could import the `fireEvent` API from `@testing-library/react`. However, it is recommended to use `userEvent` instead of `fireEvent` as it provides a more comprehensive set of user interactions.
 
 6. There is no need to import the `jest` package explicitly since it will be automatically detected by Jest, especially when running test files with the `.test.js` or `.test.jsx` extension.
+
+# Queries
+
+Queries are the methods that Testing Library gives you to find elements on the page. There are several types of queries ("get", "find", "query").
+
+Type of Query | 0 Matches | 1 Match | >1 Matches | Retry (Async/Await)
+--- | --- | --- | --- | ---
+Single Element | | | |
+getBy... | Throw error | Return element | Throw error | No
+queryBy... | Return null | Return element | Throw error | No
+findBy... | Throw error | Return element | Throw error | Yes
+Multiple Elements | | | |
+getAllBy... | Throw error | Return array | Return array | No
+queryAllBy... | Return [] | Return array | Return array | No
+findAllBy... | Throw error | Return array | Return array | Yes
+
