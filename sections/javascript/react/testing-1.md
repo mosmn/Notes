@@ -93,7 +93,7 @@ import App from "./App";
 
 describe("App component", () => {
   it("renders correct heading", () => {
-    render(<App />); //returns an object with several useful methods(such as getByRole)
+    render(<App />); //returns an object with several useful methods
     expect(screen.getByRole("heading").textContent).toMatch(/our first test/i);
   });
 });
@@ -110,3 +110,88 @@ describe("App component", () => {
 7. Note that the `getByRole` method is just one of the query methods provided by React Testing Library. There are other query methods categorized into three types: `getBy`, `queryBy`, and `findBy`. You can learn more about these query methods and their usage in the React Testing Library documentation under the "Queries" section. Pay extra attention to the "Types of Queries" and "Priority" subsections to understand how to select the appropriate query method for your tests.
 
 8. As mentioned in the React Testing Library documentation, `ByRole` methods are recommended for querying, especially when combined with the `name` option. For example, you can improve the specificity of the query by using `getByRole("heading", { name: "Our First Test" })`. Queries performed through `ByRole` ensure that the UI remains accessible to all users, regardless of the mode they use to navigate the webpage (e.g., mouse or assistive technologies).
+
+## Simulating User Events
+
+To test the functionality of a button that changes the heading of the App component, we can simulate user events using React Testing Library and the userEvent library.
+
+### App.js
+
+```jsx
+import React, { useState } from "react";
+
+const App = () => {
+  const [heading, setHeading] = useState("Magnificent Monkeys");
+
+  const clickHandler = () => {
+    setHeading("Radical Rhinos");
+  };
+
+  return (
+    <>
+      <button type="button" onClick={clickHandler}>
+        Click Me
+      </button>
+      <h1>{heading}</h1>
+    </>
+  );
+};
+
+export default App;
+```
+
+### App.test.js
+
+```jsx
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import App from "./App";
+
+describe("App component", () => {
+  it("renders magnificent monkeys", () => {
+    const { container } = render(<App />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders radical rhinos after button click", async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+    const button = screen.getByRole("button", { name: "Click Me" });
+
+    await user.click(button);
+
+    expect(screen.getByRole("heading").textContent).toMatch(/radical rhinos/i);
+  });
+});
+```
+
+**Note:** If you encounter a test failure related to the `setup` function not being found, it may indicate that you are using an older version of the `@testing-library/user-event` package that does not include the `setup` function. To resolve this issue, you can update the package to the latest version.
+
+Run the following command to update the `@testing-library/user-event` package:
+
+```shell
+npm install --save-dev @testing-library/user-event@latest
+```
+
+- The first test ensures that the component renders the "Magnificent Monkeys" heading correctly by using snapshots.
+- The second test simulates a click event on the button using `userEvent.click`. It then checks if the heading has changed to "Radical Rhinos" by matching the text content with a regex pattern.
+
+It's important to note that React Testing Library unmounts the rendered components after each test. Therefore, we render the component for each test. If you have multiple tests for a component, you can use the `beforeEach` function provided by Jest to set up the common setup code.
+
+In the second test, the callback function is marked as asynchronous because `user.click()` simulates an asynchronous user interaction. Starting from version 14.0.0 of the testing library's user-event APIs, the user-event APIs have been updated to be asynchronous. However, in older versions, the synchronous `userEvent.click()` method was used:
+```javascript
+it("renders radical rhinos after button click", () => {
+  render(<App />);
+  const button = screen.getByRole("button", { name: "Click Me" });
+
+  userEvent.click(button);
+
+  expect(screen.getByRole("heading").textContent).toMatch(/radical rhinos/i);
+});
+```
+
+To ease the transition from version 13 to version 14, the `userEvent.setup()` function is called internally. This setup approach is still supported in React Testing Library.
+
+By simulating user events, we can test the behavior of components and ensure they respond correctly to user interactions.
