@@ -45,6 +45,7 @@ queryAllBy... | Return [] | Return array | Return array | No
 findAllBy... | Throw error | Return array | Return array | Yes
 
 [Source](https://testing-library.com/docs/queries/about/#types-of-queries)
+[the React Testing Library’s cheatsheet page](https://testing-library.com/docs/dom-testing-library/cheatsheet/)
 
 ## Priority
 
@@ -113,7 +114,7 @@ describe("App component", () => {
 
 ## Simulating User Events
 
-To test the functionality of a button that changes the heading of the App component, we can simulate user events using React Testing Library and the userEvent library.
+To test the functionality of a button that changes the heading of the App component, we can simulate user events using React Testing Library and the [userEvent](https://testing-library.com/docs/user-event/intro) library.
 
 ### App.js
 
@@ -221,7 +222,7 @@ exports[`magnificent monkeys render 1`] = `
 `;
 ```
 
-This snapshot represents the HTML structure of the rendered `App` component. In future snapshot assertions, this snapshot will be compared against the actual rendered output of the component. If there are any differences, the test will fail.
+This snapshot represents the HTML structure of the rendered `App` component. In future snapshot assertions, this snapshot will be compared against the actual rendered output of the component. If there are any differences, the test will fail and alert the developer to review and update the snapshot(by pressing `u` in the terminal).
 
 ### Benefits of Snapshot Testing
 
