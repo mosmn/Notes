@@ -195,3 +195,50 @@ it("renders radical rhinos after button click", () => {
 To ease the transition from version 13 to version 14, the `userEvent.setup()` function is called internally. This setup approach is still supported in React Testing Library.
 
 By simulating user events, we can test the behavior of components and ensure they respond correctly to user interactions.
+
+## Snapshot Testing
+
+Snapshot testing is a testing approach that involves comparing the rendered output of a component with a previously saved snapshot file. The snapshot file is an HTML representation of the component's structure and is automatically generated during the initial test run.
+
+### Snapshot Example
+
+The automatically generated snapshot file for the "magnificent monkeys render" test in `App.test.js` looks like this:
+
+```javascript
+// App.test.js.snap
+
+exports[`magnificent monkeys render 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    Click Me
+  </button>
+  <h1>
+    Magnificent Monkeys
+  </h1>
+</div>
+`;
+```
+
+This snapshot represents the HTML structure of the rendered `App` component. In future snapshot assertions, this snapshot will be compared against the actual rendered output of the component. If there are any differences, the test will fail.
+
+### Benefits of Snapshot Testing
+
+Snapshot tests offer several advantages:
+
+1. **Simplicity**: Snapshot tests are easy to write since they require only a single assertion. Instead of manually asserting each element's existence, a `toMatchSnapshot` assertion compares the rendered output against the snapshot.
+
+2. **Quick Feedback**: Snapshot tests are fast to execute, providing quick feedback about any unintended changes in the component's appearance or structure.
+
+3. **Preventing Unexpected Changes**: Snapshots act as a safety net, preventing unexpected changes from creeping into the codebase. If the component changes even slightly, the test will fail, alerting the developer to review and update the snapshot.
+
+### Limitations and Considerations
+
+However, snapshot tests have some limitations and considerations:
+
+1. **Interpretation of Results**: Passing a snapshot test doesn't guarantee that the component is functionally correct. Snapshot tests primarily focus on detecting changes in the rendered output. Other tests, such as unit tests or integration tests, are better suited for verifying behavior and functionality.
+
+2. **False Positives**: Snapshot tests may produce false positives, leading to passing tests even when a bug exists. Snapshot tests cannot ensure the correctness of the component's logic or behavior.
+
+3. **False Negatives**: Even small changes, such as fixing punctuation or updating HTML tags for semantic purposes, can cause snapshot tests to fail. This may result in a loss of confidence in the test suite, requiring unnecessary updates to the snapshots.
