@@ -124,6 +124,36 @@ When you navigate to the profile page, the current page will be removed from the
 
 - The `reloadDocument` prop is used to reload the document when the link is clicked.
 
+### state
+
+- The `state` prop is used to pass data to the next page.
+
+```jsx
+// App.js
+import React from "react";
+import { Link } from "react-router-dom";
+
+const App = () => {
+  return (
+    <div>
+      <h1>Hello from App</h1>
+      <Link
+        to={{
+          pathname: "/profile",
+          state: {
+            name: "John Doe",
+            age: 25,
+          },
+        }}
+      >
+        Go to Profile
+      </Link>
+    </div>
+  );
+};
+
+export default App;
+```
 
 ## Dynamic parameter
 

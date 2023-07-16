@@ -243,3 +243,5 @@ However, snapshot tests have some limitations and considerations:
 2. **False Positives**: Snapshot tests may produce false positives, leading to passing tests even when a bug exists. Snapshot tests cannot ensure the correctness of the component's logic or behavior.
 
 3. **False Negatives**: Even small changes, such as fixing punctuation or updating HTML tags for semantic purposes, can cause snapshot tests to fail. This may result in a loss of confidence in the test suite, requiring unnecessary updates to the snapshots.
+
+[More on Snapshot Testing](https://www.sitepen.com/blog/snapshot-testing-benefits-and-drawbacks)
