@@ -76,7 +76,7 @@ Setting up mocks can be done in a `beforeEach` block if desired, but keeping the
 
 # React Testing in the Real World
 
-If you're logged in on this website, you've probably come across the project submissions list under every project. Those components are written in React and tested with the React Testing Library. In this lesson, we'll explore the `submissions-list.jsx` component and its corresponding test file.
+Explore the `submissions-list.jsx` component from [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/testing-practice).
 
 ## `submissions-list.jsx`
 
