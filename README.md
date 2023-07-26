@@ -52,6 +52,8 @@
 - [Pseudo-classes](sections/css/pseudo-classes.md)
 - [Pseudo-elements](sections/css/pseudo-elements.md)
 - [Selectors](sections/css/selectors.md)
+- Animations
+    - [Transforms](sections/css/transforms.md)
 
 ### JavaScript
 
