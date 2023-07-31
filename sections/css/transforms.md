@@ -113,8 +113,6 @@ Chaining multiple transforms is as simple as adding more transform functions wit
 ```
 We chained rotate and translate function values to both boxes, but in different orders. According to [MDN’s transform docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform#values): “The transform functions are multiplied in order from left to right, meaning that composite transforms are effectively applied in order from right to left.”
 
-Sure! Here are the notes from the provided text using Markdown, including code examples:
-
 # Three-Dimensional Transforms
 
 The `rotate`, `scale`, and `translate` transform functions aren't limited to just the 2D plane. They work for the 3D plane as well! However, to perceive a 3D effect on some of these function values, `perspective` is required.
