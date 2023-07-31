@@ -54,6 +54,7 @@
 - [Selectors](sections/css/selectors.md)
 - Animations
     - [Transforms](sections/css/transforms.md)
+    - [Transitions](sections/css/transitions.md)
 
 ### JavaScript
 
