@@ -55,6 +55,7 @@
 - Animations
     - [Transforms](sections/css/transforms.md)
     - [Transitions](sections/css/transitions.md)
+    - [Keyframes](sections/css/keyframes.md)
 
 ### JavaScript
 
