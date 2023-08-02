@@ -43,6 +43,8 @@
 
 - [Linking a file](sections/html/linking.md)
 - [Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+- Accessibility
+    - [Introduction](sections/html/accessibility/intro.md)
 
 ### CSS
 
