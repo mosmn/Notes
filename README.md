@@ -45,6 +45,8 @@
 - [Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
 - Accessibility
     - [Introduction](sections/html/accessibility/intro.md)
+    - [The Web Content Accessibility Guidelines (WCAG)](sections/html/accessibility/wcag.md)
+    - [Semantic HTML](sections/html/accessibility/semantic.md)
 
 ### CSS
 
