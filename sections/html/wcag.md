@@ -3,7 +3,12 @@
 - The Web Content Accessibility Guidelines (WCAG) exist to establish a shared standard for web accessibility.
 - They provide guidance on how to make websites more accessible for users with disabilities and other limitations.
 
+The official WCAG documentation can be found at [W3C](https://www.w3.org/WAI/standards-guidelines/wcag/)
+
+Use this [WebAIM's WCAG 2 Checklist](https://webaim.org/standards/wcag/checklist) when implementing accessibility
+
 # Four Principles of WCAG (POUR)
+
 1. Perceivable: Ensure that information and user interfaces are presented in a way that users can perceive. For example, avoid using light text on a light background that may be difficult for visually impaired users to read.
 2. Operable: Ensure that all users can operate user interfaces and navigation. Avoid interactions that can only be performed using a mouse, as this excludes keyboard users.
 3. Understandable: Ensure that users can understand the information and user interfaces presented to them. Provide clear and meaningful error messages that users can comprehend and act upon.
