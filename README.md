@@ -60,6 +60,8 @@
     - [Transforms](sections/css/transforms.md)
     - [Transitions](sections/css/transitions.md)
     - [Keyframes](sections/css/keyframes.md)
+    - [Accessible Colors](sections/css/accessible-colors.md)
+    - [Keyboard Navigation](sections/css/keyboard-navigation.md)
 
 ### JavaScript
 
