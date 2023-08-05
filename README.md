@@ -47,6 +47,11 @@
     - [Introduction](sections/html/accessibility/intro.md)
     - [The Web Content Accessibility Guidelines (WCAG)](sections/html/accessibility/wcag.md)
     - [Semantic HTML](sections/html/accessibility/semantic.md)
+    - [Accessible Colors](sections/css/accessible-colors.md)
+    - [Keyboard Navigation](sections/css/keyboard-navigation.md)
+    - [Meaningful Text](sections/css/meaningful-text.md)
+    - [WAI-ARIA](sections/css/wai-aria.md)
+    - [Accessibility Auditing](sections/css/accessibility-auditing.md)
 
 ### CSS
 
@@ -60,8 +65,9 @@
     - [Transforms](sections/css/transforms.md)
     - [Transitions](sections/css/transitions.md)
     - [Keyframes](sections/css/keyframes.md)
-    - [Accessible Colors](sections/css/accessible-colors.md)
-    - [Keyboard Navigation](sections/css/keyboard-navigation.md)
+- Responsive Design
+    - [Introduction](sections/css/responsive/responsive-design.md)
+
 
 ### JavaScript
 
