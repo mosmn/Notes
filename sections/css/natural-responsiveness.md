@@ -37,7 +37,8 @@
 ### 5. Utilize Flexbox and Grid
 - Flexbox and Grid are powerful tools for creating flexible layouts.
 - Properties like `flex-wrap`, `minmax`, and `auto-fill` in Grid can help achieve impressive responsiveness with minimal effort.
+- [auto-fill](https://gridbyexample.com/examples/example28/)
 
 ### Additional Resources
 
-- Using [percentage](https://codyloyd.com/2021/percentages/).
+- Using margin instead of [percentage](https://codyloyd.com/2021/percentages/) is a great way to maintain natural responsiveness.
