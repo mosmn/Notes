@@ -66,7 +66,10 @@
     - [Transitions](sections/css/transitions.md)
     - [Keyframes](sections/css/keyframes.md)
 - Responsive Design
-    - [Introduction](sections/css/responsive/responsive-design.md)
+    - [Introduction](sections/css/responsive-design.md)
+    - [Natural Responsiveness](sections/css/natural-responsiveness.md)
+    - [Responsive Images](sections/css/responsive-images.md)
+    - [Media Queries](sections/css/media-queries.md)
 
 
 ### JavaScript
@@ -102,6 +105,7 @@
 
 - React JS
     - [Introduction](sections/javascript/react/intro.md)
+    - [Setting Up A React Environment](sections/javascript/react/setup.md)
     - [State and Props](sections/javascript/react/state-props.md)
     - [Handling Input](sections/javascript/react/handling-input.md)
     - [Lifecycle Methods](sections/javascript/react/lifecycle.md)
