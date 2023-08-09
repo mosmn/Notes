@@ -1,6 +1,6 @@
 [Offical React Docs](https://react.dev/learn)
 
-# Components
+# Class Components
 
 Applications built with React are made up of reusable components. Components serve as the "building blocks" of your application or project. Dividing your application into separate components is a recommended practice when using React. Each component represents a specific part of your UI or functionality. Let's look at an example of how a simple homepage could be divided into components:
 
@@ -141,3 +141,63 @@ For instructions on installing React Developer Tools and basic debugging techniq
 
 2. Videos:
    - [Series](https://youtu.be/JPT3bFIwJYA)
+
+
+---
+
+# Functional Components
+
+Functional components are essentially JavaScript functions that return JSX. Here's an example:
+
+```jsx
+function Greeting() {
+  return <h1>"I swear by my pretty floral bonnet, I will end you."</h1>;
+}
+```
+
+1. Create a new file named `Greeting.jsx` in your project.
+2. Write your own functional component in the file. Ensure the function name is capitalized.
+3. Return your desired JSX content within the function.
+
+Remember that components should be capitalized to work correctly.
+
+### HTML escape code
+
+In the example above, `&quot;` is an escape code used to render a double quote (`"`). To avoid errors, use escape codes for special characters. You can also use tools like [LambdaTest's HTML Escape Tool](https://www.lambdatest.com/free-online-tools/html-escape) or refer to [w3.org](https://www.w3.org/) for more escape codes.
+
+## Where do components live?
+
+Components are often stored in dedicated files, making them independent. To use functionality from other components and share components, we use importing and exporting.
+
+Example of exporting a component:
+
+```jsx
+function Greeting() {
+  return <h1>"I swear by my pretty floral bonnet, I will end you."</h1>;
+}
+
+export default Greeting;
+```
+
+To import and use the component:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Greeting from './Greeting'; // Make sure to provide the correct path
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Greeting />
+  </React.StrictMode>
+);
+```
+
+By following these steps, you've successfully imported and used a custom-made component in your project.
+
+### Advanced: Named exports
+
+While components are often exported as defaults, you can also use named exports. Refer to [MDN documentation about export statements](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#description) for more details on using named exports.
+
+Remember, components enhance modularity and reusability in your React applications.
