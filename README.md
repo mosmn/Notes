@@ -104,8 +104,9 @@
     - [Isolation](sections/javascript/isolation.md)
 
 - React JS
-    - [Introduction](sections/javascript/react/intro.md)
     - [Setting Up A React Environment](sections/javascript/react/setup.md)
+    - [Introduction](sections/javascript/react/intro.md)
+    - [JSX](sections/javascript/react/jsx.md)
     - [State and Props](sections/javascript/react/state-props.md)
     - [Handling Input](sections/javascript/react/handling-input.md)
     - [Lifecycle Methods](sections/javascript/react/lifecycle.md)
