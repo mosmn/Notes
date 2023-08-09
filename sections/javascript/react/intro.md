@@ -98,7 +98,7 @@ The differences between functional and class components:
 
 [Read more about the differences between functional and class components](https://dev.to/colocodes/react-class-components-vs-function-components-23m6).
 
-### Create-react-app
+### Create-react-app (Deprecated)
 
 Developers at Facebook have created a tool called [create-react-app](https://github.com/facebook/create-react-app), which automates the setup and configuration of a complete React application. By running a single command, create-react-app handles all the necessary steps to get your project up and running quickly.
 
