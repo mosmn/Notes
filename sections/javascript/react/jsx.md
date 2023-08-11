@@ -1,0 +1,1 @@
+JSX is a syntax extension for Javascript that lets you write HTML-like markup inside a Javascript file. It’s not required to use JSX when writing React components, but it does make writing them more simple and concise.
