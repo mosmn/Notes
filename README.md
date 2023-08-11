@@ -114,6 +114,8 @@
     - [Router](sections/javascript/react/router.md)
     - [Testing 1](sections/javascript/react/testing-1.md)
     - [Testing 2](sections/javascript/react/testing-2.md)
+    - [Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md)
+    - [Patterns and architecture](https://www.patterns.dev/)
 
 - Node JS
     
