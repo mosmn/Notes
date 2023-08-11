@@ -1,5 +1,7 @@
 # JSX
 
+React docs [Javascript in JSX](https://react.dev/learn/javascript-in-jsx-with-curly-braces) for writing Javascript logic and referencing dynamic values inside markup.
+
 ### What is JSX?
 JSX is a syntax extension for JavaScript that allows you to write HTML-like markup inside a JavaScript file. It's not required for writing React components, but it simplifies and makes the code more concise.
 
