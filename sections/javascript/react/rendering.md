@@ -2,26 +2,6 @@
 
 [Official React documentation](https://react.dev/learn/rendering-lists)
 
-Let's say we want to create a component that lists multiple animals:
-
-```jsx
-function App() {
-  return (
-    <div>
-      <h1>Animals: </h1>
-      <ul>
-        <li>Lion</li>
-        <li>Cow</li>
-        <li>Snake</li>
-        <li>Lizard</li>
-      </ul>
-    </div>
-  );
-}
-```
-
-But what if we want to render more than just four animals? It can be tedious and long, especially when dealing with a dynamic list. We can use expressions inside JSX using curly braces to render a dynamic list:
-
 ```jsx
 function App() {
   const animals = ["Lion", "Cow", "Snake", "Lizard"];
@@ -38,11 +18,10 @@ function App() {
 }
 ```
 
-We define an array called `animals`, and inside our JSX, we use `map` to return a new array of `li` elements, adding `animal` as its text.
+- We use the `map` function to create an array of `<li>` elements for each animal in the `animals` array.
+- The `key` attribute is added to each `<li>` element to help React optimize rendering.
 
-# Rendering a List of Components in JSX
-
-We can use `props` to pass arguments to components. Here's a simple implementation:
+# Rendering a list of components in JSX
 
 ```jsx
 function ListItem(props) {
@@ -71,13 +50,10 @@ function App() {
 }
 ```
 
-We moved the `<ul>` element to a different component called `<List />`. This component accepts a `props` object containing the animals we defined as a property. We also created a separate component for the `<li>` element called `<ListItem />`, which accepts `props` and uses `props.animal` to render the text.
+- The `<List>` component receives the `animals` array as a prop and uses it to render a list of `<ListItem>` components.
+- The `ListItem` component displays a single animal from the props.
 
-# Conditionally Rendering UI
-
-We can make decisions within our component, like rendering animals that start with the letter "L." We'll use conditional expressions.
-
-## Using the Ternary Operator
+# Conditionally rendering UI
 
 ```jsx
 function List(props) {
@@ -102,9 +78,8 @@ function App() {
 }
 ```
 
-We use the `startsWith` method to check if the animal starts with the letter "L." If true, we return the `<li>` element; otherwise, we return `null`.
-
-## Using the && Operator
+- We use the ternary operator to conditionally render an animal in the list if it starts with the letter "L".
+- The `startsWith` method is used to check the condition.
 
 ```jsx
 function List(props) {
@@ -129,15 +104,15 @@ function App() {
 }
 ```
 
-We leverage the `startsWith` result with the `&&` operator. If the condition is true, it returns the second operand (the `<li>` element), and if the condition is false, it's ignored.
+- We use the `&&` operator to conditionally render an animal if it starts with the letter "L".
+- The `startsWith` method returns a boolean value, which determines whether the `<li>` element is rendered or ignored.
 
-## Falsy Values in JSX
+## Falsy values in JSX
 
-In JSX, values like `null`, `undefined`, and `false` do not render anything. However, values like `0` or an empty string render normally, so be aware of this behavior.
+- In JSX, values like `null`, `undefined`, and `false` do not render anything.
+- Values like `0` or an empty string (`""`) are valid in JSX and will be rendered as expected.
 
-# Other Ways to Render Conditionally
-
-We can use `if`, `if/else`, and `switch` to conditionally render something based on different conditions.
+## Other ways to render conditionally
 
 ```jsx
 function List(props) {
@@ -170,11 +145,8 @@ function App() {
 }
 ```
 
-We use the `if` statements as guards to immediately return an element based on the conditions. One checks if the `animals` property exists, and the other checks if the list's length is greater than 0. If the list is empty, it returns a message.
-
-If you remove the `animals` property when using the `List` component, the first `if` statement executes and returns "Loading..."—useful when fetching data from an API to indicate loading.
-
-You can also achieve this with ternary and `&&` operators:
+- The `<List>` component handles different scenarios: when `animals` is not provided, when the list is empty, and when the list has items.
+- This approach uses `if` statements to conditionally render different elements based on the state of the `animals` prop.
 
 ```jsx
 function List(props) {
@@ -223,3 +195,7 @@ function App() {
   );
 }
 ```
+
+- These examples use nested ternaries and multiple `&&` operators for conditional rendering.
+- The first example checks if `animals` is `null`, if it's an empty list, or if it has items, and renders the appropriate elements.
+- The second example uses separate conditional expressions for each case.

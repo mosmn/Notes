@@ -108,6 +108,7 @@
     - [Introduction](sections/javascript/react/intro.md)
     - [JSX](sections/javascript/react/jsx.md)
     - [Rendering Techniques](sections/javascript/react/rendering.md)
+    - [Keys](sections/javascript/react/keys.md)
     - [State and Props](sections/javascript/react/state-props.md)
     - [Handling Input](sections/javascript/react/handling-input.md)
     - [Lifecycle Methods](sections/javascript/react/lifecycle.md)

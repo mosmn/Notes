@@ -169,7 +169,175 @@ In the above code snippet, the `title` and `onButtonClicked` props are destructu
 
 Understanding the purpose and usage of props in React is essential for building components that can share data and functionality. By passing props from parent components to child components, you can create a modular and reusable code structure.
 
+## Data Transfer in React
+
+In React, data is transferred from parent components to child components via **props**. This data transfer is **unidirectional**, meaning it flows in only one direction. Any changes made to this data will only affect child components using the data, and not parent or sibling components. This restriction on the flow of data gives us more explicit control over it, resulting in fewer errors in our application.
+
+## Using Props(functional components)
+
+Consider a Button component that gets rendered multiple times within an App component.
+
+```jsx
+function Button() {
+  return (
+    <button>Click Me!</button>
+  )
+}
+
+export default function App() {
+  return (
+    <div>
+      <Button />
+      <Button />
+      <Button />
+    </div>
+  )
+}
+```
+
+### Problem with Static Components
+
+What if we want the text within the second button to be “Don’t Click Me!”? Right now, we would have to create a second button component with this different text. This approach leads to code duplication.
+
+```jsx
+function Button() {
+  return (
+    <button>Click Me!</button>
+  )
+}
+
+function Button2() {
+  return (
+    <button>Don't Click Me!</button>
+  )
+}
+
+export default function App() {
+  return (
+    <div>
+      <Button />
+      <Button2 />
+      <Button />
+    </div>
+  )
+}
+```
+
+### Solution: Dynamic Components with Props
+
+By using props, we can account for any number of variations with a single button component.
+
+```jsx
+function Button(props) {
+  const buttonStyle = {
+    color: props.color,
+    fontSize: props.fontSize + 'px'
+  };
+
+  return (
+    <button style={buttonStyle}>{props.text}</button>
+  )
+}
+
+export default function App() {
+  return (
+    <div>
+      <Button text="Click Me!" color="blue" fontSize={12} />
+      <Button text="Don't Click Me!" color="red" fontSize={12} />
+      <Button text="Click Me!" color="blue" fontSize={20} />
+    </div>
+  );
+}
+```
+
+### Prop Destructuring
+
+A common pattern is **prop destructuring**. Unpacking props in the component arguments allows for more concise and readable code.
+
+```jsx
+function Button({ text, color, fontSize }) {
+  const buttonStyle = {
+    color: color,
+    fontSize: fontSize + "px"
+  };
+
+  return <button style={buttonStyle}>{text}</button>;
+}
+```
+
+### Default Props
+
+To avoid repeating common prop values and to protect our application from undefined values, we can define **default props** that will be used by the component when no values are supplied.
+
+```jsx
+function Button({ text, color, fontSize }) {
+  const buttonStyle = {
+    color: color,
+    fontSize: fontSize + "px"
+  };
+
+  return <button style={buttonStyle}>{text}</button>;
+}
+
+Button.defaultProps = {
+  text: "Click Me!",
+  color: "blue",
+  fontSize: 12
+};
+
+export default function App() {
+  return (
+    <div>
+      <Button />
+      <Button text="Don't Click Me!" color="red" />
+      <Button fontSize={20} />
+    </div>
+  );
+}
+```
+
+### Functions as Props
+
+In addition to passing variables through props, you can also pass through functions. Here's an example:
+
+```jsx
+function Button({ text = "Click Me!", color = "blue", fontSize = 12, handleClick }) {
+  const buttonStyle = {
+    color: color,
+    fontSize: fontSize + "px"
+  };
+
+  return (
+    <button onClick={handleClick} style={buttonStyle}>
+      {text}
+    </button>
+  );
+}
+
+export default function App() {
+  const handleButtonClick = () => {
+    window.location.href = "http://www.google.com";
+  };
+
+  return (
+    <div>
+      <Button handleClick={handleButtonClick} />
+    </div>
+  );
+}
+```
+
+This example shows how a function (`handleButtonClick`) is defined in the parent component and passed as a prop to the Button component.
+
+## Additional Notes
+
+- We only pass a reference to the function without including parentheses, i.e., `handleClick={handleButtonClick}`. If we include parentheses like `handleClick={handleButtonClick()}`, the function would be called as the button renders.
+- Prop names and values do not need to be the same; we can rename the function when passing it as a prop.
+- You can supply parameters to the function by attaching a reference to an anonymous function within the component where the function is called.
+
 For more information on props, check out [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
+
+---
 
 # State
 
