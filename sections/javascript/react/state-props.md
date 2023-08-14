@@ -454,6 +454,86 @@ The `Footer` component, on the other hand, does not need access to the username 
 
 This approach provides a clean and efficient way to share state between components, allowing for better organization and separation of concerns.
 
+## What is State in React?
+
+State is a crucial concept in React, especially when dealing with dynamic user interfaces. It allows components to remember and manage information about themselves. State represents a component's memory, enabling it to undergo visual changes based on user or computer interactions.
+
+In the following code example, we'll see how state is used to create an app that changes its background color based on the clicked button:
+
+```jsx
+import React, { useState } from "react";
+import "./App.css";
+
+const COLORS = ["pink", "green", "blue", "yellow", "purple"];
+
+function App() {
+  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
+
+  const onButtonClick = (color) => () => {
+    setBackgroundColor(color);
+  };
+
+  return (
+    <div
+      className="App"
+      style={{
+        backgroundColor,
+      }}
+    >
+      {COLORS.map((color) => (
+        <button
+          type="button"
+          key={color}
+          onClick={onButtonClick(color)}
+          className={backgroundColor === color ? "selected" : ""}
+        >
+          {color}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the `useState` hook is used to define a state variable called `backgroundColor`. The `onButtonClick` function is a click event handler that updates the `backgroundColor` state when a button is clicked, resulting in a color change for the app's background.
+
+## The useState Hook
+
+The `useState` hook is a built-in hook in React that allows functional components to have their own state. It takes an initial value as a parameter and returns an array with two elements:
+
+1. The current state value
+2. A function to update the state value
+
+Here's the basic pattern for using `useState`:
+
+```jsx
+const [stateValue, setStateValue] = useState(initialValue);
+```
+
+In the provided example, the `backgroundColor` state is defined using the `useState` hook, allowing the component to keep track of the current background color.
+
+## How does State work in React?
+
+In React, when a component's state or props change, the component is **rerendered**, which means it's destroyed and recreated from scratch. The entire component is recreated, but the latest state value is retained. This process of comparing and updating the UI efficiently is handled by React's **reconciliation algorithm**, which operates on a **virtual DOM**.
+
+The `useState` hook plays a significant role in this process. When the `useState` value changes, the component is scheduled for rerendering, and the new state value is provided to the component.
+
+This concept is illustrated by the following diagram:
+![React Rerendering](https://cdn.statically.io/gh/TheOdinProject/curriculum/abf5962ab36c951bab907a9952d09400651eab10/react/states_and_effects/introduction_to_state/imgs/00.png)
+
+In the code example, the `backgroundColor` state change triggers a rerendering of the `App` component, ensuring that the latest color is applied to the background.
+
+## Hooks and Rules
+
+Hooks in React are functions that allow you to use various features. All hooks have the "use" prefix, like `useState`. It's essential to follow certain rules when using hooks:
+
+1. Hooks can only be called from the top level of a functional component.
+2. Hooks can't be called from inside loops or conditions.
+
+These rules help ensure that hooks work correctly and maintain consistent behavior in React components. As you continue your React journey, you'll encounter more hooks that enhance the functionality of your components.
+
 # State and props in functional components
 
 - React provides the ability to create components as functions, called functional components.
