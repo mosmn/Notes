@@ -458,7 +458,7 @@ This approach provides a clean and efficient way to share state between componen
 
 State is a crucial concept in React, especially when dealing with dynamic user interfaces. It allows components to remember and manage information about themselves. State represents a component's memory, enabling it to undergo visual changes based on user or computer interactions.
 
-In the following code example, we'll see how state is used to create an app that changes its background color based on the clicked button:
+Code example, App that changes its background color based on the clicked button:
 
 ```jsx
 import React, { useState } from "react";
