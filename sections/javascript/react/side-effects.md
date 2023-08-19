@@ -6,3 +6,5 @@ A side effect is any application state change that is observable outside the cal
 - Modifying any external variable or object property (e.g., a global variable, or a variable in the parent function scope chain)
 - Logging to the console
 - Writing to the screen
+- Writing to a file
+- Writing to the network
