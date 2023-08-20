@@ -8,3 +8,5 @@ A side effect is any application state change that is observable outside the cal
 - Writing to the screen
 - Writing to a file
 - Writing to the network
+- Triggering any external process
+- Calling any other functions with side-effects
