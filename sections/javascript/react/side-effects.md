@@ -17,3 +17,5 @@ A side effect is any application state change that is observable outside the cal
 A pure function is a function that has the following properties:
 - Its return value is the same for the same arguments (no variation with local static variables, non-local variables, mutable reference arguments or input streams from I/O devices).
 - Its evaluation has no side effects (no mutation of local static variables, non-local variables, mutable reference arguments or I/O streams).
+- It does not call impure functions.
+- ...
