@@ -19,3 +19,5 @@ A pure function is a function that has the following properties:
 - Its evaluation has no side effects (no mutation of local static variables, non-local variables, mutable reference arguments or I/O streams).
 - It does not call impure functions.
 - ...
+
+## Why do we need pure functions?
