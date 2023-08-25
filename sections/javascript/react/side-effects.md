@@ -21,3 +21,6 @@ A pure function is a function that has the following properties:
 - ...
 
 ## Why do we need pure functions?
+
+Pure functions have a lot of benefits:
+- They are easier to reason about and test.
