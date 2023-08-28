@@ -26,3 +26,5 @@ Pure functions have a lot of benefits:
 - They are easier to reason about and test.
 - They are less prone to bugs.
 - They can be run in parallel.
+- They can be cached.
+- ...
