@@ -28,3 +28,5 @@ Pure functions have a lot of benefits:
 - They can be run in parallel.
 - They can be cached.
 - ...
+
+## How to avoid side effects?
