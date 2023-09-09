@@ -2,7 +2,7 @@
 
 **A Basic Fetch Request**
 
-Before we dive into the React-specific aspects of data fetching, let's briefly revisit how we can utilize the `fetch` API to retrieve data from a server:
+`fetch` API to retrieve data from a server:
 
 ```javascript
 const image = document.querySelector("img");
@@ -20,7 +20,7 @@ Here, we're making a request to the JSONPlaceholder API to fetch an image and th
 
 **Using `fetch` in React Components**
 
-Now, let's see how we can integrate data fetching into a similar React component. A common scenario is fetching data from an API when a component mounts, allowing us to display that data on the screen.
+A common scenario is fetching data from an API when a component mounts, allowing us to display that data on the screen.
 
 When a component needs to make a request during rendering, it's often best to encapsulate the `fetch` operation within a React effect.
 
@@ -106,6 +106,124 @@ This allows us to conditionally render a loading message:
 if (loading) return <p>Loading...</p>;
 ```
 
-By incorporating these error and loading states, we ensure a smoother user experience, even when dealing with unreliable network conditions.
+# Custom Hooks
 
-# 
+**Creating a Custom Hook**
+
+Let's start by elevating our data-fetching logic to a custom hook. This approach allows us to make the logic reusable and easily testable. Here's how we can achieve this for our example:
+
+```javascript
+import { useState, useEffect } from "react";
+
+const useImageURL = () => {
+  const [imageURL, setImageURL] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/photos", { mode: "cors" })
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("server error");
+        }
+        return response.json();
+      })
+      .then((response) => setImageURL(response[0].url))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { imageURL, error, loading };
+};
+
+const Image = () => {
+  const { imageURL, error, loading } = useImageURL();
+
+  if (error) return <p>A network error was encountered</p>;
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <>
+      <h1>An image</h1>
+      <img src={imageURL} alt={"placeholder text"} />
+    </>
+  );
+};
+```
+
+With this custom hook, we encapsulate the data-fetching logic and reuse it in our `Image` component. This separation of concerns enhances code maintainability and reusability.
+
+**Managing Multiple Fetch Requests**
+
+In a real-world web application, you'll often need to make multiple requests, which requires careful organization. One common issue new React developers face when dealing with multiple requests is known as a "waterfall of requests." Let's explore this concept with an example:
+
+```javascript
+import { useEffect, useState } from 'react';
+import Bio from './Bio.jsx';
+
+const Profile = ({ delay }) => {
+  const [imageURL, setImageURL] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/photos', { mode: 'cors' })
+        .then((response) => response.json())
+        .then((response) => setImageURL(response[0].url))
+        .catch((error) => console.error(error));
+    }, delay);
+  }, [delay]);
+
+  // ...
+};
+
+export default Profile;
+
+import { useState, useEffect } from 'react';
+
+const Bio = ({ delay }) => {
+  const [bioText, setBioText] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/photos', { mode: 'cors' })
+        .then((response) => response.json())
+        .then((response) => setBioText('I like long walks on the beach and JavaScript'))
+        .catch((error) => console.error(error));
+    }, delay);
+  }, []);
+
+  // ...
+};
+```
+
+In this example, both `Profile` and its child component `Bio` make fetch requests independently. However, this approach can lead to performance issues, as the child component (`Bio`) waits for the parent component (`Profile`) to complete its request before rendering.
+
+To address this, we can lift the request to the higher-level component and pass the response as a prop to the child component. This ensures that both requests are initiated simultaneously, improving performance and maintaining a smooth user experience. as such:
+
+```javascript
+import { useEffect, useState } from 'react';
+import Bio from './Bio.jsx';
+
+const Profile = ({ delay }) => {
+  const [imageURL, setImageURL] = useState(null);
+  const [bioText, setBioText] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/photos', { mode: 'cors' })
+        .then((response) => response.json())
+        .then((response) => setImageURL(response[0].url))
+        .catch((error) => console.error(error));
+    }, delay);
+
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/photos', { mode: 'cors' })
+        .then((response) => response.json())
+        .then((response) => setBioText('I like long walks on the beach and JavaScript'))
+        .catch((error) => console.error(error));
+    }, delay);
+  }, [delay]);
+
+  // ...
+};
+```
