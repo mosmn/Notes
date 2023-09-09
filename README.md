@@ -116,6 +116,8 @@
     - [How To Deal With Side Effects](sections/javascript/react/side-effects.md)
     - [Typechecking With PropTypes](sections/javascript/react/prop-types.md)
     - [Router](sections/javascript/react/router.md)
+    - [Fetching Data](sections/javascript/react/fetching-data.md)
+    - [Context API](sections/javascript/react/context-api.md)
     - [Testing 1](sections/javascript/react/testing-1.md)
     - [Testing 2](sections/javascript/react/testing-2.md)
     - [Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md)
