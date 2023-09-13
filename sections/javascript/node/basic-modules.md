@@ -137,8 +137,136 @@ This command loads the environment variables from the `.env` file without the ne
 
 # HTTP Module
 
+In Node.js, you can make HTTP requests using various methods and libraries. Here, we'll explore how to perform GET, POST, PUT, and DELETE requests, starting with GET and POST.
+
+## GET Request
+
+### Using Axios Library
+
+To make a GET request using Axios, follow these steps:
+
+1. Install Axios using npm:
+   ```markdown
+   $ npm install axios
+   ```
+
+2. Import Axios in your script:
+   ```javascript
+   const axios = require('axios');
+   ```
+
+3. Make the GET request:
+   ```javascript
+   axios
+     .get('https://example.com/todos')
+     .then(res => {
+       console.log(`statusCode: ${res.status}`);
+       console.log(res.data);
+     })
+     .catch(error => {
+       console.error(error);
+     });
+   ```
+
+### Using Node.js Standard Modules
+
+You can also perform a GET request using Node.js standard modules. While it's more verbose, it doesn't require a third-party library:
+
+```javascript
+const https = require('https');
+
+const options = {
+  hostname: 'example.com',
+  port: 443,
+  path: '/todos',
+  method: 'GET',
+};
+
+const req = https.request(options, res => {
+  console.log(`statusCode: ${res.statusCode}`);
+
+  res.on('data', d => {
+    process.stdout.write(d);
+  });
+});
+
+req.on('error', error => {
+  console.error(error);
+});
+
+req.end();
+```
+
+## POST Request
+
+### Using Axios Library
+
+To make a POST request using Axios:
+
+```javascript
+const axios = require('axios');
+
+const data = {
+  todo: 'Buy the milk',
+};
+
+axios
+  .post('https://whatever.com/todos', data)
+  .then(res => {
+    console.log(`statusCode: ${res.status}`);
+    console.log(res.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+### Using Node.js Standard Modules
+
+For a POST request with Node.js standard modules:
+
+```javascript
+const https = require('https');
+
+const data = JSON.stringify({
+  todo: 'Buy the milk',
+});
+
+const options = {
+  hostname: 'whatever.com',
+  port: 443,
+  path: '/todos',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': data.length,
+  },
+};
+
+const req = https.request(options, res => {
+  console.log(`statusCode: ${res.statusCode}`);
+
+  res.on('data', d => {
+    process.stdout.write(d);
+  });
+});
+
+req.on('error', error => {
+  console.error(error);
+});
+
+req.write(data);
+req.end();
+```
+
+## PUT and DELETE Requests
+
+PUT and DELETE requests follow a similar pattern to POST requests. To perform these requests, adjust the `options.method` value accordingly.
+
 # File System
 
 # URL Class
 
 # NPM
+
+# Events
