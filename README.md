@@ -129,6 +129,7 @@
         - [What is NodeJS?](sections/javascript/nodejs/what-is-nodejs.md)
         - [Server-side](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction)
         - [Client-Server model. what happens when a server receives a request?](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
+        - [Basic modules and functions](sections/javascript/nodejs/basic-modules.md)
     
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
