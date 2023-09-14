@@ -553,6 +553,235 @@ In summary, choose the appropriate file reading method based on your application
 
 # URL Class
 
+The Browser-compatible URL class is implemented following the WHATWG URL Standard. This class is used for parsing URLs in accordance with browser conventions. It is also available on the global object.
+
+- All properties of URL objects are implemented as getters and setters on the class prototype, not as data properties on the object itself. Therefore, using the `delete` keyword on any properties of URL objects has no effect but will still return `true`.
+
+### `new URL(input[, base])`
+
+- `input` `<string>`: The absolute or relative input URL to parse. If `input` is relative, `base` is required. If `input` is absolute, `base` is ignored. If `input` is not a string, it is converted to a string first.
+- `base` `<string>`: The base URL to resolve against if `input` is not absolute. If `base` is not a string, it is converted to a string first.
+
+Creates a new URL object by parsing the `input` relative to the `base`. If `base` is passed as a string, it will be parsed equivalently to `new URL(base)`.
+
+Example:
+
+```javascript
+const myURL = new URL('/foo', 'https://example.org/');
+// Result: https://example.org/foo
+```
+
+- The URL constructor is accessible as a property on the global object and can also be imported from the built-in `url` module (in Node.js).
+
+```javascript
+console.log(URL === require('node:url').URL); // Prints 'true'.
+```
+
+- A `TypeError` will be thrown if the `input` or `base` are not valid URLs. Efforts are made to coerce the given values into strings.
+
+Example:
+
+```javascript
+const myURL = new URL({ toString: () => 'https://example.org/' });
+// Result: https://example.org/
+```
+
+- Unicode characters within the host name of `input` will be automatically converted to ASCII using the Punycode algorithm.
+
+Example:
+
+```javascript
+const myURL = new URL('https://測試');
+// Result: https://xn--g6w251d/
+```
+
+- When it is not known in advance if `input` is an absolute URL and a `base` is provided, it is advised to validate that the origin of the URL object is as expected.
+
+Examples:
+
+```javascript
+let myURL = new URL('http://Example.com/', 'https://example.org/');
+// Result: http://example.com/
+
+myURL = new URL('https://Example.com/', 'https://example.org/');
+// Result: https://example.com/
+
+myURL = new URL('foo://Example.com/', 'https://example.org/');
+// Result: foo://Example.com/
+
+myURL = new URL('http:Example.com/', 'https://example.org/');
+// Result: http://example.com/
+
+myURL = new URL('https:Example.com/', 'https://example.org/');
+// Result: https://example.org/Example.com/
+
+myURL = new URL('foo:Example.com/', 'https://example.org/');
+// Result: foo:Example.com/
+```
+
+All the properties a re avaliable in the [Node.js documentation](https://nodejs.org/api/url.html#class-url).
+
 # NPM
+
+[npm](https://www.npmjs.com/) is the standard package manager for Node.js. As of September 2022, it boasts over 2.1 million packages in its registry, making it the largest single-language code repository globally. With npm, you can find a package for almost any purpose, making it an invaluable tool for Node.js development. While its initial purpose was to manage dependencies for Node.js packages, it has since become a vital tool in frontend JavaScript development as well.
+
+## npm Alternatives
+
+- [Yarn](https://yarnpkg.com/): A package manager that focuses on speed and reliability, often used as an alternative to npm.
+- [pnpm](https://pnpm.io/): A fast and disk-space-efficient package manager compatible with npm, designed to save disk space and speed up installations.
+
+## Managing Downloads
+
+npm excels at managing the downloads of project dependencies.
+
+### Installing All Dependencies
+
+To install all dependencies listed in a project's `package.json` file, simply run the following command:
+
+```shell
+npm install
+```
+
+This command will create a `node_modules` folder if it doesn't exist and install all the required packages.
+
+### Installing a Single Package
+
+For installing a specific package, use the following command:
+
+```shell
+npm install <package-name>
+```
+
+Starting from npm version 5, the `<package-name>` is automatically added to the `dependencies` section of the `package.json` file. In earlier versions, you needed to add the `--save` flag. Additional flags can be used to modify this behavior:
+
+- `--save-dev`: Installs the package and adds it to the `devDependencies` section of `package.json`.
+- `--no-save`: Installs the package but doesn't add it to `package.json`.
+- `--save-optional`: Installs the package and adds it to `optionalDependencies` in `package.json`.
+- `--no-optional`: Prevents the installation of optional dependencies.
+
+Shorthand versions of these flags are also available:
+
+- `-S`: Equivalent to `--save`
+- `-D`: Equivalent to `--save-dev`
+- `-O`: Equivalent to `--save-optional`
+
+**Note:** The distinction between `devDependencies` and `dependencies` is that the former includes development tools, such as testing libraries, while the latter is bundled with the application in production. Optional dependencies do not block installation if they fail to build, but handling their absence is the responsibility of your program.
+
+### Updating Packages
+
+Updating packages is straightforward with npm. To check for newer versions of packages that meet your versioning constraints, use:
+
+```shell
+npm update
+```
+
+To update a specific package, use:
+
+```shell
+npm update <package-name>
+```
+
+## Versioning
+
+npm not only manages package downloads but also handles versioning. You can specify precise versions or define version ranges to ensure compatibility with your project.
+
+Sometimes, you may find that a library is only compatible with a specific major release of another library, or a bug in the latest release of a library remains unfixed. Specifying explicit versions helps maintain consistency within your team until you update the `package.json` file.
+
+npm follows the [semantic versioning (semver)](https://semver.org/) standard, which helps in version management.
+
+To install a specific version of a package, use the following command:
+
+```shell
+npm install <package-name>@<version>
+```
+
+## Running Tasks
+
+The `package.json` file supports defining command-line tasks that can be executed using `npm run <task-name>`.
+
+For example, you can define tasks like this:
+
+```json
+{
+  "scripts": {
+    "start-dev": "node lib/server-development",
+    "start": "node lib/server-production"
+  }
+}
+```
+
+This feature is commonly used to run tools like Webpack:
+
+```json
+{
+  "scripts": {
+    "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+    "dev": "webpack --progress --colors --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js"
+  }
+}
+```
+
+Instead of typing long and potentially error-prone commands, you can use these defined tasks:
+
+```shell
+$ npm run watch
+$ npm run dev
+$ npm run prod
+```
+
+These tasks simplify the execution of complex commands in your development workflow.
+
+## package.json
+
+[package.json](https://github.com/nodejs/nodejs.dev/blob/aa4239e87a5adc992fdb709c20aebb5f6da77f86/content/learn/node-js-package-manager/package-json.en.md) has detailed documentation of its properties.
+
+## Local and Global Packages
+
+When working with Node.js and npm (Node Package Manager), it's essential to distinguish between local and global packages. The primary difference lies in how and where these packages are installed and accessed within your development environment.
+
+## Local Packages
+
+Local packages are installed in the directory where you execute the command `npm install <package-name>`. Here are some key points to remember:
+
+- **Installation Location:** They are placed within the `node_modules` directory under the specific project directory where the `npm install` command was run.
+- **Access in Code:** To use local packages in your code, you typically require them using `require('package-name')`.
+
+### When to Install Packages Locally
+
+In general, the best practice is to install packages locally for the following reasons:
+
+1. **Isolation:** Each project maintains its own set of local packages, ensuring that different projects can use different versions of the same package without conflicts. This isolation is crucial to avoid compatibility issues and ensure project stability.
+
+2. **Version Control:** Including local packages in your project's version control system (e.g., Git) allows you to track and share the specific package versions used in your project, enhancing collaboration and reproducibility.
+
+## Global Packages
+
+Global packages, on the other hand, are stored in a single location on your system, regardless of where you execute the `npm install -g <package-name>` command. Here are additional details:
+
+- **Installation Location:** Global packages are installed in a system-wide directory, the exact location of which depends on your system's configuration.
+- **Access in Code:** You cannot directly require global packages in your code as you would with local packages. Instead, global packages typically provide executable commands that you can run from the command line (CLI).
+
+### When to Install Packages Globally
+
+Install packages globally when they provide executable commands that you need to access from the shell (CLI), and you intend to use these commands across multiple projects. Some common examples of global packages include:
+
+- npm
+- vue-cli
+- grunt-cli
+- mocha
+- react-native-cli
+- gatsby-cli
+- forever
+- nodemon
+
+You can check your system for globally installed packages by running the following command in your terminal:
+
+```bash
+npm list -g --depth 0
+```
+
+This command will list all global packages installed on your system, helping you identify packages with global CLI functionality.
+
 
 # Events
