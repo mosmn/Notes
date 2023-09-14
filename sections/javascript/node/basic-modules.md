@@ -783,5 +783,70 @@ npm list -g --depth 0
 
 This command will list all global packages installed on your system, helping you identify packages with global CLI functionality.
 
-
 # Events
+
+In Node.js, the events module allows you to handle and manage events, similar to how interactions with users are handled in JavaScript within the browser. The events module provides the `EventEmitter` class for managing events.
+
+## Importing the EventEmitter Class
+To start working with events, you first need to import the `EventEmitter` class from the events module and create an instance of it:
+
+```javascript
+const EventEmitter = require('events');
+const eventEmitter = new EventEmitter();
+```
+
+## Basic Event Handling
+1. **`emit(event, [args])`**: This method is used to trigger an event. You can also pass additional arguments to the event handler function.
+
+   ```javascript
+   eventEmitter.emit('start'); // Trigger the 'start' event
+   eventEmitter.emit('start', 23); // Pass an argument to the event handler
+   eventEmitter.emit('start', 1, 100); // Pass multiple arguments to the event handler
+   ```
+
+2. **`on(event, callback)`**: Use this method to add a callback function that will be executed when the specified event is triggered.
+
+   ```javascript
+   eventEmitter.on('start', () => {
+     console.log('started');
+   });
+   ```
+
+## Additional Event Handling Methods
+The `EventEmitter` object provides various methods for handling events:
+
+- **`once(event, callback)`**: Adds a one-time listener that will be executed only the first time the event is emitted.
+
+- **`removeListener(event, callback)` / `off(event, callback)`:** Removes a specific event listener for the given event.
+
+- **`removeAllListeners([event])`**: Removes all listeners for a specific event or all events if no event name is provided.
+
+- **`eventNames()`:** Returns an array of strings representing the events registered on the current `EventEmitter` object.
+
+- **`getMaxListeners()`:** Retrieves the maximum number of listeners that can be added to an `EventEmitter` object.
+
+- **`listenerCount(event)`:** Returns the count of listeners for the specified event.
+
+- **`listeners(event)`:** Gets an array of listeners for the specified event.
+
+- **`prependListener(event, callback)`:** Adds a listener to the beginning of the listeners queue for the specified event.
+
+- **`prependOnceListener(event, callback)`:** Adds a one-time listener to the beginning of the listeners queue for the specified event.
+
+- **`setMaxListeners(n)`:** Sets the maximum number of listeners that can be added to an `EventEmitter` object. The default is 10 but can be increased or decreased.
+
+## In-Built Events
+The `EventEmitter` object also has two in-built events:
+
+- **`newListener`**: Emitted when a new listener is added.
+- **`removeListener`**: Emitted when a listener is removed.
+
+## Setting and Getting Maximum Listeners
+You can set and get the maximum number of listeners for an `EventEmitter` object using the `setMaxListeners(n)` and `getMaxListeners()` methods. The default maximum is 10.
+
+```javascript
+eventEmitter.setMaxListeners(50); // Increase the maximum number of listeners
+const maxListeners = eventEmitter.getMaxListeners(); // Get the current maximum listeners limit
+```
+
+For more details on these methods and additional functionalities, refer to the [official documentation](https://nodejs.org/api/events.html) of the events module.
