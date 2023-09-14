@@ -39,3 +39,10 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.end('Hello World!');
 }).listen(8080);
+```
+
+## Resources
+
+- [Article](https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5) 
+- [Official Node.js Website](https://nodejs.dev/en/learn/introduction-to-nodejs/)
+- [Event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
