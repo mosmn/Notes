@@ -24,7 +24,6 @@
 ## Atlas Clusters and Data Storage
 
 - MongoDB Atlas uses clusters to store your data.
-- In the upcoming sections, you will learn more about Atlas clusters, including how to create your own free tier Atlas cluster.
 - The Atlas Data Explorer will be used to load and view sample data.
 
 # MongoDB Atlas Overview and Features
