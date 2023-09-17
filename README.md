@@ -185,6 +185,12 @@
 ### MongoDB
 
 - [Introduction](sections/db/mongodb/intro.md)
+- [MongoDB and the Document Model](sections/db/mongodb/document-model.md)
+- [Connecting to a MongoDB Database](sections/db/mongodb/connecting.md)
+- [CRUD Operations: Insert and Find Documents](sections/db/mongodb/inser-find.md)
+- [CRUD Operations: Replace and Delete Documents](sections/db/mongodb/replace-delete.md)
+- [CRUD Operations: Modifying Query Results](sections/db/mongodb/modifying-query.md)
+- [Aggregation](sections/db/mongodb/aggregation.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
