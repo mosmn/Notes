@@ -1,120 +1,134 @@
-# USING RELEVANCE-BASED SEARCH AND SEARCH INDEXES
+# Using Relevance-Based Search and Search Indexes
 
-Relevance-Based Search
-Surface records based on a search term, example:
+## Relevance-Based Search
+
+Relevance-based search is a way to surface records from a database based on their relevance to a search term. It allows users to find information that matches their query effectively. Here's an example of how relevance-based search works:
 
 ![Relevance-Based Search](https://d36ai2hkxl16us.cloudfront.net/course-uploads/ae62dcd7-abdc-4e90-a570-83eccba49043/y2a02tbr03tu-relevancesearch.png)
 
-Database Indexes
-Used by developers and
-database administrators
-to make their frequent
-database queries easier
-and more efficient
-Search Indexes
-Specify how records are
-referenced for relevance
-based search(end users query for information)
+In relevance-based search, you specify search terms, and the database returns records that match those terms in a way that prioritizes their relevance.
+
+## Database Indexes
+
+Database indexes are data structures used by developers and database administrators to improve the efficiency of frequent database queries. They enhance the speed at which data can be retrieved from the database. Indexes are used to optimize query performance and are essential for making applications responsive and scalable.
+
+## Search Indexes
+
+Search indexes, on the other hand, are used to specify how records are referenced for relevance-based search, which is the end-users' way of querying for information. Search indexes define the rules and configurations for search algorithms.
+
+Here's an example of how a search index might look:
+
+```json
 {
-  "analyzer": "lucene.standard", //This is where we specify the analyzer that we will use for the search index - lucene.standard is the default.
+  "analyzer": "lucene.standard",
   "searchAnalyzer": "lucene.standard",
   "mappings": {
     "dynamic": true,
-    fields: {This is where we start to declare our field mappings, and turn off dynamic indexing in favor of field mappings.
+    "fields": {
       "title": {
         "type": "string"
       },
-        "plot": {
-            "type": "string"
-        } These are the fields in our collection that are being mapped to be indexed.
+      "plot": {
+        "type": "string"
+      }
+    }
   }
 }
-A search index is used to describe how the application search algorithm should work. You can customize this with Atlas Search.
+```
 
-# CREATING A SEARCH INDEX WITH DYNAMIC MAPPING
+In this example:
 
-Search Index
+- `analyzer` specifies the analyzer used for the search index (in this case, "lucene.standard" is the default).
+- `searchAnalyzer` specifies the analyzer used for searching.
+- `mappings` declare field mappings and turn off dynamic indexing in favor of field mappings.
 
-Defines how a search
-should be performed
+A search index defines how the application's search algorithm should function, and it can be customized according to the requirements of the application.
 
-Database Index
+## Creating a Search Index with Dynamic Mapping
 
-Makes database queries
-more efficient
+When you create a search index with dynamic mapping, the index queries all fields, including nested fields. Dynamic field mapping searches all fields for the search term, with equal weight placed on all fields.
 
-A search with a dynamic index will query against all of the fields, including nested fields.
-Dynamic field mapping is used to search all of the fields for the search term, with equal weight placed on all fields.
+## Creating a Search Index with Static Field Mapping
 
-# CREATING A SEARCH INDEX WITH STATIC FIELD MAPPING
-If the search index is statically mapped and the only field mapping is for the "storeLocation" field, and you searched for one of the items sold by the office supply company, notepads, how many results will come up?
-The only field indexed is the location of the store, so data such as the items sold have not been indexed by the search algorithm. Only queries for names of cities present as values in the storeLocation field will be returned.
+In contrast, if you create a search index with static field mapping, you specify which fields to index explicitly. Only queries for the specified fields will return results. Other fields won't be indexed or searchable.
 
-{
-    "mappings": {
-        "dynamic": false,
-        "fields": {
-            "common_name": [
-            {
-                "dynamic": true,
-                "type": "document"
-            },
-            {
-                "type": "string"
-            }
-            ]
-        }
-    }
-}
+## Using $search and Compound Operators
 
-# Using $search and Compound Operators
-The compound operator within the $search aggregation stage allows us to give weight to different field and also filter our results without having to create additional aggregation stages. The four options for the compound operator are "must", "mustNot, "should", and "filter".
+In MongoDB, you can use the `$search` aggregation stage to perform relevance-based searches. The `$search` stage allows you to specify various compound operators to control the behavior of the search. These compound operators include:
 
-"must" will exclude records that do not meet the criteria. "mustNot" will exclude results that do meet the criteria. "should" will allow you to give weight to results that do meet the criteria so that they appear first. "filter" will remove results that do not meet the criteria.
+- `must`: Excludes records that do not meet the criteria.
+- `mustNot`: Excludes results that do meet the criteria.
+- `should`: Allows you to give weight to results that meet the criteria to prioritize them.
+- `filter`: Removes results that do not meet the criteria.
 
-$search {
+Here's an example of how you can use these compound operators within the `$search` aggregation stage:
+
+```json
+$search: {
   "compound": {
-    "must": [{
-      "text": {
-        "query": "field",
-        "path": "habitat"
+    "must": [
+      {
+        "text": {
+          "query": "field",
+          "path": "habitat"
+        }
       }
-    }],
-    "should": [{
-      "range": {
-        "gte": 45,
-        "path": "wingspan_cm",
-        "score": {"constant": {"value": 5}}
+    ],
+    "should": [
+      {
+        "range": {
+          "gte": 45,
+          "path": "wingspan_cm",
+          "score": {
+            "constant": {
+              "value": 5
+            }
+          }
+        }
       }
-    }]
+    ]
   }
 }
+```
 
-"Must", "must not", "should", and "filter" are all clauses, but "filter" does not impact the score given to the results.
+These compound operators allow you to filter, prioritize, and fine-tune your search results based on various criteria.
 
-# Grouping Search Results by Using Facets
-$searchMeta and $facet
-$searchMeta is an aggregation stage for Atlas Search where the metadata related to the search is shown. This means that if our search results are broken into buckets, using $facet, we can see that in the $searchMeta stage, because those buckets are information about how the search results are formatted.
+## Grouping Search Results by Using Facets
 
+When working with relevance-based search, you can use `$searchMeta` and `$facet` to group and analyze search results. `$searchMeta` provides metadata related to the search, while `$facet` allows you to define facets for grouping results.
+
+Here's an example of how to use `$searchMeta` and `$facet` to group search results:
+
+```json
 $searchMeta: {
-    "facet": {
-        "operator": {
-            "text": {
-            "query": ["Northern Cardinal"],
-            "path": "common_name"
-            }
-        },
-        "facets": {
-            "sightingWeekFacet": {
-                "type": "date",
-                "path": "sighting",
-                "boundaries": [ISODate("2022-01-01"), 
-                    ISODate("2022-01-08"),
-                    ISODate("2022-01-15"),
-                    ISODate("2022-01-22")],
-                "default" : "other"
-            }
-        }
+  "facet": {
+    "operator": {
+      "text": {
+        "query": ["Northern Cardinal"],
+        "path": "common_name"
+      }
+    },
+    "facets": {
+      "sightingWeekFacet": {
+        "type": "date",
+        "path": "sighting",
+        "boundaries": [
+          ISODate("2022-01-01"),
+          ISODate("2022-01-08"),
+          ISODate("2022-01-15"),
+          ISODate("2022-01-22")
+        ],
+        "default": "other"
+      }
     }
+  }
 }
-"facet" is an operator within $searchMeta. "operator" refers to the search operator - the query itself. "facets" operator is where we put the definition of the buckets for the facets.
+```
+
+In this example:
+
+- `facet` is an operator within `$searchMeta`.
+- `operator` refers to the search query itself.
+- `facets` operator is where you define the buckets for grouping the results.
+
+By using `$facet`, you can organize search results into meaningful categories or facets, making it easier for users to navigate and refine their search.
