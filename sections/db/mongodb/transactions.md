@@ -55,6 +55,20 @@ const collection = session.getDatabase('<add database name>').getCollection('<ad
 
 session.commitTransaction();
 ```
+If it's successful, .commitTransaction() will output a message to the shell that resembles the following:
+```javascript
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1647437775, i: 5 }),
+    signature: {
+      hash: Binary(Buffer.from("b0d88d5a96372efb9af22021cdd59021741ddb5c", "hex"), 0),
+      keyId: Long("7019511514256113665")
+    }
+  },
+  operationTime: Timestamp({ t: 1647437775, i: 5 })
+}
+```
 
 This code demonstrates the essential steps to initiate and execute a multi-document transaction using a MongoDB session. Remember to replace `<add database name>` and `<add collection name>` with your specific database and collection names.
 
