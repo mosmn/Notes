@@ -191,6 +191,10 @@
 - [CRUD Operations: Replace and Delete Documents](sections/db/mongodb/replace-delete.md)
 - [CRUD Operations: Modifying Query Results](sections/db/mongodb/modifying-query.md)
 - [Aggregation](sections/db/mongodb/aggregation.md)
+- [Indexes](sections/db/mongodb/indexes.md)
+- [Atlas Search](sections/db/mongodb/atlas-search.md)
+- [Data Modeling](sections/db/mongodb/data-modeling.md)
+- [Transactions](sections/db/mongodb/transactions.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
