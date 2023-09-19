@@ -5,6 +5,8 @@
     - [HTML](#html)
     - [CSS](#css)
     - [JavaScript](#javascript)
+        - [React JS](#react-js)
+        - [Node JS](#node-js)s
     - [C++](#c)
 
 - [Database](#database)
@@ -103,37 +105,38 @@
     - [Testing Basics](sections/javascript/testing-basics.md)
     - [Isolation](sections/javascript/isolation.md)
 
-- React JS
-    - [Setting Up A React Environment](sections/javascript/react/setup.md)
-    - [Introduction](sections/javascript/react/intro.md)
-    - [JSX](sections/javascript/react/jsx.md)
-    - [Rendering Techniques](sections/javascript/react/rendering.md)
-    - [Keys](sections/javascript/react/keys.md)
-    - [State and Props](sections/javascript/react/state-props.md)
-    - [Handling Input](sections/javascript/react/handling-input.md)
-    - [Lifecycle Methods](sections/javascript/react/lifecycle.md)
-    - [Hooks](sections/javascript/react/hooks.md)
-    - [How To Deal With Side Effects](sections/javascript/react/side-effects.md)
-    - [Typechecking With PropTypes](sections/javascript/react/prop-types.md)
-    - [Router](sections/javascript/react/router.md)
-    - [Fetching Data](sections/javascript/react/fetching-data.md)
-    - [Context API](sections/javascript/react/context-api.md)
-    - [Testing 1](sections/javascript/react/testing-1.md)
-    - [Testing 2](sections/javascript/react/testing-2.md)
-    - [Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md)
-    - [Patterns and architecture](https://www.patterns.dev/)
 
-- Node JS
-    - Intro
-        - [Backend?](sections/javascript/node/backend.md)
-        - [What is NodeJS?](sections/javascript/node/what-is-nodejs.md)
-        - [Server-side](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction)
-        - [Client-Server model. what happens when a server receives a request?](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
-        - [Basic modules and functions](sections/javascript/node/basic-modules.md)
-        - [Debugging](sections/javascript/node/debugging.md)
-    - Express & Mongoose
-        - [Introduction to Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#rendering_data_views)
-        - [Setting up a Node development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment#using_npm)
+#### React JS
+- [Setting Up A React Environment](sections/javascript/react/setup.md)
+- [Introduction](sections/javascript/react/intro.md)
+- [JSX](sections/javascript/react/jsx.md)
+- [Rendering Techniques](sections/javascript/react/rendering.md)
+- [Keys](sections/javascript/react/keys.md)
+- [State and Props](sections/javascript/react/state-props.md)
+- [Handling Input](sections/javascript/react/handling-input.md)
+- [Lifecycle Methods](sections/javascript/react/lifecycle.md)
+- [Hooks](sections/javascript/react/hooks.md)
+- [How To Deal With Side Effects](sections/javascript/react/side-effects.md)
+- [Typechecking With PropTypes](sections/javascript/react/prop-types.md)
+- [Router](sections/javascript/react/router.md)
+- [Fetching Data](sections/javascript/react/fetching-data.md)
+- [Context API](sections/javascript/react/context-api.md)
+- [Testing 1](sections/javascript/react/testing-1.md)
+- [Testing 2](sections/javascript/react/testing-2.md)
+- [Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md)
+- [Patterns and architecture](https://www.patterns.dev/)
+
+#### Node JS
+- Intro
+    - [Backend?](sections/javascript/node/backend.md)
+    - [What is NodeJS?](sections/javascript/node/what-is-nodejs.md)
+    - [Server-side](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction)
+    - [Client-Server model. what happens when a server receives a request?](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
+    - [Basic modules and functions](sections/javascript/node/basic-modules.md)
+    - [Debugging](sections/javascript/node/debugging.md)
+- Express & Mongoose
+    - [Introduction to Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#rendering_data_views)
+    - [Setting up a Node development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment#using_npm)
     
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
