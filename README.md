@@ -6,7 +6,7 @@
     - [CSS](#css)
     - [JavaScript](#javascript)
         - [React JS](#react-js)
-        - [Node JS](#node-js)s
+        - [Node JS](#node-js)
     - [C++](#c)
 
 - [Database](#database)
@@ -105,6 +105,16 @@
     - [Testing Basics](sections/javascript/testing-basics.md)
     - [Isolation](sections/javascript/isolation.md)
 
+- Data Structures & Algorithms
+    - [Intro](sections/javascript/intro.md)
+    - [Recursive Methods](sections/javascript/recursive-methods.md)
+    - [Time Complexity](sections/javascript/time-complexity.md)
+    - [Space Complexity](sections/javascript/space-complexity.md)
+    - Common Data Structures and Algorithms
+        - [Linked Lists](sections/javascript/linked-lists.md)
+        - [Stacks & Queues](sections/javascript/stacks-queues.md)
+        - [Binary Search Trees](sections/javascript/binary-search-trees.md)
+
 
 #### React JS
 - [Setting Up A React Environment](sections/javascript/react/setup.md)
@@ -137,16 +147,8 @@
 - Express & Mongoose
     - [Introduction to Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#rendering_data_views)
     - [Setting up a Node development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment#using_npm)
-    
-- Data Structures & Algorithms
-    - [Intro](sections/javascript/intro.md)
-    - [Recursive Methods](sections/javascript/recursive-methods.md)
-    - [Time Complexity](sections/javascript/time-complexity.md)
-    - [Space Complexity](sections/javascript/space-complexity.md)
-    - Common Data Structures and Algorithms
-        - [Linked Lists](sections/javascript/linked-lists.md)
-        - [Stacks & Queues](sections/javascript/stacks-queues.md)
-        - [Binary Search Trees](sections/javascript/binary-search-trees.md)
+    - [Express 101](sections/javascript/node/express-101.md)
+
 
 ### C++
 
