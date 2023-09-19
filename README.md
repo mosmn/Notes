@@ -132,7 +132,8 @@
         - [Basic modules and functions](sections/javascript/node/basic-modules.md)
         - [Debugging](sections/javascript/node/debugging.md)
     - Express & Mongoose
-        - [Introduction to Express](sections/javascript/node/express-intro.md)
+        - [Introduction to Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#rendering_data_views)
+        - [Setting up a Node development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment#using_npm)
     
 - Data Structures & Algorithms
     - [Intro](sections/javascript/intro.md)
