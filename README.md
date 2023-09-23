@@ -150,6 +150,8 @@
     - [Express 101](sections/javascript/node/express-101.md)
     - [Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
     - [Express 102: CRUD and MVC](sections/javascript/node/express-102.md)
+    - [Mongoose primer](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#mongoose_primer)
+    - [Deploying](sections/javascript/node/deploying.md)
 
 
 ### C++
