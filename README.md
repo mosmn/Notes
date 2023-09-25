@@ -152,6 +152,14 @@
     - [Express 102: CRUD and MVC](sections/javascript/node/express-102.md)
     - [Mongoose primer](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#mongoose_primer)
     - [Deploying](sections/javascript/node/deploying.md)
+    - [Express 103: Routes and Controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
+    - [Express 104: View Templates](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
+    - [Express 105: Forms and Deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+- Authentication
+    - [Authentication](sections/javascript/node/authentication.md)
+    - [Authorization](sections/javascript/node/authorization.md)
+    - [OAuth](sections/javascript/node/oauth.md)
+
 
 
 ### C++
