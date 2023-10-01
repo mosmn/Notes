@@ -157,10 +157,7 @@
     - [Express 105: Forms and Deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
 - Authentication
     - [Authentication](sections/javascript/node/authentication.md)
-    - [Authorization](sections/javascript/node/authorization.md)
     - [OAuth](sections/javascript/node/oauth.md)
-
-
 
 ### C++
 
