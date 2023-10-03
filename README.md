@@ -21,10 +21,8 @@
     - [Software Engineering Principles](#software-engineering-principles)
     - [Data Communication and Networking](#data-communication-and-networking)
     - [Database Fundamentals](#database-fundamentals)
-
-- [Getting Hired](#getting-hired)
-    - [Interview Prep](#interview-prep)
-    - [Resume Guide](#resume-guide)
+    - [Parallel computing](#parallel-computing)
+    - [Human Computer Interaction](#human-computer-interaction)
 
 - [Resources](#resources)
 
@@ -284,21 +282,15 @@
 - [Database design](sections/theo/dbf/database-design.md)
 - [Normalization](sections/theo/dbf/normalization.md)
 
+### Parallel computing
+
+- [Introduction](sections/theo/pc/intro.md)
+
+### Human Computer Interaction
+
+- [Introduction](sections/theo/hci/intro.md)
+
 [Back to Table of Contents](#table-of-contents) ⬆
-
-# Getting Hired
-
-### Interview Prep
-
-- [JS Interview Questions](sections/interview/js-interview.md)
-- [React Interview Questions](sections/interview/react-interview.md)
-
-### Resume Guide
-
-- [Resume](sections/resume/resume.md)
-- [Cover Letter](sections/resume/cover-letter.md)
-- [Portfolio](sections/resume/portfolio.md)
-- [LinkedIn](sections/resume/linkedin.md)
 
 # Resources
 
