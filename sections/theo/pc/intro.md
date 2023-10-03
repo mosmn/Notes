@@ -149,7 +149,7 @@ The major problem of executing multiple instructions in a scalar program is the 
 
 Amdahl's Law states that potential program speedup is defined by the fraction of code (P) that can be parallelized:
 
-\[ \text{speedup} = \frac{1}{1 - P} \]
+`\[ \text{speedup} = \frac{1}{1 - P} \]`
 
 - If none of the code can be parallelized, P = 0, and the speedup = 1 (no speedup).
 - If all of the code is parallelized, P = 1, and the speedup is infinite (in theory).
