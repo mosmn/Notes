@@ -120,3 +120,63 @@ The compute resources can include:
 ### Data Dependency Problem
 
 The major problem of executing multiple instructions in a scalar program is the handling of data dependencies. If data dependencies are not effectively handled, it is difficult to achieve an execution rate of more than one instruction per clock cycle.
+
+# Terminologies in Parallel Computing
+
+| Term                        | Definition                                                                                                                                                  |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Supercomputing / High Performance Computing (HPC) | Using the world's fastest and largest computers to solve large problems |
+| Node | A standalone "computer in a box" that can be networked together to comprise a supercomputer |
+| CPU / Socket / Processor / Core | CPU (Central Processing Unit) was a singular execution component for a computer. Multiple CPUs were incorporated into a node, and individual CPUs were subdivided into multiple "cores." CPUs with multiple cores are sometimes called "sockets" (vendor dependent). A node with multiple CPUs may contain multiple cores. |
+| Task | A logically discrete section of computational work, typically a program or program-like set of instructions that is executed by a processor |
+| Parallel tasks | A task that can be executed by multiple processors safely, yielding correct results |
+| Serial execution | Execution of a program sequentially, one statement at a time, often on a single processor machine. Virtually all parallel tasks have sections of a parallel program that must be executed serially. |
+| Parallel Execution | Execution of a program by more than one task, with each task being able to execute the same or different statements at the same moment in time |
+| Pipelining | Breaking a task into steps performed by different processor units, with inputs streaming through, much like an assembly line; a type of parallel computing |
+| Symmetric MultiProcessor (SMP) | Hardware architecture where multiple processors share a single address space and access to all resources, known as shared memory computing |
+| Distributed Memory | Hardware: network-based memory access for physical memory that is not common; Programming model: tasks can only logically "see" local machine memory and must use communications to access memory on other machines where other tasks are executing |
+| Shared Memory | Hardware: describes a computer architecture where all processors have direct access to common physical memory; Programming model: parallel tasks all have the same "picture" of memory and can directly address and access the same logical memory locations regardless of where the physical memory exists |
+| Communications | Exchange of data; can occur through shared memory buses or over a network |
+| Granularity | Qualitative measure of the ratio of computation to communication. Can be coarse (relatively large amounts of computational work done between communication events) or fine (relatively small amounts of computational work done between communication events) |
+| Scalability | Refers to a parallel system's (hardware and/or software) ability to demonstrate a proportionate increase in parallel speedup with the addition of more processors |
+| Parallel Overhead | The amount of time required to coordinate parallel tasks |
+| Massively Parallel | Hardware comprising a given parallel system with many processors |
+| Speed | The time it takes the program to execute |
+
+# Performance Measurement
+
+## Amdahl's Law
+
+Amdahl's Law states that potential program speedup is defined by the fraction of code (P) that can be parallelized:
+
+\[ \text{speedup} = \frac{1}{1 - P} \]
+
+- If none of the code can be parallelized, P = 0, and the speedup = 1 (no speedup).
+- If all of the code is parallelized, P = 1, and the speedup is infinite (in theory).
+- If 50% of the code can be parallelized, the maximum speedup = 2, meaning the code will run twice as fast.
+
+Introducing the number of processors performing the parallel fraction of work, the relationship can be modeled by:
+
+\[ \text{speedup} = \frac{1}{\frac{P + S}{N}} \]
+
+Where P = parallel fraction, N = number of processors, and S = serial fraction.
+
+Here's a table illustrating speedup calculated using the formula above for different values of P:
+
+| N     | P = 0.50 | P = 0.90 | P = 0.99 |
+|-------|---------|---------|---------|
+| 10    | 1.82    | 5.26    | 9.17    |
+| 100   | 1.98    | 9.17    | 50.25   |
+| 1000  | 1.99    | 9.91    | 90.99   |
+| 10000 | 1.99    | 9.91    | 99.02   |
+
+## Complexity
+
+- In general, parallel applications are much more complex than corresponding serial applications, perhaps an order of magnitude. Not only do you have multiple instruction streams executing at the same time, but you also have data flowing between them.
+- The costs of complexity are measured in programmer time in virtually every aspect of the software development cycle:
+  - Design
+  - Coding
+  - Debugging
+  - Tuning
+  - Maintenance
+- Adhering to "good" software development practices is essential when working with parallel applications, especially if somebody besides you will have to work with the software.
