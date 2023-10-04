@@ -62,7 +62,7 @@ Synonyms for "user-friendly" in Microsoft Word are easy to use, accessible, comp
 - Ergonomics or Human Factors: User-Equipment Design-Environment.
 - Engineering & Computer Science: Faster machines, faster systems, building better interfaces.
 - Design: Interface layout.
-- Anthropology: User body shape.
+- Anthropology: User body shape.(e.g., keyboard design originated from the type writer)
 - Sociology: Groupware. Considers the introduction of IT in society.
 - Philosophy: Philosophy of technology. Create consistency.
 - Linguistics: Language for commands.

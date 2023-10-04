@@ -170,7 +170,7 @@
 - [GUI](sections/cpp/gui.md)
 - [Standard Template Library](sections/cpp/stl.md)
 - Data Structures & Algorithms
-    - [Stack](sections/cpp/stack.md)
+    - [Abstract Data Type and STL](sections/cpp/dsa/adt.md)
     - [Queue](sections/cpp/queue.md)
     - [Linked List](sections/cpp/linked-list.md)
     - [Binary Search Tree](sections/cpp/bst.md)
