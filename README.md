@@ -215,6 +215,7 @@
 - [CRUD Operations: Modifying Query Results](sections/db/mongodb/modifying-query.md)
 - [CRUD Operations in Node.js](sections/db/mongodb/crud-nodejs.md)
 - [Aggregation](sections/db/mongodb/aggregation.md)
+- [Aggregation in Node.js](sections/db/mongodb/aggregation-nodejs.md)
 - [Indexes](sections/db/mongodb/indexes.md)
 - [Atlas Search](sections/db/mongodb/atlas-search.md)
 - [Data Modeling](sections/db/mongodb/data-modeling.md)
