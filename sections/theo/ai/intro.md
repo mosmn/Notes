@@ -141,6 +141,3 @@ In Europe and Japan, Prolog is preferred, while in America, Lisp is often used.
 **Lisp**:
 - Flexible and adapts to changing programming styles.
 - Enables writing complex programs easily and quickly.
-
-# Overview of AI Application Areas
-
