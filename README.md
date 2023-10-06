@@ -24,6 +24,7 @@
     - [Database Fundamentals](#database-fundamentals)
     - [Parallel computing](#parallel-computing)
     - [Human Computer Interaction](#human-computer-interaction)
+    - [Artificial Intelligence](#artificial-intelligence)
 
 - [Resources](#resources)
 
@@ -212,6 +213,7 @@
 - [CRUD Operations: Insert and Find Documents](sections/db/mongodb/inser-find.md)
 - [CRUD Operations: Replace and Delete Documents](sections/db/mongodb/replace-delete.md)
 - [CRUD Operations: Modifying Query Results](sections/db/mongodb/modifying-query.md)
+- [CRUD Operations in Node.js](sections/db/mongodb/crud-nodejs.md)
 - [Aggregation](sections/db/mongodb/aggregation.md)
 - [Indexes](sections/db/mongodb/indexes.md)
 - [Atlas Search](sections/db/mongodb/atlas-search.md)
@@ -296,6 +298,10 @@
 ### Human Computer Interaction
 
 - [Introduction](sections/theo/hci/intro.md)
+
+### Artificial Intelligence
+
+- [Introduction](sections/theo/ai/intro.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
