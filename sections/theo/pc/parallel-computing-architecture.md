@@ -12,11 +12,11 @@ Multiple.
 
 Flynn Taxonomy - Categories:
 
-![categories](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fcomputer-architecture-flynns-taxonomy%2F&psig=AOvVaw1tlxYsPG2w6h4Q5ffVR7oH&ust=1696920078311000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIiS1YWu6IEDFQAAAAAdAAAAABAE)
+![categories](https://media.geeksforgeeks.org/wp-content/uploads/cao.png)
 
 Taxonomy of Parallel Processor Architectures:
 
-![2](https://www.researchgate.net/publication/358119371/figure/fig1/AS:1116456372699137@1643195350458/A-taxonomy-of-parallel-processor-architectures.ppm)
+![2](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5nx8oBKTpXi2BHXvReptbA-hR4WbfjfH4lMt8oaUA5M3mQCZCul8p6yAcP11glkVcpmM&usqp=CAU)
 
 ## Single Instruction, Single Data (SISD)
 
