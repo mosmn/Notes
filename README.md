@@ -295,6 +295,7 @@
 ### Parallel computing
 
 - [Introduction](sections/theo/pc/intro.md)
+- [Parallel Computing Architecture](sections/theo/pc/parallel-computing-architecture.md)
 
 ### Human Computer Interaction
 
