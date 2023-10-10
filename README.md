@@ -185,6 +185,7 @@
 ### Java
 
 - [Introduction to OOP](sections/java/intro.md)
+- [Basics](sections/java/basics.md)
 
 
 

@@ -101,3 +101,77 @@ Flynn's Taxonomy is a widely used classification system for parallel computers, 
 
 #### Nonuniform Memory Access (NUMA)
 
+NUMA (Nonuniform Memory Access) is a parallel computing architecture often created by physically linking two or more SMPs (Symmetric Multiprocessors). In NUMA, all processors have access to all parts of main memory, but the access time depends on the location of the memory.
+
+**Characteristics:**
+- Maintains a transparent system-wide memory view with multiple processor nodes.
+- One SMP can directly access the memory of another SMP.
+- Not all processors have equal access times to all memory locations.
+- When cache coherency is maintained, it is known as Cache Coherent NUMA (CC-NUMA).
+- Cache coherence is maintained among caches of different processors.
+
+![8](https://ars.els-cdn.com/content/image/1-s2.0-B9780124080898000033-f03-04-9780124080898.jpg)
+
+**Design Issues:**
+- Overloaded memory access to remote nodes.
+- Additional nodes introduce additional traffic.
+  
+**Solutions:**
+- Use L1 and L2 caches to minimize memory access.
+- Implement software techniques to ensure good spatial locality (virtual memory).
+- Employ OS-based page migration to manage memory effectively.
+
+**Pros:**
+- High performance with minimal software changes.
+  
+**Cons:**
+- Not as transparent as SMP, requiring software changes.
+- Availability concerns due to complexity.
+
+### Distributed Memory
+
+Distributed Memory is an approach where a group of interconnected computers work together as a unified computing resource. Each computer in the cluster operates independently and has its own local memory, which is not shared. CPUs in this architecture need explicit access to data in other processors, which must be defined by the programmer.
+
+![9](http://csis.pace.edu/~marchese/SE765/L0/Introduction%20to%20Parallel%20Computing_files/distributed_mem.gif)
+
+**Advantages:**
+- Memory scales with the number of processors.
+- Offers absolute scalability, often better than standalone machines.
+- Incremental scalability allows for adding new nodes.
+- High availability; failure in one node doesn't impact the entire system.
+- Provides superior price/performance by adding computing power at a lower cost.
+- Each processor can access its local memory rapidly without interference.
+
+**Disadvantages:**
+- Increased complexity for programmers in terms of data arrangement.
+- Mapping existing data structures can be challenging based on global memory.
+- Non-uniform memory access times, with data on remote nodes taking longer to access than local data.
+
+### Cluster Configuration
+
+Clusters can be configured in various ways:
+
+1. Standby server with no shared disk: Two-node interconnected setup with high-speed links, LAN, and WAN communication.
+
+2. Shared disk: Two-node interconnected setup with high-speed links, LAN, WAN communication, and a disk subsystem such as a RAID system.
+
+**Clustering Methods:**
+
+- Passive Standby: One computer handles all processing load, with the other taking over only in the event of failure. "Heartbeat" messages are sent from the primary machine to standby machines, increasing availability but not performance.
+
+- Active Secondary: Separate servers actively process tasks and are connected to disks. Servers share access to these disks.
+
+**Clusters compared to SMP:**
+
+| Characteristic | Clusters | SMP (Symmetric Multiprocessor) |
+| --- | --- | --- |
+| Number of Processors | Multiple processors | Multiple processors |
+| Configuration | Need to deal with different computer range and specifications | Easier to manage and configure |
+| Physical Space | More space to allocate to each node | Located on computer motherboard |
+| Power Consumption | Power required by each node | Power required by each processor |
+| Stability | Not stable – depends on connection and node’s availability | Stable and established |
+| Scalability | Big and expandable | Small-scale/single computing |
+
+## Hybrid Distributed Shared Memory
+
+This architecture applies both shared and distributed memory architectures. It combines a shared memory component (such as a shared memory machine or GPUs) with a distributed memory component (networking of multiple shared memory/GPU machines). Each node in the distributed memory component only knows about its own memory, and network communication handles data transfer between nodes.
