@@ -147,7 +147,7 @@ Distributed Memory is an approach where a group of interconnected computers work
 - Mapping existing data structures can be challenging based on global memory.
 - Non-uniform memory access times, with data on remote nodes taking longer to access than local data.
 
-### Cluster Configuration
+## Cluster Configuration
 
 Clusters can be configured in various ways:
 

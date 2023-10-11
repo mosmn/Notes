@@ -9,6 +9,7 @@
         - [Node JS](#node-js)
     - [C++](#c)
     - [Java](#java)
+    - [Python](#python)
 
 - [Database](#database)
     - [SQL](#sql)
@@ -26,7 +27,7 @@
     - [Human Computer Interaction](#human-computer-interaction)
     - [Artificial Intelligence](#artificial-intelligence)
 
-- [Resources](#resources)
+- [Sources](#sources)
 
 # Programming Notes
 ### Git
@@ -308,7 +309,7 @@
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
-# Resources
+# Sources
 
 - [CCNA](https://www.netacad.com/courses/networking/ccna-v7-introduction-networks)
 - [The Odin Project](https://www.theodinproject.com/)
