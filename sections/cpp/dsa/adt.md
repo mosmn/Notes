@@ -192,8 +192,8 @@ Algorithms in the STL are procedures that are applied to containers to process t
     - **cend()**: Returns a constant iterator pointing to the theoretical element that follows the last element in the list.
     - **crbegin()**: Returns a constant reverse iterator pointing to the last element in the list (reverse beginning).
     - **crend()**: Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the list (considered as reverse end).
-
-    - **Operations**:
+   
+   - **Operations**:
         - **splice()**: Transfers elements from one list to another.
         - **remove()**: Removes elements with a specific value from the list.
         - **remove_if()**: Removes elements that fulfill a specified condition.
