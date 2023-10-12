@@ -193,14 +193,14 @@ Algorithms in the STL are procedures that are applied to containers to process t
     - **crbegin()**: Returns a constant reverse iterator pointing to the last element in the list (reverse beginning).
     - **crend()**: Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the list (considered as reverse end).
 
-- **Operations**:
-  - **splice()**: Transfers elements from one list to another.
-  - **remove()**: Removes elements with a specific value from the list.
-  - **remove_if()**: Removes elements that fulfill a specified condition.
-  - **unique()**: Removes duplicate values from the list.
-  - **merge()**: Merges sorted lists into one.
-  - **sort()**: Sorts elements in the list.
-  - **reverse()**: Reverses the order of elements in the list.
+    - **Operations**:
+        - **splice()**: Transfers elements from one list to another.
+        - **remove()**: Removes elements with a specific value from the list.
+        - **remove_if()**: Removes elements that fulfill a specified condition.
+        - **unique()**: Removes duplicate values from the list.
+        - **merge()**: Merges sorted lists into one.
+        - **sort()**: Sorts elements in the list.
+        - **reverse()**: Reverses the order of elements in the list.
 
 ## Vector vs List
 
