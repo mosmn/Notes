@@ -61,3 +61,156 @@ An iterator is an object that accesses the elements of a container. Iterators ar
 ## Algorithms
 
 Algorithms in the STL are procedures that are applied to containers to process their data, for example, search for an element in an array, or sort an array. About 70 generic functions, known as algorithms, are provided in the STL. These perform operations such as searching and sorting. Each is implemented to require a certain level of iterator (and therefore will work on any container that provides an interface by iterators). Algorithms are in addition to the methods provided by containers, but some algorithms are implemented as member functions for efficiency.
+
+# Vector & List
+
+## Vector
+
+- **Description**: A vector is one of the simplest containers in the STL (Standard Template Library).
+
+- **Characteristics**:
+  - Elements are stored contiguously in memory, similar to a dynamic array.
+  - Low memory utilization, good locality of reference, and good data cache utilization.
+  - Allows random access with indices.
+  - Efficient memory allocation.
+  - Automatically resizes when elements are inserted or deleted.
+
+- **Syntax**:
+  ```cpp
+  vector <data_type> vector_name;
+  ```
+  Example:
+  ```cpp
+  vector <int> myVector;
+  ```
+
+- **Member Functions**:
+  - **Modifier Functions**:
+    - **assign()**: Assigns new values to the vector elements by replacing old ones.
+    - **push_back()**: Pushes elements into a vector from the back.
+    - **pop_back()**: Removes the last element from the vector.
+    - **insert()**: Inserts new elements before the element at the specified position.
+    - **erase()**: Removes elements from a container at the specified position or range.
+    - **swap()**: Swaps the contents of one vector with another vector of the same type, even if their sizes differ.
+    - **clear()**: Removes all the elements from the vector container.
+    - **emplace()**: Extends the container by inserting a new element at a specific position.
+    - **emplace_back()**: Inserts a new element at the end of the vector.
+
+  - **Capacity Functions**:
+    - **size()**: Returns the number of elements in the vector.
+    - **max_size()**: Returns the maximum number of elements that the vector can hold.
+    - **capacity()**: Returns the size of the storage space currently allocated to the vector expressed as the number of elements.
+    - **resize(n)**: Resizes the container so that it contains 'n' elements.
+    - **empty()**: Returns whether the container is empty.
+    - **shrink_to_fit()**: Reduces the capacity of the container to fit its size and destroys all elements beyond the capacity.
+    - **reserve()**: Requests that the vector's capacity be at least enough to contain 'n' elements.
+
+  - **Accessor Functions**:
+    - **operator []**: Returns a reference to the element at position 'g' in the vector.
+    - **at()**: Returns a reference to the element at position 'g' in the vector.
+    - **front()**: Returns a reference to the first element in the vector.
+    - **back()**: Returns a reference to the last element in the vector.
+    - **data()**: Returns a direct pointer to the memory array used internally by the vector to store its owned elements.
+
+  - **Iterator Functions**:
+    - **begin()**: Returns an iterator pointing to the first element in the vector.
+    - **end()**: Returns an iterator pointing to the theoretical element that follows the last element in the vector.
+    - **rbegin()**: Returns a reverse iterator pointing to the last element in the vector (reverse beginning).
+    - **rend()**: Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (reverse end).
+    - **cbegin()**: Returns a constant iterator pointing to the first element in the vector.
+    - **cend()**: Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
+    - **crbegin()**: Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning).
+    - **crend()**: Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end).
+
+- **Example**:
+  ```cpp
+  #include <iostream>
+  #include <vector>
+  using namespace std;
+
+  int main() {
+      vector<float> floatVector = {1.1, 2.2, 3.3, 4.4, 5.5};
+      vector<float>::reverse_iterator i = floatVector.rbegin();
+
+      while (i != floatVector.rend()) {
+          cout << *i << " ";
+          i++;
+      }
+
+      return 0;
+  }
+  ```
+
+## List
+
+- **Description**: Lists are sequence containers that allow non-contiguous memory allocation, offering constant time insert and erase operations anywhere within the sequence.
+
+- **Characteristics**:
+  - Ideal for insertions, extractions, and moving elements in any position.
+  - No contiguous memory allocation.
+  - Efficient for algorithms that require such operations.
+
+- **Syntax**:
+  ```cpp
+  list <data_type> list_name;
+  ```
+  Example:
+  ```cpp
+  list <int> myList;
+  ```
+
+- **Member Functions**:
+  - **Modifier Functions**:
+    - **assign()**: Assigns new values to the list elements by replacing old ones.
+    - **push_front()**: Inserts an element at the beginning.
+    - **pop_front()**: Removes the element from the beginning.
+    - **push_back()**: Pushes elements into a list from the back.
+    - **pop_back()**: Removes the last element from the list.
+    - **insert()**: Inserts new elements before the element at the specified position.
+    - **erase()**: Removes elements from a container at the specified position or range.
+    - **swap()**: Swaps the contents of one list with another list of the same type, even if their sizes differ.
+    - **clear()**: Removes all the elements from the list container.
+    - **emplace()**: Constructs and inserts an element.
+    - **emplace_front()**: Extends the list container by inserting a new element at the beginning.
+    - **emplace_back()**: Inserts a new element at the end of the list.
+
+  - **Capacity Functions**:
+    - **size()**: Returns the number of elements in the list.
+    - **max_size()**: Returns the maximum number of elements that the list can hold.
+    - **capacity()**: Not applicable to lists (constant memory overhead).
+
+  - **Accessor Functions**:
+    - **front()**: Returns a reference to the first element in the list.
+    - **back()**: Returns a reference to the last element in the list.
+
+  - **Iterator Functions**:
+    - **begin()**: Returns an iterator pointing to the first element in the list.
+    - **end()**: Returns an iterator pointing to the theoretical element that follows the last element in the list.
+    - **rbegin()**: Returns a reverse iterator pointing to the last element in the list (reverse beginning).
+    - **rend()**: Returns a reverse iterator pointing to the theoretical element preceding the first element in the list (reverse end).
+    - **cbegin()**: Returns a constant iterator pointing to the first element in the list.
+    - **cend()**: Returns a constant iterator pointing to the theoretical element that follows the last element in the list.
+    - **crbegin()**: Returns a constant reverse iterator pointing to the last element in the list (reverse beginning).
+    - **crend()**: Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the list (considered as reverse end).
+
+- **Operations**:
+  - **splice()**: Transfers elements from one list to another.
+  - **remove()**: Removes elements with a specific value from the list.
+  - **remove_if()**: Removes elements that fulfill a specified condition.
+  - **unique()**: Removes duplicate values from the list.
+  - **merge()**: Merges sorted lists into one.
+  - **sort()**: Sorts elements in the list.
+  - **reverse()**: Reverses the order of elements in the list.
+
+## Vector vs List
+
+| Vector | List |
+| --- | --- |
+| **Contiguous memory.** | **Non-contiguous memory.** |
+| Pre-allocates space for future elements, requiring extra space. | No pre-allocated memory; constant memory overhead. |
+| Each element requires space for the element type itself. | Each element requires extra space for the node. |
+| Re-allocates memory for the entire vector when adding elements. | Never re-allocates memory for the whole list when adding elements. |
+| Insertions elsewhere are costly (O(n)). | Insertions and erasures are cheap anywhere in the list. |
+| Iterators are invalidated when adding or removing elements. | Iterators remain valid when adding or removing elements. |
+| Supports random access. | No random access support. |
+| Can access the underlying array. | No direct access to an underlying array. |
