@@ -182,7 +182,6 @@
 - [Basics](sections/java/basics.md)
 
 
-
 [Back to Table of Contents](#table-of-contents) ⬆
 
 # Database
@@ -299,6 +298,7 @@
 ### Artificial Intelligence
 
 - [Introduction](sections/theo/ai/intro.md)
+- [Logic](sections/theo/ai/logic.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
