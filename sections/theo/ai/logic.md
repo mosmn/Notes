@@ -126,6 +126,113 @@ Examples of complex formulas that include logical connectives. The truth value o
 | T | F | F     |
 | F | T | F     |
 
-# Arguments, premises & conclusions
-# Logical reasoning & inference rules
+# Arguments, Premises, and Conclusions
+
+## Arguments
+
+- Logic can also be defined as the science of argument evaluation.
+- Arguments are groups of statements.
+- One statement by itself never constitutes an argument.
+- Some of those statements, called the premises, claim to be support or reasons for another in the batch.
+- Statements that give evidence are called the premises.
+- Statements that receive support from the premises on the opposite end of those arrows are called the conclusion.
+
+## Premises
+
+### Statements about Blocks:
+
+1. The red block is on the green block.
+2. The green block is somewhere above the blue block.
+3. The green block is not on the blue block.
+4. The yellow block is on the green or the blue.
+5. The blue block is on some other block.
+
+## Conclusions
+
+1. The red block is on the green block.
+2. The green block is on the yellow block.
+3. The yellow block is on the blue block.
+4. The blue block is on the black block.
+5. Main Conclusion: The black block is on the table.
+
+
+Certainly, here's the organized information without omitting any details:
+
+# Logical Reasoning & Inference Rules
+
+## Syllogism / Deductive Reasoning
+
+- **Syllogism** is a kind of logical argument that applies deductive reasoning to arrive at a conclusion based on two or more propositions or premises that are asserted or assumed to be true. It follows a pattern such as:
+  - All men are mortal.
+  - Socrates is a man.
+  - Therefore, Socrates is mortal.
+- Another example:
+  - All Hondas are Japanese cars.
+  - Some Japanese cars are made in America.
+  - Therefore, some Hondas are made in America.
+- Syllogism is a method of drawing conclusions based on premises.
+
+## Categorical Propositions
+
+Categorical propositions can be categorized into four types:
+
+- **Universal Affirmative:** All P is Q
+  - Universal Affirmative example:
+    - P: {a, b, c, d}
+    - Q: {a, b, c, d, e, f}
+- **Universal Negative:** No P is Q
+  - Universal Negative example:
+    - P: {a, b, c, d}
+    - Q: {e, f, g, h}
+- **Particular Affirmative:** Some P are Q (at least 1 P is Q)
+  - Particular Affirmative examples:
+    - P: {a, b, c, d}
+    - Q: {c, d, e, f}
+    - P: {a, b}
+    - Q: {a, b, c, d}
+- **Particular Negative:** Some P are not Q (at least 1 P is not Q)
+  - Particular Negative examples:
+    - P: {a, b, c, d}
+    - Q: {c, d, e, f}
+    - P: {a, b, c, d}
+    - Q: {a, b}
+
+## Rules of Inference
+
+- **Inference Rules:** These rules tell us how one proposition can follow from others.
+- A rule of inference is a pattern of reasoning consisting of one set of sentence schemas, called premises, and a second set of sentence schemas, called conclusions.
+- Rules of inference include:
+  - P → Q
+    - P
+    - -------
+    - Q
+  - wet → slippery
+    - wet
+    - -------
+    - slippery
+  - p → (q → r)
+    - p
+    - -------
+    - q → r
+  - (p → q) → r
+    - p → q
+    - -------
+    - r
+- An instance of a rule of inference is a rule in which all meta-variables have been consistently replaced by expressions.
+- Sound Rules of Inference:
+  - A rule of inference is sound if and only if the premises in any instance of the rule logically entail the conclusions.
+- Examples of sound rules of inference:
+  - Modus Tollens (MT)
+    - P → Q
+    - ¬ Q
+    - --------
+    - ¬ P
+  - Modus Ponens (MP)
+    - P → Q
+    - P
+    - --------
+    - Q
+- The ways that affirm by affirming and the ways that deny by denying are also illustrated.
+- A proof is a sequence of sentences terminating in a conclusion, consisting of premises, instances of axiom schema, and results of applying rules of inference to earlier items in the sequence.
+
 # Some other terms
