@@ -39,23 +39,92 @@
 - Syntax elements include vocabulary (propositional symbols, logical operators), logical constants (TRUE and FALSE), and grouping using parentheses.
 - Syntax and semantics must be well-defined to create meaningful knowledge representations.
 
+# Symbol and Sentences
 
-# Symbol and sentences
+## Sentences and Well-Formed Formulas (wff)
 
-• Each symbol (a proposition or a constant) is a
-sentence.
-• If p is a sentence and q is a sentence
-then
-(p) is a sentence
-p  q is a sentence
-p  q is a sentence
- p is a sentence
-p → q is a sentence
-Nothing else is a sentence
+- Each symbol, which can be a proposition or a constant, is a sentence.
+- Sentences are also known as well-formed formulas (wff).
+- A well-formed formula (wff) can be:
+  - A single symbol (e.g., p, True).
+  - A compound proposition formed using logical connectives:
+    - (~p) is a sentence.
+    - p ∧ q is a sentence.
+    - p ∨ q is a sentence.
+    - ~p is a sentence.
+    - p → q is a sentence.
+  - Nothing else is considered a sentence.
 
-Sentences are also
-called well-formed
-formula (wff)
+## Examples of Well-Formed Formulas (wff)
+
+Examples of complex formulas that include logical connectives. The truth value of a wff is known as its semantics or meaning. Some examples of well-formed formulas include:
+- p
+- True
+- p ∧ q
+- (p ∨ q) → r
+- (p ∧ q) ∨ r → s
+- ~ (p ∨ q)
+- ~ (p ∨ q) → r ∧ s
+
+## What Does a wff Mean (Semantics)?
+
+- Interpretation in a world.
+- When a sentence is interpreted in a world, meaning is assigned to it, and it evaluates as either TRUE or FALSE.
+- Different worlds may have different truths; what is true in one world may not be true in another.
+
+## How Do We Get the Meaning?
+
+- Sentences can be compound propositions.
+- Interpret each atomic proposition in the same world.
+- Assign truth values to each interpretation.
+- Compute the truth values of the compound proposition.
+
+## Example
+
+- p: loves (Ben, Angel) - Ben loves Angel.
+- q: knows (Julie, Yus) - Julie knows Yus.
+- World: Ben and Angel are friends, and Julie and Yus are known to each other.
+- p = T, q = T, ∴ p ∧ q = T, p ∧ (~q) = F
+
+## Tautology
+
+- A compound statement that is always TRUE.
+- Example: "She loves me OR she loves me not."
+- p = She loves me, or, ~p = She loves me not.
+
+## Truth Table for p ∨ ~p
+
+| p | ~p | p ∨ ~p |
+|---|---|-------|
+| T | F | T     |
+| F | T | T     |
+
+### Example: "Heads I win, tails you lose."
+
+- p: If heads, then I win.
+- q: If tails, then you lose.
+
+### Truth Table for (p → q) ∨ (~p → q)
+
+| p | ~p | q | p → q | ~p → q | (p → q) ∨ (~p → q) |
+|---|----|---|-------|-------|-------------------|
+| T | F  | T | T     | T     | T                 |
+| T | F  | F | F     | T     | T                 |
+| F | T  | T | T     | T     | T                 |
+| F | T  | F | T     | F     | T                 |
+
+## Contradiction
+
+- A compound statement that is always FALSE.
+- Example: "She loves me AND she loves me not."
+- p = She loves me, and, ~p = She loves me not.
+
+### Truth Table for p ∧ ~p
+
+| p | ~p | p ∧ ~p |
+|---|---|-------|
+| T | F | F     |
+| F | T | F     |
 
 # Arguments, premises & conclusions
 # Logical reasoning & inference rules
