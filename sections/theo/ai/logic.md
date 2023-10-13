@@ -36,11 +36,27 @@
 - A statement is a sentence with a truth value, typically denoted as true (T) or false (F).
 - Propositional logic deals with statements that can be assigned true or false values.
 - Logical operators like AND (∧), OR (∨), NOT (¬), IMPLIES (→), and IF AND ONLY IF (↔) are applied to compound propositions.
-- Syntax involves propositional symbols, logical operators, and logical constants (TRUE and FALSE).
+- Syntax elements include vocabulary (propositional symbols, logical operators), logical constants (TRUE and FALSE), and grouping using parentheses.
 - Syntax and semantics must be well-defined to create meaningful knowledge representations.
 
 
 # Symbol and sentences
+
+• Each symbol (a proposition or a constant) is a
+sentence.
+• If p is a sentence and q is a sentence
+then
+(p) is a sentence
+p  q is a sentence
+p  q is a sentence
+ p is a sentence
+p → q is a sentence
+Nothing else is a sentence
+
+Sentences are also
+called well-formed
+formula (wff)
+
 # Arguments, premises & conclusions
 # Logical reasoning & inference rules
 # Some other terms
