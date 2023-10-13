@@ -235,4 +235,26 @@ Categorical propositions can be categorized into four types:
 - The ways that affirm by affirming and the ways that deny by denying are also illustrated.
 - A proof is a sequence of sentences terminating in a conclusion, consisting of premises, instances of axiom schema, and results of applying rules of inference to earlier items in the sequence.
 
-# Some other terms
+# Some Other Terms
+
+## Theories and Axioms
+
+- **Theories and Axioms:** A set of well-formed formulas (wffs) constructed for any field of knowledge is referred to as the theory of that field. Each individual wff within a theory is considered an axiom. An axiom is an assumption or statement that is assumed to be true and is accepted without the need for proof.
+
+## Literal
+
+- **Literal:** A literal is an atomic formula or its negation. It can be defined as a formula that is either atomic or a negated atomic, such as X or ¬Z.
+
+## Horn Clause
+
+- **Horn Clause:** A clause is a disjunction of literals. A Horn clause is a special type of clause with exactly one positive literal, meaning it contains only one positive literal. A Horn formula is a conjunctive normal form formula whose clauses are all Horn clauses. For example:
+  - Horn clauses:
+    - p
+    - ¬q
+    - ¬p ∨ q
+  - Not a Horn clause (contains more than one positive literal):
+    - p ∨ q
+
+## Clausal Form
+
+- **Clausal Form:** Clausal form is a representation of logical expressions using only connectives such as "and," "or," and "not." It's a normal form, which is a subset of first-order logic, in which a sentence is defined by a universal prefix (a string of universal quantifiers) and a matrix (a quantifier-free conjunction of a clause). For example: ¬x ∨ y ∨ ¬z.
