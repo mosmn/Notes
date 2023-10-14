@@ -157,8 +157,7 @@
     - [Express 104: View Templates](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
     - [Express 105: Forms and Deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
 - Authentication
-    - [Authentication](sections/javascript/node/authentication.md)
-    - [OAuth](sections/javascript/node/oauth.md)
+    - [PassportJS](sections/javascript/node/passportjs.md)
 
 ### C++
 
@@ -180,7 +179,6 @@
 
 - [Introduction to OOP](sections/java/intro.md)
 - [Basics](sections/java/basics.md)
-
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
@@ -290,6 +288,7 @@
 
 - [Introduction](sections/theo/pc/intro.md)
 - [Parallel Computing Architecture](sections/theo/pc/parallel-computing-architecture.md)
+- [Principles of Parallel Algorithm Design](sections/theo/pc/principles-of-parallel-algorithm-design.md)
 
 ### Human Computer Interaction
 
