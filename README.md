@@ -179,6 +179,7 @@
 
 - [Introduction to OOP](sections/java/intro.md)
 - [Basics](sections/java/basics.md)
+- [Numerical Data](sections/java/numerical-data.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
