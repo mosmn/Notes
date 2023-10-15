@@ -106,3 +106,159 @@ The following table summarizes the arithmetic operators available in Java:
 - How does the expression `x + 3 * y` get evaluated? Answer: `x` is added to `3*y`.
 - We determine the order of evaluation by following the precedence rules.
 - A higher precedence operator is evaluated before the lower one. If two operators are the same precedence, then they are evaluated left to right for most operators.
+
+Here are the remaining notes organized using Markdown:
+
+# Precedence Rules
+
+| Order | Group | Operators | Rule |
+|-------|-------|-----------|------|
+| 1     | Subexpression | ( ) | Evaluate expressions within parentheses first. |
+| 2     | Unary | + - ++ -- ! | Evaluate unary operators next. |
+| 3     | Multiplicative | * / % | Evaluate multiplicative operators next. |
+| 4     | Additive | + - | Evaluate additive operators next.
+
+## Type Casting
+
+- If `x` is a float and `y` is an int, what will be the data type of the following expression?
+  `x * y`
+  The answer is float.
+- The above expression is called a mixed expression.
+- The data types of the operands in mixed expressions are converted based on the promotion rules. The promotion rules ensure that the data type of the expression will be the same as the data type of an operand whose type has the highest precision.
+
+## Explicit Type Casting
+
+- Instead of relying on the promotion rules, we can make an explicit type cast by prefixing the operand with the data type using the following syntax: `( <data type> ) <expression>`
+- Example: `(float) x / 3` (Type cast `x` to float and then divide it by 3), `(int) (x / y * 3.0)` (Type cast the result of the expression `x / y * 3.0` to int).
+
+## Implicit Type Casting
+
+- Consider the following expression: `double x = 3 + 5;`
+- The result of `3 + 5` is of type int. However, since the variable `x` is double, the value 8 (type int) is promoted to 8.0 (type double) before being assigned to `x`.
+- Notice that it is a promotion. Demotion is not allowed. `int x = 3.5;` A higher precision value cannot be assigned to a lower precision variable.
+
+## Constants
+
+- We can change the value of a variable. If we want the value to remain the same, we use a constant.
+- Example:
+  ```java
+  final double PI = 3.14159;
+  final int MONTH_IN_YEAR = 12;
+  final short FARADAY_CONSTANT = 23060;
+  ```
+  These are constants, also called named constants.
+
+# Displaying Numerical Values
+
+```java
+int num = 15;
+System.out.print(num); //print a variable
+System.out.print(" "); //print a string
+System.out.print(10); //print a constant
+```
+Output:
+```
+15 10
+```
+
+## Overloaded Operator +
+
+- The plus operator + can mean two different operations, depending on the context.
+- `<val1> + <val2>` is an addition if both are numbers. If either one of them is a String, then it is a concatenation.
+- Evaluation goes from left to right.
+- Examples:
+  - `"test" + 1 + 2;`
+  - `1 + 2 + "test";`
+- Sample:
+  ```java
+  int x, y;
+  x = 1;
+  y = 2;
+  System.out.println("The output is " + x + y);
+  System.out.println("The output is " + (x + y) );
+  ```
+  Output:
+  ```
+  The output is 12
+  The output is 3
+  ```
+
+## The DecimalFormat Class
+
+- Use a DecimalFormat object to format the numerical output.
+- Example:
+  ```java
+  double num = 123.45789345;
+  DecimalFormat df = new DecimalFormat("0.000"); // three decimal places
+  System.out.print(num);
+  System.out.print(df.format(num));
+  ```
+  Output:
+  ```
+  123.45789345
+  123.458
+  ```
+
+## Getting Numerical Input
+
+- We can use the Scanner class to input numerical values.
+- Example:
+  ```java
+  Scanner scanner = new Scanner(System.in);
+  int age;
+  System.out.print("Enter your age: ");
+  age = scanner.nextInt();
+  ```
+
+### Methods
+
+| Method | Example |
+|--------|---------|
+| `nextByte()` | `byte b = scanner.nextByte();` |
+| `nextDouble()` | `double d = scanner.nextDouble();` |
+| `nextFloat()` | `float f = scanner.nextFloat();` |
+| `nextInt()` | `int i = scanner.nextInt();` |
+| `nextLong()` | `long l = scanner.nextLong();` |
+| `nextShort()` | `short s = scanner.nextShort();` |
+| `nextLine()` | `String str = scanner.nextLine();` |
+
+## Sample Program
+
+```java
+import java.util.*;
+import java.text.*;
+
+class Ch3Circle4 {
+  public static void main(String[] args) {
+    final double PI = 3.14159;
+    final String TAB = "\t";
+    final String NEWLINE = "\n";
+    double radius, area, circumference;
+    Scanner scanner = new Scanner(System.in);
+    DecimalFormat df = new DecimalFormat("0.000");
+    
+    // Get input
+    System.out.print("Enter radius: ");
+    radius = scanner.nextDouble();
+    
+    // Compute area and circumference
+    area = PI * radius * radius;
+    circumference = 2.0 * PI * radius;
+    
+    // Display the results
+    System.out.println(
+      "Given Radius: " + TAB + df.format(radius) + NEWLINE +
+      "Area: " + TAB + df.format(area) + NEWLINE +
+      "Circumference: " + TAB + df.format(circumference)
+    );
+  }
+}
+```
+
+Output (when user enters `12` as the radius):
+```
+Enter radius: 12
+Given Radius: 12.000
+Area: 452.389
+Circumference: 75.398
+```
