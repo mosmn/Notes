@@ -262,3 +262,107 @@ Given Radius: 12.000
 Area: 452.389
 Circumference: 75.398
 ```
+# The Math class
+
+The `Math` class in the `java.lang` package contains class methods for commonly used mathematical functions.
+
+- Example: `(1.0 / 2.0) * Math.sin(x - Math.PI / Math.sqrt(y))`
+
+## Some Math Class Methods
+
+| Method   | Description                        |
+|----------|------------------------------------|
+| `exp(a)` | Natural number e raised to the power of `a`.  |
+| `log(a)` | Natural logarithm (base e) of `a`. |
+| `floor(a)` | The largest whole number less than or equal to `a`. |
+| `max(a,b)` | The larger of `a` and `b`. |
+| `pow(a,b)` | The number `a` raised to the power of `b`. |
+| `sqrt(a)` | The square root of `a`. |
+| `sin(a)` | The sine of `a`. (Note: all trigonometric functions are computed in radians) |
+
+Table 3.7 on page 113 in the textbook contains a list of class methods defined in the `Math` class.
+
+## Computing the Height of a Pole
+
+```java
+alphaRad = Math.toRadians(alpha);
+betaRad = Math.toRadians(beta);
+height = (distance * Math.sin(alphaRad) * Math.sin(betaRad)) /
+         Math.sqrt(Math.sin(alphaRad + betaRad) * Math.sin(alphaRad - betaRad));
+```
+
+# Random Number Generation
+
+- In many computer applications, especially in simulation and games, we need to generate random numbers.
+- To generate random integers, we use the `nextInt` method of the `Random` class. Here’s an example:
+
+```java
+import java.util.*;
+...
+Random random = new Random( );
+int num = random.nextInt( );
+```
+
+- The `nextInt` method returns an `int` value, that can be any value between -2147483648 and 2147483647.
+- To restrict the range of possible values, we can use the second form of the `nextInt` method, in which we pass an argument that specifies the upper bound of the range.
+
+```java
+int num = random.nextInt(11); // Generates a random integer between 0 and 10
+```
+
+- To generate a random integer between 1 and 6, you can use:
+
+```java
+int num = random.nextInt(6) + 1;
+```
+
+- For the general case, to generate a random integer in the range of `[min, max]` where `0 <= min < max`, you can use:
+
+```java
+int num = random.nextInt(max - min + 1) + min;
+```
+
+# The GregorianCalendar Class
+
+- Use a `GregorianCalendar` object to manipulate calendar information.
+- Example:
+
+```java
+GregorianCalendar today, independenceDay;
+today = new GregorianCalendar();
+independenceDay = new GregorianCalendar(1776, 6, 4); // month 6 means July; 0 means January
+```
+
+## Retrieving Calendar Information
+
+- Use class constants for retrieving different pieces of calendar information from a `GregorianCalendar` object.
+
+| Constant      | Description                                |
+|--------------|--------------------------------------------|
+| `YEAR`       | the year portion of the date              |
+| `MONTH`      | the month portion of the date             |
+| `DATE`       | the day of the month                       |
+| `DAY_OF_MONTH` | the day of the month                      |
+| `DAY_OF_WEEK` | the day of the week                        |
+| `DAY_OF_YEAR` | the day of the year                        |
+| `HOUR`       | the hour portion of the time              |
+| `MINUTE`     | the minute portion of the time            |
+| `SECOND`     | the second portion of the time            |
+| `MILLISECOND` | the millisecond portion of the time      |
+
+## Sample Calendar Retrieval
+
+```java
+GregorianCalendar cal = new GregorianCalendar();
+// Assume today is Dec 18, 2008
+System.out.print("Today is " +
+  (cal.get(Calendar.MONTH) + 1) + "/" +
+  cal.get(Calendar.DATE) + "/" +
+  cal.get(Calendar.YEAR));
+```
+
+Output:
+
+```
+Today is 12/18/2008
+```
