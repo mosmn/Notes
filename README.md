@@ -302,6 +302,8 @@
 - [Introduction](sections/theo/ai/intro.md)
 - [Logic](sections/theo/ai/logic.md)
 
+### Statistics
+
 [Back to Table of Contents](#table-of-contents) ⬆
 
 # Sources
