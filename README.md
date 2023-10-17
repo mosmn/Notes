@@ -173,6 +173,7 @@
 - [Standard Template Library](sections/cpp/stl.md)
 - Data Structures & Algorithms
     - [Abstract Data Type and STL](sections/cpp/dsa/adt.md)
+    - [Complexity Analysis​](sections/cpp/dsa/complexity-analysis.md)
 
 
 ### Java
@@ -294,6 +295,7 @@
 ### Human Computer Interaction
 
 - [Introduction](sections/theo/hci/intro.md)
+- [Interrelationships](sections/theo/hci/interrelationships.md)
 
 ### Artificial Intelligence
 
