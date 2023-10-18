@@ -38,6 +38,9 @@
 - Constant time algorithms always take the same amount of time to be executed.
 - The execution time of these algorithms is independent of the size of the input.
 - Examples include accessing an array element by index, inserting a node into a linked list, pushing and popping from a stack, enqueuing and dequeuing from a queue, and arithmetic operations (e.g., addition, subtraction, multiplication, division, etc.).
+- Asigning a value to a variable 
+- Inserting a element in an array
+- 
 
 ### O(n) Linear Time
 

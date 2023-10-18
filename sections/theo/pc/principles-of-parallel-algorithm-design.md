@@ -1,81 +1,38 @@
 # Parallel Algorithm
 
-• Recipe to solve a problem using multiple processors
-• Typical steps for constructing a parallel algorithm
-• identify what pieces of work can be performed concurrently
-• partition concurrent work onto independent processors
-• distribute a program’s input, output, and intermediate data
-• coordinate accesses to shared data: avoid conflicts
-• ensure proper order of work using synchronization
-• Why “typical”? Some of the steps may be omitted.
-• if data is in shared memory, distributing it may be unnecessary
-• if using message passing, there may not be shared data
-• the mapping of work to processors can be done statically by the programmer or
-dynamically by the runtime
+## Introduction to Parallel Algorithm
+A parallel algorithm is a method for solving a problem using multiple processors. It involves dividing a computation into smaller tasks and assigning them to different processors for parallel execution. The design and development of parallel algorithms typically follow a series of steps:
 
-First step :Understand the Problem and the
-Program
-• Undoubtedly, the first step in developing parallel software is to first understand the problem that you wish
-to solve in parallel. If you are starting with a serial program, this necessitates understanding the existing
-code also.
-• Before spending time in an attempt to develop a parallel solution for a problem, determine whether or not
-the problem is one that can actually be parallelized.
-• Example of an easy to parallelize problem:Calculate the potential energy for each of
-several thousand independent
-conformations of a molecule. When done,
-find the minimum energy conformation.
-• This problem is able to be solved in parallel. Each of the molecular conformations is independently
-determinable. The calculation of the minimum energy conformation is also a parallelizable problem.
-• Example of a problem with little-to-no parallelism:Calculation of the Fibonacci series
-(0,1,1,2,3,5,8,13,21,...)
-by use of the formula:
-F(n) = F(n-1) + F(n-2)
-• The calculation of the F(n) value uses those of both F(n-1) and F(n-2), which must be computed first.
+### 1. Understand the Problem and the Program
+- The first step is to thoroughly understand the problem you intend to solve in parallel. This includes understanding the existing serial code if you're starting from one.
+- Assess whether the problem can be parallelized. Some problems are naturally suited for parallel processing, while others may have limited parallelism.
 
-Identify Potential Areas to Parallel
-• Identify the program's hotspots:
-• Know where most of the real work is being done. The majority of scientific and technical programs usually
-accomplish most of their work in a few places.
-• Profilers and performance analysis tools can help here
-• Focus on parallelizing the hotspots and ignore those sections of the program that account for little CPU usage.
-• Identify bottlenecks in the program:
-• Are there areas that are disproportionately slow, or cause parallelizable work to halt or be deferred? For
-example, I/O is usually something that slows a program down.
-• May be possible to restructure the program or use a different algorithm to reduce or eliminate unnecessary
-slow areas
-• Identify inhibitors to parallelism
-• One common class of inhibitor is data dependence, as demonstrated by the Fibonacci sequence above.
-• Investigate other algorithms if possible
-• This may be the single most important consideration when designing a parallel application.
-• Take advantage of optimized third party parallel software and highly optimized math libraries available from
-leading vendors (IBM's ESSL, Intel's MKL, AMD's AMCL, etc.).
+### 2. Identify Potential Areas to Parallel
+- Identify the hotspots in the program, where most of the computational work occurs. Profilers and performance analysis tools can assist in this.
+- Focus on parallelizing these hotspots and disregard sections with minimal CPU usage.
+- Recognize and address bottlenecks in the program, such as I/O operations or other slow areas.
+- Consider inhibitors to parallelism, like data dependence, and explore alternative algorithms.
+- Utilize optimized third-party parallel software and highly optimized math libraries when available.
 
-Terms & Definitions
-• The two key steps in the design of parallel algorithms:
-• Dividing a computation into smaller computations and
-• assigning them to different processors for parallel execution
-• The process of dividing a computation into smaller parts, some or all of
-which may potentially be executed in parallel, is called decomposition.
-• Tasks are programmer-defined units of computation into which the main
-computation is subdivided by means of decomposition.
-• Simultaneous execution of multiple tasks is the key to reducing the time
-required to solve the entire problem.
-• The tasks into which a problem is decomposed may not all be of the same
-size.
+### 3. Decomposing Problems to Tasks
+- Decomposition is the process of dividing the computation into smaller tasks that can be executed concurrently.
+- Tasks may vary in size and can be independent or have non-trivial order dependencies.
+- Task decomposition can be visualized as a directed graph, with nodes representing tasks and edges indicating dependencies between tasks.
 
-Decomposing Problems to Tasks
-• Divide work into tasks that can be executed concurrently
-• Many different decompositions possible for any computation
-• Tasks may be same, different, or even indeterminate sizes
-• Tasks may be independent or have non-trivial order
-• Conceptualize tasks and ordering as task dependency directed graph
+### 4. Granularity of Task Decompositions
+- Granularity refers to the size of tasks in a decomposition.
+- Fine-grain decomposition involves a large number of small tasks, while coarse-grain decomposition features a small number of larger tasks.
+- The granularity can be adjusted depending on the specific problem and requirements. For instance, matrix-vector multiplication can be fine-grain (element-wise) or coarser-grain (computing multiple elements).
 
-Graphs for Task Decomposition
-• A decomposition can be illustrated in the form of a directed graph
-with nodes corresponding to tasks and edges indicating that the
-result of one task is required for processing the next. Such a graph is
-called a task dependency graph.
-• The graph of tasks (nodes) and their interactions/data exchange
-(edges) is referred to as a task interaction graph.
-• Note that task interaction graphs represent data dependencies,
-whereas task dependency graphs represent control dependencies. 
+### 5. Degree of Concurrency
+- The degree of concurrency indicates how many tasks can be executed in parallel.
+- It can vary during program execution, with the maximum degree of concurrency being the most tasks that can be executed simultaneously at any point.
+- The average degree of concurrency is the average number of tasks that can be processed in parallel over the program's execution.
+- Task granularity and degree of concurrency have an inverse relationship; finer granularity leads to higher concurrency.
+
+### Terms & Definitions
+- Decomposition: The process of dividing a computation into smaller parts (tasks) for parallel execution.
+- Task Dependency Graph: A directed graph representing task dependencies, indicating the order in which tasks must be executed.
+- Task Interaction Graph: A graph illustrating the interactions and data exchange between tasks.
+- Granularity: The size of tasks in a decomposition.
+- Degree of Concurrency: The number of tasks that can be executed in parallel during program execution.

@@ -93,3 +93,62 @@ Sure, here are the organized notes using Markdown:
 - You ask 100 randomly chosen people at a football match what their main job is. Your sample is 100, but the population is all the people at that match.
 - A quality control engineer is curious about the thickness of paint on a car at her factory. She randomly selects 30 points on the car and measures the paint thickness at each of those points. The population is every possible point on the car; the sample is the 30 selected points.
 - A pediatrician randomly selected 10 parents of his patients. Then he surveyed the parents about their opinions of different kinds of diapers. The population is the parents of the pediatrician's patients; the sample is the 10 parents of patients selected.
+
+Certainly, here are the organized notes using Markdown, retaining all the provided information:
+
+# Graphical Data Representations
+- Data can be represented using graphs/charts.
+- The choice of graph/chart is very much dependent on the nature of data.
+
+## Types of Graphs/Charts
+1. Dot Plot
+2. Stem-and-Leaf
+3. Scatterplot
+4. Bar Chart
+5. Pie Chart
+6. Histogram
+7. Time Series Plot
+8. Line Chart
+9. Bar Chart
+
+## Bar Chart Vs. Pie Chart
+- A single variable measured for different population segments
+
+## Histogram
+- Illustrate several variables measured for different population segments.
+
+## Line Chart
+- A single variable measured over time is called a time series.
+
+## Dot Plot
+- Plots the measurements as points on a horizontal axis, stacking the points that duplicate existing points.
+
+## Stem-and-Leaf
+- A stem-and-leaf display is an effective way to summarize univariate numerical data when the data set is not too large.
+- Each number in the data set is broken into two pieces: a stem and a leaf.
+- The stem is the first part of the number and consists of the beginning digit(s).
+- The leaf is the last part of the number and consists of the final digit(s).
+
+### How to construct a Stem-and-Leaf plot
+1. Divide each measurement into two parts: the stem and the leaf.
+2. List the stems in a column, with a vertical line to their right.
+3. For each measurement, record the leaf portion in the same row as its matching stem.
+4. Order the leaves from lowest to highest in each stem.
+5. Provide a key to your coding.
+
+## Interpreting Graphs
+- Shapes:
+  - Mound-shaped and symmetric (mirror images)
+  - Skewed right: a few unusually large measurements
+  - Skewed left: a few unusually small measurements
+  - Bimodal: two local peaks
+
+![Example Graph](./igs.png)
+
+- Outliers:
+  - Are there any strange or unusual measurements that stand out in the data set?
+
+### Example of Interpreting Graphs: Outliers
+- A quality control process measures the diameter of a gear being made by a machine (cm). The technician records 15 diameters, but inadvertently makes a typing mistake on the second entry.
+1.991 1.891(outlier) 1.991 1.988 1.993 1.989 1.990 1.988
+1.988 1.993 1.991 1.989 1.989 1.993 1.990 1.994
