@@ -1,5 +1,3 @@
-Sure, here are the organized notes using Markdown:
-
 ## What & Why Statistics?
 - Almost every day you are exposed to statistics, e.g.:
     - The number of Americans with diabetes will nearly double in the next 25 years. (Source: Diabetes Care)
