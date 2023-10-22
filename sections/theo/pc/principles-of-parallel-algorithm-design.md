@@ -3,6 +3,13 @@
 ## Introduction to Parallel Algorithm
 A parallel algorithm is a method for solving a problem using multiple processors. It involves dividing a computation into smaller tasks and assigning them to different processors for parallel execution. The design and development of parallel algorithms typically follow a series of steps:
 
+### Terms & Definitions
+- Decomposition: The process of dividing a computation into smaller parts (tasks) for parallel execution.
+- Task Dependency Graph: A directed graph representing task dependencies, indicating the order in which tasks must be executed.
+- Task Interaction Graph: A graph illustrating the interactions and data exchange between tasks.
+- Granularity: The size of tasks in a decomposition.
+- Degree of Concurrency: The number of tasks that can be executed in parallel during program execution.
+
 ### 1. Understand the Problem and the Program
 - The first step is to thoroughly understand the problem you intend to solve in parallel. This includes understanding the existing serial code if you're starting from one.
 - Assess whether the problem can be parallelized. Some problems are naturally suited for parallel processing, while others may have limited parallelism.
@@ -30,9 +37,19 @@ A parallel algorithm is a method for solving a problem using multiple processors
 - The average degree of concurrency is the average number of tasks that can be processed in parallel over the program's execution.
 - Task granularity and degree of concurrency have an inverse relationship; finer granularity leads to higher concurrency.
 
-### Terms & Definitions
-- Decomposition: The process of dividing a computation into smaller parts (tasks) for parallel execution.
-- Task Dependency Graph: A directed graph representing task dependencies, indicating the order in which tasks must be executed.
-- Task Interaction Graph: A graph illustrating the interactions and data exchange between tasks.
-- Granularity: The size of tasks in a decomposition.
-- Degree of Concurrency: The number of tasks that can be executed in parallel during program execution.
+### Critical Path Length
+• A directed path in the task dependency graph represents a sequence
+of tasks that must be processed one after the other.
+• The longest such path determines the shortest time in which the
+program can be executed in parallel.
+• The length of the longest path in a task dependency graph is called
+the critical path length. 
+
+#### Critical Path
+• Start nodes: nodes with no incoming edges
+• Finish nodes: nodes with no outgoing edges
+• Critical path: the longest directed path between any pair of start and
+finish nodes
+• Critical path length: sum of the weights of the nodes on a critical path
+• Average degree of concurrency = total amount of work
+critical path length
