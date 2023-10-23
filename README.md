@@ -182,6 +182,11 @@
 - [Introduction to OOP](sections/java/intro.md)
 - [Basics](sections/java/basics.md)
 - [Numerical Data](sections/java/numerical-data.md)
+- [Defining Your Own Classes](sections/java/defining-classes.md)
+
+### Python
+
+- [Basics](sections/python/basics.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
