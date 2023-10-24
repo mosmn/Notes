@@ -175,6 +175,7 @@
 - Data Structures & Algorithms
     - [Abstract Data Type and STL](sections/cpp/dsa/adt.md)
     - [Complexity Analysis​](sections/cpp/dsa/complexity-analysis.md)
+    - [Linked List](sections/cpp/dsa/linked-list.md)
 
 
 ### Java
