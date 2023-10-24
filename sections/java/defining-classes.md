@@ -213,3 +213,69 @@ class Account {
 The `Account` class has methods for managing an account's balance, owner's name, and related operations. The example demonstrates creating an `Account` instance and performing various operations on it.
 
 This allows you to see how Java programs can use multiple classes to organize and manage different aspects of your application.
+
+## Changing Any Class to a Main Class
+
+In Java, you can define the `main` method in any class to make that class the entry point for a program. Here are examples of classes that have the `main` method defined within them:
+
+### CombineBicycle.java
+
+This class defines the `Bicycle` class and includes a `main` method for demonstrating the use of the `Bicycle` class:
+
+```java
+class Bicycle {
+    private String ownerName;
+
+    public String getOwnerName( ) {
+        return ownerName;
+    }
+
+    public void setOwnerName(String name) {
+        ownerName = name;
+    }
+
+    public static void main(String[] args) {
+        Bicycle myBike;
+        myBike = new Bicycle( );
+        myBike.setOwnerName("Jon Java");
+        System.out.println(myBike.getOwnerName() + " owns a bicycle");
+    }
+}
+```
+
+### Computer and Laptop Classes
+
+This example demonstrates two classes, `Computer` and `Laptop`, where the `main` method is defined within the `Computer` class:
+
+```java
+class Laptop {
+    Laptop() {
+        System.out.println("Constructor of Laptop class.");
+    }
+
+    void laptop_method() {
+        System.out.println("99% Battery available.");
+    }
+}
+
+class Computer {
+    Computer() {
+        System.out.println("Constructor of Computer class.");
+    }
+
+    void computer_method() {
+        System.out.println("Power gone! Shut down your PC soon...");
+    }
+
+    public static void main(String[] args) {
+        Computer my = new Computer();
+        Laptop your = new Laptop();
+        my.computer_method();
+        your.laptop_method();
+    }
+}
+```
+
+In the `Computer` class, the `main` method demonstrates the interaction between the `Computer` and `Laptop` classes.
+
+By defining the `main` method within any class, you can make that class the starting point for running a Java program.
