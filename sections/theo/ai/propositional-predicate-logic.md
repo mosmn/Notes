@@ -63,29 +63,49 @@
   - The implication of one sentence for another is a sentence.
   - The equivalence of two sentences is a sentence.
 
-  Propositional Calculus Semantics
-• An interpretation of a set of propositions is the
-assignment of a truth value, either T or F, to each
-propositional symbol.
-• A proposition symbol corresponds to a statement
-about the world.
-– P may denote the statement “it is raining”
-– Q may denote the statement “I live in a brown house.”
-• A proposition must be either true or false, given
-some state of the world.
-• The truth value assignment to propositional
-sentences is called an interpretation, an assertion
-(declaration/statement) about their truth in some
-possible world.
-• The symbol true is always assigned T, and the
-symbol false is assigned F.
-• Formally, an interpretation is a mapping from the
-propositional symbols into the set {T, F} for truth
-value assignment.
-• Each possible mapping of truth values onto
-propositions corresponds to a possible world of
-interpretation.
-• For example, if P denotes the proposition “it is
-raining” and Q denotes “I am at work,” then the
-set of propositions {P, Q} has four different
-functional mappings into the truth values {T, F}.
+## Propositional Calculus Semantics
+
+- **Interpretation of Propositions**: An interpretation of a set of propositions is the assignment of a truth value, either T (true) or F (false), to each propositional symbol.
+
+- **Propositional Symbols Correspond to Statements**: Each proposition symbol corresponds to a statement about the world. For example, P may denote the statement "it is raining," and Q may denote the statement "I live in a brown house."
+
+- **Propositions are Either True or False**: A proposition must be either true or false, depending on the state of the world.
+
+- **Interpretation as Truth Value Assignment**: The truth value assignment to propositional sentences is called an interpretation. It represents an assertion or declaration about the truth of those propositions in a possible world.
+
+- **True and False Symbols**: The symbols "true" always corresponds to T (true), and "false" corresponds to F (false).
+
+- **Formal Definition**: Formally, an interpretation is a mapping from propositional symbols into the set {T, F} for truth value assignment.
+
+- **Mapping to Possible Worlds**: Each possible mapping of truth values onto propositions corresponds to a possible world of interpretation.
+
+- **Example**: If P denotes the proposition "it is raining," and Q denotes "I am at work," then the set of propositions {P, Q} can have four different mappings into the truth values {T, F}. These mappings represent different possible worlds of __interpretation__.
+
+
+• The interpretation or truth value for sentences
+is determined by:
+13
+The truth assignment of negation,
+￢ P, where P is any propositional
+symbol, is F if the assignment to P is T, and T if the assignment to P is F.
+The truth assignment of conjunction, , is T only when both conjuncts
+have truth value T; otherwise it is F.
+The truth assignment of disjunction, , is F only when both disjuncts have
+truth value F; otherwise it is T.
+The truth assignment of implication, , is F only when the premise or
+symbol before the implication is T and the truth value of the consequent
+or symbol after the implication is F; otherwise it is always T.
+The truth assignment of equivalence, =, is T only when both expressions
+have the same truth assignment for all possible interpretations;
+otherwise it is F.
+
+• The truth assignments of compound
+propositions are often described by truth
+tables.
+• A truth table lists all possible truth value
+assignments to the atomic propositions of an
+expression and gives the truth value of the
+expression for each assignment.
+• Thus, a truth table enumerates all possible
+worlds of interpretation that may be given to
+an expression.
