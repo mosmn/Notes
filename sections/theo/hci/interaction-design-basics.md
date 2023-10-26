@@ -49,97 +49,113 @@ In this phase, the planning from the previous stages is transformed into actual,
 
 Developers test and validate the system implementation to ensure it aligns with the requirements and design established earlier in the process. This phase is crucial for verifying the success of the design and functionality.
 
-## Design frameworks
+## Design Frameworks
 
-User-centered design (UCD)​
-
-Takes the needs, wants, and limitations of the actual end users into account during each phase of the design process​
-
-Participatory design (PD)​
-
-Direct involvement of people in the collaborative design of the things and technologies they use​
-
-Agile interaction design​
-
-Development methods for self-organizing, dynamic teams and that facilitate flexible, adaptive, and rapid development that is robust to changing requirements and needs​
+- **User-centered design (UCD)**
+  - UCD takes into account the needs, wants, and limitations of the actual end users during each phase of the design process.
+  
+- **Participatory design (PD)**
+  - PD involves the direct involvement of people in the collaborative design of the things and technologies they use.
+  
+- **Agile Interaction Design**
+  - Agile interaction design is about development methods for self-organizing, dynamic teams that facilitate flexible, adaptive, and rapid development, which is robust to changing requirements and needs.
 
 ## Design Tools, Practices, and Patterns
 
-Design Tools​
+- **Design Tools**
+  - Dedicated prototyping design tools are specifically designed for creating interface mockups rapidly and effortlessly.
 
-Dedicated prototyping design tools are specifically designed for the purpose of creating interface mockups rapidly and effortlessly​
+- **Design Guidelines and Standards**
+  - Guideline documents are powerful tools for interaction design. They provide standards and best practices for designing interfaces.
+  - The "Four E’s" concept includes Education, Enforcement, Exemption, and Enhancement.
 
-Design Guidelines and Standards​
+- **Interaction Design Patterns**
+  - These are best-practice solutions to commonly occurring problems. They are specified in a way that allows them to be reused and applied to slightly different variations of a problem repeatedly.
+  - Examples include Model-View-Controller (MVC), document interface, and web app page architecture.
 
-Guideline documents are a powerful tool for interaction design​
+## User Focus
 
-Four E’s: Education, Enforcement, Exemption, Enhancement​
+- **Know Your Users**
+  - Understand who your users are, and remember that they may not be like you.
+  - It's essential to talk to them, watch them, and use your imagination to empathize with their needs.
 
-Interaction Design Patterns​
+## User Models
 
-Best-practice solutions to commonly occurring problems specified in such a way that they can be reused and applied to slightly different variations of a problem over and over again​
+- User modeling and profiling are used to evaluate systems and predict user behaviors.
+- Building and modifying a user model is essential for providing a better user experience.
+- A user model represents personal data associated with a specific user, used to predict the user's actions and common routines.
+- Different types of user models are used based on the application's requirements, and data gathering is crucial in user modeling.
 
-Model-View-Controller (MVC), document interface, Web app page architecture ​
+## User Profiling
 
-# User Focus​
-​
-
-Know your users​
-
-• who are they? ​
-
-probably not like you! ​
-
-• talk to them ​
-
-• watch them ​
-
-• use your imagination ​
-
-## User models
-
-User modeling and profiling has been used to evaluate systems and predict user behaviors ​
-
-describes the process of building up and modifying a user model in order to provide for a better user experience​
-
-A user model represents a collection of personal data associated with a specific user, used to predict the users actions and common routines.
-
-There are different types of user models each with their own benefits and determines how data about the user is collected.​
-
-The type of user model used is generally decided based upon the type of application using the user model. ​
-
-The key to user modeling is the data gathering.
-
-## User profiling
-
-The process of establishing knowledge about the users. ​
-
-Defining user profiles is a key activity when designing interactive systems. ​
-
-"Personas" technique is an excellent way for describing these user profiles:​
-
-who the users are​
-
-Children, Elderly, Professional, Scientist, Male, Female, Tech Savvy, IT Illiterate​
-
-what is the goal in using the product ​
-
-Withdraw cash, pay bills, find out movie time, online chat, gaming, research, cook, wash, treatment​
-
-what are the tasks involved? (observe existing work practices)​
-
-E.g. To apply for leave: check schedule, get leave application form from admin, fill in the form, get supervisor to approve, get manager to approve, inform scheduler, inform colleagues, go on leave.
+- User profiling is the process of establishing knowledge about the users.
+- Defining user profiles is a key activity in designing interactive systems.
+- The "Personas" technique is an excellent way to describe user profiles, including who the users are, their goals in using the product, and the tasks involved.
 
 ## Persona
 
-description of an ‘example’ user​
+- A persona is a description of an 'example' user, not necessarily a real person.
+- Personas are used as surrogate users to understand how they would interact with a product.
+- Details matter in creating personas to make them feel 'real' and relatable.
 
-not necessarily a real person​
+## cultural probes ​
 
-use as surrogate user​
+• direct observation ​
 
-what would Betty think​
+– sometimes hard ​
 
-details matter​
+• in the home ​
 
-makes her ‘real’
+• psychiatric patients, … ​
+
+Cultural probes are one way to access environments that are difficult to observe directly and also to capture more of this 'felt life'.​
+
+• probe packs ​
+
+– items to prompt responses ​
+
+• e.g. glass to listen at wall, camera, postcard ​
+
+– given to people to open in their own environment they record what is meaningful to them 
+
+## Scenario based design ​
+
+Design based on understanding of users:  what they do, and why ​
+
+User models are used to develop personas ​
+
+Scenarios are narrative explanations of how personas use the product to achieve their goals ​
+
+goal-directed describe the interaction from the user’s viewpoint ​
+
+can be used to define design requirements, design the interaction, and specify interface design elements.
+
+scenarios … ​
+
+• what will users want to do? ​
+
+• step-by-step walkthrough ​
+
+– what can they see (sketches, screen shots) ​
+
+– what do they do (keyboard, mouse etc.) ​
+
+– what are they thinking? ​
+
+• use and reuse throughout design 
+
+### Why use scenarios? ​​
+
+• communicate with others ​
+
+– designers, clients, users ​
+
+• validate other models ​
+
+– ‘play’ it against other models ​
+
+• express dynamics ​
+
+– screenshots – appearance ​
+
+– scenario – behaviour 

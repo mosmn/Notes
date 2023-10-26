@@ -182,5 +182,129 @@ newNode->next = current->next;
 current->next = newNode;
 ```
 
-
 ## Node Deletion
+
+There are three (4) ways to perform node deletion on linked list:​
+
+### Single Node Linked List & Beginning Node Deletion
+
+Create a temporary pointer:​
+
+Node *n = head;​
+
+Move head to the next node:​
+
+head = head->next;​
+
+Delete the targeted node:​
+
+free(n);​
+
+Steps to delete node at the beginning of linked list with tail pointer are illustrated as follows:​
+
+Create a temporary pointer:​
+
+Node *n = head;​
+
+Move head to the next node:​
+
+if(head->Info == 6)​
+
+    head = head->next;​
+
+Delete the targeted node:​
+
+free(n);​
+
+
+What if the linked list contains only single node?​
+Answer:​
+Additional steps below are required:​
+   if(head == NULL)​
+         tail = NULL;​
+
+### Middle Node Deletion
+
+Create a temporary pointer:​
+
+Node *n = head, x;​
+
+Move n to 1 position before targeted node:​
+
+while (n -> next -> Info != 6)​
+
+    n = n -> next;​
+
+​
+
+Place x at the targeted node:​
+
+x = n->next;​
+
+Link node pointed by n to the node after node pointed by x:​
+
+n->next = x->next;​
+
+Delete the targeted node:​
+
+free(x);​
+
+### End of Linked List
+
+Create a temporary pointer:​
+
+Node *n = head, x;​
+
+Move n to 1 position before targeted node:​
+
+while (n -> next -> Info != 7)​
+
+    n = n -> next;​
+
+​
+
+Place x at the targeted node:​
+
+x = n->next;​
+
+Link node pointed by n to the node after node pointed by x:​
+
+n->next = x->next;​
+
+Delete the targeted node:​
+
+free(x);​
+
+Steps to delete node at the end of linked list (user’s input) with tail pointer are illustrated as follows:
+
+Create a temporary pointer:​
+
+Node *n = head, x;​
+
+Move n to 1 position before targeted node:​
+
+while (n -> next -> Info != 7)​
+
+    n = n -> next;​
+
+​
+
+Place x at the targeted node:​
+
+x = n->next;​
+
+Link node pointed by n to the node after node pointed by x:​
+
+n->next = x->next;​
+
+Additional steps:​
+
+if(x == tail)​
+
+   tail = n;​
+
+   Delete the targeted node:​
+
+free(x);​
+
+## Node Traversal​
