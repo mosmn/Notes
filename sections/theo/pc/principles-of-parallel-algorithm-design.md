@@ -130,8 +130,53 @@ There are several decomposition techniques in parallel computing:
 - Discrete event simulation may require both speculative and data decompositions.
 - Finding a minimum of numbers can also be improved using a mix of data and recursive decompositions.
 
-These techniques play a crucial role in parallel programming, allowing for efficient task decomposition and better utilization of available resources.
-
 # Process and Mapping
 
-# Parallel Algorithm Design Models 
+- The number of tasks in a decomposition usually exceeds the available processing elements, making mapping tasks to processes crucial.
+- Appropriate mapping is determined by task dependency and task interaction graphs.
+- A good mapping minimizes parallel execution time by assigning independent tasks to different processes, placing tasks on the critical path as they become available, and minimizing interaction between processes.
+- These criteria can sometimes conflict with each other, and finding a balance is crucial for optimizing parallel performance.
+
+## Mapping Techniques
+
+- Mapping tasks onto processes plays a significant role in the efficiency of a parallel algorithm.
+- The mapping determines how much of the concurrency obtained through decomposition is actually utilized.
+- Mapping techniques aim to minimize communication and idling overhead, even though these objectives often conflict.
+
+### Mapping Techniques for Minimum Idling
+
+- Balancing load alone does not minimize idling.
+- Minimizing one overhead might increase the other.
+- Strategies for static mapping are used to address this issue.
+
+### Schemes for Static Mapping
+
+- Static mapping techniques include data partitioning, task graph partitioning, and hybrid strategies.
+- Data partitioning and owner-computes rule are used for partitioning computation.
+- Examples include 1-D block distribution schemes for dense matrices.
+
+# Parallel Algorithm Design Models
+
+- Algorithm models provide a structured approach to parallel algorithm design, involving decomposition and mapping techniques to optimize interactions.
+- Various models are available:
+
+### Data Parallel Model
+
+- Tasks are mapped to processes, each performing similar operations on different data.
+- Typically, tasks are statically or semi-statically mapped to processes.
+
+### Task Graph Model
+
+- Utilizes task dependency graphs to promote locality and reduce interaction costs.
+
+### Master-Slave Model
+
+- One or more processes generate work and allocate it to worker processes, with allocation being static or dynamic.
+
+### Pipeline / Producer-Consumer Model
+
+- A stream of data passes through successive processes, with each process performing specific tasks on the data.
+
+### Hybrid Models
+
+- Hierarchical or sequential application of multiple models to different phases of a parallel algorithm.
