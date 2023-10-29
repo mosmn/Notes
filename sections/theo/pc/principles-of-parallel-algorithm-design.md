@@ -38,18 +38,100 @@ A parallel algorithm is a method for solving a problem using multiple processors
 - Task granularity and degree of concurrency have an inverse relationship; finer granularity leads to higher concurrency.
 
 ### Critical Path Length
-• A directed path in the task dependency graph represents a sequence
-of tasks that must be processed one after the other.
-• The longest such path determines the shortest time in which the
-program can be executed in parallel.
-• The length of the longest path in a task dependency graph is called
-the critical path length. 
+
+- A directed path in the task dependency graph represents a sequence of tasks that must be processed one after the other.
+- The longest such path determines the shortest time in which the program can be executed in parallel.
+- The length of the longest path in a task dependency graph is called the critical path length. 
 
 #### Critical Path
-• Start nodes: nodes with no incoming edges
-• Finish nodes: nodes with no outgoing edges
-• Critical path: the longest directed path between any pair of start and
-finish nodes
-• Critical path length: sum of the weights of the nodes on a critical path
-• Average degree of concurrency = total amount of work
-critical path length
+
+- Start nodes: nodes with no incoming edges
+- Finish nodes: nodes with no outgoing edges
+- Critical path: the longest directed path between any pair of start and finish nodes
+- Critical path length: sum of the weights of the nodes on a critical path
+
+## Limits on Parallel Performance
+- The parallel time can be minimized by refining the granularity of decomposition.
+- There is an intrinsic limit to how fine the granularity of computation can be.
+- For instance, in dense matrix-vector multiplication, there can be no more than (n^2) concurrent tasks.
+- Concurrent tasks might need to exchange data, introducing communication overhead.
+- Performance is determined by the tradeoff between granularity and overhead.
+- Amdahl’s law highlights the fraction of unparallelizable work, further limiting parallel performance.
+
+## Task Interaction Graphs
+- Tasks often exchange data.
+- Consider the example of dense matrix-vector multiplication.
+- The graph representing tasks and data exchange is a task interaction graph.
+- These graphs depict data dependencies, unlike task dependency graphs, which show control dependencies.
+- In a task interaction graph:
+  - Node = task
+  - Edge = interaction or data exchange
+
+### Example
+**Sparse Matrix-Vector Multiplication**
+- Each result element's computation is an independent task.
+- Only non-zero elements of the sparse matrix A participate.
+- Task interaction graph structure = graph of matrix A (adjacency structure).
+
+- Finer granularity leads to increased communication overhead.
+- Consider the sparse matrix-vector product example:
+  - If each node is a task, useful computation is 1 unit, and communication is 3 units.
+  - If nodes 0, 4, and 5 are considered one task, useful computation is 3 units, and communication is 4 units (more favorable).
+
+### Interaction Graphs, Granularity, & Communication
+- Finer task granularity results in higher communication overhead.
+- Example: sparse matrix-vector product interaction graph.
+- Assumptions:
+  - Each node takes 1 unit time to process.
+  - Each interaction (edge) causes an overhead of 1 unit time.
+- If node 0 is a task:
+  - Communication = 3
+  - Computation = 4
+- If nodes 0, 4, and 5 are a task:
+  - Communication = 5
+  - Computation = 15
+- Coarser-grain decomposition leads to smaller communication/computation.
+
+Here are your notes organized using markdown:
+
+# Decomposition Techniques
+There are several decomposition techniques in parallel computing:
+
+### Recursive Decomposition
+- Suitable for problems that can be solved using divide-and-conquer.
+- Steps:
+  1. Decompose a problem into sub-problems.
+  2. Recursively decompose each sub-problem.
+  3. Stop decomposition when the desired granularity is reached.
+- An example of a problem that can be divided recursively is Quicksort.
+
+### Data Decomposition
+- Steps:
+  1. Identify the data on which computations are performed.
+  2. Partition the data across various tasks.
+- Data can be partitioned based on input data, output data, or both, depending on the problem's nature.
+- Examples include finding the minimum in a set or sorting a vector.
+
+### Exploratory Decomposition
+- Used for problems involving a search of a space for solutions.
+- The decomposition reflects the shape of the execution.
+- Examples include discrete optimization, theorem proving, and game playing.
+
+### Speculative Decomposition
+- Applicable when dependencies between tasks are unknown.
+- Two approaches:
+  1. Conservative: Identify independent tasks only when dependencies are guaranteed.
+  2. Optimistic: Schedule tasks even when dependencies are potential, requiring a rollback mechanism in case of errors.
+- Discrete event simulation is a classic example of speculative decomposition.
+
+### Hybrid Decompositions
+- Often, a mix of decomposition techniques is necessary.
+- For example, quicksort benefits from a combination of data and recursive decompositions.
+- Discrete event simulation may require both speculative and data decompositions.
+- Finding a minimum of numbers can also be improved using a mix of data and recursive decompositions.
+
+These techniques play a crucial role in parallel programming, allowing for efficient task decomposition and better utilization of available resources.
+
+# Process and Mapping
+
+# Parallel Algorithm Design Models 
