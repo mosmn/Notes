@@ -73,7 +73,7 @@ Developers test and validate the system implementation to ensure it aligns with 
   - These are best-practice solutions to commonly occurring problems. They are specified in a way that allows them to be reused and applied to slightly different variations of a problem repeatedly.
   - Examples include Model-View-Controller (MVC), document interface, and web app page architecture.
 
-## User Focus
+# User Focus
 
 - **Know Your Users**
   - Understand who your users are, and remember that they may not be like you.
@@ -98,64 +98,73 @@ Developers test and validate the system implementation to ensure it aligns with 
 - Personas are used as surrogate users to understand how they would interact with a product.
 - Details matter in creating personas to make them feel 'real' and relatable.
 
-## cultural probes ​
+## Cultural Probes
 
-• direct observation ​
+**Definition**: Cultural probes are a method used to access environments that are difficult to observe directly and capture the "felt life" of individuals.
 
-– sometimes hard ​
+- **Direct Observation**:
+  - Sometimes challenging.
+  - Occurs in the home.
+  - Often used with psychiatric patients and other hard-to-reach populations.
 
-• in the home ​
+- **Probe Packs**:
+  - Include items to prompt responses (e.g., glass to listen at the wall, camera, postcard).
+  - Given to people to open in their own environment, where they record what is meaningful to them.
 
-• psychiatric patients, … ​
+## Scenario-Based Design
 
-Cultural probes are one way to access environments that are difficult to observe directly and also to capture more of this 'felt life'.​
+**Definition**: Designing based on an understanding of users, what they do, and why they do it.
 
-• probe packs ​
+- **User Models**:
+  - Used to develop personas.
 
-– items to prompt responses ​
+- **Scenarios**:
+  - Narrative explanations of how personas use the product to achieve their goals.
+  - Goal-directed and describe the interaction from the user's viewpoint.
+  - Can be used to define design requirements, design the interaction, and specify interface design elements.
+  - Address questions like what users want to do, provide step-by-step walkthroughs, and consider what users can see, do, and think.
+  - Use and reuse throughout the design process.
 
-• e.g. glass to listen at wall, camera, postcard ​
+- **Why Use Scenarios**:
+  - To communicate with others (designers, clients, users).
+  - To validate other models.
+  - To express dynamics through behavior and appearance.
 
-– given to people to open in their own environment they record what is meaningful to them 
+## User Requirements
 
-## Scenario based design ​
+**Definition**: Captures the characteristics of the intended user group, considering novices, casual users, and experts. Always important to know your users.
 
-Design based on understanding of users:  what they do, and why ​
+- **Novice & Casual Users**:
+  - Require clear, step-by-step introductions.
 
-User models are used to develop personas ​
+- **Expert & Frequent Users**:
+  - Need flexible interactions, a wide range of power and control, and shortcut keys.
 
-Scenarios are narrative explanations of how personas use the product to achieve their goals ​
+## Screen Design - Four Golden Rules
 
-goal-directed describe the interaction from the user’s viewpoint ​
+1. **Knowing Where You Are**:
+   - Users should always be aware of their current location within the interface.
 
-can be used to define design requirements, design the interaction, and specify interface design elements.
+2. **Knowing What You Can Do**:
+   - Users should understand the available actions and functionalities.
 
-scenarios … ​
+3. **Knowing Where You Are Going or What Will Happen**:
+   - Users should have a sense of the expected outcomes of their actions.
 
-• what will users want to do? ​
+4. **Knowing Where You've Been or What You've Done**:
+   - Users should be able to track their past interactions and activities.
 
-• step-by-step walkthrough ​
+## Basic Principles at Screen Level
 
-– what can they see (sketches, screen shots) ​
+- **Ask**:
+  - Determine what the user is doing.
 
-– what do they do (keyboard, mouse etc.) ​
+- **Think**:
+  - Consider the information, comparisons, and order needed.
 
-– what are they thinking? ​
+- **Design**:
+  - Follow the principle that form follows function.
 
-• use and reuse throughout design 
 
-### Why use scenarios? ​​
-
-• communicate with others ​
-
-– designers, clients, users ​
-
-• validate other models ​
-
-– ‘play’ it against other models ​
-
-• express dynamics ​
-
-– screenshots – appearance ​
-
-– scenario – behaviour 
+**for illustration see slides**
+​
