@@ -164,7 +164,4 @@ Developers test and validate the system implementation to ensure it aligns with 
 
 - **Design**:
   - Follow the principle that form follows function.
-
-
-**for illustration see slides**
 ​
