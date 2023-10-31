@@ -540,11 +540,74 @@ acct = new Account(25.00);
 - In the context of an account, it could involve setting the balance to meet minimum requirements, ensuring the account is valid from the start.
 
 # Information Hiding and Visibility Modifiers
-• The modifiers public and private designate the
-accessibility of data members and methods.
-• If a class component (data member or method) is
-declared private, client classes cannot access it.
-• If a class component is declared public, client
-classes can access it.
-• Internal details of a class are declared private and
-hidden from the clients. This is information hiding.
+- The modifiers public and private designate the accessibility of data members and methods.
+- If a class component (data member or method) is declared private, client classes cannot access it.
+- If a class component is declared public, client classes can access it.
+- Internal details of a class are declared private and hidden from the clients. This is information hiding.
+
+## Data Members Should Be private
+- Data members are the implementation details of the class, so they should be invisible to the clients. Declare them private.
+- Exception: Constants can (and should) be declared public if they are meant to be used directly by outside methods.
+
+### Sample Program (Visibility Modifiers)
+```java
+class AccountVer2 {
+    // Data Members
+    private String ownerName;
+    private double balance;
+
+    // Constructor
+    public AccountVer2(String name, double startingBalance ) {
+        ownerName = name;
+        balance = startingBalance;
+    }
+
+    public void add(double amt) {
+        balance = balance + amt;
+    }
+
+    public void deduct(double amt) {
+        balance = balance - amt;
+    }
+
+    public double getCurrentBalance( ) {
+        return balance;
+    }
+}
+```
+
+Why declaring data members public is considered bad design:
+- If data member balance is declared as public, it can't prohibit client programmers from directly modifying it.
+
+# Guideline for Visibility Modifiers
+- Guidelines for determining the visibility of data members and methods:
+  - Declare the class and instance variables private.
+  - Declare the class and instance methods private if they are used only by other methods in the same class.
+  - Declare the class constants public if you want to make their values directly readable by client programs. If class constants are used for internal purposes only, declare them private.
+
+# Access Modifiers
+- Access modifiers help implement the encapsulation principle of object-oriented programming.
+- Java has 4 access modifiers: public, protected, default, private.
+- Java has other modifiers like static, final, and abstract.
+
+# Class Constants
+- A class constant will be shared by all methods of the class.
+- `private static final double FEE = 0.50` - The modifier `final` designates that the identifier FEE is a constant, and the modifier `static` designates that it is a class constant.
+
+# Local Variables
+- Local variables are declared within a method declaration and used for temporary services, such as storing immediate computation results.
+
+Example:
+```java
+public double convert(int num) {
+    double result;
+    result = Math.sqrt(num * num);
+    return result;
+}
+```
+
+- Local variables are used for storing immediate results within a method.
+
+# Calling Methods of the Same Class
+- It is possible to call a method of a class from another method of the same class.
+- In this case, you can refer to a method without using dot notation.
