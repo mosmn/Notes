@@ -208,7 +208,7 @@
 
 ### MongoDB
 
-- [Introduction](sections/db/mongodb/intro.md)4
+- [Introduction](sections/db/mongodb/intro.md)
 - [MongoDB and the Document Model](sections/db/mongodb/document-model.md)
 - [Connecting to a MongoDB Database](sections/db/mongodb/connecting.md)
 - [CRUD Operations: Insert and Find Documents](sections/db/mongodb/inser-find.md)
@@ -304,6 +304,7 @@
 - [Introduction](sections/theo/hci/intro.md)
 - [Interrelationships](sections/theo/hci/interrelationships.md)
 - [Interaction Design Basics](sections/theo/hci/interaction-design-basics.md)
+- [Cognitive Models](sections/theo/hci/cognitive-models.md)
 
 ### Artificial Intelligence
 
