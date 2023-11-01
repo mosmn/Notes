@@ -26,7 +26,6 @@
     - [Parallel computing](#parallel-computing)
     - [Human Computer Interaction](#human-computer-interaction)
     - [Artificial Intelligence](#artificial-intelligence)
-    - [Statistics](#statistics)
 
 - [Sources](#sources)
 
@@ -311,11 +310,7 @@
 - [Introduction](sections/theo/ai/intro.md)
 - [Logic](sections/theo/ai/logic.md)
 - [Propositional & Predicate Logic](sections/theo/ai/propositional-predicate-logic.md)
-
-### Statistics
-
-- [Introduction](sections/theo/statistics/intro.md)
-- [Numerical data representation](sections/theo/statistics/numerical-data-representation.md)
+- [Automated Reasoning and Theorem Proving](sections/theo/ai/automated-reasoning-and-theorem-proving.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
