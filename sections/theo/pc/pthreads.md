@@ -395,17 +395,17 @@ void *PrintHello(void *threadid) {
 int main(int argc, char *argv[]) {
     int rc;
     long t;
-    pthread_t threads[NUM_THREADS];
+    pthread_t threads[NUM_THREADS];// declare 5 threads
     
     for (t = 0; t < NUM_THREADS; t++) {
         printf("In main: creating thread %ld\n", t);
-        rc = pthread_create(&threads[t], NULL, PrintHello, (void *) t);
+        rc = pthread_create(&threads[t], NULL, PrintHello, (void *) t); // create 5 threads
         if (rc) {
             printf("ERROR; return code from pthread_create() is %d\n", rc);
         }
     }
     
-    pthread_exit(NULL);
+    pthread_exit(NULL); // main thread exit
 }
 ```
 
@@ -433,30 +433,95 @@ for (t = 0; t < NUM_THREADS; t++) {
 }
 ```
 
+This code fragment demonstrates how to pass a simple integer to each thread.
+
+The calling thread uses a unique data structure for each thread, insuring that each thread's argument remains intact throughout the program.
+
 ### Example 2 - Thread Argument Passing
 
 ```c
+#include <stdio.h>
+#include <pthread.h>
+
+// Define the structure to hold thread data
 struct thread_data {
     int thread_id;
     int sum;
     char *message;
 };
 
+#define NUM_THREADS 5
+
+// Array to store thread data for each thread
 struct thread_data thread_data_array[NUM_THREADS];
 
+// Thread function
+void *PrintHello(void *threadarg) {
+    // Cast the argument back to a thread_data structure
+    struct thread_data *my_data = (struct thread_data *)threadarg;
+    
+    // Extract data from the structure
+    int taskid = my_data->thread_id;
+    int sum = my_data->sum;
+    char *hello_msg = my_data->message;
+    
+    // Perform thread-specific tasks
+    // ...
+
+    pthread_exit(NULL);
+}
+
 int main(int argc, char *argv[]) {
-    // ...
-    thread_data_array[t].thread_id = t;
-    thread_data_array[t].sum = sum;
-    thread_data_array[t].message = messages[t];
-    rc = pthread_create(&threads[t], NULL, PrintHello, (void *) &thread_data_array[t]);
-    // ...
+    int rc;
+    pthread_t threads[NUM_THREADS];
+
+    // Populate thread_data_array with data for each thread
+    for (int t = 0; t < NUM_THREADS; t++) {
+        thread_data_array[t].thread_id = t;
+        // Assign values to other fields in thread_data_array
+        // e.g., thread_data_array[t].sum = ...;
+        //      thread_data_array[t].message = ...;
+
+        // Create a new thread and pass the corresponding thread_data structure as an argument
+        rc = pthread_create(&threads[t], NULL, PrintHello, (void *)&thread_data_array[t]);
+        if (rc) {
+            printf("ERROR; return code from pthread_create() is %d\n", rc);
+        }
+    }
+
+    // Optionally, you can wait for the threads to finish using pthread_join
+
+    pthread_exit(NULL);
 }
 ```
+
+- The structure `thread_data` is defined to hold data that will be passed to each thread.
+- An array `thread_data_array` is declared to store the data for each thread.
+- The `PrintHello` function is the thread entry point and extracts the data from the `thread_data` structure passed as an argument.
+- In the `main` function, the `thread_data_array` is populated with data specific to each thread.
+- Threads are created using `pthread_create`, and each thread receives its corresponding `thread_data` structure as an argument.
+
+This example shows how to setup/pass multiple arguments via a structure. Each thread receives a unique instance of the structure.
 
 ### Example 3 - Thread Argument Passing (Incorrect)
 
 In this example, the thread argument is passed incorrectly, using the address of a shared variable `t`.
+This example performs argument passing incorrectly.
+• It passes the address of variable t, which is shared memory space and visible to all threads.
+• As the loop iterates, the value of this memory location changes, possibly before the created threads can access
+it.
+• The result is that all threads may end up using the same value for their argument.
+
+```c
+int rc;
+long t;
+for(t=0; t<NUM_THREADS; t++)
+{
+printf("Creating thread %ld\n", t);
+rc = pthread_create(&threads[t], NULL, PrintHello, (void *) &t);
+...
+}
+```
 
 ## Joining and Detaching Threads
 
