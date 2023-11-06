@@ -204,7 +204,7 @@ For a particular user Sam:
 
 ### HTA – Example 1: Make a Cup of Tea
 
-![HTA – Example 1: Make a Cup of Tea](https://www.researchgate.net/publication/228739647/figure/fig1/AS:301808212824065@1448968093555/Hierarchical-task-analysis-of-tea-making-from-1.png)
+![HTA – Example 1: Make a Cup of Tea](https://web.cs.dal.ca/~jamie/teach/NickGibbins/hta-1.gif)
 
 ### HTA – Example 2: Borrow A Book
 
@@ -259,7 +259,7 @@ Plan 0: do 1,2,4
 Plan 2: do any of 2.1, 2.2, 2.3 in any order depending on which rooms need
     cleaning.
 
-#### An Example of HTA For a Microwave Oven
+### An Example of HTA For a Microwave Oven
 
 - **What is the overall goal?**
     - “Cook food!”
@@ -270,41 +270,18 @@ Plan 2: do any of 2.1, 2.2, 2.3 in any order depending on which rooms need
     - Listen for bell to ring
     - Remove meal
 
-#### An Example of HTA For a Microwave Oven
-
 - **Selecting a programme - How is this done?**
     - Set to autosensor
     - Set to defrost
     - Set timer to cook
 - **What are the rules that influence the order in which**
 
-###### tasks/subtasks take place? (the plans).....
-
-
-#### An Example of HTA For a Microwave Oven
-
-### Further Task Analysis (Matrixes)
-
-
 ### Task Analysis – Critical Thinking
 
-- Some requirements that might have
-
-#### ‘emerged’ from carrying out this Task
-
-#### analysis:
-
-- The need for a distinctive, but not annoying,
-
-###### bell sound
-
-- The need for an easily accessible mechanism
-
-###### for opening the door
-
-- The need for a highly learnable (guessable)
-
-###### means of selecting a programme
+- Some requirements that might have ‘emerged’ from carrying out this Task analysis:
+    - The need for a distinctive, but not annoying, bell sound 
+    - The need for an easily accessible mechanism for opening the door 
+    - The need for a highly learnable (guessable) means of selecting a programme
 
 # Summary
 
