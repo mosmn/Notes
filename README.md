@@ -183,6 +183,7 @@
 - [Basics](sections/java/basics.md)
 - [Numerical Data](sections/java/numerical-data.md)
 - [Defining Your Own Classes](sections/java/defining-classes.md)
+- [Selection and Repetition](sections/java/selection-repetition.md)
 
 ### Python
 
@@ -297,6 +298,10 @@
 - [Introduction](sections/theo/pc/intro.md)
 - [Parallel Computing Architecture](sections/theo/pc/parallel-computing-architecture.md)
 - [Principles of Parallel Algorithm Design](sections/theo/pc/principles-of-parallel-algorithm-design.md)
+- [Pthreads](sections/theo/pc/pthreads.md)
+- [OpenMP](sections/theo/pc/openmp.md)
+- [MPI](sections/theo/pc/mpi.md)
+- [CUDA](sections/theo/pc/cuda.md)
 
 ### Human Computer Interaction
 

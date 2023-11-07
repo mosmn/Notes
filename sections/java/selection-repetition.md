@@ -535,7 +535,1034 @@ You can also use the `switch` statement with `String` values. This allows you to
 
 The `break` statement is used to exit the `switch` statement once a matching case is found. If a `break` statement is omitted, the code will continue to execute the subsequent cases until a `break` statement is encountered.
 
+## Default Case
 
+You may include a `default` case in the `switch` statement. The `default` case will be executed if no matching `case` is found.
+
+
+# REPETITION STATEMENTS
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## REVISION TOPICS
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Definition
+
+- Repetition statements control a block of code to be
+
+#### executed for a fixed number of times or until a
+
+#### certain condition is met.
+
+- There are two types of loop; Count-controlled
+
+#### repetitions and Sentinel-controlled repetitions
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The while Statement
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## More Examples
+
+```
+Keeps adding the
+numbers 1, 2, 3, ... until
+the sum becomes larger
+than 1,000,000.
+```
+```
+Computes the product of
+the first 20 odd integers.
+```
+```
+int sum = 0, number = 1;
+```
+```
+while ( sum <= 1 000 000 ) {
+sum = sum + number;
+number = number + 1;
+}
+```
+#### 1
+
+```
+int product = 1, number = 1,
+count = 20, lastNumber;
+```
+```
+lastNumber = 2 * count - 1;
+```
+```
+while (number <= lastNumber) {
+product = product * number;
+number = number + 2;
+}
+```
+#### 2
+
+
+## Count-controlled &
+
+## sentinel-controlled loop
+
+- Count-controlled loop: The loop body is executed
+
+### for a fixed number of times (as if we were counting)
+
+- Sentinel-controlled loop: The loop body is executed
+
+### repeatedly until any one of the designated values,
+
+### called a sentinel, is encountered.
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+###### int sum = 0, number = 1;
+
+###### while (number <= 100) {
+
+###### sum = sum + number;
+
+###### number = number + 1;
+
+###### }
+
+
+## Sentinel Control
+
+###### import javax.swing.JOptionPane;
+
+###### public class WhileLoopSentinel {
+
+###### public static void main(String[] args) {
+
+###### String input = JOptionPane.showInputDialog("Enter number [-1 to quit]:");
+
+###### int num = num = Integer.parseInt(input);;
+
+###### int sum = 0;
+
+###### while (num != -1) {
+
+###### sum += num;
+
+###### input = JOptionPane.showInputDialog("Enter number [-1 to quit]:");
+
+###### num = Integer.parseInt(input);
+
+###### }
+
+###### JOptionPane.showMessageDialog(null, "The sum of the numbers you
+
+###### entered is : " + sum);
+
+###### }
+
+###### }
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+##### WhileLoopSentinel.java
+
+
+## Improving User Interface with a Loop
+
+- To create a user-friendly program, you can either
+
+### print out an error message or to set a default value
+
+### if the user enters an invalid value.
+
+- Instead of quitting the program after displaying an
+
+### error message or continuing the program with a
+
+### default value, it would be better in general to allow
+
+### the user to reenter the value until the correct value
+
+### is entered.
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## Improving User Interface with a Loop
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+##### Your Age (between 0 and 130): 140
+
+##### An invalid age was entered. Please try again.
+
+##### Your Age (between 0 and 130): - 1
+
+##### An invalid age was entered. Please try again.
+
+##### Your Age (between 0 and 130): 120
+
+#### Sentinel-controlled loop
+
+
+## DEMO
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Finding GCD
+
+##### Direct Approach More Efficient Approach
+
+
+## GCD
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+#### X 4
+
+#### X 4
+
+#### X 5
+
+#### X 5
+
+#### X 1
+
+#### X 1
+
+
+## Finding GCD
+
+##### public int gcd(int n, int m) {
+
+##### int r = n % m;
+
+##### while (r !=0) {
+
+##### n = m;
+
+##### m = r;
+
+##### r = n % m;
+
+##### }
+
+##### return m;
+
+##### }
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+#### Ch6GCD.java
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Useful Shorthand Operators
+
+##### sum = sum + number; is equivalent to sum += number;
+
+#### Operator Usage Meaning
+
+#### += a += b; a = a + b;
+
+- = a -= b; a = a – b;
+
+#### *= a *= b; a = a * b;
+
+#### /= a /= b; a = a / b;
+
+#### %= a %= b; a = a % b;
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Watch Out for Pitfalls
+
+#### 1. Make sure the loop body contains a statement that
+
+#### will eventually cause the loop to terminate.
+
+#### 2. Make sure the loop repeats exactly the correct
+
+#### number of times.
+
+#### 3. There are 4 issues with regards to pitfalls in writing
+
+#### repetition statements:
+
+##### 1. Infinite loop
+
+##### 2. Overflow error
+
+##### 3. Imprecise loop counter
+
+##### 4. Off-by-1 error
+
+```
+Pitfall means
+unsuspected
+danger
+```
+
+## Loop Pitfall 1: Infinite loop
+
+###### Infinite Loops
+
+```
+Both loops will not
+terminate because the
+boolean expressions will
+int count = 1; never become false.
+```
+```
+while ( count != 10 ) {
+count = count + 2;
+```
+}
+
+#### 2
+
+int product = 0;
+
+```
+while ( product < 500 000 ) {
+product = product * 5;
+}
+```
+(^1) product = 0
+
+#### all the times
+
+#### count =
+
+#### 3,5,7,9,11,13, ....
+
+#### TestLoop.java
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Loop Pitfall 2: Overflow error
+
+- An infinite loop often results in an overflow error.
+- An overflow error occurs when you attempt to
+
+### assign a value larger than the maximum value the
+
+### variable can hold.
+
+
+## Loop Pitfall 3: Imprecise loop counter
+
+- We know in mathematics that
+- is equal to 1. However, in a computer, an
+
+### expression such as
+
+- may or may not get evaluated to 1.0, depending
+
+### on how precise the approximation is.
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## Loop Pitfall 3: Imprecise loop counter
+
+- Consider the following example:
+
+#### double count = 0.0;
+
+#### while (count != 1.0) {
+
+#### count = count + 0.10;
+
+#### }
+
+- This repetition statement looks simple enough. We initialize
+
+#### count to 0.0 and repeatedly add 0.10 to it, so after 10
+
+#### repetitions, the loop should terminate. Wrong.
+
+- The counter variable count never becomes equal to 1.0. The
+
+### closest it gets is 0.9999999999999999.
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## Output
+
+##### 0.1
+
+##### 0.2
+
+##### 0.30000000000000004
+
+##### 0.4
+
+##### 0.5
+
+##### 0.6
+
+##### 0.7
+
+##### 0.7999999999999999
+
+##### 0.8999999999999999
+
+##### 0.9999999999999999
+
+##### 1.0999999999999999
+
+##### 1.2
+
+##### .................................
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+#### TestLoop.java
+
+
+```
+©T he McGraw-Hill Companies, Inc. P ermission
+```
+## Loop Pitfall 4: Off-by-1 error
+
+- Goal: Execute the loop body 10 times.
+
+```
+count = 1;
+while ( count < 10 ){
+```
+...
+count++;
+}
+
+#### 1
+
+```
+count = 0;
+while ( count <= 10 ){
+```
+...
+count++;
+}
+
+#### 3
+
+```
+count = 1;
+while ( count <= 10 ){
+```
+...
+count++;
+}
+
+#### 2
+
+```
+count = 0;
+while ( count < 10 ){
+```
+...
+count++;
+}
+
+#### 4
+
+#### 1 and 3 exhibit off-by-one error.
+
+#### 9 times
+
+#### 11 times
+
+
+## Quick Check (Q & A)
+
+- Write a while statement to add numbers 11
+
+### through 20. Is this a count-controlled or sentinel-
+
+### controlled loop?
+
+- Answer:
+
+##### int sum = 0, i = 11;
+
+##### while ( i <= 20 ) { //this is a
+
+##### sum += i; //count-controlled
+
+##### i++;
+
+##### }
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## REVISION TOPICS
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The do-while Statement
+
+##### int sum = 0, number = 1;
+
+##### do {
+
+##### sum += number;
+
+##### number++;
+
+##### } while ( sum <= 1000000 );
+
+```
+These statements are
+executed as long as sum
+is less than or equal to
+1,000,000.
+```
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+###### do {
+
+###### sum += number;
+
+###### number++;
+
+###### } while ( sum <= 1000000 );
+
+### Syntax for the do-while Statement
+
+##### do
+
+##### <statement>
+
+##### while ( <boolean expression> ) ;
+
+###### Statement
+
+###### (loop body)
+
+###### Boolean Expression
+
+
+## DEMO
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Loop-and-a-Half Repetition Control
+
+- Loop-and-a-half repetition control can be used to test a
+
+#### loop’s terminating condition in the middle of the loop body.
+
+- Infinite loops can occur unintentionally if you are not careful
+
+#### with the conditions of a while loop.
+
+- In these cases, the infinite loop can cause the program to
+
+#### crash.
+
+- However, infinite loops can be a very useful tool in
+
+#### programming.
+
+- If your program needs to repeat a block of code an
+
+#### indefinite number of times, an infinite loop may be the
+
+#### correct approach.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Loop-and-a-Half: Breaking out of a Loop
+
+- Repeating code is nice, but it's just as important to be able
+
+#### to stop the loop so that the rest of the program can
+
+#### continue executing.
+
+- Loops can be stopped using the break statement.
+- When the loop encounters a break statement, it quits
+
+#### running the loop and program flow continues.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Example: Loop-and-a-Half Control
+
+```
+package myworks;
+import java.util.*;
+```
+```
+public class LoopAndHalf {
+public static void main(String[] args) {
+```
+```
+int cnt=0;
+double avg, score, sum= 0.0;
+Scanner scanner = new Scanner(System.in);
+```
+```
+while(true){
+System.out.println ("Enter score:");
+score= scanner.nextDouble();
+if (score <0) break;
+sum +=score;
+cnt++;
+}
+if (cnt >0){
+avg= sum/cnt;
+System.out.println (avg);
+}
+else {
+// error: no input
+}
+}
+}
+```
+
+#### Same as before but with colors
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+#### Enter score:
+
+- 1
+
+```
+Enter score:
+2
+Enter score:
+2
+Enter score:
+2
+Enter score:
+2
+Enter score:
+2
+Enter score:
+```
+- 1
+2.0
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Loop-and-a-Half: Stopping with the
+
+### Sentinels
+
+- Notice how in the previous example, the break statement
+
+#### occurs when a certain condition is true.
+
+- Checking for a condition like this is a useful way to have
+
+#### the while loop repeat as many times as needed.
+
+- This is especially true when getting input from the user.
+- For example, you may want to print out numbers from the
+
+#### user until the program encounters the value -1.
+
+- Such a program may look like this:
+
+
+### Loop-and-a-Half: Stopping with the
+
+### Sentinels
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+```
+import java.util.*;
+```
+```
+class StoppingWithSentinels{
+public static void main(String[] args) {
+```
+```
+int SENTINEL = -1;
+```
+```
+while(true)
+{
+```
+```
+Scanner scanner = new Scanner(System.in);
+int num;
+```
+```
+System.out.print("Enter your input(s): ");
+num = scanner.nextInt();
+```
+```
+if (num == SENTINEL)
+{
+break;
+}
+System.out.println(num);
+}
+}
+}
+```
+
+## Loop-and-a-Half: Stopping with the
+
+## Sentinels
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+#### Enter your input(s): 3
+
+#### 3
+
+#### Enter your input(s): 4
+
+#### 4
+
+#### Enter your input(s): 5
+
+#### 5
+
+#### Enter your input(s): - 1
+
+
+## Why Use a Loop-and-a-Half?
+
+- It may seem dangerous or time-consuming to use
+
+### an infinite loop, but when used appropriately, the
+
+### loop-and-a-half structure is efficient and effective.
+
+- The loop-and-a-half structure is preferred because
+
+### it avoids repeating code outside and inside the
+
+### loop.
+
+- Furthermore, it is often easier to reason through
+
+### the logic behind a loop-and-a-half.
+
+- For example, with a simple program that prints
+
+### numbers to the screen:
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## Why Use a
+
+## Loop-and-
+
+## a-Half?
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+Refer to StoppingWithSentinels.java
+
+
+## Why Use a
+
+## Loop-and-
+
+## a-Half?
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+Refer to StoppingWithSentinels.java
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Pitfalls for Loop-and-a-Half Control
+
+- Be aware of two concerns when using the loop-
+
+### and-a-half control:
+
+- The danger of an infinite loop.The boolean expression of the
+
+##### while statement is true, which will always evaluate to true. If we
+
+##### forget to include an if statement to break out of the loop, it will
+
+##### result in an infinite loop.
+
+- Multiple exit points.It is possible, although complex, to write a
+
+##### correct control loop with multiple exit points (break). It is good
+
+##### practice to enforce the one-entry one-exit controlflow.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Pitfalls for Loop-and-a-Half Control
+
+- One-entry one-exit control (good approach)
+
+### flow: standard while and do–while with no
+
+### break statements inside the loop
+
+- Multiple exit points (bad approach) as below:
+
+
+## Multiple exit points
+
+- The main reason multiple exit points are bad is
+
+### that they complicate control flow.
+
+- The more complicated the control flow is, the
+
+### harder the code is to understand.
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## REVISION TOPICS
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## The for statement
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The for Statement
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The for Statement
+
+##### int i, sum = 0, number;
+
+##### for (i = 0; i < 20; i++) {
+
+##### number = scanner.nextInt( );
+
+##### sum += number;
+
+##### }
+
+```
+These statements are
+executed for 20 times
+( i = 0, 1, 2, ... , 19).
+```
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## More for Loop Examples
+
+#### 1 for (int i = 0; i < 100; i += 5)
+
+###### i = 0, 5, 10, ... , 95
+
+#### 2 for (int j = 2; j < 40; j *= 2)
+
+###### j = 2, 4, 8,16, 32
+
+#### 3 for (int k = 100; k > 0; k--) )
+
+###### k = 100, 99, 98, 97, ..., 1
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The Nested-for Statement
+
+- Nesting a for statement inside another for
+
+### statement is commonly used technique in
+
+### programming.
+
+- Let’s generate the following table using nested-
+
+### for statement.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Generating the Table
+
+###### int price;
+
+###### for (int width = 11; width <=20, width++){
+
+###### for (int length = 5, length <=25, length+=5){
+
+###### price = width * length * 19; //$19 per sq. ft.
+
+###### System.out.print (" " + price);
+
+###### }
+
+###### //finished one row; move on to next row
+
+###### System.out.println("");
+
+###### }
+
+```
+INNER
+OUTER
+```
+
+#### The Nested-for Statement: Generating the Table
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### Formatting Output
+
+- We call the space occupied by an output value the field.
+
+#### The number of characters allocated to a field is the field
+
+#### width. The diagram shows the field width of 6.
+
+- From Java 5.0, we can use the Formatter class.
+
+#### System.out (PrintStream) also includes the format method.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+### The Formatter Class
+
+- We use the Formatter class to format the output.
+- First we create an instance of the class
+
+##### Formatter formatter = new Formatter(System.out);
+
+- Then we call its format method
+
+##### int num = 467;
+
+##### formatter.format("%6d", num);
+
+- This will output the value with the field width of 6.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The format Method of Formatter
+
+- The general syntax is
+
+###### format(<control string>, <expr1>, <expr2>,... )
+
+#### Example:
+
+```
+int num1 = 34, num2 = 9;
+int num3 = num1 + num2;
+formatter.format("%3d + %3d = %5d", num1, num2, num3);
+```
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## The format Method of PrintStream
+
+- Instead of using the Formatter class directly, we can
+
+#### achieve the same result by using the format method of
+
+#### PrintStream (System.out)
+
+###### Formatter formatter = new Formatter(System.out);
+
+###### formatter.format("%6d", 498);
+
+#### is equivalent to
+
+###### System.out.format("%6d", 498);
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Formatting Output
+
+- Integers
+
+###### % <field width> d
+
+- Real Numbers
+
+###### % <field width>. <decimal places> f
+
+- Strings
+
+###### % s
+
+- For other data types and more formatting options, please
+
+#### consult the Java API for the Formatter class.
+
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+## Formatting Output
+
+
+## More examples on formatting
+
+##### System.out.format("%4d", 234);
+
+##### System.out.format("%5d", 234);
+
+##### System.out.format("%s", "\n");
+
+##### System.out.format("$%6.2f", 23.456);
+
+###### NOTE: Blank space is denoted by an underscore. Underscores are not a part of
+
+###### real output.
+
+##### _234_ _234
+
+##### $_23.46
+
+©T he McGraw-Hill Companies, Inc. P ermission
+
+
+## References
 
 - https://codehs.gitbooks.io/apjava/content/Basic-
 
