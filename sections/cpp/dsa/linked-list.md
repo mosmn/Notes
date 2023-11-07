@@ -188,127 +188,127 @@ There are three (4) ways to perform node deletion on linked list:​
 
 ### Single Node Linked List & Beginning Node Deletion
 
-Create a temporary pointer:​
+#### Steps:
+1. Create a temporary pointer:
+   ```cpp
+   Node *n = head;
+   ```
+2. Move the head to the next node:
+   ```cpp
+   head = head->next;
+   ```
+3. Delete the targeted node:
+   ```cpp
+   free(n);
+   ```
 
-Node *n = head;​
-
-Move head to the next node:​
-
-head = head->next;​
-
-Delete the targeted node:​
-
-free(n);​
-
-Steps to delete node at the beginning of linked list with tail pointer are illustrated as follows:​
-
-Create a temporary pointer:​
-
-Node *n = head;​
-
-Move head to the next node:​
-
-if(head->Info == 6)​
-
-    head = head->next;​
-
-Delete the targeted node:​
-
-free(n);​
-
-
-What if the linked list contains only single node?​
-Answer:​
-Additional steps below are required:​
-   if(head == NULL)​
-         tail = NULL;​
+#### Special Case:
+If the linked list contains only a single node, additional steps are required:
+```cpp
+if (head == NULL)
+    tail = NULL;
+```
 
 ### Middle Node Deletion
 
-Create a temporary pointer:​
-
-Node *n = head, x;​
-
-Move n to 1 position before targeted node:​
-
-while (n -> next -> Info != 6)​
-
-    n = n -> next;​
-
-​
-
-Place x at the targeted node:​
-
-x = n->next;​
-
-Link node pointed by n to the node after node pointed by x:​
-
-n->next = x->next;​
-
-Delete the targeted node:​
-
-free(x);​
+#### Steps:
+1. Create a temporary pointer:
+   ```cpp
+   Node *n = head, x;
+   ```
+2. Move `n` to 1 position before the targeted node:
+   ```cpp
+   while (n->next->Info != 6)
+       n = n->next;
+   ```
+3. Place `x` at the targeted node:
+   ```cpp
+   x = n->next;
+   ```
+4. Link the node pointed by `n` to the node after the node pointed by `x`:
+   ```cpp
+   n->next = x->next;
+   ```
+5. Delete the targeted node:
+   ```cpp
+   free(x);
+   ```
 
 ### End of Linked List
 
-Create a temporary pointer:​
+#### Steps:
+1. Create a temporary pointer:
+   ```cpp
+   Node *n = head, x;
+   ```
+2. Move `n` to 1 position before the targeted node:
+   ```cpp
+   while (n->next->Info != 7)
+       n = n->next;
+   ```
+3. Place `x` at the targeted node:
+   ```cpp
+   x = n->next;
+   ```
+4. Link the node pointed by `n` to the node after the node pointed by `x`:
+   ```cpp
+   n->next = x->next;
+   ```
 
-Node *n = head, x;​
+#### Additional Steps for End of Linked List with Tail Pointer:
+```cpp
+if (x == tail)
+   tail = n;
+```
+5. Delete the targeted node:
+   ```cpp
+   free(x);
+   ```
 
-Move n to 1 position before targeted node:​
+### Alternative Method for End of Linked List:
 
-while (n -> next -> Info != 7)​
+#### Steps:
+1. Create a temporary pointer:
+   ```cpp
+   Node *n = head, x;
+   ```
+2. Move `n` to 1 position before the node pointed by tail:
+   ```cpp
+   while (n->next != tail)
+       n = n->next;
+   ```
+3. Delete the targeted node:
+   ```cpp
+   free(tail->next);
+   ```
+4. Set the next address of tail to NULL:
+   ```cpp
+   tail->next = NULL;
+   ```
+5. Move the pointer tail to `n`:
+   ```cpp
+   tail = n;
+   ```
 
-    n = n -> next;​
-
-​
-
-Place x at the targeted node:​
-
-x = n->next;​
-
-Link node pointed by n to the node after node pointed by x:​
-
-n->next = x->next;​
-
-Delete the targeted node:​
-
-free(x);​
-
-Steps to delete node at the end of linked list (user’s input) with tail pointer are illustrated as follows:
-
-Create a temporary pointer:​
-
-Node *n = head, x;​
-
-Move n to 1 position before targeted node:​
-
-while (n -> next -> Info != 7)​
-
-    n = n -> next;​
-
-​
-
-Place x at the targeted node:​
-
-x = n->next;​
-
-Link node pointed by n to the node after node pointed by x:​
-
-n->next = x->next;​
-
-Additional steps:​
-
-if(x == tail)​
-
-   tail = n;​
-
-   Delete the targeted node:​
-
-free(x);​
+This organized structure should make it easier for readers to understand the various node deletion methods in a linked list.
 
 ## Node Traversal​
 
+To display the data in a linked list, follow these steps:
+
+1. Create a temporary pointer:
+   ```cpp
+   Node *n = head;
+   ```
+
+2. Perform the operation until the pointer `n` reaches the NULL position:
+   ```cpp
+   while (n != NULL) {
+       cout << n->Info;
+       n = n->next;
+   }
+   ```
+   
 # Doubly Linked List
 
 A doubly linked list is one in which all nodes are linked together using double links (pointers) for accessing both the successor node and predecessor node from the given node position. Each node contains three fields: data, left link (prev), and right link (next). The `prev` link points to the predecessor node, and the `next` link points to the successor node. The data field stores the required data.
