@@ -317,6 +317,7 @@
 - [Logic](sections/theo/ai/logic.md)
 - [Propositional & Predicate Logic](sections/theo/ai/propositional-predicate-logic.md)
 - [Automated Reasoning and Theorem Proving](sections/theo/ai/automated-reasoning-and-theorem-proving.md)
+- [State Space Search](sections/theo/ai/state-space-search.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
