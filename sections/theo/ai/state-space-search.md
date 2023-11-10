@@ -410,4 +410,4 @@ The state with the least \(f(n)\) value is chosen at each step, ensuring optimal
 - Resembles DFS but may not be complete or optimal.
 - Can be more efficient with a good heuristic function.
 
-This summary provides an overview of the key concepts and properties discussed in the exploration of state space search and search methods.
+This summary provides an overview of the key concepts and properties discussed in the exploration of state space search and search methods
