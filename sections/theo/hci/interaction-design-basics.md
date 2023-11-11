@@ -85,6 +85,7 @@ Developers test and validate the system implementation to ensure it aligns with 
 - Building and modifying a user model is essential for providing a better user experience.
 - A user model represents personal data associated with a specific user, used to predict the user's actions and common routines.
 - Different types of user models are used based on the application's requirements, and data gathering is crucial in user modeling.
+- The key to user modeling is the data gathering
 
 ## User Profiling
 
@@ -98,12 +99,15 @@ Developers test and validate the system implementation to ensure it aligns with 
 - Personas are used as surrogate users to understand how they would interact with a product.
 - Details matter in creating personas to make them feel 'real' and relatable.
 
+### Persona Example
+
+"Betty is 37 years old,  She has been Warehouse Manager for five years and worked for Simpkins Brothers Engineering for twelve years.  She didn’t go to university, but has studied in her evenings for a business diploma.  She has two children aged 15 and 7 and does not like to work late.  She did part of an introductory in-house computer course some years ago, but it was interrupted when she was promoted and could no longer afford to take the time.  Her vision is perfect, but her right-hand movement is slightly restricted following an industrial accident 3 years ago.  She is enthusiastic about her work and is happy to delegate responsibility and take suggestions from her staff.  However, she does feel threatened by the introduction of yet another new computer system (the third in her time at SBE)."
+
 ## Cultural Probes
 
 **Definition**: Cultural probes are a method used to access environments that are difficult to observe directly and capture the "felt life" of individuals.
 
-- **Direct Observation**:
-  - Sometimes challenging.
+- **Direct Observation** is Sometimes challenging...
   - Occurs in the home.
   - Often used with psychiatric patients and other hard-to-reach populations.
 
@@ -129,6 +133,14 @@ Developers test and validate the system implementation to ensure it aligns with 
   - To communicate with others (designers, clients, users).
   - To validate other models.
   - To express dynamics through behavior and appearance.
+
+## User profile vs. Persona vs. Scenario
+
+| Document          | Definition                                    | Purpose                                               | Content                                        |
+| ------------------ | --------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- |
+| User Profile       | Detailed description of your users' attributes | To ensure that you know who you are developing your product for, and to recruit for usability activities | - Demographic data<br>- Skills<br>- Education<br>- Occupation |
+| Persona            | A fictional individual created to describe end users during design based on the user profile | To represent a group of end users during design discussions, and keep everyone focused on the same target goals and tasks | - Identity and photo<br>- Status <br>- Goals and tasks<br>- Skill set<br>- Requirements and expectations <br>- Relationship |
+| Scenario           | Story that describes how a particular persona completes a task or behaves in a given situation | To bring your users to life, test to see if your product meets the users' needs, and develop artifacts for usability activities (e.g., tasks for usability tests, day-in-the-life videos for focus groups) | - Setting<br>- Actors<br>- Sequences of events<br>- Objects or goals<br>- Outcome |
 
 ## User Requirements
 

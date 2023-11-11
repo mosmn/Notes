@@ -310,7 +310,12 @@
 - [Interrelationships](sections/theo/hci/interrelationships.md)
 - [Interaction Design Basics](sections/theo/hci/interaction-design-basics.md)
 - [Cognitive Models](sections/theo/hci/cognitive-models.md)
-- [Social Interaction](sections/theo/hci/social-interaction.md)
+- [HCI in the Software Process](sections/theo/hci/hci-in-the-software-process.md)
+- [Design Rules](sections/theo/hci/design-rules.md)
+- [Evaluation Techniques](sections/theo/hci/evaluation-techniques.md)
+- [Universal Design (UD) ](sections/theo/hci/universal-design.md)
+- [User Support](sections/theo/hci/user-support.md)
+- [Emerging Technologies in HCI](sections/theo/hci/emerging-technologies.md)
 
 ### Artificial Intelligence
 
