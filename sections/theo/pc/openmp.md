@@ -59,12 +59,7 @@ execute sequentially
     - becomes the master of this group of threads
     - is assigned the thread id 0 within the group
 
-```
-6
-```
-
-
-
+![img](https://www.researchgate.net/publication/281015120/figure/fig1/AS:561240796864512@1510821641226/OpenMP-fork-join-model.png)
 
 Work-sharing construct
 
