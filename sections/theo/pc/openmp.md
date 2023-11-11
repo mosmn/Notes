@@ -36,6 +36,20 @@ Objectives
 
 - Example (C program): Display "Hello, world." using multiple threads.
 
+### OpenMP Targets Ease of Use
+
+- OpenMP does not require that single-threaded code be changed for
+threading
+- enables incremental parallelization of a serial program
+- OpenMP only adds compiler directives
+- pragmas (C/C++); significant comments in Fortran
+- if a compiler does not recognize a directive, it ignores it
+- simple & limited set of directives for shared memory programs
+- significant parallelism possible using just 3 or 4 directives
+- both coarse-grain and fine-grain parallelism
+- If OpenMP is disabled when compiling a program, the program will
+execute sequentially
+
 ## OpenMP: Fork-Join Parallelism
 
 - OpenMP program begins execution as a single master thread
