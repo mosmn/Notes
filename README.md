@@ -310,6 +310,7 @@
 - [Interrelationships](sections/theo/hci/interrelationships.md)
 - [Interaction Design Basics](sections/theo/hci/interaction-design-basics.md)
 - [Cognitive Models](sections/theo/hci/cognitive-models.md)
+- [Social Interaction](sections/theo/hci/social-interaction.md)
 
 ### Artificial Intelligence
 
