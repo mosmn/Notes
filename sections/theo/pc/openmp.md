@@ -275,10 +275,7 @@ int main() {
 
 - OpenMP library routines are used to obtain thread identifiers and total number of threads
 
-
-## Possible Output
-
-**Assume :​ OMP_NUM_THREADS 8**
+Possible Output: **Assume :​ OMP_NUM_THREADS 8**
 ```
 Hello World from thread = 0​
 
