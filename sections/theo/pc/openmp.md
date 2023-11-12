@@ -503,9 +503,34 @@ int main(int argc, char *argv[]) {
 
 - Simple program demonstrating that different blocks of work will be done by different threads.
 
-### Synchronization Construct
+## Synchronization Construct
 
-#### Critical Directive
+### Master Directive
+
+- The MASTER directive specifies that the enclosed code is to be executed by only one thread in the team.
+- The MASTER directive is often used to initialize data that is shared among all threads in the team.
+
+```c
+#include <omp.h>
+
+int main() {
+    int x = 0;
+
+    #pragma omp parallel shared(x)
+    {
+        // ...
+
+        #pragma omp master
+        x = x + 1;
+
+        // ...
+    } /* end of parallel region */
+
+    return 0;
+}
+```
+
+### Critical Directive
 
 - The CRITICAL directive specifies a region of code that must be executed by only one thread at a time.
 - If a thread is currently executing inside a CRITICAL region and another thread reaches that CRITICAL region and attempts to execute it, it will block until the first thread exits that CRITICAL region.
@@ -539,8 +564,6 @@ This code demonstrates the use of the CRITICAL directive to ensure exclusive acc
 - Threads will need to wait before executing their chunk of iterations if previous iterations haven't completed yet.
 - Used within a `for` loop with an ORDERED clause.
 - The ORDERED directive provides a way to "fine-tune" where ordering is to be applied within a loop. Otherwise, it is not required.
-
-### Example of ORDERED
 
 ```c
 #pragma omp parallel
