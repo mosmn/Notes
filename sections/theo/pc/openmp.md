@@ -533,4 +533,37 @@ int main() {
 
 This code demonstrates the use of the CRITICAL directive to ensure exclusive access to a shared variable `x`.
 
+### Purpose of ORDERED Directive
 
+- The ORDERED directive specifies that iterations of the enclosed loop will be executed in the same order as if they were executed on a serial processor.
+- Threads will need to wait before executing their chunk of iterations if previous iterations haven't completed yet.
+- Used within a `for` loop with an ORDERED clause.
+- The ORDERED directive provides a way to "fine-tune" where ordering is to be applied within a loop. Otherwise, it is not required.
+
+### Example of ORDERED
+
+```c
+#pragma omp parallel
+{
+    #pragma omp for nowait shared(a)
+    for (k = 0; k < nmax; k++) {
+        // ...
+
+        #pragma omp ordered
+        {
+            a[k] = a[k - 1] + ...;
+        }
+
+        // ...
+    }
+}
+```
+
+- The `ordered` clause ensures that carried dependence does not cause a data race.
+- It's often used in scenarios where maintaining a specific order of execution within a parallel loop is essential.
+
+## Directives summary
+
+![img](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSPBytrtwH-Zn_VmImAl09fDABYmHZVT1v-VLHAG4LZYj5LESem)
+
+![img](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_n7gvC_rZowHdog_RJ1XoNQ9wSsBUaPrDDibBjPLjlHQFBbRh)
