@@ -9,7 +9,61 @@
 
 - Designing for usability occurs at all stages of the life cycle, not as a single isolated activity
 
-### Activities in The Life Cycle (Verification & Validation)
+### Activities in The Life Cycle
+
+### 1. Requirements Specification
+
+- The designer and customer collaborate to capture the expected system functionality.
+- Expressions can range from natural language to more precise languages, such as task analysis.
+
+### 2. Architectural Design
+
+- Provides a high-level description of how the system will offer required services.
+- Divides the system into major components and establishes their interrelations.
+- Addresses both functional and nonfunctional requirements.
+
+### 3. Detailed Design
+
+- Refinement of architectural components and interrelations.
+- Identifies modules to be implemented separately.
+- The refinement process adheres to nonfunctional requirements.
+
+### 4. Coding and Unit Testing
+
+- Implementation of the detailed design.
+- Unit testing ensures individual components function as intended.
+
+### 5. Integration and Testing
+
+- Combines individual components and tests their interactions.
+- Ensures the integrated system functions as a whole.
+
+### 6. Operation and Maintenance
+
+- Ongoing activities to support and enhance the software in its operational environment.
+
+#### The Waterfall Model
+
+The Waterfall Model outlines the sequential phases of the software development life cycle:
+
+1. **Requirements Specification**
+2. **Architectural Design**
+3. **Detailed Design**
+4. **Coding and Unit Testing**
+5. **Integration and Testing**
+6. **Operation and Maintenance**
+
+### Verification & Validation
+
+- **Verification**: Ensuring the product is designed correctly.
+- **Validation**: Ensuring the right product is designed.
+- **The Formality Gap**: Validation may rely on subjective means of proof to some extent.
+- **Management and Contractual Issues**: Addressing design considerations in commercial and legal contexts.
+
+Real-world Requirements and Constraints:
+
+Understanding the gap between formal requirements and real-world constraints is crucial in software engineering. It involves acknowledging the limitations of formal validation methods.
+
 ## Interactive Systems
 ### Life Cycle for Interactive Systems
 ### Learning Curves
@@ -27,68 +81,6 @@
 ## Design Rationale
 ### Design Thinking
 ### Psychological Design
-
-
-## The Software Lifecycle
-
-- Software engineering is the discipline for understanding the software design process, or life cycle
-
-- Designing for usability occurs at all stages of the life cycle, not as a single isolated activity
-
-## The waterfall model
-
-```
-Requirementsspecification
-```
-```
-Architecturaldesign
-```
-```
-Detaileddesign
-```
-```
-Coding andunit testing
-```
-```
-and testingIntegration
-Operation andmaintenance
-```
-
-## Activities in the life cycle
-
-- Requirements specification
-    - designer and customer try capture what the system is expected
-       to provide can be expressed in natural language or more precise
-       languages, such as a task analysis would provide
-- Architectural design
-    - high-level description of how the system will provide the services
-       required factor system into major components of the system and
-       how they are interrelated needs to satisfy both functional and
-       nonfunctionalrequirements
-- Detailed design
-    - refinement of architectural components and interrelations to
-       identify modules to be implemented separately the refinement is
-       governed by the nonfunctionalrequirements
-
-## Verification and validation
-
-- Verification
-    - designing the product right
-- Validation
-    - designing the right product
-- The formality gap
-    - validation will always rely to some extent on subjective means of
-       proof
-- Management and contractual issues
-    - design in commercial and legal contexts
-
-```
-Realrequirements-world
-and constraints The formality gap
-```
-
-1 - 8
-© 2021 Zaihisma Che Cob
 
 ## The life cycle for interactive systems
 
