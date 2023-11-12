@@ -564,6 +564,4 @@ This code demonstrates the use of the CRITICAL directive to ensure exclusive acc
 
 ## Directives summary
 
-![img](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSPBytrtwH-Zn_VmImAl09fDABYmHZVT1v-VLHAG4LZYj5LESem)
-
 ![img](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_n7gvC_rZowHdog_RJ1XoNQ9wSsBUaPrDDibBjPLjlHQFBbRh)
