@@ -1,7 +1,14 @@
 
 # HCI in the software process
+
 ## The Design Process
+
 ### The Software Life Cycle
+
+- Software engineering is the discipline for understanding the software design process, or life cycle
+
+- Designing for usability occurs at all stages of the life cycle, not as a single isolated activity
+
 ### Activities in The Life Cycle (Verification & Validation)
 ## Interactive Systems
 ### Life Cycle for Interactive Systems
@@ -22,48 +29,11 @@
 ### Psychological Design
 
 
-1 - 3
-© 2021 Zaihisma Che Cob
-
-## Learning Outcomes
-
-### At the end of this session, the learners
-
-### should be able to:
-
-- Explain the software engineering design
-
-### process for interactive systems
-
-- Describe usability engineering and design
-
-### thinking process
-
-- Describe iterative design and prototyping
-
-### stages
-
-
-1 - 4
-© 2021 Zaihisma Che Cob
-
 ## The Software Lifecycle
 
-- Software engineering is the discipline for
+- Software engineering is the discipline for understanding the software design process, or life cycle
 
-### understanding the software design
-
-### process, or life cycle
-
-- Designing for usability occurs at all stages
-
-### of the life cycle, not as a single isolated
-
-### activity
-
-
-1 - 5
-© 2021 Zaihisma Che Cob
+- Designing for usability occurs at all stages of the life cycle, not as a single isolated activity
 
 ## The waterfall model
 
@@ -84,9 +54,6 @@ and testingIntegration
 Operation andmaintenance
 ```
 
-1 - 6
-© 2021 Zaihisma Che Cob
-
 ## Activities in the life cycle
 
 - Requirements specification
@@ -102,10 +69,6 @@ Operation andmaintenance
     - refinement of architectural components and interrelations to
        identify modules to be implemented separately the refinement is
        governed by the nonfunctionalrequirements
-
-
-1 - 7
-© 2021 Zaihisma Che Cob
 
 ## Verification and validation
 
