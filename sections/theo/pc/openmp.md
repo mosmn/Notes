@@ -1,10 +1,3 @@
-Objectives
-
-- To explain the concept of OpenMP in parallel computing
-- To apply the OpenMP API in the program
-- To explain the usage of OpenMP directives
-
-
 # What is OpenMP?
 
 - OpenMP (Open Multi-Processing) is an application programming interface (API) that
@@ -61,172 +54,252 @@ execute sequentially
 
 ![img](https://www.researchgate.net/publication/281015120/figure/fig1/AS:561240796864512@1510821641226/OpenMP-fork-join-model.png)
 
-Work-sharing construct
+### OpenMP Directive Format
 
-- Used to specify how to assign independent work to one or all of the threads.
-_- omp for_ or _omp do_ : used to split up loop iterations among the threads, also called loop
-    constructs.
-_- sections_ : assigning consecutive but independent code blocks to different threads
-_- single_ : specifying a code block that is executed by only one thread, a barrier is implied in
-    the end
-_- master_ : similar to single, but the code block will be executed by the master thread only
-    and no barrier implied in the end.
+- OpenMP directive forms
+    - C and C++ use compiler directives
+    - prefix: #pragma …
+- A directive consists of a directive name followed by clauses
+- C: #pragma omp parallel num_threads(4)…
 
-2021 Parallel Computing | UNITEN^10
+### Sample OpenMP Program
 
-
-
-Clauses
-
-- Since OpenMP is a shared memory programming model, most variables in OpenMP code are visible
-    to all threads by default. But sometimes private variables are necessary to avoid race conditions
-    and there is a need to pass values between the sequential part and the parallel region (the code
-    block executed in parallel), so data environment management is introduced as data sharing
-    attribute clauses by appending them to the OpenMP directive. The different types of clauses are:
-**Data sharing attribute clauses**
-- **shared** : the data declared outside a parallel region is shared, which means visible and accessible by
-all threads simultaneously. By default, all variables in the work sharing region are shared except the
-loop iteration counter.
-- **private** : the data declared within a parallel region is private to each thread, which means each
-thread will have a local copy and use it as a temporary variable. A private variable is not initialized
-and the value is not maintained for use outside the parallel region. By default, the loop iteration
-counters in the OpenMP loop constructs are private.
-
-2021 Parallel Computing | UNITEN^12
-
-
-- default: allows the programmer to state that the default data scoping within a
-    parallel region will be either shared, or none for C/C++, or shared, firstprivate,
-    private, or none for Fortran. The none option forces the programmer to declare
-    each variable in the parallel region using the data sharing attribute clauses.
-- firstprivate: like private except but initialized using the value of the variable using
-    the same name from the master thread.
-- lastprivate: like private except original value is updated after construct.
-- reduction: a safe way of joining work from all threads after construct.
-
-2021 Parallel Computing | UNITEN^13
-
-
-Synchronization clauses
-
-- **critical** : the enclosed code block will be executed by only one thread at a time, and not
-    simultaneously executed by multiple threads. It is often used to protect shared data from
-    race conditions.
-- **atomic** : the memory update (write, or read-modify-write) in the next instruction will be
-performed atomically. It does not make the entire statement atomic; only the memory
-update is atomic. A compiler might use special hardware instructions for better
-performance than when using critical.
-- **ordered** : the structured block is executed in the order in which iterations would be
-executed in a sequential loop
-- **barrier** : each thread waits until all of the other threads of a team have reached this point.
-A work-sharing construct has an implicit barrier synchronization at the end.
-- **nowait** : specifies that threads completing assigned work can proceed without waiting for
-all threads in the team to finish. In the absence of this clause, threads encounter a barrier
-synchronization at the end of the work sharing construct.
-
-2021 Parallel Computing | UNITEN^14
-
-
-_- schedule (type, chunk)_ :
-    - This is useful if the work sharing construct is a do-loop or for-loop. The iterations in
-       the work sharing construct are assigned to threads according to the scheduling
-       method defined by this clause.
-_- static_ : Here, all the threads are allocated iterations before they execute the loop
-    iterations. The iterations are divided among threads equally by default.
-_- dynamic_ : Here, some of the iterations are allocated to a smaller number of threads. Once
-    a particular thread finishes its allocated iteration, it returns to get another one from the
-    iterations that are left.
-
-2021 Parallel Computing | UNITEN^15
-
-
-IF control
-
-- if: This will cause the threads to parallelize the task only if a condition
-    is met. Otherwise the code block executes serially.
-
-Reduction
-
-- reduction (operator | intrinsic : list): the variable has a local copy in
-    each thread, but the values of the local copies will be summarized
-    (reduced) into a global shared variable.
-
-2021 Parallel Computing | UNITEN^16
-
-
-A Simple Example Using parallel
-
-```
-17
-```
-
-OMP General Construct
-
+```c
+#include <stdio.h>
 #include <omp.h>
-main () {
-int var1, var2, var3;
 
-_Serial code
-.
-Beginning of parallel region. Fork a team of threads.
-Specify variable scoping_
-
-#pragma omp parallel private(var1, var2) shared(var3)
-{
-Parallel region executed by all threads
-.
-Other OpenMP directives
-.
-Run-time Library calls
-.
-All threads join master thread and disband
+int main() {
+    #pragma omp parallel num_threads (4) // if you domt specify this reagion the number of threads will be the number of cores.
+    {
+        int i = omp_get_thread_num();
+        printf("Hello from thread %d\n", i);
+    }
 }
+```
+output
+```
+Hello from thread 0
+Hello from thread 1
+Hello from thread 2
+Hello from thread 3
+```
 
-_Resume serial code_
+## Work-sharing Construct
+
+The work-sharing construct in OpenMP is used to specify how to assign independent work to one or all of the threads.
+
+all must be within the `#pragma omp parallel` directive.
+
+#### `omp for` or `omp do`
+- Used to split up loop iterations among the threads.
+- Also called loop constructs.
+
+**Example:**
+```c
+#include <omp.h>
+
+int main() {
+    #pragma omp parallel for
+    for (int i = 0; i < 10; i++) {
+        // Work to be done in parallel
+    }
+    return 0;
 }
-https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html
-
-```
-18
 ```
 
-```
-19
-```
-Simple "Hello World"
-program.
+#### `sections`
+- Assigns consecutive but independent code blocks to different threads.
 
-Every thread executes
-all code enclosed in the
-parallel region
+**Example:**
+```c
+#include <omp.h>
 
-OpenMP library
-routines are used to
-obtain thread identifiers
-and total number of
-threads
+int main() {
+    #pragma omp parallel sections
+    {
+        #pragma omp section
+        {
+            // Code block for thread 1
+        }
+
+        #pragma omp section
+        {
+            // Code block for thread 2
+        }
+
+        // Additional sections as needed
+    }
+    return 0;
+}
+```
+
+#### `single`
+- Specifies a code block that is executed by only one thread.
+- Implies a barrier at the end of the single construct.
+
+**Example:**
+```c
+#include <omp.h>
+
+int main() {
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            // Code block executed by only one thread
+        }
+
+        // Other parallel work outside the single construct
+    }
+    return 0;
+}
+```
+
+#### `master`
+- Similar to `single`, but the code block will be executed by the master thread only.
+- No barrier is implied at the end.
+
+**Example:**
+```c
+#include <omp.h>
+
+int main() {
+    #pragma omp parallel
+    {
+        #pragma omp master
+        {
+            // Code block executed by the master thread only
+        }
+
+        // Other parallel work outside the master construct
+    }
+    return 0;
+}
+```
+
+These work-sharing constructs provide flexibility in parallelizing different types of tasks, from loop iterations to distinct code sections, depending on the parallelization requirements of the program.
+
+## Clauses
+
+Since OpenMP is a shared memory programming model, most variables in OpenMP code are visible to all threads by default. But sometimes private variables are necessary to avoid race conditions and there is a need to pass values between the sequential part and the parallel region (the code block executed in parallel), so data environment management is introduced as data sharing attribute clauses by appending them to the OpenMP directive. The different types of clauses are:
+
+### Data Sharing Attribute Clauses
+- **shared**: Declares data outside a parallel region as shared, visible and accessible by all threads.
+- **private**: Declares data within a parallel region as private to each thread, with a local copy for each.
+- **default**: Specifies the default data scoping within a parallel region, options include shared, none (C/C++) or shared, firstprivate, private, or none (Fortran).
+- **firstprivate**: Similar to private but initialized using the value of the variable from the master thread.
+- **lastprivate**: Similar to private, but the original value is updated after the construct.
+- **reduction**: Safely joins work from all threads after the construct.
+
+### Synchronization Clauses
+- **critical**: Ensures a code block is executed by only one thread at a time, protecting shared data from race conditions.
+- **atomic**: Performs memory updates atomically, optimizing performance compared to using critical.
+- **ordered**: Executes a structured block in the order of iterations in a sequential loop.
+- **barrier**: Causes each thread to wait until all other threads in a team reach this point.
+- **nowait**: Allows threads completing assigned work to proceed without waiting for all team threads to finish.
+
+### Schedule Clause
+- **schedule (type, chunk)**: Specifies how iterations in a work-sharing construct are assigned to threads.
+    - **static**: Allocates iterations to threads before execution, dividing them equally by default.
+    - **dynamic**: Allocates some iterations to fewer threads, with a thread fetching more after finishing its allocation.
+
+### IF Control
+- **if**: Parallelizes the task only if a specified condition is met; otherwise, the code block executes serially.
+
+### Reduction
+- **reduction (operator | intrinsic : list)**: Creates a local copy of a variable in each thread, with values summarized (reduced) into a global shared variable.
+
+### OMP general construct
+```c
+#include <omp.h>
+
+int main() {
+    // Declare variables
+    int var1, var2, var3;
+
+    // Serial code
+    // ...
+
+    // Beginning of parallel region. Fork a team of threads.
+    // Specify variable scoping
+    #pragma omp parallel private(var1, var2) shared(var3)
+    {
+        // Parallel region executed by all threads
+        // ...
+
+        // Other OpenMP directives
+        // ...
+
+        // Run-time Library calls
+        // ...
+
+        // All threads join master thread and disband
+    }
+
+    // Resume serial code
+    // ...
+
+    return 0;
+}
+```
+- `private`: each of the threads will have its own copy of the variable, in this case var1 and var2.
+- `shared`: the variable will be shared among all the threads, in this case var3.
+
+
+### Simple "Hello World" program.
+
+```c
+#include <stdio.h>
+#include <omp.h>
+
+int main() {
+    int nthreads, tid;
+    /* Fork a team of threads giving them their own copies of variables */
+
+    #pragma omp parallel private(nthreads, tid)
+    {
+        /* Obtain thread number */
+        tid = omp_get_thread_num();
+        printf("Hello World from thread = %d\n", tid);
+
+        /* Only master thread does this */
+        if (tid == 0) {
+            nthreads = omp_get_num_threads();
+            printf("Number of threads = %d\n", nthreads);
+        }
+    } /* All threads join master thread and disband */
+}
+```
+
+- Every thread executes all code enclosed in the parallel region
+
+- OpenMP library routines are used to obtain thread identifiers and total number of threads
 
 
 ## Possible Output
 
-- 2021 Parallel Computing | UNITEN
-- 2021 Parallel Computing | UNITEN
-- 2021 Parallel Computing | UNITEN
-- 2021 Parallel Computing | UNITEN
--
-- Hello World from thread =
-- Hello World from thread =
-- Hello World from thread =
-- Number of threads =
-- Hello World from thread =
-- Hello World from thread =
-- Hello World from thread =
-- Hello World from thread =
-- Hello World from thread =
-- OMP_NUM_THREADS Assume :
+**Assume :​ OMP_NUM_THREADS 8**
+```
+Hello World from thread = 0​
 
+Hello World from thread = 3​
 
-Number of Threads
+Hello World from thread = 2​
+
+Number of threads = 8​
+
+Hello World from thread = 6​
+
+Hello World from thread = 1​
+
+Hello World from thread = 4​
+
+Hello World from thread = 7​
+
+Hello World from thread = 5​
+```
+
+## Number of Threads
 
 - To determine the number of threads that are requested, the following rules will be
     considered in order. The first rule whose condition is met will be applied:
@@ -241,256 +314,223 @@ Number of Threads
        5. If none of the methods above were used, then the number of threads requested is
           implementation-defined
 
-```
-21
-```
 
-Restrictions
+## Restrictions
 
 - A parallel region must be a structured block that does not span
     multiple routines or code files
-- It is illegal to branch (goto) into or out of a parallel region
+- It is illegal to branch (goto) into or out of a parallel region(u must complete the parallel region then branch out).
 - Only a single IF clause is permitted
 - Only a single NUM_THREADS clause is permitted
 - A program must not depend upon the ordering of the clauses
 
-```
-22
+## Interpreting an OpenMP Parallel Directive
+
+**Meaning:**
+- `if (is_parallel == 1) num_threads(8)`: If the value of the variable `is_parallel` is one, create 8 threads.
+- `shared(b)`: Each thread shares a single copy of variable `b`.
+- `private(a) firstprivate(c)`: Each thread gets private copies of variables `a` and `c`.
+  - Each private copy of `c` is initialized with the value of `c` in the "initial thread," which is the one that encounters the parallel directive.
+- `default(none)`: The default state of a variable is specified as none (rather than shared).
+  - Signals an error if not all variables are specified as shared or private.
+
+```c
+#pragma omp parallel if (is_parallel == 1) num_threads(8) \ shared(b) private(a) firstprivate(c) default(none)
+{
+    /* structured block */
+}
 ```
 
-```
-23
-```
-The
-SINGLE
-directive
-specifies
-that the
-enclosed
-code is to
-be
-executed
-by only
-one thread
-in the
-team.
+## Specifying Worksharing
+
+- Within the scope of a parallel directive, worksharing directives allow concurrency between iterations or tasks.
+- A work-sharing construct distributes the execution of the associated statement among the members of the team that encounter it.
+- The work-sharing directives do not launch new threads, and there is no implied barrier on entry to a work-sharing construct.
+- OpenMP (for C/C++) provides four directives:
+  - **Do/for:** Concurrent loop iterations.
+  - **Sections:** Concurrent tasks.
+  - **Single:** One arbitrary thread executes the code.
 
 
-```
-24
-```
-**C/C++**
-
+```c
+#include <stdio.h>
 #include <omp.h>
+
+void test(int val) {
+    #pragma omp parallel if(val)
+    {
+        if (omp_in_parallel()) {
+            #pragma omp single
+            {
+                printf("val = %d, parallelized with %d threads\n", val, omp_get_num_threads());
+            }
+        }
+        else {
+            printf("val = %d, serialized\n", val);
+        }
+    }
+}
+
+int main() {
+    omp_set_num_threads(2);
+    
+    test(0);
+    test(2);
+
+    return 0;
+}
+```
+The SINGLE directive specifies that the enclosed code is to be executed by only one thread in the team.
+
+- `#pragma omp parallel if (val)`: Specifies a parallel region if the condition `val` is true.
+- `if (omp_in_parallel())`: Checks if the current code is executed in parallel.
+- `#pragma omp single`: Ensures that the enclosed block is executed by only one thread.
+- The `test` function is called twice from the `main` function with different values.
+- The `omp_set_num_threads(2)` sets the number of threads for the parallel region to 2.
+
+### Vector Addition Program C/C++ Code Example
+
+```c
+#include <stdio.h>
+#include <omp.h>
+
 #define CHUNKSIZE 100
 #define N 1000
-main()
-{
-int i, chunk;
-float a[N], b[N], c[N];
-/* Some initializations */
-for (i=0; i < N; i++)
-a[i] = b[i] = i * 1.0;
-chunk = CHUNKSIZE;
-#pragma omp parallel shared(a,b,c,chunk) private(i)
-{
-#pragma omp for schedule(dynamic, chunk) nowait
-for (i=0; i < N; i++)
-c[i] = a[i] + b[i];
 
-} /*end of parallel section*/
+int main() {
+    int i, chunk;
+    float a[N], b[N], c[N];
+
+    /* Some initializations */
+    for (i = 0; i < N; i++)
+        a[i] = b[i] = i * 1.0;
+
+    chunk = CHUNKSIZE;
+
+    #pragma omp parallel shared(a, b, c, chunk) private(i)
+    {
+        #pragma omp for schedule(dynamic, chunk) nowait
+        for (i = 0; i < N; i++)
+            c[i] = a[i] + b[i];
+    } /* end of parallel section */
+
+    return 0;
 }
-
-- Simple vector-add program
-- Arrays A, B, C, and variable N
-    will be shared by all threads.
-- Variable _i_ will be private to
-    each thread; each thread
-    will have its own unique
-    copy.
-- The iterations of the loop
-    will be distributed
-    dynamically in CHUNK sized
-    pieces.
-- Threads will not synchronize
-    upon completing their
-    individual pieces of work
-    (NOWAIT).
-
-
-Dynamic scheduling
-
-- In OpenMP, "dynamic" refers to a scheduling policy that can be used to distribute work
-    among threads in a parallel region. Dynamic scheduling allows work to be assigned to
-    threads on an as-needed basis, rather than dividing the work into fixed-size chunks as
-    with static scheduling.
-- Under dynamic scheduling, the work is divided into individual tasks, and threads are
-    assigned tasks as they become available. This can help to ensure that all threads are
-    being fully utilized and that no single thread is left idle while others are still working. It
-    can also be useful in situations where the workload is unpredictable or where the work
-    items vary greatly in size.
-
 ```
-25
-```
+- Arrays A, B, C, and variable N are shared by all threads.
+- Variable `i` is private to each thread; each thread has its own unique copy.
+- Iterations of the loop are distributed dynamically in `CHUNK` sized pieces.
+- Each thread executes independently of the others.
+- Threads will not synchronize upon completing their individual pieces of work (`NOWAIT`).
 
-Example of Sections directive
+### Dynamic Scheduling
 
-```
+- "Dynamic" in OpenMP refers to a scheduling policy that distributes work among threads on an as-needed basis.
+- Dynamic scheduling assigns tasks to threads as they become available, ensuring all threads are fully utilized.
+- Useful in unpredictable workloads or when work items vary greatly in size.
+
+### Example of Sections Directive
+
+```c
 #include <omp.h>
 #define N 1000
-main(int argc, char *argv[]) {
-int i;
-float a[N], b[N], c[N], d[N];
-/* Some initializations */
-for (i=0; i < N; i++) {
-a[i] = i * 1.5;
-b[i] = i + 22.35;
+
+int main(int argc, char *argv[]) {
+    int i;
+    float a[N], b[N], c[N], d[N];
+
+    /* Some initializations */
+    for (i = 0; i < N; i++) {
+        a[i] = i * 1.5;
+        b[i] = i + 22.35;
+    }
+
+    #pragma omp parallel shared(a, b, c, d) private(i)
+    {
+        #pragma omp sections nowait
+        {
+            #pragma omp section
+            for (i = 0; i < N; i++)
+                c[i] = a[i] + b[i];
+
+            #pragma omp section
+            for (i = 0; i < N; i++)
+                d[i] = a[i] * b[i];
+        } /* end of sections */
+    } /* end of parallel region */
+
+    return 0;
 }
-#pragma omp parallel shared(a,b,c,d) private(i)
-{
-#pragma omp sections nowait
-{
-#pragma omp section
-for (i=0; i < N; i++)
-c[i] = a[i] + b[i];
-#pragma omp section
-for (i=0; i < N; i++)
-d[i] = a[i] * b[i];
-} /* end of sections */
-} /* end of parallel region */
+```
+
+- Simple program demonstrating that different blocks of work will be done by different threads.
+
+### Example of For in Sections Directive
+
+```c
+#include <omp.h>
+#define N 1000
+
+int main(int argc, char *argv[]) {
+    int i;
+    float a[N], b[N], c[N], d[N];
+
+    /* Some initializations */
+    for (i = 0; i < N; i++) {
+        a[i] = i * 1.5;
+        b[i] = i + 22.35;
+    }
+
+    #pragma omp parallel shared(a, b, c, d) private(i)
+    {
+        #pragma omp sections nowait
+        {
+            #pragma omp section
+            #pragma omp for
+            for (i = 0; i < N; i++)
+                c[i] = a[i] + b[i];
+
+            #pragma omp section
+            #pragma omp for
+            for (i = 0; i < N; i++)
+                d[i] = a[i] * b[i];
+        }
+    } /* end of parallel region */
+
+    return 0;
 }
-26
-```
-- Simple program
-    demonstrating that
-    different blocks of work
-    will be done by different
-    threads.
-
-
-Example of For in Sections directive
-
-```
-#include <omp.h> #define N 1000
-main(int argc, char *argv[]) {
-```
-int i; float a[N], b[N], c[N], d[N]; (^)
-/* Some initializations */ for (i=0; i < N; i++)
-{ a[i] = i * 1.5; b[i] = i + 22.35; } #pragma omp parallel shared(a,b,c,d) private(i) (^)
-{ (^) #pragma omp sections nowait
-{ #pragma omp section { (^)
-#pragma omp for for (i=0; i < N; i++) c[i] = a[i] + b[i]; (^)
-} #pragma omp section { (^)
-#pragma omp for for (i=0; i < N; i++) d[i] = a[i] * b[i]; (^)
-} } (^)
-/* end of sections */ }
-/* end of parallel region */ }
-27
-
-- Simple program
-    demonstrating that
-    different blocks of work
-    will be done by
-    different threads.
-
-
-# Synchronization
-
-# Construct
-
-NEXT:
-
-```
-28
 ```
 
-Synchronization Construct
+- Simple program demonstrating that different blocks of work will be done by different threads.
 
-- Consider a situation where two threads on two different processors
-    are both trying to increment a variable x at the same time ....
-       (like the need for MUTEX in Pthreads)
-- To avoid a situation like this, the incrementing of x must be
-    synchronized between the two threads to ensure that the correct
-    result is produced.
-- OpenMP provides a variety of Synchronization Constructs that control
-    how the execution of each thread proceeds relative to other team
-    threads.
+### Synchronization Construct
 
-```
-29
-```
+#### Critical Directive
 
-**CRITICAL Directive**
+- The CRITICAL directive specifies a region of code that must be executed by only one thread at a time.
+- If a thread is currently executing inside a CRITICAL region and another thread reaches that CRITICAL region and attempts to execute it, it will block until the first thread exits that CRITICAL region.
+- The optional name enables multiple different CRITICAL regions to exist.
 
-- The CRITICAL directive specifies a region of code that must be executed by only one
-    thread at a time.
-- If a thread is currently executing inside a CRITICAL region and another thread reaches
-    that CRITICAL region and attempts to execute it, it will block until the first thread exits
-    that CRITICAL region.
-- The optional name enables multiple different CRITICAL regions to exist:
-    - Names act as global identifiers. Different CRITICAL regions with the same name are
-       treated as the same region.
-    - All CRITICAL sections which are unnamed, are treated as the same section.
+```c
+#include <omp.h>
 
-```
-30
-```
-```
-C/C++ #pragma omp critical newline structured_block[ name ]
+int main() {
+    int x = 0;
+
+    #pragma omp parallel shared(x)
+    {
+        // ...
+
+        #pragma omp critical
+        x = x + 1;
+
+        // ...
+    } /* end of parallel region */
+
+    return 0;
+}
 ```
 
-Example of CRITICAL
-
-## #include <omp.h>
-
-## main(int argc, char *argv[])
-
-## {
-
-## int x;
-
-## x = 0;
-
-## #pragma omp parallel shared(x)
-
-## { .....
-
-## 
-
-## #pragma omp critical
-
-## x = x + 1;
-
-## } /* end of parallel region */
-
-## }
-
-```
-31
-```
-
-References
-
-- There are many more directives that can be used with OpenMP
-- Some easy to understand references that you can refer to to learn
-    more on OpenMP
-       - https://computing.llnl.gov/tutorials/openMP/#Directives
-- Blaise Barney. LLNL OpenMP tutorial.
-    - [http://www.llnl.gov/computing/tutorials/openMP](http://www.llnl.gov/computing/tutorials/openMP)
-- Adapted from slides “Programming Shared Address Space Platforms”
-    by Ananth Grama
-       - Ananth Grama, Anshul Gupta, George Karypis, and Vipin Kumar. Introduction
-          to
-- Parallel Computing. Chapter 7. Addison Wesley, 2003.
-
-```
-32
-```
-
-```
-Copyright © Universiti Tenaga Nasional 2021
-```
-2021 Parallel Computing | UNITEN^33
+This code demonstrates the use of the CRITICAL directive to ensure exclusive access to a shared variable `x`.
 
 
