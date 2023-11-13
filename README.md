@@ -185,6 +185,14 @@
 - [Numerical Data](sections/java/numerical-data.md)
 - [Defining Your Own Classes](sections/java/defining-classes.md)
 - [Selection and Repetition](sections/java/selection-repetition.md)
+- [Method Overloading and More on Classes](sections/java/method-overloading.md)
+- [Exception Handling and Assertions](sections/java/exception-handling.md)
+- [Programmer-Defined Exception Classes and Assertions](sections/java/programmer-defined-exceptions.md)
+- [Characters and Strings](sections/java/characters-strings.md)
+- [Arrays](sections/java/arrays.md)
+- [Inheritance and Polymorphism](sections/java/inheritance-polymorphism.md)
+- [File Input Output](sections/java/file-io.md)
+- [OOP in Real World Applications](sections/java/oop-real-world.md)
 
 ### Python
 
