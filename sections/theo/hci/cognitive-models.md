@@ -249,14 +249,16 @@ down as follows:
 0. to clean house
     1. get vacuum cleaner
     2. clean rooms
-       2.1 clean hall
-       2.2 clean living rooms
-       2.3 clean bedrooms etc
+       - 2.1 clean hall
+       - 2.2 clean living rooms
+       - 2.3 clean bedrooms etc
     3. empty dust bag
     4. put vacuum cleaner away
-Plan 0: do 1,2,4
-    when dust bag full, do 3
-Plan 2: do any of 2.1, 2.2, 2.3 in any order depending on which rooms need
+    - Plan 0: 
+        - do 1,2,4
+        - when dust bag full, do 3
+    - Plan 2: 
+        - do any of 2.1, 2.2, 2.3 in any order depending on which rooms need
     cleaning.
 
 ### An Example of HTA For a Microwave Oven
