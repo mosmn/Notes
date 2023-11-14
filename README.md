@@ -176,6 +176,7 @@
     - [Complexity Analysis​](sections/cpp/dsa/complexity-analysis.md)
     - [Linked List](sections/cpp/dsa/linked-list.md)
     - [Stack](sections/cpp/dsa/stacks.md)
+    - [Queue](sections/cpp/dsa/queue.md)
 
 
 ### Java
