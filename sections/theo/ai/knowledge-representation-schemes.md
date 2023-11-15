@@ -75,38 +75,31 @@
 
 # Semantic Networks
 
-- A semantic net has a binary relation
-- Concepts are represented by nodes
-- Links between nodes represent the
-    relationships
-- Drawbacks:
-    - Disjunctive and conjunctive information cannot be
-       included into semantic nets
-          - E.g. apple can be either green orred
-          - E.g. panda has color black andwhite
+## 1. Overview
 
+- A semantic net is characterized by a binary relation.
+- Concepts are represented by nodes, and links between nodes symbolize relationships.
+- Drawbacks include challenges in incorporating disjunctive and conjunctive information, such as the color of an apple or the colors of a panda.
 
-# Semantic Networks (cont.)
+## 2. Elements of Semantic Networks
 
-- Examples of relationship labeled on arcs (notice
-    that there is an underscore)
-       - is_a
-       - has_a
-       - has_part
-- Examples of concepts (nodes)
-    - bird
-    - person
-    - book
-    - famous
-    - intelligent
+- **Relationships labeled on arcs**:
+  - is_a
+  - has_a
+  - has_part
 
+- **Examples of Concepts (Nodes)**:
+  - bird
+  - person
+  - book
+  - famous
+  - intelligent
 
-# Semantic Networks (cont.)
+## 3. Example of a Bird's Property in Semantic Network
 
-- A semantic net that represents a bird’s
-    property.
-       feathers bird
-
+```
+feathers bird
+```
 ```
 small bluebird blue
 ```
@@ -126,12 +119,14 @@ has_covering has_property
 has_color
 ```
 
-# Semantic Networks (cont.)
+## 4. Creating a Semantic Network
 
-Example:
-Draw a semantic network for the following description:
-Lab is a room. Lab has a door. Lab has many computers.
-Printer is in lab. Laser printer is a Printer.
+### Example Description:
+- Lab is a room.
+- Lab has a door.
+- Lab has many computers.
+- Printer is in the lab.
+- Laser printer is a Printer.
 
 ```
 LAB
@@ -160,22 +155,17 @@ is_a
 in
 ```
 
-# Semantic Networks (cont.)
+## 5. Inheritance in Semantic Networks
 
-- It can capture and show **inheritance**
-    - a very good feature (that not found in other
-       schemes)
-- Can be used to combine with other
-    representation methods
-- See next slide for “inheritance” power of
-    semantic nets
+- **Inheritance Feature**:
+  - Captures and shows inheritance, a powerful feature not found in other schemes.
+  - Can be combined with other representation methods.
 
-
-## Inheritance in Semantics Networks
+### Example of Inheritance:
 
 ```
-Breathe
 Animal
+Breathe
 Move
 Fly
 Bird
@@ -204,82 +194,43 @@ can
 ```
 can
 ```
-```
-Animal’s properties
-are inherited to Bird and
-Bird’s properties are
-inherited to a bird
-species called canary
-```
-```
-Penguin
-```
-_We shall see this later_
+- Animal’s properties are inherited by Bird, and Bird’s properties are inherited by a bird species called canary.
 
+### Exception Handling in Inheritance
 
-```
-Exception Handling (for addressing the problem
-caused by its inheritance property)
-```
 - Sometimes, inheritance may cause problems.
-- Penguin through inheritance gets the property “fly” (in
-    practice it cannot)
-- To avoid this situation, all the specific properties of a node
-    must be attached to it through local nodes, so that when an
-    answer is needed, it will search all the local nodes first. If
-    the answer is not available in the local nodes then the
-    general nodes will be used.
-- For example if we ask “how does penguin travel?” the reply
-    will be “it walks” (supposed that already stored in local
-    node)
+- Example: Penguin inherits the property "fly," but in practice, it cannot.
+- To address this, specific properties must be attached through local nodes to avoid ambiguity and facilitate exception handling.
 
+## 6. Advantages and Disadvantages
 
-# Semantic Networks (cont.)
+### Advantages
 
-##### Advantages
+- **Easy to follow hierarchy**: The hierarchical structure is easy to understand.
+- **Easy to trace association**: Associations between nodes are easily traceable.
+- **Flexible**: Can be combined with other representation methods.
 
-- Easy to follow
+### Disadvantages
 
-##### hierarchy
-
-- Easy to trace
-
-##### association
-
-- Flexible
-
-##### Disadvantages
-
-- Meaning attached
-
-##### to nodes might be
-
-##### ambiguous
-
-- Exception
-
-##### handling is difficult
-
-- Difficult to
-
-##### program
-
-
+- **Meaning attached to nodes might be ambiguous**: Ambiguity may arise in the interpretation of node meanings.
+- **Exception handling is difficult**: Dealing with exceptions in inheritance can be challenging.
+- **Difficult to program**: Implementing semantic networks can be complex.
 
 # Conceptual Graphs
 
-- Developed in 1984
-- Conceptual graphs (networks) overcome the
-    restriction to binary relation
-- Simply makes all links unlabelled
+## 1. Introduction
 
+- Developed in 1984, conceptual graphs (networks) provide a solution to the restriction of binary relations.
+- These graphs make all links unlabelled, enhancing flexibility in representation.
 
-# Conceptual Graphs (cont.)
+## 2. Conceptual Nets for "OR"
 
-- A Conceptual Net that represents “OR”
-    - A Disjunctive Net for Red or Green Apple
-       Apple Green
+- A conceptual net can represent "OR," demonstrating a disjunctive net for a red or green apple.
 
+```
+Apple
+Green
+```
 ```
 Red
 ```
@@ -287,12 +238,13 @@ Red
 Color
 ```
 
-# Conceptual Graphs (cont.)
+## 3. Conceptual Nets for "Where do Rivers Flow to?"
 
-- Conceptual Nets For ‘Where do Rivers Flow to’?
+- A conceptual net can represent the question "Where do rivers flow to?"
 
 ```
-River flow_to
+River
+flow_to
 ```
 ```
 Sea
@@ -302,10 +254,9 @@ Lake
 Marsh
 ```
 
-# Conceptual Graphs (cont.)
+## 4. Conceptual Net for "AND"
 
-- A Conceptual Net that represents “AND”
-    - A Conjunctive Net for black and white panda
+- A conceptual net can represent "AND," illustrating a conjunctive net for a black and white panda.
 
 ```
 PANDA
@@ -322,6 +273,15 @@ Color
 ```
 Color
 ```
+
+## 5. Advantages and Potential
+
+### Advantages
+
+- Overcomes the restriction to binary relations.
+- All links are unlabelled, offering flexibility in representation.
+
+Conceptual graphs provide a versatile way to represent complex relationships, making them suitable for a variety of scenarios and knowledge domains.
 
 
 # Frames
