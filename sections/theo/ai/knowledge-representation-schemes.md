@@ -72,6 +72,7 @@
 
 - **Very slow with large knowledge bases**: As the size of the knowledge base grows, the application of formal logic tends to become very slow, affecting responsiveness and practicality.
 
+# Network Representation Schemes
 
 # Semantic Networks
 
@@ -283,12 +284,18 @@ Color
 
 Conceptual graphs provide a versatile way to represent complex relationships, making them suitable for a variety of scenarios and knowledge domains.
 
+# Structured Representations Schemes
 
 # Frames
 
-- The idea behind frames is to store information
-    in meaningful chunks.
-- This frame has **4 slots** :
+## 1. Overview
+
+- The concept behind frames is to store information in meaningful chunks.
+- A frame typically consists of several slots, each containing specific information.
+
+## 2. Example Frame
+
+- This frame has **4 slots** related to a book:
 
 ```
 BOOK
@@ -298,12 +305,10 @@ Publisher : Prentice-Hall
 Year : 2000
 ```
 
-## Converting from Frames to
-
-## Semantics Nets
+## 3. Conversion from Frames to Semantic Nets
 
 ```
-date
+book
 ```
 ```
 author
@@ -343,7 +348,7 @@ is_a
 is_a
 ```
 
-# Frame Description (Source: Luger’s AI book)
+## 4. Example Frame Descriptions
 
 ```
 Hotel Room
@@ -362,99 +367,58 @@ superclass:bed
 size: king
 contains: mattress,pillow, etc.
 
-```
-::
-```
+## 5. Analysis of Frames
 
-# Frames (cont.)
+- Frames describe objects by embedding all the information about that object in "slots."
+- Slots are analogous to fields or attributes in programming, providing an advantage.
+- A frame is similar to a database record.
+- Frames describe typical instances of the concepts they represent.
 
-- You should be able to see now :
-    - that a frame describes an object by embedding all
-       the information about that object in “slots”
-    - that slots are commonly known in programming
-       terms as fields or attributes with associated value
-          - this is an advantage
-    - that a frame is similar to a database record
-    - that a frame describes typical instances of the
-       concepts they represent
+## 6. Advantages and Disadvantages
 
+### Advantages
 
-# Frames (cont.)
+- **Expressive power**: Frames offer a high level of expressiveness.
+- **Easy to set up slots for new properties and relations**: Adding new information is straightforward.
+- **Easy to include default information**: Default values for properties are easily incorporated.
 
-###### Advantages
+### Disadvantages
 
-- Expressive power
-- Easy to set up slots
-
-###### for new properties
-
-###### and relations
-
-- Easy to include
-
-###### default
-
-###### information
-
-###### Disadvantages
-
-- Difficult to
-
-###### program
-
-- Difficult for
-
-###### inference
-
-- Lack of
-
-###### inexpensive
-
-###### software
-
-
+- **Difficult to program**: Implementing frames can be challenging.
+- **Difficult for inference**: Drawing logical conclusions from frames can be complex.
+- **Lack of inexpensive software**: Availability of affordable software tools for implementing frames may be limited.
 
 # Scripts
 
-- Similar to frames except that scripts describe a
-    sequence of events rather than just an object.
-- Like frames, scripts portray a stereotyped
-    situation.
+## 1. Overview
 
+- Scripts are similar to frames but focus on describing a sequence of events rather than just an object.
+- Like frames, scripts depict a stereotyped situation.
 
-# Components in Scripts
+## 2. Components in Scripts
 
-Entry-conditions
+### Entry-conditions
 
-- must be true for the scripts
-- also called descriptors
+- Must be true for the script to begin.
+- Also known as descriptors.
 
-```
-Results
-```
-- facts that are true once the scripts has ended
+### Results
 
-```
-Props
-```
-- things or objects that support a given script
+- Facts that are true once the script has ended.
 
-```
-Roles
-```
-- are actions (hence role) that the individual actors
-    perform or execute
+### Props
 
-```
-Scenes/episodes
-```
-- breaks a script into a series of “episodes”
-    called scenes
-    - e.g. entering, ordering, ... billing, exiting (for
-       restaurant scenario)
-- a scene is a temporal aspect of the script
+- Objects or things that support a given script.
 
+### Roles
 
+- Actions performed or executed by individual actors.
+
+### Scenes/Episodes
+
+- Breaks a script into a series of "episodes" called scenes.
+- Example: entering, ordering, billing, exiting (for a restaurant scenario).
+- A scene represents a temporal aspect of the script.
 
 # Production Rules
 
