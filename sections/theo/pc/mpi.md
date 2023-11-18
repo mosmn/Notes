@@ -383,5 +383,3 @@ MPI_Recv(othermin, 2, MPI_INT, i, MYMIN_MSG, MPI_COMM_WORLD, &status);
 - **Usage**: `MPI_Reduce_scatter(&sendbuf, &recvbuf, recvcnt, datatype, op, comm)`
 
 For more details, refer to [LLNL MPI Tutorial](https://computing.llnl.gov/tutorials/mpi).
-
-
