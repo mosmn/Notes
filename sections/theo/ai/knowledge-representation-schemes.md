@@ -509,7 +509,7 @@ contains: mattress,pillow, etc.
   - Explanation Facility
   - User Interface
 
-## 9. "Firing" of Rules
+## 9. "Firing" of Rules (Imortant)
 
 - When the condition part of a rule is satisfied, the rule is said to fire, and the action part is executed.
 - The inference engine carries out reasoning, linking rules in the knowledge base with facts in the database.
