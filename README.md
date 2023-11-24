@@ -334,6 +334,7 @@
 - [Automated Reasoning and Theorem Proving](sections/theo/ai/automated-reasoning-and-theorem-proving.md)
 - [State Space Search](sections/theo/ai/state-space-search.md)
 - [Knowledge Representation Schemes](sections/theo/ai/knowledge-representation-schemes.md)
+- [Expert Systems](sections/theo/ai/expert-systems.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
