@@ -127,7 +127,8 @@ When you navigate to the profile page, the current page will be removed from the
 ### state
 
 - The `state` prop is used to pass data to the next page.
-
+  
+{% raw %}
 ```jsx
 // App.js
 import React from "react";
@@ -154,6 +155,7 @@ const App = () => {
 
 export default App;
 ```
+{% endraw %}
 
 ## Dynamic parameter
 
