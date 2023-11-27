@@ -1,3 +1,182 @@
+# Defining Your Own Classes
+
+- Describe how objects are returned from methods.
+- Explain the use of the reserved word `this`.
+- Define overloaded methods and constructors.
+- Define class methods and variables.
+- Describe how arguments are passed to parameters using the pass-by-value scheme.
+- Document classes with Javadoc comments.
+- Organize classes into a package.
+
+## Returning an Object from a Method
+
+Just as primitive data values can be returned from methods, objects can also be returned. When an object is returned from a method, it's actually the reference (or address) of the object that is being returned, not a copy of the object itself.
+
+## The Fraction class (snippet)
+
+```java
+public class Fraction {
+    private int numerator;
+    private int denominator;
+
+    public Fraction() {
+        // creates 0/1
+    }
+
+    public Fraction(int number) {
+        // creates number/1
+    }
+
+    public Fraction(Fraction frac) {
+        // copy constructor
+    }
+
+    // Other methods...
+}
+```
+
+## Sample Object-Returning Method
+
+Here's a sample method that returns an object:
+
+```java
+public Fraction simplify() {
+    Fraction simp;
+    int num = getNumerator();
+    int denom = getDenominator();
+    int gcd = gcd(num, denom);
+    simp = new Fraction(num / gcd, denom / gcd);
+    return simp;
+}
+```
+
+## A Sample Call to `simplify`
+
+```java
+Fraction f1 = new Fraction(24, 26);
+Fraction f2 = f1.simplify();
+```
+
+## Reserved Word `this`
+
+The reserved word `this` is a self-referencing pointer that refers to an object from the object's method. It can be used in three ways, and we'll explore all three uses in this chapter.
+
+### 1. The Use of `this` to Refer to Receiving Object
+
+```java
+public Fraction add(Fraction frac) {
+    int a, b, c, d;
+    Fraction sum;
+    a = this.getNumerator(); // get the receiving object's num and denom
+    b = this.getDenominator();
+    c = frac.getNumerator(); // get frac's num and denom
+    d = frac.getDenominator();
+    sum = new Fraction(a * d + b * c, b * d);
+    return sum;
+}
+```
+
+### Example of Using `this` to Call a Constructor from Another Constructor
+
+```java
+public Fraction(int number) {
+    // creates number/1
+    this(number, 1);
+}
+
+public Fraction(Fraction frac) {
+    // copy constructor
+    this(frac.getNumerator(), frac.getDenominator());
+}
+```
+
+## Static Keyword
+
+The `static` keyword is used for memory management and can be applied to variables, methods, blocks, and nested classes.
+
+### Class Variable
+
+Also known as static variables, they store values for the class in a common memory location. All objects of the same class are affected if one object changes the value of a class variable.
+
+```java
+public class Test {
+    static int numOfObjects = 0;
+    int value;
+
+    public Test(int val) {
+        value = val;
+        numOfObjects++;
+    }
+
+    public void display() {
+        System.out.println("Object's value is " + value);
+        System.out.println("Number of objects created so far = " + numOfObjects);
+    }
+}
+```
+
+## Class Constants
+
+Class constants are shared by all objects of the class. They should be declared using `final static`.
+
+```java
+public class Constants {
+    final static double PI = 3.142;
+}
+```
+
+## Class Methods
+
+Class methods, also known as static methods, can be called without creating an instance of the class.
+
+```java
+public class MathOperations {
+    public static int gcd(int m, int n) {
+        // implementation of the Euclidean algorithm
+    }
+
+    public static Fraction min(Fraction f1, Fraction f2) {
+        // convert to decimals and then compare
+    }
+}
+```
+
+## Call-by-Value Parameter Passing
+
+In Java, method arguments are passed using a call-by-value (pass-by-value) scheme. This means that the value of the argument is passed to the matching parameter, and separate memory space is allocated for this value.
+
+## Organizing Classes into a Package
+
+To reuse programmer-defined classes in different programs, it's practical to organize them into packages. A package is a Java class library. Follow these steps to create a package:
+
+1. Include the statement `package myutil;` as the first statement of the source file.
+2. Use the `public` modifier in the class declaration.
+3. Create a folder named `myutil` and place the class file inside.
+4. Modify the `CLASSPATH` environment variable to include the folder.
+
+## Javadoc
+
+Javadoc is a tool that generates Java code documentation in HTML format from Java source code. It uses a predefined format for documentation comments.
+
+```java
+/**
+ * Returns the sum of this Fraction and the parameter frac. The sum
+ * returned is NOT simplified.
+ *
+ * @param frac the Fraction to add to this Fraction
+ * @return the sum of this and frac
+ */
+public Fraction add(Fraction frac) {
+    // implementation
+}
+```
+
+These comments can be processed by the `javadoc` tool to generate HTML files for documentation.
+
+For more information on Javadoc, refer to the [official documentation](https://docs.oracle.com/en/java/javase/19/javadoc/javadoc.html).
+
+---
+
 # Passing Objects to a Method
 
 - We can pass an object to a method, similar to passing int and double values.
