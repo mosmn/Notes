@@ -108,6 +108,14 @@ try {
 }
 ```
 
+If the user enters `abc123` and `14` as input, the code will catch the `InputMismatchException` for the first input attempt (`abc123`). The catch block will be executed, and "Invalid Entry" will be displayed on the console. The program will not proceed to the second input.
+
+So, the expected output on the console will be:
+
+```
+Invalid Entry
+```
+
 ## Multiple catch Blocks
 
 A single try-catch statement can include multiple catch blocks, one for each type of exception.
@@ -137,6 +145,125 @@ All types of thrown errors are instances of the `Throwable` class or its subclas
 ### Throwable Hierarchy
 
 There are over 60 classes in the `Throwable` hierarchy.
+
+```java
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class BasicExceptionHandling {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            int num = scanner.nextInt();
+
+            if (num != 0) {
+                throw new Exception("Not zero");
+            }
+
+            System.out.println("I'm happy with the input.");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid Entry");
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+```
+
+#### Output Analysis:
+
+- For input -1: "Error: Not zero" (due to the exception thrown for `num != 0`)
+- For input 0: "I'm happy with the input."
+- For input "12XY": "Invalid Entry" (due to `InputMismatchException`)
+
+### Multiple Catch Blocks
+
+- Only one catch block is executed at a time.
+- Must be ordered from most specific to most general.
+
+```java
+try {
+    // ...
+} catch (Exception e) {
+    // ...
+} catch (InputMismatchException e) {
+    // ...
+}
+```
+
+### Importance of Order
+
+If catch blocks are reversed, the second catch block will never be executed because any exception object that is an instance of `Exception` or its subclasses will match the first catch block.
+
+## The Finally Block
+
+### Purpose
+
+In situations where certain actions must be taken regardless of whether an exception is thrown or not, use the `finally` block.
+
+### Example
+
+```java
+try {
+    // ...
+} catch (InputMismatchException e) {
+    // ...
+} catch (Exception e) {
+    // ...
+} finally {
+    System.out.println("DONE");
+}
+```
+
+## Throwing Exceptions
+
+### `throw` and `throws` Clause
+
+- `throw`: Create a new instance of an exception or its subclasses.
+- `throws`: Explicitly specify the exceptions that a method might throw.
+
+```java
+public class ExceptionThrowingExample {
+    public static void main(String[] args) {
+        try {
+            doWork(5);
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+    }
+
+    public static void doWork(int num) throws Exception {
+        if (num != 5)
+            throw new Exception("Invalid value");
+        else
+            System.out.println("Work done successfully!");
+    }
+}
+```
+
+## Exception Types and Hierarchy
+
+### Throwable Class Hierarchy
+
+- Over 60 classes in the hierarchy.
+- All types of thrown errors are instances of `Throwable` or its subclasses.
+
+### List of Checked and Unchecked Exceptions
+
+| Checked Exceptions               | Unchecked Exceptions                 |
+| ---------------------------------| -------------------------------------|
+| IOException                      | ArithmeticException                  |
+| SQLException                      | NullPointerException               |
+| ClassNotFoundException            | ArrayIndexOutOfBoundsException     |
+| IllegalAccessException            | IllegalArgumentException            |
+| ... (and more)                    | ... (and more)                       |
+
+## Handling Exceptions - Best Practices
+
+- Use try-catch blocks for checked exceptions.
+- Propagate exceptions if not handled locally.
+- Handle runtime exceptions selectively.
 
 ## Programmer-Defined Exceptions
 
