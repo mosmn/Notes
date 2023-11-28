@@ -177,6 +177,10 @@
     - [Linked List](sections/cpp/dsa/linked-list.md)
     - [Stack](sections/cpp/dsa/stacks.md)
     - [Queue](sections/cpp/dsa/queue.md)
+    - [Tree](sections/cpp/dsa/tree.md)
+    - [Graph](sections/cpp/dsa/graph.md)
+    - [Sorting](sections/cpp/dsa/sorting.md)
+    - [Searching](sections/cpp/dsa/searching.md)
 
 
 ### Java
