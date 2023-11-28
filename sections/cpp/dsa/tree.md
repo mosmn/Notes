@@ -81,88 +81,25 @@
 
 ## Types of Binary Tree (Summary)
 
-Certainly! Here is the organized information for the two tables:
+| Type of Tree          | Minimum Nodes | Maximum Nodes     |
+|-----------------------|---------------|-------------------|
+| Binary Tree           | h + 1         | 2^(h+1) - 1       |
+| Full Binary Tree      | 2^(h+1)        | 2^(h+1) - 1       |
+| Complete Binary Tree  | 2^h           | 2^(h+1) - 1       |
 
-### Table 1: Minimum and Maximum Nodes
+Calculation for total number of nodes:
 
-| Type of Tree         | Minimum Nodes        | Maximum Nodes                |
-|----------------------|----------------------|------------------------------|
-| Binary Tree          | \(h + 1\)            | \(2^{h+1} - 1\)               |
-| Full Binary Tree     | \(2h + 1\)           | \(2^{h+1} - 1\)               |
-| Complete Binary Tree | \(2^h\)              | \(2^{h+1} - 1\)               |
+- Binary Tree: [log(n+1)] – 1
+- Full Binary Tree: [log(n+1)] – 1
+- Complete Binary Tree: [log(n+1)] – 1
 
-### Table 2: Calculations for Total Number of Nodes and Height
+Calculation for height of tree where n = total number of nodes:
 
-| Type of Tree         | Calculation for Total Number of Nodes                      | Calculation for Height of Tree where \(n\) = Total Number of Nodes     |
-|----------------------|----------------------------------------------------------|-------------------------------------------------------------------------|
-| Binary Tree          | \([ \log(n+1) ] - 1\)                                      | \(n - 1\)                                                                |
-| Full Binary Tree     | \([ \log(n+1) ] - 1\)                                      | \((n-1)/2\)                                                              |
-| Complete Binary Tree | \([ \log(n+1) ] - 1\)                                      | \(\log(n)\)                                                              |
-
-Certainly! Here's how you can represent the tables with LaTeX formulas:
-
-### Table 1: Minimum and Maximum Nodes
-
-\[
-\begin{array}{|c|c|c|}
-\hline
-\text{Type of Tree} & \text{Minimum Nodes} & \text{Maximum Nodes} \\
-\hline
-\text{Binary Tree} & h+1 & 2^{h+1} - 1 \\
-\text{Full Binary Tree} & 2h+1 & 2^{h+1} - 1 \\
-\text{Complete Binary Tree} & 2^h & 2^{h+1} - 1 \\
-\hline
-\end{array}
-\]
-
-### Table 2: Calculations for Total Number of Nodes and Height
-
-\[
-\begin{array}{|c|c|c|}
-\hline
-\text{Type of Tree} & \text{Calculation for Total Number of Nodes} & \text{Calculation for Height} \\
-\hline
-\text{Binary Tree} & \left\lceil \log(n+1) \right\rceil - 1 & n - 1 \\
-\text{Full Binary Tree} & \left\lceil \log(n+1) \right\rceil - 1 & \frac{n-1}{2} \\
-\text{Complete Binary Tree} & \left\lceil \log(n+1) \right\rceil - 1 & \log(n) \\
-\hline
-\end{array}
-\]
-
-This representation uses LaTeX syntax for mathematical formulas, and you can use it in Markdown or other contexts that support LaTeX rendering.
-
-
-## Exercise 3
-
-**Q:** A ___________ tree is a tree where for each parent node, there is only one associated child node on the right.
-- a) Balanced binary tree
-- b) Rooted complete binary tree
-- c) Complete binary tree
-- d) Degenerate tree
-
-## Exercise 4
-
-**Q:** Given a binary tree with 31 nodes, what is the minimum possible depth of the tree?
-- a) 3
-- b) 4
-- c) 5
-- d) 6
-
-## Exercise 5
-
-**Q:** What is the minimum number of nodes in a full binary tree with level 3?
-- a) 4
-- b) 7
-- c) 9
-- d) 11
-
-## Exercise 6
-
-**Q:** What is the minimum number of nodes in a complete binary tree with level 3?
-- a) 4
-- b) 8
-- c) 11
-- d) 15
+| Type of Tree          | Minimum Height | Maximum Height    |
+|-----------------------|-----------------|-------------------|
+| Binary Tree           | [log(n+1)] – 1  | n - 1             |
+| Full Binary Tree      | [log(n+1)] – 1  | (n-1)/2           |
+| Complete Binary Tree  | [log(n+1)] – 1  | log(n)            |
 
 # Binary Search Tree
 
@@ -187,10 +124,6 @@ This representation uses LaTeX syntax for mathematical formulas, and you can use
 
 **Example:**
 Insert series: 49, 28, 18, 83, 40, 17, 97, and 73.
-
-## Exercise 7
-
-**Q:** Draw the final binary search tree for the series: 53, 18, 99, 24, 50, 65, 120.
 
 ## BST Operations – Deletion
 
