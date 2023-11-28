@@ -47,26 +47,6 @@
 - **Height of tree:** Height of the root.
 - **Level of node:** Set of all nodes at a given depth.
 
-### Example:
-- **Height of node 7:** 1
-- **Depth of node 4:** 2
-
-## Exercise 1
-
-**Q1:** How many ancestors of node E?
-
-**Q2:** Are D and I siblings? If no, what is the relationship?
-
-**Q3:** Common ancestors of A and C?
-
-## Exercise 2
-
-**Q1:** Height of node B?
-
-**Q2:** Size of the tree?
-
-**Q3:** Depth of the root node?
-
 # Binary Tree
 
 ## What is Binary Tree?
