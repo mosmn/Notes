@@ -339,6 +339,7 @@
 - [State Space Search](sections/theo/ai/state-space-search.md)
 - [Knowledge Representation Schemes](sections/theo/ai/knowledge-representation-schemes.md)
 - [Expert Systems](sections/theo/ai/expert-systems.md)
+- [Uncertainty Handling: Fuzzy Logic](sections/theo/ai/uncertainty-handling-fuzzy-logic.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
