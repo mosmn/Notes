@@ -137,12 +137,12 @@ Uncertainty, defined as the lack of exact knowledge to reach a perfectly reliabl
 - When constructing the rule base, experts assign a CF to each rule, reflecting their confidence in the rule's reliability.
 - CF measures the confidence placed in a conclusion based on known evidence.
 - The Certainty Factor is calculated as the difference between the Measure of Belief (MB) and the Measure of Disbelief (MD): 
-  \[ CF = MB[h,e] - MD[h,e] \]
+  $$ \text{CF[H,E]} = MB[H,E] - MD[H,E] $$
   - A positive CF means the evidence supports the hypothesis.
 
 ### Certainty Factor Computation
 
-\[ CF[H,E] = MB[H,E] – MD[H,E] \]
+$$ \text{CF[H,E]} = MB[H,E] - MD[H,E] $$
 
 - **H:** Hypothesis
 - **E:** Evidence
@@ -153,15 +153,15 @@ If \( MB > MD \), then the evidence supports the goal.
 
 ### More Equations for CF Computation
 
-1. \[ MB(P1 \, \text{AND} \, P2) = \text{MIN} (MB(P1), MB(P2)) \]
-2. \[ MB(P1 \, \text{OR} \, P2) = \text{MAX} (MB(P1), MB(P2)) \]
-3. \[ MB(\text{NOT} \, P1) = 1 - MB(P1) \]
+2. $$ MB(P1 \, \text{AND} \, P2) = \text{MIN} (MB(P1), MB(P2)) $$
+3. $$ MB(P1 \, \text{OR} \, P2) = \text{MAX} (MB(P1), MB(P2)) $$
+4. $$ MB(\text{NOT} \, P1) = 1 - MB(P1) $$
 
-- Each rule can have a credibility (attenuation) indicating its reliability.
-- Credibility is multiplied by the MB for the rule conclusion:
-  \[ MB(\text{Conclusion}) = MB(\text{conditions}) \times \text{credibility} \]
-- Combining MB for multiple conditions in a rule:
-  \[ MB[h:e1,e2] = MB[h:e1] + MB[h:e2] \times (1 - MB[h:e1]) \]
+   - Each rule can have a credibility (attenuation) indicating its reliability.
+   - Credibility is multiplied by the MB for the rule conclusion:
+     $$ MB(\text{Conclusion}) = MB(\text{conditions}) \times \text{credibility} $$
+   - Combining MB for multiple conditions in a rule:
+     $$ MB[h:e1,e2] = MB[h:e1] + MB[h:e2] \times (1 - MB[h:e1]) $$
 
 ### Advantages of CF
 
@@ -189,7 +189,7 @@ If \( MB > MD \), then the evidence supports the goal.
 - Rule 3: 0.6
 
 #### CF Calculation:
-\[ MB[X \text{ votes BN: Rule 1, Rule 2, Rule 3}] = 0.4 \]
+$$ MB[X \text{ votes BN: Rule 1, Rule 2, Rule 3}] = 0.4 $$
 
 ### Summary
 
