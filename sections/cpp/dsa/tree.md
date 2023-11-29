@@ -125,6 +125,16 @@ Calculation for height of tree where n = total number of nodes:
 **Example:**
 Insert series: 49, 28, 18, 83, 40, 17, 97, and 73.
 
+```
+     49
+    /  \
+   28  83
+  / \   / \
+ 18  40 73  97
+/      
+17
+```
+
 ## BST Operations – Deletion
 
 1. **Condition 1:** Node is a leaf node.
@@ -279,20 +289,6 @@ Write the Preorder, Inorder, and Postorder traversal for the figure below:
    /
   A
 ```
-
-*Solution:* [Provide solution here]
-
-## Exercise 5
-
-**Source: Final Exam previous semester**
-A prefix expression, **+ * 5 – y 3 / 2 + x 7** can be represented as an expression tree, by representing operators as non-leaf nodes and operands (variables and constants) as leaf nodes. Show how the above expression would be represented as a binary tree following this convention.
-
-*Solution:* [Provide solution here]
-
-## Exercise 6
-
-**Source: Quiz 3 previous semester**
-Draw an expression tree for the below postfix algebraic expression: **5 x – y 3 + + 5 x – y / ***
 
 *Solution:* [Provide solution here]
 
@@ -458,46 +454,6 @@ void search() {
         cout << "Data is not exist";
 }
 ```
-
-## Exercise 7
-
-Assume that we have a tree linked list, containing n number of nodes, where n > 50. Pointer **root** points to the first node, which acts as the head pointer and value is a data in the node. Find and correct the error(s) in each of the following code segments. This code segment is to display the largest value in a binary search tree.
-
-```cpp
-Tree* t = root;
-t++;
-cout << "Largest value is" << t.value << endl;
-```
-
-*Solution:* [Provide solution here]
-
-## Exercise 8
-
-Assume that we have a tree linked list, containing n number of nodes, where n > 50. Pointer **root** points to the first node, which acts as the head pointer and value is a data in the node. Find and correct the error(s) in each of the following code segments. This code segment is to delete a node that has a single leaf node on the left. Assume that **temp** is a pointer that points to this node.
-
-```cpp
-free(temp);
-```
-
-*Solution:* [Provide solution here]
-
-## Exercise 9
-
-**Source: Quiz 3 Sem 1 2020 / 2021**
-
-*Solution:* [Provide solution here]
-
-## Exercise 10
-
-**Source: Quiz 3 Sem 1 2020 / 2021**
-
-*Solution:* [Provide solution here]
-
-## Exercise 11
-
-**Source: Test 2 Sem 1 2020 / 2021**
-
-*Solution:* [Provide solution here]
 
 ## Summary
 
