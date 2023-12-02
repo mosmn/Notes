@@ -31,7 +31,7 @@ Iterative design and evaluation are a continuous process that examines:
 - Early prototypes of the new system
 - Later, more complete prototypes
 
-Evaluation enables designers to check that they understand users’ requirements.
+**Evaluation enables designers to check that they understand users’ requirements.**
 
 1 - Evaluation
 2 - Parallel Design Sketches
