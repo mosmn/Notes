@@ -340,7 +340,6 @@
 - [Knowledge Representation Schemes](sections/theo/ai/knowledge-representation-schemes.md)
 - [Expert Systems](sections/theo/ai/expert-systems.md)
 - [Uncertainty Handling: Fuzzy Logic](sections/theo/ai/uncertainty-handling-fuzzy-logic.md)
-- [Uncertainty Handling: Bayesian Networks](sections/theo/ai/uncertainty-handling-bayesian-networks.md)
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
