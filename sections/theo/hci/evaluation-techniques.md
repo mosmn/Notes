@@ -75,17 +75,18 @@ Any kind of evaluation is guided explicitly or implicitly by a set of beliefs, w
 
 ### Usability Testing
 
-- Usability testing involves recording typical users’ performance on typical tasks in controlled settings.
+- Usability testing involves recording typical users’ performance on typical tasks in **controlled settings.**
 - As the users perform these tasks, they are watched & recorded on video & their key presses are logged.
 - This data is used to calculate performance times, identify errors & help explain why the users did what they did.
 - User satisfaction questionnaires & interviews are used to elicit users’ opinions.
 
 ### Field Studies
 
-- Field studies are done in natural settings.
+- Field studies are done in **natural settings**.
 - The aim is to understand what users do naturally and how technology impacts them.
 - In product design, field studies can be used to:
   - Identify opportunities for new technology
+    - for example, by observing users’ doing some manual task, such as filling in a form, and then designing a computer system to automate it.
   - Determine design requirements
   - Decide how best to introduce new technology
   - Evaluate technology in use.
@@ -105,6 +106,8 @@ Any kind of evaluation is guided explicitly or implicitly by a set of beliefs, w
 - Testing users' performance
 
 ### Ethnographic Observation
+
+Ethnography is the study of people and their culture. embedding yourself in the environment of the users and recorde what you observe.
 
 #### Preparation
 
