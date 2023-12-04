@@ -7,8 +7,6 @@
 - Use the `Pattern` and `Matcher` classes.
 - Compare `String` objects correctly.
 
----
-
 ## Characters
 
 In Java, single characters are represented using the `char` data type. Character constants are written as symbols enclosed in single quotes. Characters are stored in computer memory using some form of encoding. While ASCII is widely used, Java utilizes Unicode, which includes ASCII, for representing `char` constants.
