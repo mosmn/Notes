@@ -25,19 +25,97 @@ Agents can be classified based on their structure. A simple agent program, or ag
 
 Intelligent agents exhibit fundamental functionalities such as sensing, understanding, reasoning, and learning. They must be rational, autonomous, and capable of perceiving and acting.
 
-#### Rational Agents
+### Rational Agents: Components and Decision-Making
 
-Rational agents aim to maximize their performance measure based on percept sequences, prior knowledge, available actions, and their perceptual history.
+Rational agents, defined as entities always striving to do the right thing, employ a set of components and decision-making criteria to maximize their performance measure. The key components include:
+
+1. **Performance Measure:** This serves as the objective criterion for evaluating the success of an agent's behavior. For example, in the context of a vacuum-cleaner agent, the performance measure could encompass parameters such as the amount of dirt cleaned, time taken, electricity consumed, and noise generated.
+
+2. **Percept Sequence:** Agents rely on their perceptual inputs, or percept sequences, to make informed decisions. These sequences provide a historical context and influence the agent's understanding of the environment.
+
+3. **Prior Knowledge:** An agent's prior knowledge of the environment is crucial. This knowledge, combined with percept sequences, guides decision-making by providing context and allowing the agent to learn from past experiences.
+
+4. **Actions:** The available actions an agent can perform constitute a critical component. Rational agents select actions based on a thorough evaluation of the percept sequence, prior knowledge, and the potential impact on the performance measure.
+
+#### Decision-Making Process
+
+The decision-making process of a rational agent involves striving to "do the right thing." This implies selecting actions that maximize the agent's chances of success, as defined by the performance measure. The right action, in this context, is one that aligns with the agent's goals and objectives.
+
+#### Designing Performance Measures
+
+A crucial aspect of rational agents is the design of performance measures. It is recommended to design these measures based on the actual desired outcomes in the environment rather than preconceived notions of how the agent should behave. For instance, in the case of a vacuum-cleaner agent, the performance measure should align with the goal of having a clean floor rather than merely focusing on the amount of dirt cleaned.
+
+rational agents are characterized by their continuous efforts to make decisions that lead to optimal outcomes. By considering performance measures, percept sequences, prior knowledge, and available actions, these agents aim to consistently "do the right thing" and achieve success in their defined tasks.
 
 ### Designing agents
 
-Designing agents involves specifying the task environment (PEAS): Performance measure, Environment, Actuators, and Sensors. Examples of PEAS for various systems, such as an automated taxi driver or medical diagnosis, illustrate this process.
+In the design of intelligent agents, a systematic approach is crucial to ensure their effectiveness in various task environments. The PEAS framework, encompassing Performance measure, Environment, Actuators, and Sensors, provides a structured method for specifying these components.
+
+#### PEAS Framework Components
+
+1. **Performance Measure:**
+   - The criteria used to evaluate the success of the agent's actions.
+   - Specifies the desired outcomes or goals the agent aims to achieve.
+   - Example: For an automated taxi driver, the performance measure includes a safe, fast, legal, and comfortable trip while maximizing profits.
+
+2. **Environment:**
+   - Defines the external context in which the agent operates.
+   - Identifies the elements, entities, or conditions that the agent interacts with.
+   - Examples:
+      - Automated Taxi Driver: Roads, other traffic, pedestrians, and customers.
+      - Medical Diagnosis System: Patient, hospital, and staff.
+      - Satellite Image Analysis System: Downlink from orbiting satellite.
+      - Part-Picking Robot: Conveyor belt with parts and bins.
+
+3. **Actuators:**
+   - The mechanisms or tools through which the agent can affect the environment.
+   - Represents the physical or virtual actions the agent can perform.
+   - Examples:
+      - Automated Taxi Driver: Steering wheel, accelerator, brake, signal, horn.
+      - Medical Diagnosis System: Screen display for questions, tests, diagnoses, treatments, referrals.
+      - Satellite Image Analysis System: Display for categorization of scenes.
+      - Part-Picking Robot: Jointed arm and hand.
+
+4. **Sensors:**
+   - Instruments or devices that allow the agent to perceive and gather information about the environment.
+   - Input sources that provide data for decision-making.
+   - Examples:
+      - Automated Taxi Driver: Cameras, sonar, speedometer, GPS, odometer, engine sensors, keyboard.
+      - Medical Diagnosis System: Keyboard for entry of symptoms, findings, and patient's answers.
+      - Satellite Image Analysis System: Color pixel arrays.
+      - Part-Picking Robot: Camera, joint angle sensors.
+
+#### Examples of PEAS for Various Systems
+
+1. **Automated Taxi Driver:**
+   - Performance Measure: Safe, fast, legal, comfortable trip, maximize profits.
+   - Environment: Roads, other traffic, pedestrians, customers.
+   - Actuators: Steering wheel, accelerator, brake, signal, horn.
+   - Sensors: Cameras, sonar, speedometer, GPS, odometer, engine sensors, keyboard.
+
+2. **Medical Diagnosis System:**
+   - Performance Measure: Healthy patient, minimize costs, lawsuits.
+   - Environment: Patient, hospital, staff.
+   - Actuators: Screen display for questions, tests, diagnoses, treatments, referrals.
+   - Sensors: Keyboard for entry of symptoms, findings, and patient's answers.
+
+3. **Satellite Image Analysis System:**
+   - Performance Measure: Correct image categorization.
+   - Environment: Downlink from orbiting satellite.
+   - Actuators: Display for categorization of scenes.
+   - Sensors: Color pixel arrays.
+
+4. **Part-Picking Robot:**
+   - Performance Measure: Percentage of parts in correct bins.
+   - Environment: Conveyor belt with parts, bins.
+   - Actuators: Jointed arm and hand.
+   - Sensors: Camera, joint angle sensors.
 
 ### Classes of Intelligent Agents
 
 Intelligent agents are categorized into five classes based on perceived intelligence and capability:
 
-1. **Simple Reflex Agents:** Decision-making based solely on current percepts.
+1. **Simple Reflex Agents:** Decision-making based solely on current percepts.(preprogrammed)
 2. **Model-based Reflex Agents:** Able to work in partially observable environments and track situations.
 3. **Goal-based Agents:** Decision-making guided by goals rather than just the current state.
 4. **Utility-based Agents:** Introduce utility measurement for a more nuanced measure of success at a given state.
