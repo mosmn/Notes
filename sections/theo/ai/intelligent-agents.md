@@ -1,6 +1,6 @@
-## Chapter 9: Intelligent Agent
+# Intelligent Agent
 
-### Introduction to Agents
+## Introduction to Agents
 
 An agent, as defined in this chapter, refers to anything capable of perceiving its environment through sensors and acting upon it through actuators. This chapter explores the concept of agents, their classifications, and specifically delves into intelligent agents.
 
