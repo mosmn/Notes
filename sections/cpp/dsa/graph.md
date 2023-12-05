@@ -8,8 +8,58 @@
   - Size of graph (number of edges) denoted by |E|.
 
 ### **Graph Application**
-- Used in real-life problems:
-  - Networks, social networks, biology, computer science, physics, chemistry, etc.
+
+Graphs find applications in various real-life problems across different domains:
+
+#### **Math:**
+- **Discrete Structure:**
+  - Utilized for modeling discrete mathematical structures.
+- **Geometry:**
+  - Applied in geometric problems and representations.
+- **Etc:**
+  - Further applications in diverse mathematical scenarios.
+
+#### **Social Sciences:**
+- **Social Media:**
+  - Used for modeling and analyzing social media structures.
+- **Rumors Analysis:**
+  - Analyzing the spread of rumors within a network.
+- **Social Network Analysis:**
+  - Studying the relationships and structures in social networks.
+- **Crime Investigation:**
+  - Mapping connections in crime networks for investigative purposes.
+
+#### **Biology:**
+- **Species Tracking:**
+  - Tracking and analyzing the movements of different species.
+- **Breeding Pattern:**
+  - Modeling and understanding breeding patterns in populations.
+- **Cell Cluster (Virus):**
+  - Analyzing the clustering of cells, especially in virus structures.
+
+#### **Computer Science:**
+- **Web Pages:**
+  - Modeling the structure and connectivity of web pages.
+- **Network Connection:**
+  - Analyzing and optimizing network connections.
+- **Algorithm Analysis:**
+  - Graphs are fundamental in algorithmic analysis.
+
+#### **Physics & Chemistry:**
+- **Atom Topology:**
+  - Modeling the topology of atoms in molecular structures.
+- **Molecular Structure:**
+  - Representing and analyzing the structures of molecules.
+- **Cell Connection:**
+  - Modeling connections between cells in biological systems.
+
+#### **Other:**
+- **Road Network (GPS):**
+  - Used for navigation and optimization in road networks.
+- **Organization Hierarchy:**
+  - Representing and analyzing hierarchical structures in organizations.
+- **Financial:**
+  - Modeling and analyzing financial networks and transactions.
 
 ### **Types of Graph**
 1. **Finite Graph:**
