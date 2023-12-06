@@ -115,11 +115,25 @@ In the design of intelligent agents, a systematic approach is crucial to ensure 
 
 Intelligent agents are categorized into five classes based on perceived intelligence and capability:
 
-1. **Simple Reflex Agents:** Decision-making based solely on current percepts.(preprogrammed)
-2. **Model-based Reflex Agents:** Able to work in partially observable environments and track situations.
-3. **Goal-based Agents:** Decision-making guided by goals rather than just the current state.
-4. **Utility-based Agents:** Introduce utility measurement for a more nuanced measure of success at a given state.
-5. **Learning Agents:** Capable of learning from past experiences.
+1. **Simple Reflex Agents:**
+   - *Decision-Making Principle:* These agents make decisions based solely on the current percept, without considering the history of percepts.
+   - *Example:* A thermostat that turns on the air conditioner when the current temperature exceeds a set threshold. The decision is solely based on the current temperature, and the agent ignores any previous temperature readings.
+
+2. **Model-based Reflex Agents:**
+   - *Decision-Making Principle:* These agents can work in partially observable environments, considering not only the current percept but also maintaining an internal model or representation of the world to track situations.
+   - *Example:* An automated chess player that not only considers the current state of the chessboard but also maintains a model of potential future moves and their consequences. This allows it to make decisions based on a more comprehensive understanding of the game.
+
+3. **Goal-based Agents:**
+   - *Decision-Making Principle:* These agents make decisions by considering their goals and objectives, taking into account the desired states rather than focusing solely on the current percept.
+   - *Example:* An autonomous delivery drone with the goal of delivering packages to specific locations. The agent considers its goal (delivery) and plans its actions based on achieving that goal, considering factors like the destination and available routes.
+
+4. **Utility-based Agents:**
+   - *Decision-Making Principle:* These agents introduce the concept of utility, where actions are evaluated not just in terms of achieving goals but based on a measure of "goodness" or "usefulness" (utility) at a given state.
+   - *Example:* A robot vacuum cleaner that not only aims to clean the maximum amount of dirt (goal) but also considers factors like energy consumption, noise levels, and cleaning efficiency. The agent chooses actions that maximize the overall utility.
+
+5. **Learning Agents:**
+   - *Decision-Making Principle:* These agents are capable of learning from past experiences, adapting their behavior over time based on the feedback and outcomes of previous actions.
+   - *Example:* An adaptive recommendation system that learns user preferences over time. As users interact with the system, it refines its recommendations based on the users' feedback and historical usage patterns, continuously improving its decision-making capabilities.
 
 ### Applications of Intelligent Agents
 
