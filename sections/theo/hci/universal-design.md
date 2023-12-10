@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 
 #### What is Universal Design (UD)?
 
@@ -39,7 +39,7 @@ Refer to [this link](http://www.ncsu.edu/www/ncsu/design/sod5/cud/pubs_p/docs/po
 
 Fuji Xerox defines universal design as a design that includes "accessibility," "usability," and "user diversity." This involves making unavailable parts available, making hard-to-use parts easy to use, and expanding the target customer base.
 
-### UD Using Usable Senses
+## UD Using Usable Senses
 
 #### Overview
 - The five senses (sight, sound, touch, taste, and smell) are fundamental for daily experiences.
@@ -97,11 +97,15 @@ Fuji Xerox defines universal design as a design that includes "accessibility," "
 2. **Earcons:**
    - Synthetic sounds representing information through structured combinations of notes.
    - They can be compound or part of a family of sounds, hierarchically structured to represent menus.
+        - compound earcons – combine different motives to build up a specific action. E.g., combining the motives for ‘create’ and ‘file’​
+        - Family earcons – represent compound earcons of similar types.  E.g., OS errors and syntax errors would be in the ‘error’ family
 
 #### Touch
 
 - Touch is the only sense used for both sending and receiving information.
-- Haptic interaction includes cutaneous perception (tactile sensation) and kinesthetics (movement and position).
+- Haptic interaction includes
+    - cutaneous perception (tactile sensation) and 
+    - kinesthetics (movement and position).
 - Technologies include electronic braille displays and force feedback devices like the PHANTOM range from SensAble Technologies.
 
 ### Handwriting Recognition
@@ -118,7 +122,7 @@ Fuji Xerox defines universal design as a design that includes "accessibility," "
 - Benefits include natural interaction and enhanced communication.
 - Problems include user dependence and cost considerations.
 
-### Designing for Diversity
+## Designing for Diversity
 
 #### Introduction
 - Human capabilities vary, and users have different needs and limitations.
