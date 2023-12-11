@@ -168,8 +168,8 @@ A regular expression is a textual pattern used to search in text. Symbols used i
 | `[0-9&&[^4567]]`              | A single digit that is 0, 1, 2, 3, 8, or 9.              |
 | `[a-z0-9]`                    | A single character that is either a lowercase letter or a digit. |
 | `[a-zA-z][a-zA-Z0-9_$]*`       | A valid Java identifier consisting of alphanumeric characters, underscores, and dollar signs, with the first character being an alphabet. |
-| `[wb](ad|eed)`                 | Matches wad, weed, bad, and beed.                        |
-| `(AZ|CA|CO)[0-9][0-9]`        | Matches AZxx, CAxx, and COxx, where x is a single digit. |
+| [wb\]\(ad\|eed\)                | Matches wad, weed, bad, and beed.                        |
+| \(AZ\|CA\|CO\)\[0-9\]\[0-9\]       | Matches AZxx, CAxx, and COxx, where x is a single digit. |
 
 ---
 
@@ -361,3 +361,38 @@ for (int index = 0; index < numberOfCharacters; index++) {
 
 JOptionPane.showMessageDialog(null, tempStringBuilder);
 ```
+
+### The append and insert Methods
+
+We utilize the `append` and `insert` methods in the `StringBuffer` class for string manipulation.
+
+#### `append` Method
+
+- The `append` method is employed to concatenate a `String` or `StringBuffer` object to the end of a `StringBuffer` object.
+  - It can also accept an argument of a primitive data type.
+  - Any primitive data type argument is automatically converted to a string before being appended to a `StringBuffer` object.
+
+```java
+StringBuffer str = new StringBuffer("Caffeine");
+str.append('e');
+// Result: Caffeine
+```
+
+#### `insert` Method
+
+- The `insert` method allows us to insert a string at a specified position within the `StringBuffer`.
+  - The format is `insert(index, string)`.
+
+```java
+StringBuffer word1 = new StringBuffer("Lisa");
+StringBuffer word2 = word1;
+word2.insert(0, "Mona ");
+// Result: Mona Lisa
+```
+
+### The StringBuilder Class
+
+- Introduced in Java 5.0 (SDK 1.5), the `StringBuilder` class improves the performance of the `StringBuffer` class.
+- Both classes support the same set of methods, making them interchangeable.
+- In this book, we primarily use `StringBuffer` for compatibility, as its performance is sufficient for our purposes.
+- However, in advanced cases, where performance is a critical concern, `StringBuilder` can be considered.
