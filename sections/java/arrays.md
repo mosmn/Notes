@@ -247,9 +247,7 @@ for (int i = 0; i < person.length; i++) {
 for (Person p : person) {
     System.out.println(p.getName());
 }
-``
-
-`
+```
 
 ## For-Each: Key Points to Remember
 
