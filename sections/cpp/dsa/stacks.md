@@ -518,3 +518,232 @@ a) Show the content of the stack after tokens at positions marked by (i) and (ii
 b) Convert the infix expression to postfix expression.
 
 (Solution for part (a) and part (b) would require more specific information about the expression and the tokens at positions (i) and (ii).)
+
+Sure, let's organize the provided code snippets and add some comments to explain each part:
+
+### Slide No 10 (Exercise 2)
+
+#### Option 1
+```cpp
+#include <stack>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    stack<int> record;
+    int i = 1, no;
+
+    // Insertion
+    for (; i < 6; i++)
+    {
+        cout << "Enter a number:";
+        cin >> no;
+        record.push(no);
+    }
+
+    cout << "Total data in stack : " << record.size() << endl;
+
+    // Deletion
+    cout << "::Deletion process:: ";
+    while (!record.empty())
+    {
+        cout << "\nTop value: " << record.top();
+        record.pop();
+    }
+
+    cout << "\nStack is empty";
+    return 0;
+}
+```
+
+#### Option 2 (Function)
+```cpp
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+void display(stack<int> no)
+{
+    while (!no.empty())
+    {
+        cout << "Top value : " << no.top() << endl;
+        no.pop();
+    }
+}
+
+void deletion(stack<int> *no)
+{
+    while (!no->empty())
+    {
+        cout << "Top value : " << no->top() << endl;
+        no->pop();
+    }
+}
+
+int main()
+{
+    stack<int> number;
+    int i = 1, val;
+
+    for (; i <= 5; i++)
+    {
+        cout << "Enter value " << i << ":";
+        cin >> val;
+        number.push(val);
+    }
+
+    cout << "\n::Content of stack::" << endl;
+    display(number);
+
+    cout << "\n::Deletion process::" << endl;
+    deletion(&number);
+
+    if (number.empty())
+        cout << "Stack is empty";
+    return 0;
+}
+```
+
+### Slide No 11 (Exercise 3)
+
+```cpp
+#include <iostream>
+#include <stack>
+#include <iomanip>
+
+using namespace std;
+
+struct person
+{
+    int idNo;
+    float weight;
+};
+
+void display(stack<person> rec)
+{
+    int i = 1;
+    while (!rec.empty())
+    {
+        cout << "Record " << i << " - Id no:" << rec.top().idNo;
+        cout << ", Weight: " << fixed << setprecision(2) << rec.top().weight << endl;
+        rec.pop();
+        i++;
+    }
+}
+
+void deletion(stack<person> *rec)
+{
+    int i = 1;
+    while (!rec->empty())
+    {
+        cout << "Record " << i << " - Id no:" << rec->top().idNo;
+        cout << ", Weight: " << fixed << setprecision(2) << rec->top().weight << endl;
+        rec->pop();
+        i++;
+    }
+}
+
+int main()
+{
+    stack<person> record;
+    person data;
+    int i = 1;
+
+    for (; i <= 3; i++)
+    {
+        cout << "Record " << i << ":" << endl;
+        cout << "Enter id :";
+        cin >> data.idNo;
+        cout << "Enter weight :";
+        cin >> data.weight;
+        record.push(data);
+    }
+
+    cout << "Total data in stack :" << record.size();
+
+    cout << "\n::Details of record::" << endl;
+    display(record);
+
+    cout << "\n::Deletion process::" << endl;
+    deletion(&record);
+
+    if (record.empty())
+        cout << "End of stack record";
+    return 0;
+}
+```
+
+### Slide No 15 (Exercise 4)
+```cpp
+#include <iostream>
+
+using namespace std;
+
+struct data
+{
+    int number;
+    data *next;
+};
+
+data *createNode(int no)
+{
+    data *n = new data();
+    n->number = no;
+    n->next = NULL;
+    return n;
+}
+
+void push(data **head, int val)
+{
+    data *n = createNode(val);
+    n->next = *head;
+    *head = n;
+}
+
+void pop(data **head)
+{
+    data *p;
+    while (*head != NULL)
+    {
+        p = *head;
+        cout << "Top value : " << p->number << endl;
+        *head = (*head)->next;
+        free(p);
+    }
+}
+
+void display(data *head)
+{
+    while (head != NULL)
+    {
+        cout << "Top value : " << head->number << endl;
+        head = head->next;
+    }
+}
+
+int main()
+{
+    int i = 1, val;
+    data *head = NULL;
+
+    for (; i <= 5; i++)
+    {
+        cout << "Enter value " << i << ":";
+        cin >> val;
+        push(&head, val);
+    }
+
+    cout << "\n::Content of stack::" << endl;
+    display(head);
+
+    cout << "\n::Deletion process::" << endl;
+    pop(&head);
+
+    if (head == NULL)
+        cout << "Stack is empty";
+    return 0;
+}
+```
