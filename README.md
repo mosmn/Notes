@@ -15,9 +15,6 @@
     - [SQL](#sql)
     - [MongoDB](#mongodb)
 
-- [Cloud](#cloud)
-    - [AWS](#aws)
-
 - [Theoretical](#theoretical)
     - [Operating Systems Concepts](#operating-systems-concepts)
     - [Software Engineering Principles](#software-engineering-principles)
