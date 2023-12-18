@@ -135,637 +135,329 @@ package             Y              N            N             N
 This organization emphasizes the principles of inheritance, showcasing its application in modeling different types of objects and establishing relationships between classes.
 
 
-## Polymorphism
+# Polymorphism
 
-- Polymorphism allows a single variable to refer
+## Introduction to Polymorphism
 
-### to objects from different subclasses in the same
+Polymorphism allows a single variable to refer to objects from different subclasses within the same inheritance hierarchy. For instance, if `Cat` and `Dog` are subclasses of `Pet`, statements like `Pet myPet; myPet = new Dog();` demonstrate the flexibility of polymorphism.
 
-### inheritance hierarchy
+## Creating the Roster Array
 
-- For example, if Cat and Dog are subclasses of
+To manage a class roster, an array can be utilized, accommodating objects from the `Student`, `UndergraduateStudent`, and `GraduateStudent` classes.
 
-### Pet, then the following statements are valid:
-
+```java
+Student roster = new Student[40];
+roster[0] = new GraduateStudent();
+roster[1] = new UndergraduateStudent();
+roster[2] = new UndergraduateStudent();
+// ...
 ```
-Pet myPet;
-```
-```
-myPet = new Dog();
-```
-...
-myPet = **new** Cat();
-
-
-### Creating the roster Array
-
-- We can maintain our class roster using an array,
-
-### combining objects from the Student,
-
-### UndergraduateStudent, and GraduateStudent
-
-### classes.
-
-```
-Student roster = new Student[ 40 ];
-```
-...
-roster[ 0 ] = new GraduateStudent();
-roster[ 1 ] = new UndergraduateStudent();
-roster[ 2 ] = new UndergraduateStudent();
-...
-
-
-### State of the roster Array
-
-- The roster array with elements referring to
-
-### instances of GraduateStudent or
-
-### UndergraduateStudent classes.
-
 
 ## Sample Polymorphic Message
 
-- To compute the course grade using the roster array, we
+To compute the course grade using the roster array, a loop can be employed to invoke the `computeCourseGrade` method for each student. This demonstrates polymorphic behavior based on the actual type of the object being referred to.
 
-#### execute
-
-```
+```java
 for (int i = 0; i < numberOfStudents; i++) {
-roster[i].computeCourseGrade();
+    roster[i].computeCourseGrade();
 }
 ```
-- If roster[i] refers to a GraduateStudent, then the
-
-#### computeCourseGrade method of the GraduateStudent
-
-#### class is executed.
-
-- If roster[i] refers to an UndergraduateStudent, then the
-
-#### computeCourseGrade method of the
-
-#### UndergraduateStudent class is executed.
-
 
 ## Methods Overriding
 
-- Subclass has the same method as declared in the
+Method overriding allows a subclass to provide a specific implementation of a method declared in the superclass. Rules include maintaining the same method name and parameters as in the superclass.
 
-### super class.
+### Example:
 
-- Method overriding is used to provide the specific
-
-### implementation of a method which is already
-
-### provided by its super class.
-
-- Method overriding is used for runtime
-
-### polymorphism.
-
-- Rules:
-    - The method must have the same name as in the super class.
-    - The method must have the same parameter as in the super class.
-
-
-## Methods Overriding
-
-class Vehicle{
-
-```
-void run(){
-System.out.println("Vehicle is running");
-}
-```
+```java
+class Vehicle {
+    void run() {
+        System.out.println("Vehicle is running");
+    }
 }
 
-class Bike extends Vehicle{
+class Bike extends Vehicle {
+    void run() {
+        System.out.println("Bike is running safely");
+    }
 
-```
-public static void main(String args[]){
-//creating an instance of child class
-Bike obj = new Bike();
-//calling the method with child class instance
-obj.run();
+    public static void main(String args[]) {
+        Bike obj = new Bike();
+        obj.run();
+    }
 }
 ```
-}
 
-```
-Without overriding, this
-calls run() of super –we
-didn’t get ‘customized’ run
-operation of Bike
-```
-```
 Output:
-Vehicle is running
 ```
-
-## Methods Overriding
-
-class Vehicle{
-void run(){
-System.out.println("Vehicle is running");
-}
-}
-class Bike2 extends Vehicle{
-//defining the same method as in the parent class
-**void run(){
-System.out.println("Bike is running safely");
-}**
-public static void main(String args[]){
-//creating an instance of child class
-Bike obj = new Bike();
-//calling the method with child class instance
-obj.run();
-}
-©The McGrawrequired for reproduction or display.} -Hill Companies, Inc. Permission Chapter 13- 22
-
-```
-Method overriding
-```
-- specific
-implementation of
-run() in subclass
-
-```
-Output:
 Bike is running safely
 ```
-```
-Calls run() of sub
-```
 
-## The instanceof Operator
+## The `instanceof` Operator
 
-- The instanceof operator can help us learn the
+The `instanceof` operator helps determine the class of an object. For example, to count the number of undergraduate students in the roster:
 
-### class of an object.
-
-- The following code counts the number of
-
-### undergraduate students.
-
-```
+```java
 int undergradCount = 0;
 for (int i = 0; i < numberOfStudents; i++) {
-if ( roster[i] instanceof UndergraduateStudent ) {
-undergradCount++;
-}
+    if (roster[i] instanceof UndergraduateStudent) {
+        undergradCount++;
+    }
 }
 ```
 
 ## Inheritance and Member Accessibility
 
-- We use the following visual representation of
+Visual representation of inheritance illustrates data member accessibility. Everything except private members of the superclass is visible from a method of the subclass.
 
-### inheritance to illustrate data member accessibility.
+### Class Hierarchy
 
+```
 Class Hierarchy
-
-```
-This shows the inherited
-components of the
-superclass are part of
-the subclass instance
-```
+    |
+Superclass
+    |
+Subclass
+    |
 Instances
-
+```
 
 ## Accessibility from the Client Method
 
-```
-package one
-```
-```
-package two
-```
-###### Refer to Client.java
+The accessibility of members between packages is demonstrated, emphasizing the visibility of protected, default, and public members.
 
+```java
+package one;
+```
+```java
+package two;
+// Refer to Client.java
+```
 
 ## Accessibility of Super from Sub
 
-- Everything except the private members of the Super class
-
-#### is visible from a method of the Sub class.
+In a subclass, everything except private members of the superclass is visible from a method of the subclass. This facilitates the utilization of inherited components.
 
 
-## Inheritance and Constructors
+# Inheritance and Constructors
 
-- When object of subclass is created, constructor for
+## Introduction to Constructors in Inheritance
 
-### the superclass and constructor for the subclass
+When an object of a subclass is created, the constructor for both the superclass and the subclass is executed. The superclass constructor must execute first, followed by the subclass constructor.
 
-### are both executed.
-
-- Superclass constructor must execute first and then
-
-### the subclass constructor executes.
-
-
+```java
 class ClassA {
-public ClassA() {
-System.out.println("In superclass constructor");
+    public ClassA() {
+        System.out.println("In superclass constructor");
+    }
 }
+
+class ClassB extends ClassA {
+    public ClassB() {
+        System.out.println("In subclass constructor");
+    }
 }
-class **ClassB** extends ClassA{
-public ClassB( ) {
-System.out.println("In subclass constructor");
+
+class Demo {
+    public static void main(String[] args) {
+        ClassB child = new ClassB();
+    }
 }
-}
-Clas Demo{
-public static void main(String[] args) {
-ClassB child = new ClassB();
-}
-}
+```
+
 Output:
+```
 In superclass constructor
 In subclass constructor
+```
 
 ## Inheritance and Constructors
 
+- Constructors of a superclass are not inherited by subclasses.
+- Superclass constructors must be explicitly invoked using `super()` in the subclass constructor.
+- The `super();` statement must be the first statement in the subclass constructor.
 
-### Inheritance and Constructors
+### Example:
 
-- Unlike members of a superclass, constructors of a
-
-### superclass are not inherited by its subclasses.
-
-- You must define a constructor for a class or use
-
-### the default constructor added by the compiler.
-
-- The statement
-
-###### super();
-
-### is written in subclass’s constructor to call the
-
-### superclass’s constructor.
-
-- Subclass’s constructor can choose which
-
-### superclass’s constructor (from the available
-
-### constructors) to execute.
-
-
-### Inheritance and Constructors
-
-- Subclass’s constructor can choose which
-
-### superclass’s constructor (from the available
-
-### constructors) to execute.
-
-- Eg.
-
-###### //calls to superclass’s constructor with no-arg
-
-###### super();
-
-###### //calls to superclass’s constructor with arg
-
-###### super(10, 20);
-
-- super(); statement must be written as the first
-
-### statement in subclass’s constructor.
-
-
-### Inheritance and Constructors
-
+```java
 public class Vehicle {
-private int numWheels;
-private double milesPerGallon;
+    private int numWheels;
+    private double milesPerGallon;
 
-```
-public Vehicle() {
-this(0, 0.0);
-System.out.println("Default object, values not set.");
-}
-```
-```
-public Vehicle(int numWheels, double milesPerGallon) {
-this.numWheels = numWheels;
-this.milesPerGallon = milesPerGallon;
-}
-```
-public String toString(){
-return "Number of wheels " + numWheels + ". Average number of miles
-per gallon " + milesPerGallon + ".\n";
-}
-}
+    public Vehicle() {
+        this(0, 0.0);
+        System.out.println("Default object, values not set.");
+    }
 
+    public Vehicle(int numWheels, double milesPerGallon) {
+        this.numWheels = numWheels;
+        this.milesPerGallon = milesPerGallon;
+    }
 
-### Inheritance and Constructors
+    public String toString() {
+        return "Number of wheels " + numWheels + ". Average number of miles per gallon " + milesPerGallon + ".\n";
+    }
+}
 
 public class Car extends Vehicle {
+    public Car() {
+        super();
+    }
 
-public Car() {
-super();
-}
-public Car(double milesPerGallon) {
-super(4, milesPerGallon);
-}
-}
-
-public class Motorcycle extends Vehicle{
-
-public Motorcycle(double milesPerGallon) {
-super(2, milesPerGallon);
-}
+    public Car(double milesPerGallon) {
+        super(4, milesPerGallon);
+    }
 }
 
-
-### Inheritance and Constructors
+public class Motorcycle extends Vehicle {
+    public Motorcycle(double milesPerGallon) {
+        super(2, milesPerGallon);
+    }
+}
 
 public class VehicleProject {
-public static void main(String[] args) {
-Car car1 = new Car();
-Car car2 = new Car(10.0);
-Motorcycle motor = new Motorcycle(25.0);
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car(10.0);
+        Motorcycle motor = new Motorcycle(25.0);
 
-System.out.println(car1.toString());
-System.out.println(car2.toString());
-System.out.println(motor.toString());
+        System.out.println(car1.toString());
+        System.out.println(car2.toString());
+        System.out.println(motor.toString());
+    }
 }
-}
-
 ```
+
 Output:
+```
 Default object, values not set.
 Number of wheels 0. Average number of miles per gallon 0.0.
 Number of wheels 4. Average number of miles per gallon 10.0.
 Number of wheels 2. Average number of miles per gallon 25.0.
 ```
 
-### Keyword super
+## Keyword `super`
 
-- Keyword super also can be used to access superclass
+- The keyword `super` is used to access superclass members, including overridden methods.
+- Example:
 
-#### members such as the overridden methods.
-
-```
+```java
 public class Superclass {
-public void printMethod() {
-System.out.println("Printed in Superclass.");
+    public void printMethod() {
+        System.out.println("Printed in Superclass.");
+    }
 }
-}
+
 public class Subclass extends Superclass {
-// overrides printMethod in Superclass
-public void printMethod() {
-super.printMethod();
-System.out.println("Printed in Subclass.");
-}
-public static void main(String[] args) {
-Subclass s = new Subclass();
-s.printMethod();
-}
+    // overrides printMethod in Superclass
+    public void printMethod() {
+        super.printMethod();
+        System.out.println("Printed in Subclass.");
+    }
+
+    public static void main(String[] args) {
+        Subclass s = new Subclass();
+        s.printMethod();
+    }
 }
 ```
-```
+
 Output:
+```
 Printed in Superclass.
 Printed in Subclass.
 ```
 
-### Abstract Superclasses and Abstract Methods
+## Abstract Superclasses and Abstract Methods
 
-- When we define a superclass, we often do not
-
-### need to create any instances of the superclass.
-
-- Depending on whether we need to create
-
-### instances of the superclass, we must define the
-
-### class differently.
-
-- We will study examples based on the Student
-
-### superclass defined earlier.
-
-
-## Definition: Abstract Class
-
-- An abstract class is a class
-    - defined with the modifier abstract OR
-       **abstract** class Student{
-       ...
-       }
-    - that contains an abstract method OR
-    - that does not provide an implementation of an inherited
-
-#### abstract method
-
+- An abstract class is defined with the `abstract` modifier and contains either an abstract method or does not provide an implementation for an inherited abstract method.
 - No instances can be created from an abstract class.
 
+### Example:
+
+```java
+abstract class Student {
+    // ...
+    abstract public void computeCourseGrade();
+}
+```
 
 ## Definition: Abstract Class
 
-- An abstract method is a method with the keyword
+- An abstract class is defined with the modifier `abstract` OR
+  ```
+  abstract class Student {
+      // ...
+  }
+  ```
+- It contains an abstract method OR
+- It does not provide an implementation of an inherited abstract method.
 
-#### abstract, and it ends with a semicolon instead of a method
+## Definition: Abstract Method
 
-#### body.
+- An abstract method is a method with the `abstract` keyword, and it ends with a semicolon instead of a method body.
+- Private methods and static methods may not be declared abstract.
 
-- private methods and static methods may not be declared abstract.
-- Eg.
+Example:
 
+```java
 abstract public void computeCourseGrade();
-
-
-## Case 1
-
-- Student Must Be Undergraduate or Graduate
-    - If a student must be either an undergraduate or a
-
-#### graduate student, we only need instances of
-
-#### UndergraduateStudent or GraduateStudent.
-
-- Therefore, we must define the Student class as
-
-#### abstract so that no instances may be created of it.
-
-
-## Case 2
-
-- Student Does Not Have to Be Undergraduate or
-
-### Graduate.
-
-- In this case, we may design the Student class in
-
-### one of two ways.
-
-- We can make the Student class instantiable.
-- We can leave the Student class abstract and add a third
-
-#### subclass, OtherStudent, to handle a student who does
-
-#### not fall into the UndergraduateStudent or
-
-#### GraduateStudent categories.
-
-
-### Which Approach to Use
-
-- The best approach depends on the particular
-
-### situation.
-
-- When considering design options, we can ask
-
-### ourselves which approach allows easier
-
-### modification and extension.
-
-
-### Interface
-
-- An interface is a reference type, similar to a class, that
-
-#### can contain only constants, method signatures, and
-
-#### nested types.
-
-- A Java interface defines only the behavior (methods)
-
-#### of objects
-
-- It includes only public methods
-- There are no method bodies
-- It does not include any data members except public constants
-- Interfaces cannot be instantiated—they can only be
-
-#### implemented by classes or extended by other
-
-#### interfaces.
-
-
-### Interface
-
-- Defining an interface is similar to creating a new class:
-
 ```
+
+## Case 1: Student Must Be Undergraduate or Graduate
+
+- If a student must be either an undergraduate or a graduate student, the `Student` class should be declared as abstract so that no instances may be created.
+
+## Case 2: Student Does Not Have to Be Undergraduate or Graduate
+
+- If a student does not have to be an undergraduate or graduate, we can make the `Student` class instantiable or leave it abstract and add a third subclass, `OtherStudent`, to handle a student who does not fall into the undergraduate or graduate categories.
+
+## Interface
+
+- An interface is a reference type that can contain only constants, method signatures, and nested types.
+- It defines only the behavior (methods) of objects and includes only public methods.
+- Interfaces cannot be instantiated but can be implemented by classes or extended by other interfaces.
+
+Example:
+
+```java
 public interface OperateCar {
-// constant declarations, if any
-```
-```
-// method signatures
-int turn(Direction direction, // An enum with values RIGHT, LEFT
-double radius, double startSpeed, double endSpeed);
-int changeLanes(Direction direction, double startSpeed, double endSpeed);
-int signalTurn(Direction direction, boolean signalOn);
-int getRadarFront(double distanceToCar, double speedOfCar);
-int getRadarRear(double distanceToCar, double speedOfCar);
-......
-// more method signatures
-}
-```
-- Note that the method signatures have no braces (method body)
-
-###### and are terminated with a semicolon.
-
-
-### Interface
-
-- To use an interface, you write a class that implements
-
-#### the interface.
-
-- When an instantiable class implements an interface, it
-
-#### provides a method body for each of the methods
-
-#### declared in the interface. For example,
-
-```
-public class OperateBMW760iimplementsOperateCar {
-// the OperateCar method signatures, with implementation --
-// for example:
-int signalTurn(Direction direction, boolean signalOn) {
-//code to turn BMW's LEFT turn indicator lights on
-//code to turn BMW's LEFT turn indicator lights off
-//code to turn BMW's RIGHT turn indicator lights on
-//code to turn BMW's RIGHT turn indicator lights off
-}
-}
-```
-
-- A class that implements an interface must implement all of the interface's
-    methods.
-- It is possible, however, to define a class that does not implement all of the
-    interface's methods, provided that the class is declared to be abstract. For
-    example,
-
-```
-abstract class X implements Y {
-// implements all but one method of Y
-}
-```
-```
-class XX extends X {
-// implements the remaining method in Y
+    // constant declarations, if any
+    // method signatures
+    int turn(Direction direction, double radius, double startSpeed, double endSpeed);
+    int changeLanes(Direction direction, double startSpeed, double endSpeed);
+    int signalTurn(Direction direction, boolean signalOn);
+    int getRadarFront(double distanceToCar, double speedOfCar);
+    int getRadarRear(double distanceToCar, double speedOfCar);
+    // more method signatures
 }
 ```
 
 ## Inheritance vs. Interface
 
-- The Java interface is used to share common behavior
+- Inheritance is used to share common code, including both data members and methods, among the instances of related classes.
+- Interface is used to share common behavior (only method headers) among instances of different classes.
 
-#### (only method headers) among the instances of
+### When to Use Inheritance:
 
-#### different classes.
+- When entities A and B have a specialized relationship (A is a specialized form of B).
 
-- Inheritance is used to share common code (including
+### When to Use Interface:
 
-#### both data members and methods) among the instances
-
-#### of related classes.
-
-- In your program designs, remember to use the Java
-
-#### interface to share common behavior. Use inheritance to
-
-#### share common code.
-
-- If an entity A is a specialized form of another entity B,
-
-#### then model them by using inheritance. Declare A as a
-
-#### subclass of B.
-
+- When unrelated classes would implement the same behavior.
+- When you want to specify the behavior of a particular data type without being concerned about who implements the behavior.
+- When you want to take advantage of multiple inheritance of type.
 
 ## Abstract Class vs. Interface
 
-- Consider using abstract classes if any of these statements apply to
+- Use abstract classes when:
+  - You want to share code among several closely related classes.
+  - Classes that extend the abstract class have many common methods or fields.
+  - Non-static or non-final fields are required.
+- Use interfaces when:
+  - Unrelated classes would implement the same behavior.
+  - You want to specify the behavior of a particular data type without being concerned about who implements it.
+  - You want to take advantage of multiple inheritance of type.
 
-###### your situation:
-
-- You want to share code among several closely related classes.
-- You expect that classes that extend your abstract class have many common
-    methods or fields, or require access modifiers other than public (such as protected
-    and private).
-- You want to declare non-static or non-final fields. This enables you to define
-    methods that can access and modify the state of the object to which they belong.
-- Consider using interfaces if any of these statements apply to your
-
-###### situation:
-
-- You expect that unrelated classes would implement your interface. For example, the
-    interfaces Comparable and Cloneable are implemented by many unrelated classes.
-- You want to specify the behaviorof a particular data type, but not concerned about
-    who implements its behavior.
-- You want to take advantage of multiple inheritance of type.
-
-```
-Ref: https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
-```
+Reference: [Oracle Java Tutorial](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
 
