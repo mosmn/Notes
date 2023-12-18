@@ -370,241 +370,123 @@ inStream.readBoolean(...);
 - `<char>`
 - `<boolean>`
 
-## Textfile Input and Output
+# Textfile Input and Output
 
-- Instead of storing primitive data values as binary
-
-### data in a file, we can convert and store them as a
-
-### string data.
-
-- This allows us to view the file content using any text
-
-#### editor
-
-- To output data as a string to file, we use a
-
-### PrintWriter object.
-
-- To input data from a textfile, we use FileReader
-
-### and BufferedReader classes.
-
-- From Java 5.0 (SDK 1.5), we can also use the Scanner
-
-#### class for inputting text files
-
-
-©The McGraw-Hill Companies, Inc. Permission
+Instead of storing primitive data values as binary data in a file, we can convert and store them as string data. This allows us to view the file content using any text editor. To output data as a string to a file, we use a `PrintWriter` object. To input data from a text file, we use `FileReader` and `BufferedReader` classes. From Java 5.0 (SDK 1.5), we can also use the `Scanner` class for inputting text files.
 
 ## Sample Textfile Output
 
-```
+```java
 import java.io.*;
-class Ch 12 TestPrintWriter {
-public static void main (String[] args) throws IOException {
-```
-```
-//set up file and stream
-File outFile = new File("sample 3 .data");
-FileOutputStream outFileStream
-= new FileOutputStream(outFile);
-PrintWriter outStream = new PrintWriter(outFileStream);
-```
-```
-//write values of primitive data types to the stream
-outStream. println ( 987654321 );
-outStream. println ("Hello, world.");
-outStream. println (true);
-```
-```
-//output done, so close the stream
-outStream.close();
-}
-}
-```
 
-©The McGraw-Hill Companies, Inc. Permission
+class Ch12TestPrintWriter {
+    public static void main(String[] args) throws IOException {
+        // Set up file and stream
+        File outFile = new File("sample3.data");
+        FileOutputStream outFileStream = new FileOutputStream(outFile);
+        PrintWriter outStream = new PrintWriter(outFileStream);
+
+        // Write values of primitive data types to the stream
+        outStream.println(987654321);
+        outStream.println("Hello, world.");
+        outStream.println(true);
+
+        // Output done, so close the stream
+        outStream.close();
+    }
+}
+```
 
 ## Sample Textfile Input
 
-```
+```java
 import java.io.*;
-class Ch 12 TestBufferedReader {
-```
-```
-public static void main (String[] args) throws IOException {
-```
-```
-//set up file and stream
-File inFile = new File("sample 3 .data");
-FileReader fileReader = new FileReader(inFile);
-BufferedReader bufReader = new BufferedReader(fileReader);
-String str;
-```
-```
-str = bufReader. readLine (); //read data as String
-int i = Integer.parseInt(str);
-```
-```
-//similar process for other data types
-```
-```
-bufReader.close();
-}
-}
-```
 
-©The McGraw-Hill Companies, Inc. Permission
+class Ch12TestBufferedReader {
+    public static void main(String[] args) throws IOException {
+        // Set up file and stream
+        File inFile = new File("sample3.data");
+        FileReader fileReader = new FileReader(inFile);
+        BufferedReader bufReader = new BufferedReader(fileReader);
+        String str;
+
+        str = bufReader.readLine(); // Read data as a String
+        int i = Integer.parseInt(str);
+
+        // Similar process for other data types
+
+        bufReader.close();
+    }
+}
+```
 
 ## Sample Textfile Input with Scanner
 
-```
+```java
 import java.io.*;
-```
-```
-class Ch 12 TestScanner {
-```
-```
-public static void main (String[] args) throws IOException {
-```
-```
-//open the Scanner
-Scanner scanner = new Scanner(new File("sample 3 .data"));
-```
-```
-//get integer
-int i = scanner. nextInt (); //read data as the respective
-type according to the method used
-```
-```
-//similar process for other data types
-```
-```
-scanner.close();
-}
-}
-```
 
-©The McGraw-Hill Companies, Inc. Permission
+class Ch12TestScanner {
+    public static void main(String[] args) throws IOException {
+        // Open the Scanner
+        Scanner scanner = new Scanner(new File("sample3.data"));
+
+        // Get integer
+        int i = scanner.nextInt(); // Read data as the respective type according to the method used
+
+        // Similar process for other data types
+
+        scanner.close();
+    }
+}
+```
 
 ## Object File I/O
 
-- It is possible to store objects just as easily as you store
-
-#### primitive data values.
-
-- We use ObjectOutputStream and ObjectInputStream to
-
-#### save to and load objects from a file.
-
-- To save objects from a given class, the class declaration
-
-#### must include the phrase implements Serializable. For
-
-#### example,
-
-```
-class Person implements Serializable {
-```
-...
-}
-
-
-©The McGraw-Hill Companies, Inc. Permission
+It is possible to store objects just as easily as you store primitive data values. We use `ObjectOutputStream` and `ObjectInputStream` to save and load objects from a file. To save objects from a given class, the class declaration must include the phrase `implements Serializable`.
 
 ## Saving Objects
 
-```
-File outFile
-= new File("objects.data");
-FileOutputStream outFileStream
-= new FileOutputStream(outFile);
-ObjectOutputStream outObjectStream
-= new ObjectOutputStream(outFileStream);
-```
-```
-Person person = new Person("Mr. Espresso", 20 , 'M');
-```
-```
-outObjectStream.writeObject( person );
-```
-```
-account 1 = new Account();
-bank 1 = new Bank();
-```
-```
-outObjectStream.writeObject( account 1 );
-outObjectStream.writeObject( bank 1 );
-```
-```
-Could save objects
-from the different
-classes.
-```
+```java
+File outFile = new File("objects.data");
+FileOutputStream outFileStream = new FileOutputStream(outFile);
+ObjectOutputStream outObjectStream = new ObjectOutputStream(outFileStream);
 
-©The McGraw-Hill Companies, Inc. Permission
+Person person = new Person("Mr. Espresso", 20, 'M');
+outObjectStream.writeObject(person);
+
+Account account1 = new Account();
+Bank bank1 = new Bank();
+outObjectStream.writeObject(account1);
+outObjectStream.writeObject(bank1);
+```
 
 ## Reading Objects
 
-```
-File inFile
-= new File("objects.data");
-FileInputStream inFileStream
-= new FileInputStream(inFile);
-ObjectInputStream inObjectStream
-= new ObjectInputStream(inFileStream);
-```
-```
-Person person
-```
-```
-= (Person) inObjectStream.readObject( );
-```
-```
-Account account 1
-= (Account) inObjectStream.readObject( );
-Bank bank 1
-= (Bank) inObjectStream.readObject( );
-```
-```
-Must read in the
-correct order.
-```
-```
-Must type cast
-to the correct
-object type.
-```
+```java
+File inFile = new File("objects.data");
+FileInputStream inFileStream = new FileInputStream(inFile);
+ObjectInputStream inObjectStream = new ObjectInputStream(inFileStream);
 
-©The McGraw-Hill Companies, Inc. Permission
+Person person = (Person) inObjectStream.readObject();
+Account account1 = (Account) inObjectStream.readObject();
+Bank bank1 = (Bank) inObjectStream.readObject();
+```
 
 ## Saving and Loading Arrays
 
-- Instead of processing array elements individually, it is
+Instead of processing array elements individually, it is possible to save and load the whole array at once.
 
-#### possible to save and load the whole array at once.
+```java
+Person[] people = new Person[N]; // Assume N already has a value
 
-```
-Person[] people = new Person[ N ];
-//assume N already has a value
-```
-```
-//build the people array
-```
+// Build the people array
 ...
-//save the array
-outObjectStream.writeObject ( people );
 
-```
-//read the array
-```
-```
-Person[ ] people = (Person[]) inObjectStream.readObject( );
-```
+// Save the array
+outObjectStream.writeObject(people);
 
-## End of Chapter
-
-©The McGraw-Hill Companies, Inc. Permission
+// Read the array
+Person[] people = (Person[]) inObjectStream.readObject();
+```
 
 
