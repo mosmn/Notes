@@ -203,476 +203,84 @@ T = 1, O = 1
 
 The McCulloch-Pitts Neuron Model provides a foundational understanding of how neurons compute logical functions, forming the basis for building digital circuitry.
 
+# Perceptron Learning Algorithm
 
+Frank Rosenblatt (1958, 1962) developed a learning algorithm for a type of single-layer network known as a **perceptron**. The perceptron employs a simple form of supervised learning, adjusting its weights to minimize errors after attempting to solve a problem instance.
 
-#### Perceptron Learning Algorithm
+## Perceptron (Artificial Neuron)
 
-- Frank Rosenblatt (1958, 1962) devised a
+A perceptron models a neuron, receiving *n inputs*, summing them, and producing an output. It is used for classifying linearly separable classes, often in binary classification scenarios. It consists of input signals (xi), weights (wi), an activation level (Σwixi), a threshold function f, network topology, and a learning algorithm.
 
-learning algorithm for a type of single layer
+### Linearly Separable
 
-network called a **perceptron**.
+Linearly separable indicates that classes of patterns with *n-dimensional vectors* can be separated with a single decision surface.
 
-- The perceptron uses a simple form of
+## Perceptron (cont.)
 
-supervised learning.
+The perceptron comprises weights, a summation processor, and an activation function. Inputs and connection weights are typically real values. The perceptron produces an output based on the weighted sum of inputs: if Σxiwi ≥ threshold (θ), the output is 1; if Σxiwi < threshold (θ), the output is 0.
 
-- After attempting to solve a problem instance, a the
-    correct result will be given.
-- The perceptron then changes its weights in
+## The Role of Weights and Bias
 
-order to reduce the error.
+The perceptron may include another input called **bias**, treated as just another input. The bias allows shifting the transfer function curve horizontally along the input axis, while the weights determine the slope.
 
-- Weights are adjusted by the Perceptron learning
-    rule.
+### Equation of a Straight Line
 
+The equation y = mx + b relates to the perceptron's behavior, with y representing the output, x the input, m the slope (determined by weights), and b the bias.
 
-#### Perceptron (Artificial Neuron)
+### Transfer (Activation) Functions
 
-- A perceptron **models** a neuron
-- It receives **n inputs** , sums those inputs, checks
+Transfer functions translate input signals to output signals and use a threshold to produce an output. Types include threshold (unit step), sigmoid, piecewise linear, and Gaussian.
 
-the result and produces an output.
+### Threshold (Unit Step)
 
-- It is used to classify **linearly separable classes**.
-- Often for **binary classification**
-    - Consists of:
-       - Input signals, xi
-       - Weights, wi
-       - Activation level, Σwixi
-       - A threshold function f
-       - A network topology
-       - A learning algorithm
+This function sets the output at one of two levels, depending on whether the total input is greater or less than some threshold value.
 
+### Sigmoid
 
-##### Linearly Separable
+The sigmoid function includes logistic and tangential functions, producing output in the range of 0 to 1 and -1 to +1, respectively.
 
-- Linear separable
+## The Learning Rate
 
-refers to the fact
+The learning rate controls how much weights and bias are changed to update the perceptron based on error reduction.
 
-that classes of
+## Perceptron Learns by Adjusting Weights
 
-patterns with-
+After attempting to solve a problem instance, the perceptron adjusts its weights to reduce the error. The difference between the desired and actual output values is calculated, and weights are updated to minimize the average error over the entire training set.
 
-dimensional vector
+## Adjustment
 
-can be separated
+The perceptron adjusts weights based on the difference between desired and actual output values for each component of the input vector. This minimizes the average error over the entire training set, and the perceptron learning procedure learns the correct output for each member of the training set.
 
-with a single decision
+### A Perceptron that Learns "AND" and "OR" Concepts
 
-surface.
+The perceptron can be trained to calculate appropriate weights and thresholds for classifying different classes, forming decision boundaries between classes.
 
+## Linearly Inseparable Problem
 
-#### Perceptron (cont.)
+The perceptron fails for nonlinear applications, as demonstrated by Minsky and Papert (1969). It cannot solve linearly inseparable problems with a single-layer architecture. An example is the XOR function.
 
-- The perceptron consists of weights, the
+### Neural Network with Hidden Layer(s)
 
-summation processor, and an activation
+Linearly inseparable problems can be addressed with a neural network that includes hidden layers.
 
-function.
+### Backpropagation Learning Algorithm
 
-- The inputs and connection weights are typically
+The backpropagation algorithm starts at the output layer and propagates error backward through hidden layers. It updates weights based on the amount of error, and the process continues until the output is close to the desired response.
 
-real values.
+## Sigmoid Function
 
-- A perceptron takes a weighted sum of inputs &
+The sigmoid function is continuous, providing non-linearity in the learning model. It is used in neural networks to introduce non-linearity.
 
-outputs:
+### Multi-layer Perceptron (MLP)
 
-if Σxiwi ≥ threshold (θ)  Output = 1
+To build a nonlinear classifier based on perceptrons, MLP structures are found through experimentation. The backpropagation algorithm adjusts parameters, and hidden layers are essential for complex problem-solving.
 
-if Σxiwi < threshold (θ)  Output = 0
+### Learning in MLP via the Backpropagation Learning Algorithm
 
+The backpropagation algorithm updates weights by comparing actual and desired outputs. It is an iterative process, and adjustments are made until the network's response is close to the desired response.
 
-#### The Role of Weights and Bias
+## Example
 
-- The perceptron can have another input called **bias**.
-- It is normal practice to treat the bias as just another
+A neural network for training the recognition of digits 0–9 is presented. The input patterns are fed into input units, and adjustments are made to weights based on the discrepancy between desired and actual outputs.
 
-input.
-
-- The bias allows us to shift the transfer function curve
-
-```
-horizontally (left/right) along the input axis while
-leaving the shape unaltered.
-```
-- The weights determine the slope.
-
-X 0
-
-W 0
-
-
-#### Equation of a Straight Line
-
-y = mx + b
-
-y = how far up
-
-x = how far along
-
-m = slope
-
-b = the y intercept
-
-
-#### Transfer (Activation) Functions
-
-- The transfer function translates the input
-
-signals to output signals.
-
-- It uses a threshold to produce an output.
-- Several types of transfer functions are
-
-threshold (unit step), sigmoid, piecewise linear,
-
-Gaussian.
-
-
-#### Threshold (Unit Step)
-
-- The output is set at one of two levels,
-
-depending on whether the total input is greater
-
-than or less than some threshold value.
-
-
-#### Sigmoid
-
-- Consists of 2 functions:
-    - Logistic (range from 0 an 1)
-    - Tangential (range from -1 to +1)
-
-
-#### The Learning Rate
-
-- We would like to update the weights and bias in
-
-order to get a smaller error.
-
-- The learning rate helps us control how much we
-
-change the weight and bias.
-
-
-Perceptron Learns by Adjusting Weights
-
-
-Perceptron Learns by Adjusting Weights (cont.)
-
-
-#### Adjustment
-
-- After attempting to solve a problem instance,
-
-the correct result is given.
-
-- The perceptron then changes its weights in
-
-order to reduce the error.
-
-- The difference between the desired output and
-
-the actual output values will be calculated.
-
-
-#### Adjustment (cont.)
-
-- Therefore for each component of the input vector:
-    - If the desired output and actual output values are **equal** ,
-       **do nothing**.
-    - If the actual output value is **−1 and should be 1** ,
-       **increment** the **weights**.
-    - If the actual output value is **1 and should be −1** ,
-       **decrement** the **weights**.
-- This procedure has the effect of producing a set of
-
-```
-weights which are intended to minimize the
-average error over the entire training set.
-```
-- If there exists a set of weights which give the correct
-    output for every member of the training set, the
-    perceptron learning procedure will learn it.
-
-
-##### A Perceptron that learns “AND”
-
-##### and “OR” concepts (cont.)
-
-```
-Train network to calculate the appropriate weights and
-thresholds in order to classify correctly the different classes
-(i.e. form decision boundaries between classes).
-```
-
-##### A Perceptron that learns “AND”
-
-##### and “OR” concepts (cont.)
-
-We can now plot the decision boundaries of our logic gates
-
-
-#### Linearly Inseparable Problem
-
-- However, the Perceptron does not
-
-```
-work for nonlinear applications
-as proven by Minsky and Papert
-(1969).
-```
-- In perceptron computation,
-
-```
-linearly inseparable problems
-cannot be solved by single layer
-architecture.
-```
-- Linear inseparable problem refers to
-    the fact that classes of patterns with-
-    dimensional vector **cannot** be
-    separated with a single decision
-    surface.
-- Example of linearly inseparable in
-
-perceptron problem solving: **XOR**
-
-
-Perceptron cannot compute XOR function
-
--
-- +
-
-```
-+
-Graph of XOR function
-```
-```
-No straight
-line(s) can be
-drawn to
-separate the “+”
-and “-”. Try it
-out, if you don’t
-believe.
-```
-```
-Hidden layers
-required!!
-```
-
-
-###### Neural Network with Hidden Layer(s)
-
-```
-HIDDEN
-NODES
-```
-
-###### Backpropagation Learning Algorithm
-
-- The neurons in a multilayer
-
-```
-network are connected in
-layers, with units in layer n
-passing their activations only
-to neurons in layer n + 1.
-```
-- Multilayer signal processing
-
-```
-means that errors deep in the
-network can spread and
-evolve in complex,
-unanticipated ways through
-successive layers.
-```
-- Thus, the analysis of the source of error at the output layer is
-
-complex.
-
-- Backpropagation provides an algorithm for apportioning blame and
-
-adjusting weights accordingly.
-
-
-Backpropagation Learning Algorithm (cont.)
-
-- The approach taken by the
-
-```
-backpropagation algorithm is
-to start at the output layer
-and propagate error
-backwards through the hidden
-layers.
-```
-- All the information needed to
-
-```
-update the weights on a
-neuron was local to that
-neuron, except for the
-amount of error.
-```
-- For output nodes, this is easily
-
-```
-computed as the difference
-between the desired and
-actual output values.
-```
-
-Formula Backpropagation Learning Algorithm
-
-
-#### Sigmoid Function
-
-- Is a continuous function
-- Also called smooth function
-- Why is this f(x) needed?
-    - It is a mathematical function that produces a
-
-sigmoid curve (i.e. S shape). It is a special case of a
-
-```
-logistic function. It is used in neural network to
-introduce non linearity in the learning model.
-```
-1
-
-f(netj) =
-
-1 + e (- wji. xi + j) / T
-
---- Sigmoid f(x)
-
-Run over all i
-
-
-###### Multi-layer Perceptron (MLP)
-
-- To build nonlinear classifier based on Perceptrons.
-- Structure of MLP is usually found by
-
-**experimentation.**
-
-- Parameters can be found using **backpropagation.**
-- Hidden layers are required.
-- What are hidden layers?
-    - They are layers additional to the input and output layers,
-       not connected externally.
-- They are located in between the input and output
-
-layers.
-
-
-Multi-layer Perceptron (MLP) (cont.)
-
-- How to learn?
-    - Cannot simply use Perceptron learning rule because
-
-of hidden layer(s)
-
-- There is a function that we are
-
-###### trying to minimize : error
-
-- Need a different activation function:
-    - Use **sigmoid function** instead of threshold function
-
-
-###### Learning in MLP via the
-
-###### ‘Backpropagation’ Learning Algorithm
-
-- All input patterns P are fed one at a time into the
-
-input units
-
-- Actual response of the output units are compared
-
-with the desired output
-
-- Adjustments are made to the weights in response
-
-```
-to discrepancies between the desired & actual
-outputs
-```
-- After all input patterns have been given, the whole
-
-```
-process is repeated over & over until the actual
-response of the output is tolerably close to the
-desired response
-```
-
-#### Example
-
-A neural network for
-
-training the recognition of
-
-the digits 0 – 9
-
-How many bars (hence input
-
-```
-bits) are required to represent
-the digits 0 – 9
-```
-```
-Only 7 bars
-are required
-to represent
-all the 10 digits
-```
-
-So, the neural network can could be used
-
-for training will look like this:
-
-```
-Answer:
-```
-```
----------
-| |
-| |
-|--------|
-| |
-| |
----------
-```
-* labelling from 0 –9 is also required
-
-```
-x x x x x x
-```
-```
-x
-```
-```
-x
-```
-Sum
-
-```
-> 0?
-```
-
-#### Summary
-
-- Introduction
-- Artificial Neural Networks (ANN)
-- Learning Process
-- McCulloch-Pitts Neuron Model
-- Perceptron Learning Algorithm
-- Backpropagation Learning Algorithm
+The Perceptron Learning Algorithm and its variations provide a foundation for understanding how artificial neural networks learn from data and adjust their parameters to perform various tasks.
