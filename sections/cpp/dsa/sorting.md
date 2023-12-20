@@ -192,23 +192,3 @@ Trace the quick sort as it sorts the following array of integers into ascending 
 Index 0 1 2 3 4 5 6 7
 Data 8 15 4 7 6 10 3 12
 ```
-
-## Exercise 3
-
-Using quick sort, state the value(s) for P1 to P3 and A to F.
-
-```
-J E H I C F O L P
-```
-
-### Exercise 3 (Solution)
-
-```
-J E H I C F O L P
-J
-F E H I C O L P
-F
-C E I H
-O
-L P
-```
