@@ -112,6 +112,8 @@ ID   | Name               | Course
 **3. Modular Arithmetic**
 - Converts the key into an integer, divides it by the size of the index range, and takes the remainder as the index position.
 - The remainder is calculated using a hash function.
+- We might still have the situation where two keys map to the same index, for example: 100252 and 100352. This condition is called a COLLISION.
+- Collision happens in Modular Arithmetic becase the algorithm is fixed unlike the other two methods which are flexible.
 
 **Example:**
 - For key 100252 and assuming the array size is 100: Index = key % size = 52
