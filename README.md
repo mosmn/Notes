@@ -234,14 +234,6 @@
 
 [Back to Table of Contents](#table-of-contents) ⬆
 
-# Cloud
-
-### AWS
-
-- [Certification](sections/cloud/cert.md)
-
-[Back to Table of Contents](#table-of-contents) ⬆
-
 # Theoretical
 
 ### Operating Systems Concepts
