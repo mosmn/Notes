@@ -352,5 +352,4 @@
     - [Software Engineering: A Practitioner's Approach](https://www.amazon.com/Software-Engineering-Practitioners-Roger-Pressman/dp/0078022126)
     - [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
     - [C++ Data Structures and Algorithm Design Principles](https://www.amazon.com/Data-Structures-Algorithm-Design-Principles/dp/1683920848)
-    - [Cracking the Coding Interview](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850)
 
