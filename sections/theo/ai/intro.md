@@ -1,7 +1,5 @@
 # Artificial Intelligence (AI)
 
-## Definition of AI​
-
 AI can be defined as a part of computer science that is concerned with the designing of intelligent computer systems, i.e., systems that exhibit characteristics we associate with intelligence in human behavior.
 
 The goal of AI is to develop computers that can think, see, hear, walk, talk, and feel.
