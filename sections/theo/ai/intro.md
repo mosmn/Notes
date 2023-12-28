@@ -1,4 +1,4 @@
-# Artificial Intelligence (AI) Background and History​
+# Artificial Intelligence (AI)
 
 ## Definition of AI​
 
