@@ -193,7 +193,6 @@
 - [Arrays](sections/java/arrays.md)
 - [Inheritance and Polymorphism](sections/java/inheritance-polymorphism.md)
 - [File Input Output](sections/java/file-io.md)
-- [OOP in Real World Applications](sections/java/oop-real-world.md)
 
 ### Python
 
