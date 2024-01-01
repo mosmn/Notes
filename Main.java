@@ -1,16 +1,3 @@
-// class Main {
-//     public static void main(String[] args) {
-//         double a,b;
-//         a = 3/0.0;
-//         b = 0/4.0;
-//         System.out.println(a);
-//         System.out.println(b);
-//     }
-//     public static void method1() {
-//         double a = 3/0.0;
-//         System.out.println(a + " " + b);
-//     }
-// }
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
