@@ -12,7 +12,9 @@ Scanner scanner = new Scanner(System.in);
 System.out.println("Enter integer:");
 
 int number = scanner.nextInt();
-
+```
+Error message for invalid input:
+```
 /* Exception in thread "main" java.lang.InputMismatchException
    at java.util.Scanner.throwFor(Scanner.java:819)
    at java.util.Scanner.next(Scanner.java:1431)
@@ -20,33 +22,6 @@ int number = scanner.nextInt();
    at java.util.Scanner.nextInt(Scanner.java:2000)
    at Ch8Sample1.main(Ch8Sample1.java:35)
    Error message for invalid input */
-```
-
-```java
-// AgeInputVer1.java
-
-Output:
-How old are you? 20
-Already had your birthday this year? (Y or N) n
-
-You are born in 1997
-
-// Ch8AgeInputMain.java
-
-20
-
-// age
-2000
-
-// bornYr
-2020
-
-// thisYear
-n
-
-// answer
-2018 - 20
-2020 – 20 – 1 = 1999
 ```
 
 ### Catching an Exception
