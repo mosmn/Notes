@@ -334,8 +334,8 @@
 
 # Sources
 
-- [CCNA](https://www.netacad.com/courses/networking/ccna-v7-introduction-networks)
 - [The Odin Project](https://www.theodinproject.com/)
+- [CCNA](https://www.netacad.com/courses/networking/ccna-v7-introduction-networks)
 - [MDN](https://developer.mozilla.org/en-US/)
 - Books
     - [Database Systems: Design, Implementation, and Management](https://www.amazon.com/Database-Systems-Design-Implementation-Management/dp/1337627903)
