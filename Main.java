@@ -19,7 +19,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         } finally {
-            scanner.close(); // Close the scanner in the finally block to prevent resource leaks
+            scanner.close();
         }
     }
 }
