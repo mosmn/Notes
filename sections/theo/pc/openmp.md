@@ -23,11 +23,7 @@
 - The core elements of OpenMP are the constructs for thread creation, workload distribution (work sharing), data-environment management, thread synchronization, user-level runtime routines and environment variables.
 
 - In C/C++, OpenMP uses #pragmas. The OpenMP specific pragmas are listed below.
-- Thread creation
-
 - The pragma omp parallel is used to fork additional threads to carry out the work enclosed in the construct in parallel. The original thread will be denoted as master thread with thread ID 0.
-
-- Example (C program): Display "Hello, world." using multiple threads.
 
 ### OpenMP Targets Ease of Use
 
@@ -176,8 +172,6 @@ int main() {
     return 0;
 }
 ```
-
-These work-sharing constructs provide flexibility in parallelizing different types of tasks, from loop iterations to distinct code sections, depending on the parallelization requirements of the program.
 
 ## Clauses
 
