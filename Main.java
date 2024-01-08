@@ -18,8 +18,6 @@ public class Main {
             System.out.println("Not an integer");
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-        } finally {
-            scanner.close();
         }
     }
 }
