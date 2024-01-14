@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "QuickStart",
+      "request": "launch",
+      "mainClass": "sections.java.QuickStart",
+      "projectName": "Notes_5bd4de84"
+    },
+    {
+      "type": "java",
+      "name": "QuickStart",
+      "request": "launch",
+      "mainClass": "sections.java.QuickStart",
+      "projectName": "Notes_a3b2849"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mohaosman/Desktop/projects/Notes/sections/cpp",
+      "program": "/Users/mohaosman/Desktop/projects/Notes/sections/cpp/build/Debug/outDebug"
+    }
+  ]
+}
