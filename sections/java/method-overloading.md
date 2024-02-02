@@ -177,7 +177,7 @@ For more information on Javadoc, refer to the [official documentation](https://d
 
 ---
 
-# Passing Objects to a Method
+# Passing Objects to a Method (OLD)
 
 - We can pass an object to a method, similar to passing int and double values.
 - When passing an object, we're passing the reference (name) of the object.
@@ -186,6 +186,7 @@ For more information on Javadoc, refer to the [official documentation](https://d
 # A LibraryCard Example
 
 ## Student Class
+
 ```java
 class Student {
     // Data Members
@@ -221,6 +222,7 @@ class Student {
 ```
 
 ## LibraryCard Class
+
 ```java
 class LibraryCard {
     // Data Members
@@ -265,32 +267,34 @@ class LibraryCard {
 ```
 
 ## Explanation
+
 - The `LibraryCard` object is owned by a `Student`, recording the number of books being checked out.
 - In the constructor of the `LibraryCard` class, `owner` is initialized to `null`, indicating that it points to no object.
 - The ability to pass an object to a method is useful for multiple objects to share the same object.
 - For example, if a single student owns two library cards, we can make the `owner` of two `LibraryCard` objects refer to the same `Student` object.
 
 ## Example Program
+
 ```java
 class Librarian {
     public static void main(String[] args) {
         Student student;
         LibraryCard card1, card2;
-        
+      
         student = new Student();
         student.setName("Jon Java");
         student.setEmail("jj@javauniv.edu");
-        
+      
         card1 = new LibraryCard();
         card1.setOwner(student);
         card1.checkOut(3);
-        
+      
         card2 = new LibraryCard();
         card2.setOwner(student); // the same student is the owner of the second card, too
-        
+      
         System.out.println("Card1 Info:");
         System.out.println(card1.toString() + "\n");
-        
+      
         System.out.println("Card2 Info:");
         System.out.println(card2.toString() + "\n");
     }
@@ -359,6 +363,7 @@ In this example, the `increment` method takes an `ObjectPass` object and increme
 ### Example: Return Object from Method
 
 TestObj Class:
+
 ```java
 class TestObj {
     int x, y;
@@ -376,6 +381,7 @@ class TestObj {
 ```
 
 TestRetObject Class:
+
 ```java
 public class TestRetObject {
     public static void main(String[] args) {
@@ -390,6 +396,7 @@ public class TestRetObject {
 ```
 
 ### Explanation:
+
 - The `TestObj` class has a method `updateObject` that creates a new `TestObj` object, updates its `x` value to 3, and returns the new object.
 - In the `TestRetObject` class, an instance of `TestObj` is created.
 - The initial value of `x` is printed, and then the `updateObject` method is called.
@@ -398,6 +405,7 @@ public class TestRetObject {
 # Example 1
 
 ## Test Class
+
 ```java
 class Test {
     int x, other;
@@ -425,6 +433,7 @@ public class Try {
 ```
 
 ### Output:
+
 ```
 a = 15
 b = 25
@@ -433,6 +442,7 @@ b = 25
 # Example 2
 
 ## TestObj Class
+
 ```java
 class TestObj {
     int x;
@@ -459,6 +469,7 @@ class TestObj {
 ```
 
 ## TestRetObject Class
+
 ```java
 class TestRetObject {
     public static void main(String[] args) {
@@ -481,12 +492,14 @@ class TestRetObject {
 ```
 
 ### Explanation:
+
 - The `TestObj` class has methods for returning objects and receiving objects.
 - In the `TestRetObject` class, various scenarios are commented out to demonstrate returning and receiving objects.
 
 # Method Overloading
 
 ## TestMethodOverloading Class
+
 ```java
 public class TestMethodOverloading {
     public static int average(int n1, int n2) { // A
@@ -512,6 +525,7 @@ public class TestMethodOverloading {
 ```
 
 ### Output:
+
 ```
 1
 1.5
@@ -522,6 +536,7 @@ public class TestMethodOverloading {
 # Constructor Overloading
 
 ## Circle Class
+
 ```java
 class Circle {
     double radius;
@@ -545,11 +560,13 @@ class Circle {
 ```
 
 ### Explanation:
+
 - The `Circle` class demonstrates constructor overloading with three different constructors.
 
 # Constructor Overloading
 
 ## Rectangle Class
+
 ```java
 class Rectangle {
     int x, y, width, height;
@@ -576,11 +593,13 @@ class Rectangle {
 ```
 
 ### Explanation:
+
 - The `Rectangle` class demonstrates constructor overloading with three different constructors. Each constructor initializes some or all of the rectangle's member variables.
 
 # Static Keyword
 
 ## JavaStaticExample Class
+
 ```java
 class JavaStaticExample {
     static int i = 10;
@@ -604,6 +623,7 @@ class JavaStaticExample {
 ```
 
 ### Output:
+
 ```
 Inside Static method
 10
@@ -612,6 +632,7 @@ Inside Static method
 ```
 
 ## StaticTest Class
+
 ```java
 class StaticTest {
     int multiply(int a, int b) {
@@ -636,8 +657,10 @@ class StaticRunner {
 ```
 
 ## VariableDemo Class
+
 As you can see in the below example that both the objects are sharing a same copy
 of static variable that’s why they displayed the same value of count.
+
 ```java
 class VariableDemo {
     static int count = 0;
@@ -660,12 +683,14 @@ Obj1: count is=" + obj1.count);
 ```
 
 ### Output:
+
 ```
 Obj1: count is=2
 Obj2: count is=2
 ```
 
 ## StaticExample Class
+
 ```java
 class StaticExample {
     static {
@@ -687,10 +712,9 @@ class StaticExample {
 ```
 
 ### Output:
+
 ```
 First Static block.
 Second Static block.
 x = 42
 ```
-
-
