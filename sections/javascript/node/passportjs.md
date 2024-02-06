@@ -1,6 +1,7 @@
 # Implementing Authentication
 
 ## Setup
+
 1. Create a new MongoDB database and save its URL string.
 2. Create a new directory for your project.
 3. Initialize the `package.json` file with `npm init`.
@@ -8,9 +9,11 @@
    - `npm install express express-session mongoose passport passport-local ejs`
 
 ## MongoDB Update
+
 - With Mongoose version 7.0.1, callbacks are no longer supported when querying the database. Use async/await or promises instead.
 
 ## `app.js` Setup
+
 ```javascript
 const express = require("express");
 const path = require("path");
@@ -48,8 +51,10 @@ app.listen(3000, () => console.log("app listening on port 3000!"));
 ```
 
 ## Creating Users
+
 1. Create a sign-up form template (`sign-up-form`) and a route for `/sign-up`.
 2. Add a route for the sign-up form submission.
+
 ```javascript
 app.get("/sign-up", (req, res) => res.render("sign-up-form"));
 
@@ -68,10 +73,12 @@ app.post("/sign-up", async (req, res, next) => {
 ```
 
 ## Authentication
+
 1. Set up Passport.js for authentication.
 2. Add functions for Passport.js in `app.js`.
-    - Set up the LocalStrategy.
-    - Define serialization and deserialization functions for user sessions.
+   - Set up the LocalStrategy.
+   - Define serialization and deserialization functions for user sessions.
+
 ```javascript
 passport.use(
   new LocalStrategy(async (username, password, done) => {
@@ -103,8 +110,10 @@ passport.deserializeUser(async (id, done) => {
   };
 });
 ```
+
 3. Create a login form on the index template.
 4. Add a route for the login form submission using Passport.js.
+
 ```javascript
 app.post(
   "/log-in",
@@ -114,17 +123,22 @@ app.post(
   })
 );
 ```
+
 5. Update the root route to pass the user object to the view.
+
 ```javascript
 app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 ```
+
 6. Modify the index view to display content based on whether a user is logged in.
 
 ## Logout
+
 1. Create a route for logging out.
 2. Implement the logout functionality.
+
 ```javascript
 app.get("/log-out", (req, res, next) => {
   req.logout((err) => {
@@ -137,7 +151,9 @@ app.get("/log-out", (req, res, next) => {
 ```
 
 ## Additional Tip
+
 - You can create a custom middleware to simplify access to the current user in views.
+
 ```javascript
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
@@ -146,14 +162,18 @@ app.use((req, res, next) => {
 ```
 
 ## Securing Passwords with bcrypt
+
 1. Install the `bcryptjs` module.
 2. Use `bcrypt.hash` to store hashed passwords.
+
 ```javascript
 bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
   // Store the hashedPassword in the DB
 });
 ```
+
 3. Use `bcrypt.compare` to compare hashed passwords during login.
+
 ```javascript
 const match = await bcrypt.compare(password, user.password);
 if (!match) {
