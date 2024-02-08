@@ -22,6 +22,6 @@
 **Further Resources:**
 
 * REST API Design Best Practices: [https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
-* 1.[This robinwieruch tutorial](https://www.robinwieruch.de/node-express-server-rest-api/) on setting up a REST API in Express.
+* [This robinwieruch tutorial](https://www.robinwieruch.de/node-express-server-rest-api/) on setting up a REST API in Express.
 * Express CORS Middleware: [https://expressjs.com/en/resources/middleware/cors.html](https://expressjs.com/en/resources/middleware/cors.html)
 * Simple REST Example: [https://simple.wikipedia.org/wiki/Representational_state_transfer](https://simple.wikipedia.org/wiki/Representational_state_transfer)
