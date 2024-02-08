@@ -1,32 +1,33 @@
 # Table of Contents
 
 - [Programming](#programming-notes)
-    - [Git](#git)
-    - [HTML](#html)
-    - [CSS](#css)
-    - [JavaScript](#javascript)
-        - [React JS](#react-js)
-        - [Node JS](#node-js)
-    - [C++](#c)
-    - [Java](#java)
-    - [Python](#python)
 
+  - [Git](#git)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [JavaScript](#javascript)
+    - [React JS](#react-js)
+    - [Node JS](#node-js)
+  - [C++](#c)
+  - [Java](#java)
+  - [Python](#python)
 - [Database](#database)
-    - [SQL](#sql)
-    - [MongoDB](#mongodb)
 
+  - [SQL](#sql)
+  - [MongoDB](#mongodb)
 - [Theoretical](#theoretical)
-    - [Operating Systems Concepts](#operating-systems-concepts)
-    - [Software Engineering Principles](#software-engineering-principles)
-    - [Data Communication and Networking](#data-communication-and-networking)
-    - [Database Fundamentals](#database-fundamentals)
-    - [Parallel computing](#parallel-computing)
-    - [Human Computer Interaction](#human-computer-interaction)
-    - [Artificial Intelligence](#artificial-intelligence)
 
+  - [Operating Systems Concepts](#operating-systems-concepts)
+  - [Software Engineering Principles](#software-engineering-principles)
+  - [Data Communication and Networking](#data-communication-and-networking)
+  - [Database Fundamentals](#database-fundamentals)
+  - [Parallel computing](#parallel-computing)
+  - [Human Computer Interaction](#human-computer-interaction)
+  - [Artificial Intelligence](#artificial-intelligence)
 - [Sources](#sources)
 
 # Programming Notes
+
 ### Git
 
 - [Commands](sections/git/gitcommand.md)
@@ -44,14 +45,14 @@
 - [Linking a file](sections/html/linking.md)
 - [Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
 - Accessibility
-    - [Introduction](sections/html/accessibility/intro.md)
-    - [The Web Content Accessibility Guidelines (WCAG)](sections/html/accessibility/wcag.md)
-    - [Semantic HTML](sections/html/accessibility/semantic.md)
-    - [Accessible Colors](sections/css/accessible-colors.md)
-    - [Keyboard Navigation](sections/css/keyboard-navigation.md)
-    - [Meaningful Text](sections/css/meaningful-text.md)
-    - [WAI-ARIA](sections/css/wai-aria.md)
-    - [Accessibility Auditing](sections/css/accessibility-auditing.md)
+  - [Introduction](sections/html/accessibility/intro.md)
+  - [The Web Content Accessibility Guidelines (WCAG)](sections/html/accessibility/wcag.md)
+  - [Semantic HTML](sections/html/accessibility/semantic.md)
+  - [Accessible Colors](sections/css/accessible-colors.md)
+  - [Keyboard Navigation](sections/css/keyboard-navigation.md)
+  - [Meaningful Text](sections/css/meaningful-text.md)
+  - [WAI-ARIA](sections/css/wai-aria.md)
+  - [Accessibility Auditing](sections/css/accessibility-auditing.md)
 
 ### CSS
 
@@ -62,59 +63,59 @@
 - [Pseudo-elements](sections/css/pseudo-elements.md)
 - [Selectors](sections/css/selectors.md)
 - Animations
-    - [Transforms](sections/css/transforms.md)
-    - [Transitions](sections/css/transitions.md)
-    - [Keyframes](sections/css/keyframes.md)
+  - [Transforms](sections/css/transforms.md)
+  - [Transitions](sections/css/transitions.md)
+  - [Keyframes](sections/css/keyframes.md)
 - Responsive Design
-    - [Introduction](sections/css/responsive-design.md)
-    - [Natural Responsiveness](sections/css/natural-responsiveness.md)
-    - [Responsive Images](sections/css/responsive-images.md)
-    - [Media Queries](sections/css/media-queries.md)
-
+  - [Introduction](sections/css/responsive-design.md)
+  - [Natural Responsiveness](sections/css/natural-responsiveness.md)
+  - [Responsive Images](sections/css/responsive-images.md)
+  - [Media Queries](sections/css/media-queries.md)
 
 ### JavaScript
 
 - Basics
-    - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
-    - [Array Methods](https://javascript.info/array-methods)
 
+  - [Refresher on the fundamentals](https://learnxinyminutes.com/docs/javascript/)
+  - [Array Methods](https://javascript.info/array-methods)
 - Linting
-    - [Eslint Setup](sections/javascript/eslint.md)
-    - [Prettier Setup](sections/javascript/prettier.md)
 
+  - [Eslint Setup](sections/javascript/eslint.md)
+  - [Prettier Setup](sections/javascript/prettier.md)
 - Organizing JavaScript Code
-    - [Objects And Object Constructors](sections/javascript/object-dp.md)
-    - [Factory Functions And The Module Pattern](sections/javascript/factory.md)
-    - [Classes](sections/javascript/classes.md)
-    - [ES6 Modules](sections/javascript/es6-modules.md)
-    - [OOP Principles](sections/javascript/OOP-Principles.md)
 
+  - [Objects And Object Constructors](sections/javascript/object-dp.md)
+  - [Factory Functions And The Module Pattern](sections/javascript/factory.md)
+  - [Classes](sections/javascript/classes.md)
+  - [ES6 Modules](sections/javascript/es6-modules.md)
+  - [OOP Principles](sections/javascript/OOP-Principles.md)
 - JavaScript in the Real World
-    - [Dynamic User Interface Interactions](sections/javascript/dynamic-ui.md)
-    - [Form Validation](sections/javascript/form-validation.md)
 
+  - [Dynamic User Interface Interactions](sections/javascript/dynamic-ui.md)
+  - [Form Validation](sections/javascript/form-validation.md)
 - Asynchronous JavaScript and APIs
-    - [JSON](sections/javascript/json.md)
-    - [Asynchronous Code](sections/javascript/async.md)
-    - [Working With APIs](sections/javascript/api.md)
-    - [Async and Await](sections/javascript/async-await.md)
 
+  - [JSON](sections/javascript/json.md)
+  - [Asynchronous Code](sections/javascript/async.md)
+  - [Working With APIs](sections/javascript/api.md)
+  - [Async and Await](sections/javascript/async-await.md)
 - Testing JavaScript
-    - [Testing Basics](sections/javascript/testing-basics.md)
-    - [Isolation](sections/javascript/isolation.md)
 
+  - [Testing Basics](sections/javascript/testing-basics.md)
+  - [Isolation](sections/javascript/isolation.md)
 - Data Structures & Algorithms
-    - [Intro](sections/javascript/intro.md)
-    - [Recursive Methods](sections/javascript/recursive-methods.md)
-    - [Time Complexity](sections/javascript/time-complexity.md)
-    - [Space Complexity](sections/javascript/space-complexity.md)
-    - Common Data Structures and Algorithms
-        - [Linked Lists](sections/javascript/linked-lists.md)
-        - [Stacks & Queues](sections/javascript/stacks-queues.md)
-        - [Binary Search Trees](sections/javascript/binary-search-trees.md)
 
+  - [Intro](sections/javascript/intro.md)
+  - [Recursive Methods](sections/javascript/recursive-methods.md)
+  - [Time Complexity](sections/javascript/time-complexity.md)
+  - [Space Complexity](sections/javascript/space-complexity.md)
+  - Common Data Structures and Algorithms
+    - [Linked Lists](sections/javascript/linked-lists.md)
+    - [Stacks &amp; Queues](sections/javascript/stacks-queues.md)
+    - [Binary Search Trees](sections/javascript/binary-search-trees.md)
 
 #### React JS
+
 - [Setting Up A React Environment](sections/javascript/react/setup.md)
 - [Introduction](sections/javascript/react/intro.md)
 - [JSX](sections/javascript/react/jsx.md)
@@ -135,26 +136,30 @@
 - [Patterns and architecture](https://www.patterns.dev/)
 
 #### Node JS
+
 - Intro
-    - [Backend?](sections/javascript/node/backend.md)
-    - [What is NodeJS?](sections/javascript/node/what-is-nodejs.md)
-    - [Server-side](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction)
-    - [Client-Server model. what happens when a server receives a request?](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
-    - [Basic modules and functions](sections/javascript/node/basic-modules.md)
-    - [Debugging](sections/javascript/node/debugging.md)
+  - [Backend?](sections/javascript/node/backend.md)
+  - [What is NodeJS?](sections/javascript/node/what-is-nodejs.md)
+  - [Server-side](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction)
+  - [Client-Server model. what happens when a server receives a request?](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
+  - [Basic modules and functions](sections/javascript/node/basic-modules.md)
+  - [Debugging](sections/javascript/node/debugging.md)
 - Express & Mongoose
-    - [Introduction to Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#rendering_data_views)
-    - [Setting up a Node development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment#using_npm)
-    - [Express 101](sections/javascript/node/express-101.md)
-    - [Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
-    - [Express 102: CRUD and MVC](sections/javascript/node/express-102.md)
-    - [Mongoose primer](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#mongoose_primer)
-    - [Deploying](sections/javascript/node/deploying.md)
-    - [Express 103: Routes and Controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
-    - [Express 104: View Templates](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
-    - [Express 105: Forms and Deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+  - [Introduction to Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#rendering_data_views)
+  - [Setting up a Node development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment#using_npm)
+  - [Express 101](sections/javascript/node/express-101.md)
+  - [Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
+  - [Express 102: CRUD and MVC](sections/javascript/node/express-102.md)
+  - [Mongoose primer](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose#mongoose_primer)
+  - [Deploying](sections/javascript/node/deploying.md)
+  - [Express 103: Routes and Controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
+  - [Express 104: View Templates](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
+  - [Express 105: Forms and Deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
 - Authentication
-    - [PassportJS](sections/javascript/node/passportjs.md)
+  - [PassportJS](sections/javascript/node/passportjs.md)
+  - [dotenv &amp; nconf](sections/javascript/node/dotenvnconf.md)
+- APIs
+  - [RESTful APIs and CORS](sections/javascript/node/restful-apis.md)
 
 ### C++
 
@@ -169,16 +174,15 @@
 - [GUI](sections/cpp/gui.md)
 - [Standard Template Library](sections/cpp/stl.md)
 - Data Structures & Algorithms
-    - [Abstract Data Type and STL](sections/cpp/dsa/adt.md)
-    - [Complexity Analysis​](sections/cpp/dsa/complexity-analysis.md)
-    - [Linked List](sections/cpp/dsa/linked-list.md)
-    - [Stack](sections/cpp/dsa/stacks.md)
-    - [Queue](sections/cpp/dsa/queue.md)
-    - [Tree](sections/cpp/dsa/tree.md)
-    - [Graph](sections/cpp/dsa/graph.md)
-    - [Sorting](sections/cpp/dsa/sorting.md)
-    - [Searching](sections/cpp/dsa/searching.md)
-
+  - [Abstract Data Type and STL](sections/cpp/dsa/adt.md)
+  - [Complexity Analysis](sections/cpp/dsa/complexity-analysis.md)
+  - [Linked List](sections/cpp/dsa/linked-list.md)
+  - [Stack](sections/cpp/dsa/stacks.md)
+  - [Queue](sections/cpp/dsa/queue.md)
+  - [Tree](sections/cpp/dsa/tree.md)
+  - [Graph](sections/cpp/dsa/graph.md)
+  - [Sorting](sections/cpp/dsa/sorting.md)
+  - [Searching](sections/cpp/dsa/searching.md)
 
 ### Java
 
@@ -244,7 +248,7 @@
 - [Uniprocessor Scheduling](sections/theo/os/scheduling.md)
 - [Memory Management](sections/theo/os/memory.md)
 - [Virtual Memory](sections/theo/os/virtual-memory.md)
-- [I/O Management & Disk Scheduling](sections/theo/os/io.md)
+- [I/O Management &amp; Disk Scheduling](sections/theo/os/io.md)
 - [File Management](sections/theo/os/file.md)
 
 ### Software Engineering Principles
@@ -261,29 +265,29 @@
 ### Data Communication and Networking
 
 - Modules 1 - 3: Basic Network Connectivity and Communications
-    - [Module 1: Networking Today](sections/theo/networking/module1.md)
-    - [Module 2: Basic Switch and End Device Configuration](sections/theo/networking/module2.md)
-    - [Module 3: Protocols and Models](sections/theo/networking/module3.md)
+  - [Module 1: Networking Today](sections/theo/networking/module1.md)
+  - [Module 2: Basic Switch and End Device Configuration](sections/theo/networking/module2.md)
+  - [Module 3: Protocols and Models](sections/theo/networking/module3.md)
 - Modules 4 - 7: Ethernet Concepts
-    - [Module 4: Physical Layer](sections/theo/networking/module4.md)
-    - [Module 5: Number Systems](sections/theo/networking/module5.md)
-    - [Module 6: Data Link Layer](sections/theo/networking/module6.md)
-    - [Module 7: Ethernet Switching](sections/theo/networking/module7.md)
+  - [Module 4: Physical Layer](sections/theo/networking/module4.md)
+  - [Module 5: Number Systems](sections/theo/networking/module5.md)
+  - [Module 6: Data Link Layer](sections/theo/networking/module6.md)
+  - [Module 7: Ethernet Switching](sections/theo/networking/module7.md)
 - Modules 8 - 10: Communicating Between Networks
-    - [Module 8: Network Layer](sections/theo/networking/module8.md)
-    - [Module 9: Address Resolution](sections/theo/networking/module9.md)
-    - [Module 10: Basic Router Configuration](sections/theo/networking/module10.md)
+  - [Module 8: Network Layer](sections/theo/networking/module8.md)
+  - [Module 9: Address Resolution](sections/theo/networking/module9.md)
+  - [Module 10: Basic Router Configuration](sections/theo/networking/module10.md)
 - Modules 11 - 13: IP Addressing
-    - [Module 11: IPv4 Addressing](sections/theo/networking/module11.md)
-    - [Module 12: IPv6 Addressing](sections/theo/networking/module12.md)
-    - [Module 13: ICMP](sections/theo/networking/module13.md)
+  - [Module 11: IPv4 Addressing](sections/theo/networking/module11.md)
+  - [Module 12: IPv6 Addressing](sections/theo/networking/module12.md)
+  - [Module 13: ICMP](sections/theo/networking/module13.md)
 - Modules 14 - 15: Network Application Communications
-    - [Module 14: Transport Layer](sections/theo/networking/module14.md)
-    - [Module 15: Application Layer](sections/theo/networking/module15.md)
+  - [Module 14: Transport Layer](sections/theo/networking/module14.md)
+  - [Module 15: Application Layer](sections/theo/networking/module15.md)
 - Modules 16 - 17: Building and Securing a Small Network
-    - [Module 16: Building a Small Network](sections/theo/networking/module16.md)
-    - [Module 17: Securing a Small Network](sections/theo/networking/module17.md)
-    
+  - [Module 16: Building a Small Network](sections/theo/networking/module16.md)
+  - [Module 17: Securing a Small Network](sections/theo/networking/module17.md)
+
 ### Database Fundamentals
 
 - [Introduction](sections/theo/dbf/introduction.md)
@@ -321,7 +325,7 @@
 
 - [Introduction](sections/theo/ai/intro.md)
 - [Logic](sections/theo/ai/logic.md)
-- [Propositional & Predicate Logic](sections/theo/ai/propositional-predicate-logic.md)
+- [Propositional &amp; Predicate Logic](sections/theo/ai/propositional-predicate-logic.md)
 - [Automated Reasoning and Theorem Proving](sections/theo/ai/automated-reasoning-and-theorem-proving.md)
 - [State Space Search](sections/theo/ai/state-space-search.md)
 - [Knowledge Representation Schemes](sections/theo/ai/knowledge-representation-schemes.md)
@@ -338,9 +342,8 @@
 - [CCNA](https://www.netacad.com/courses/networking/ccna-v7-introduction-networks)
 - [MDN](https://developer.mozilla.org/en-US/)
 - Books
-    - [Database Systems: Design, Implementation, and Management](https://www.amazon.com/Database-Systems-Design-Implementation-Management/dp/1337627903)
-    - [Operating System Concepts](https://www.amazon.com/Operating-System-Concepts-Abraham-Silberschatz/dp/1118063333)
-    - [Software Engineering: A Practitioner's Approach](https://www.amazon.com/Software-Engineering-Practitioners-Roger-Pressman/dp/0078022126)
-    - [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
-    - [C++ Data Structures and Algorithm Design Principles](https://www.amazon.com/Data-Structures-Algorithm-Design-Principles/dp/1683920848)
-
+  - [Database Systems: Design, Implementation, and Management](https://www.amazon.com/Database-Systems-Design-Implementation-Management/dp/1337627903)
+  - [Operating System Concepts](https://www.amazon.com/Operating-System-Concepts-Abraham-Silberschatz/dp/1118063333)
+  - [Software Engineering: A Practitioner&#39;s Approach](https://www.amazon.com/Software-Engineering-Practitioners-Roger-Pressman/dp/0078022126)
+  - [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
+  - [C++ Data Structures and Algorithm Design Principles](https://www.amazon.com/Data-Structures-Algorithm-Design-Principles/dp/1683920848)
