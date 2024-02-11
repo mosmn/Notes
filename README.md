@@ -160,6 +160,7 @@
   - [dotenv &amp; nconf](sections/javascript/node/dotenvnconf.md)
 - APIs
   - [RESTful APIs and CORS](sections/javascript/node/restful-apis.md)
+  - [API security(Web Tokens)](sections/javascript/node/api-security.md)
 
 ### C++
 
