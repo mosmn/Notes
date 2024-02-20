@@ -161,6 +161,11 @@
 - APIs
   - [RESTful APIs and CORS](sections/javascript/node/restful-apis.md)
   - [API security(Web Tokens)](sections/javascript/node/api-security.md)
+- Testing Express
+  - [Testing Routes and Controllers](sections/javascript/node/testing-routes-controllers.md)
+  - [Testing Database Operations](sections/javascript/node/testing-database-operations.md)
+
+
 
 ### C++
 
